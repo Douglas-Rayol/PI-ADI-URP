@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField] float _timerValue;
 
     private Vector3 _Velocity;
-    private float _gravity = -9.81f*2;
+    private float _gravity = -9.81f;
     private float _animacao;
-    private float _moveZ;
+    private float _moveX;
     private bool _rotacao;
     public bool _groundTime;
     float _time;
@@ -36,12 +36,11 @@ public class Player : MonoBehaviour
     {
         _checkGround = _character.isGrounded;
         Move();
-        //Jump();
         Gravity();
-        _anim.SetBool(_runHash, _moveZ != 0);
+        _anim.SetBool(_runHash, _moveX != 0);
         _anim.SetBool(_jumpHash, _checkGround);
         _anim.SetBool("GroundCheck", _checkGround);
-        _anim.SetFloat("VelocidadeY", _Velocity.y);
+        _anim.SetFloat("VelocidadeY", _character.velocity.y);
 
         if (_groundTime)
         {
@@ -57,7 +56,7 @@ public class Player : MonoBehaviour
     public void SetMove(InputAction.CallbackContext value)
     {
         Vector3 m = value.ReadValue<Vector3>();
-        _moveZ = m.x;
+        _moveX = m.x;
     }
 
     public void SetJump(InputAction.CallbackContext value)
@@ -66,36 +65,26 @@ public class Player : MonoBehaviour
         {
             _groundTime = true;
             _Velocity.y = Mathf.Sqrt(_jump * -3.0f * _gravity);
+            
         }
     }
 
     void Move() //Movimento do Persoangem
     {
-        /*_moveZ = Input.GetAxisRaw("Horizontal");*/
-        _character.Move(transform.right * _moveZ * _speed * Time.deltaTime);
+        _character.Move(new Vector3(_moveX, _character.velocity.y, _character.velocity.z) * _speed * Time.deltaTime);
         _anim.SetFloat("Andando", _animacao);
-        _animacao = Mathf.Abs(_moveZ);
+        _animacao = Mathf.Abs(_moveX);
 
-        if (_moveZ > 0 && _rotacao)
+        if (_moveX > 0 && _rotacao)
         {
             Flip();
         }
 
-        else if (_moveZ < 0 && !_rotacao)
+        else if (_moveX < 0 && !_rotacao)
         {
             Flip();
         }
     }
-
-    /*void Jump() //Pulo do Personagem
-    {
-        if (Input.GetAxisRaw("Jump") > 0 && _checkGround == true && _groundTime == false)
-        {
-            _groundTime = true;
-            _Velocity.y = Mathf.Sqrt(_jump * -3.0f * _gravity);
-        }
-
-    }*/
 
     void Gravity()
     {
@@ -107,11 +96,9 @@ public class Player : MonoBehaviour
     {
         _rotacao = !_rotacao;
 
-        Vector3 theScale = transform.localScale;
-
-        theScale.x *= -1;
-
-        transform.localScale = theScale;
+        Vector3 theScale = transform.localEulerAngles;
+        theScale.y *= -1;
+        transform.localEulerAngles = theScale;
     }
 
     private void OnCollisionEnter(Collision coll)
