@@ -211,7 +211,7 @@ ModelImporter:
       name: Armature|Idle-Jump
       takeName: Armature|Idle-Jump
       internalID: -2590824613758629629
-      firstFrame: 0
+      firstFrame: 2
       lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
