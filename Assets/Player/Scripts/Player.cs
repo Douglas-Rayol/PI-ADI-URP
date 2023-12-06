@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] float _timerValue;
 
     private Vector3 _Velocity;
-    private float _gravity = -9.81f;
+    [SerializeField] float _gravity = -9.81f;
     private float _animacao;
     private float _moveX;
     private bool _rotacao;
@@ -32,10 +32,13 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         _checkGround = _character.isGrounded;
+      
         Move();
+       
+
         Gravity();
         _anim.SetBool(_runHash, _moveX != 0);
         _anim.SetBool(_jumpHash, _checkGround);
@@ -51,6 +54,10 @@ public class Player : MonoBehaviour
                 _time = _timerValue;
             }
         }
+        if (_checkGround)
+        {
+            _Velocity.y = 0;
+        }
     }
 
     public void SetMove(InputAction.CallbackContext value)
@@ -61,17 +68,18 @@ public class Player : MonoBehaviour
 
     public void SetJump(InputAction.CallbackContext value)
     {
-        if(_checkGround == true && _groundTime == false)
+        if(_checkGround == true)
         {
             _groundTime = true;
-            _Velocity.y = Mathf.Sqrt(_jump * -3.0f * _gravity);
+            _checkGround = false;
+            _Velocity.y = Mathf.Sqrt(_jump * -2.0f * _gravity);
             
         }
     }
 
     void Move() //Movimento do Persoangem
     {
-        _character.Move(new Vector3(_moveX, _character.velocity.y, _character.velocity.z) * _speed * Time.deltaTime);
+        _character.Move(new Vector3(_moveX * _speed * Time.deltaTime, _character.velocity.y, _character.velocity.z));
         _anim.SetFloat("Andando", _animacao);
         _animacao = Mathf.Abs(_moveX);
 
@@ -115,5 +123,9 @@ public class Player : MonoBehaviour
         {
             _checkGround = false;
         }
+    }
+    public void teste()
+    {
+        Debug.Log("Atira");
     }
 }
