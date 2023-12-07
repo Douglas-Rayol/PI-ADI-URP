@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float _timerValue;
 
     [SerializeField] bool _checkGround;
-    [SerializeField] bool _isJumping; //Variavel necessaria para o pulo. (Jotapê)
+    [SerializeField] bool _isJumping; //Variavel necessaria para o pulo. (Jotape)
 
     private Vector3 _Velocity;
     [SerializeField] float _gravity = -9.81f;
@@ -71,10 +71,6 @@ public class Player : MonoBehaviour
         {
             _groundTime = true;
             _Velocity.y = Mathf.Sqrt(_jump * -2.0f * _gravity);
-            
-
-
-
         }
     }
 
@@ -98,12 +94,12 @@ public class Player : MonoBehaviour
     void Gravity()
     {
 
-        if(_checkGround == true && _isJumping == true) //Se o _isJumping for falso, ele vai ativar essa gravidade. (Jotapê)
+        if(_checkGround == true && _isJumping == true) //Se o _isJumping for verdadeiro, ele vai ativar essa gravidade. (Jotape)
         {
             _Velocity.y = -0f;
         }
         
-        if (_checkGround == false && _isJumping == false) //Se for verdadeiro ele vai ativar a gravidade no ar pra puxar o player. (Jotapê)
+        if (_checkGround == false && _isJumping == false) //Se o _isJumping for falso ele vai ativar a gravidade no ar pra puxar o player. (Jotape)
         {
             _Velocity.y += _gravity * Time.deltaTime;
         }
@@ -139,7 +135,7 @@ public class Player : MonoBehaviour
             _isJumping = false;
         }
     }
-    public void teste()
+    public void teste() //adicionmento de script animetion (ideia do ivo)
     {
         Debug.Log("Atira");
     }
