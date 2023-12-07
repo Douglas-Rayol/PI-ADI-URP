@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] CharacterController _character;
     [SerializeField] float _speed;
     [SerializeField] float _jump;
-    [SerializeField] bool _checkGround;
     [SerializeField] float _timerValue;
+
+    [SerializeField] bool _checkGround;
+    [SerializeField] bool _isJumping; //Variavel necessaria para o pulo. (Jotapê)
 
     private Vector3 _Velocity;
     [SerializeField] float _gravity = -9.81f;
@@ -37,8 +39,6 @@ public class Player : MonoBehaviour
         _checkGround = _character.isGrounded;
       
         Move();
-       
-
         Gravity();
         _anim.SetBool(_runHash, _moveX != 0);
         _anim.SetBool(_jumpHash, _checkGround);
@@ -54,10 +54,9 @@ public class Player : MonoBehaviour
                 _time = _timerValue;
             }
         }
-        if (_checkGround)
-        {
-            _Velocity.y = 0;
-        }
+
+
+        _character.Move(_Velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _Velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
     }
 
     public void SetMove(InputAction.CallbackContext value)
@@ -71,9 +70,11 @@ public class Player : MonoBehaviour
         if(_checkGround == true)
         {
             _groundTime = true;
-            _checkGround = false;
             _Velocity.y = Mathf.Sqrt(_jump * -2.0f * _gravity);
             
+
+
+
         }
     }
 
@@ -96,8 +97,19 @@ public class Player : MonoBehaviour
 
     void Gravity()
     {
-        _Velocity.y += _gravity * Time.deltaTime;
-        _character.Move(_Velocity * Time.deltaTime);
+
+        if(_checkGround == true && _isJumping == true) //Se o _isJumping for falso, ele vai ativar essa gravidade. (Jotapê)
+        {
+            _Velocity.y = -0f;
+        }
+        
+        if (_checkGround == false && _isJumping == false) //Se for verdadeiro ele vai ativar a gravidade no ar pra puxar o player. (Jotapê)
+        {
+            _Velocity.y += _gravity * Time.deltaTime;
+        }
+
+        
+        
     }
 
     private void Flip() // Flip do Personagem (Direita e Esquerda)
@@ -114,6 +126,8 @@ public class Player : MonoBehaviour
         if (coll.gameObject.CompareTag("Ground"))
         {
             _checkGround = true;
+            _isJumping = true;
+
         }
     }
 
@@ -122,6 +136,7 @@ public class Player : MonoBehaviour
         if (coll.gameObject.CompareTag("Ground"))
         {
             _checkGround = false;
+            _isJumping = false;
         }
     }
     public void teste()

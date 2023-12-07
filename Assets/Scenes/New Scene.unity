@@ -695,7 +695,7 @@ Transform:
   m_GameObject: {fileID: 578551968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: -1.26, z: 11.4}
+  m_LocalPosition: {x: 1.75, y: 6.7, z: 11.4}
   m_LocalScale: {x: 6.3, y: 6.3, z: 6.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6587,8 +6587,9 @@ MonoBehaviour:
   _character: {fileID: 7624716658207910604}
   _speed: 30
   _jump: 0.3
-  _checkGround: 0
   _timerValue: 0
+  _checkGround: 0
+  _isJumping: 0
   _gravity: -3
   _groundTime: 0
 --- !u!143 &7624716658207910604
