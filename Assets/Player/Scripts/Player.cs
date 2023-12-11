@@ -26,24 +26,40 @@ public class Player : MonoBehaviour
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
 
+
+    [Header("Variavel Global para desativar o movimento do Player")]
+    [SerializeField] public bool _ativaMovimento;
+
     // Start is called before the first frame update
     void Start()
     {
+
+
         _time = _timerValue;
         _anim = GetComponent<Animator>();
+        _ativaMovimento = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         _checkGround = _character.isGrounded;
-      
-        Move();
+
+        AnimacaoPlayer();
+
+        if (_ativaMovimento == true)
+        {
+            Move();
+           
+        }
+        else
+        {
+            _character.Move(new Vector3(0,0, 0));
+            _anim.SetFloat(_runHash, 0);
+        }
         Gravity();
-        _anim.SetBool(_runHash, _moveX != 0);
-        _anim.SetBool(_jumpHash, _checkGround);
-        _anim.SetBool("GroundCheck", _checkGround);
-        _anim.SetFloat("VelocidadeY", _character.velocity.y);
+
+
 
         if (_groundTime)
         {
@@ -56,18 +72,23 @@ public class Player : MonoBehaviour
         }
 
 
-        _character.Move(_Velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _Velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
+       //_character.Move(_Velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _Velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
     }
 
     public void SetMove(InputAction.CallbackContext value)
     {
-        Vector3 m = value.ReadValue<Vector3>();
-        _moveX = m.x;
+        if (_ativaMovimento)
+        {
+            Vector3 m = value.ReadValue<Vector3>();
+            _moveX = m.x;
+        }
+        
+
     }
 
     public void SetJump(InputAction.CallbackContext value)
     {
-        if(_checkGround == true)
+        if(value.performed && _checkGround == true && _ativaMovimento)
         {
             _groundTime = true;
             _Velocity.y = Mathf.Sqrt(_jump * -2.0f * _gravity);
@@ -76,8 +97,10 @@ public class Player : MonoBehaviour
 
     void Move() //Movimento do Persoangem
     {
-        _character.Move(new Vector3(_moveX * _speed * Time.deltaTime, _character.velocity.y, _character.velocity.z));
-        _anim.SetFloat("Andando", _animacao);
+       _character.Move(new Vector3(_moveX * _speed * Time.deltaTime, _character.velocity.y, _character.velocity.z));
+        _character.Move(_Velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _Velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
+
+
         _animacao = Mathf.Abs(_moveX);
 
         if (_moveX > 0 && _rotacao)
@@ -90,6 +113,17 @@ public class Player : MonoBehaviour
             Flip();
         }
     }
+
+    void AnimacaoPlayer()
+    {
+        _anim.SetFloat(_runHash, _animacao);
+        //_anim.SetBool(_runHash, _moveX != 0);
+        _anim.SetBool(_jumpHash, _checkGround);
+        _anim.SetBool("GroundCheck", _checkGround);
+        _anim.SetFloat("VelocidadeY", _character.velocity.y);
+
+    }
+
 
     void Gravity()
     {
@@ -135,8 +169,25 @@ public class Player : MonoBehaviour
             _isJumping = false;
         }
     }
-    public void teste() //adicionmento de script animetion (ideia do ivo)
+
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Atira");
+        if(other.gameObject.CompareTag("Inimigo"))
+        {
+            StartCoroutine(TempoControle(other.gameObject));
+        }
     }
+
+    IEnumerator TempoControle(GameObject valoe)
+    {
+        yield return new WaitForSeconds(.2f);
+        _ativaMovimento = false;
+        transform.localPosition= valoe.transform.localPosition;
+        yield return new WaitForSeconds(1f);
+        transform.localPosition = valoe.transform.localPosition;
+        yield return new WaitForSeconds(0.5f);
+        _ativaMovimento = true;
+
+    }
+
 }
