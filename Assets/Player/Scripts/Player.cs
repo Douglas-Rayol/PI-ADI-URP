@@ -12,12 +12,14 @@ public class Player : MonoBehaviour
     [SerializeField] float _timerValue;
 
     [SerializeField] bool _checkGround;
-    [SerializeField] bool _isJumping; //Variavel necessaria para o pulo. (Jotape)
+    [SerializeField] bool _isJumping;
 
-    private Vector3 _Velocity;
-    [SerializeField] float _gravity = -9.81f;
+    [SerializeField] Vector3 _velocity;
+    [SerializeField] Vector3 _move;
+
+    [SerializeField] float _gravity;
     private float _animacao;
-    private float _moveX;
+    
     private bool _rotacao;
     public bool _groundTime;
     float _time;
@@ -26,9 +28,8 @@ public class Player : MonoBehaviour
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
 
+    [SerializeField] bool _ativaMovimento;
 
-    [Header("Variavel Global para desativar o movimento do Player")]
-    [SerializeField] public bool _ativaMovimento;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,6 @@ public class Player : MonoBehaviour
 
         _time = _timerValue;
         _anim = GetComponent<Animator>();
-        _ativaMovimento = true;
     }
 
     // Update is called once per frame
@@ -45,18 +45,19 @@ public class Player : MonoBehaviour
     {
         _checkGround = _character.isGrounded;
 
-        AnimacaoPlayer();
-
         if (_ativaMovimento == true)
         {
             Move();
-           
+            AnimacaoPlayer();
         }
         else
         {
-            _character.Move(new Vector3(0,0, 0));
+            
+            _velocity.x = 0f;
             _anim.SetFloat(_runHash, 0);
         }
+
+        
         Gravity();
 
 
@@ -71,44 +72,38 @@ public class Player : MonoBehaviour
             }
         }
 
+        _character.Move(_velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
 
-       //_character.Move(_Velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _Velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
     }
 
     public void SetMove(InputAction.CallbackContext value)
     {
-        if (_ativaMovimento)
-        {
-            Vector3 m = value.ReadValue<Vector3>();
-            _moveX = m.x;
-        }
-        
+     
+        _move = value.ReadValue<Vector3>();
 
     }
 
     public void SetJump(InputAction.CallbackContext value)
     {
-        if(value.performed && _checkGround == true && _ativaMovimento)
+        if(value.performed && _checkGround == true && _ativaMovimento ==  true)
         {
             _groundTime = true;
-            _Velocity.y = Mathf.Sqrt(_jump * -2.0f * _gravity);
+            _velocity.y = _jump; //Novo Jump, tentei de tudo e só funcionou assim, não me pergunte o por quê kkk (Jotapê)
         }
     }
 
     void Move() //Movimento do Persoangem
     {
-       _character.Move(new Vector3(_moveX * _speed * Time.deltaTime, _character.velocity.y, _character.velocity.z));
-        _character.Move(_Velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _Velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
 
+        _velocity = new Vector3(_move.x * _speed, _velocity.y, _velocity.z); //Modifiquei aqui, deixei mais limpo o código (Jotapê)
+        _animacao = Mathf.Abs(_move.x);
 
-        _animacao = Mathf.Abs(_moveX);
-
-        if (_moveX > 0 && _rotacao)
+        if (_move.x > 0 && _rotacao)
         {
             Flip();
         }
 
-        else if (_moveX < 0 && !_rotacao)
+        else if (_move.x < 0 && !_rotacao)
         {
             Flip();
         }
@@ -127,19 +122,16 @@ public class Player : MonoBehaviour
 
     void Gravity()
     {
-
-        if(_checkGround == true && _isJumping == true) //Se o _isJumping for verdadeiro, ele vai ativar essa gravidade. (Jotape)
+        if(_checkGround == true && _isJumping == true) //Se o _isJumping for verdadeiro (Jotapê)
         {
-            _Velocity.y = -0f;
+            _velocity.y = 0f;
         }
         
-        if (_checkGround == false && _isJumping == false) //Se o _isJumping for falso ele vai ativar a gravidade no ar pra puxar o player. (Jotape)
+        if(_checkGround == false && _isJumping == false) //Se o _isJumping for falso (Jotapê)
         {
-            _Velocity.y += _gravity * Time.deltaTime;
+            _velocity.y += _gravity;
         }
 
-        
-        
     }
 
     private void Flip() // Flip do Personagem (Direita e Esquerda)
@@ -151,41 +143,18 @@ public class Player : MonoBehaviour
         transform.localEulerAngles = theScale;
     }
 
-    private void OnCollisionEnter(Collision coll)
-    {
-        if (coll.gameObject.CompareTag("Ground"))
-        {
-            _checkGround = true;
-            _isJumping = true;
-
-        }
-    }
-
-    private void OnCollisionExit(Collision coll)
-    {
-        if (coll.gameObject.CompareTag("Ground"))
-        {
-            _checkGround = false;
-            _isJumping = false;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Inimigo"))
         {
-            StartCoroutine(TempoControle(other.gameObject));
+            StartCoroutine(TempoControle()); //Sistema de Courotine para travar o player ao levar dano. (Jotapê)
         }
     }
 
-    IEnumerator TempoControle(GameObject valoe)
+    IEnumerator TempoControle()
     {
-        yield return new WaitForSeconds(.2f);
         _ativaMovimento = false;
-        transform.localPosition= valoe.transform.localPosition;
         yield return new WaitForSeconds(1f);
-        transform.localPosition = valoe.transform.localPosition;
-        yield return new WaitForSeconds(0.5f);
         _ativaMovimento = true;
 
     }
