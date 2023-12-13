@@ -1,11 +1,14 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
     [SerializeField] CharacterController _character;
     [SerializeField] float _speed;
     [SerializeField] float _jump;
@@ -30,6 +33,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] bool _ativaMovimento;
 
+    public Image _image;
+    public Color[] _color;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,10 +51,14 @@ public class Player : MonoBehaviour
     {
         _checkGround = _character.isGrounded;
 
+
+
+
         if (_ativaMovimento == true)
         {
             Move();
             AnimacaoPlayer();
+            _character.Move(_velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
         }
         else
         {
@@ -72,7 +82,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        _character.Move(_velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
+       
 
     }
 
@@ -147,14 +157,23 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Inimigo"))
         {
-            StartCoroutine(TempoControle()); //Sistema de Courotine para travar o player ao levar dano. (Jotapê)
+            transform.DOMove(other.GetComponent<Mordida>()._pos.position, .5f);
+            StartCoroutine(TempoControle(other.GetComponent<Mordida>()._pos.position, other.GetComponent<Mordida>()._pos2.position));//Sistema de Courotine para travar o player ao levar dano. (Jotapê)
         }
     }
 
-    IEnumerator TempoControle()
+    IEnumerator TempoControle(Vector3 value, Vector3 value2)
     {
+        
         _ativaMovimento = false;
+        //transform.position = value;
+        yield return new WaitForSeconds(0.5f);
+        transform.position = value;
+        _image.DOColor(_color[0], 0.5f);
         yield return new WaitForSeconds(1f);
+        transform.position = value2;
+        yield return new WaitForSeconds(1f);
+        _image.DOColor(_color[1], 0.5f);
         _ativaMovimento = true;
 
     }

@@ -6,6 +6,10 @@ using UnityEngine;
 public class Mordida : MonoBehaviour
 {
 
+    [SerializeField] public Transform _pos;
+    public Transform _pos2;
+
+
     [SerializeField] Animator _animInimigo;
 
     // Start is called before the first frame update
