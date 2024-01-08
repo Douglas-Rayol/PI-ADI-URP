@@ -30,7 +30,7 @@ public class Pato : MonoBehaviour {
 		//if (hit.transform != null) { }
 
         RaycastHit hit;
-		if (Physics.Raycast(_pointCast.position, _pointCast.TransformDirection(Vector3.down), out hit, 25f))  {
+		if (Physics.Raycast(_pointCast.position, _pointCast.TransformDirection(Vector3.down), out hit, 60f))  {
 		float _distancia = Vector3.Distance(_pointCast.position,  hit.point);
 
 		    Debug.DrawRay(_pointCast.position, _pointCast.TransformDirection(Vector3.down) * _distancia, Color.red); //visualiza o raycast
