@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         {
             Move();
             AnimacaoPlayer();
-            _character.Move(_velocity * Time.deltaTime); //Coloquei aqui pra puxar o geral. Tudo que passa no _velocity vem pra esse character.move! Antes, estava só na gravidade. (Jotapê)
+            _character.Move(_velocity * Time.deltaTime);
         }
         else
         {
