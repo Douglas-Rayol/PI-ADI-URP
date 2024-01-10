@@ -4283,6 +4283,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: -7859802309521759207, guid: b03c1483f9b5e954a87fb9536bd47f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42
+      objectReference: {fileID: 0}
     - target: {fileID: -7816980045666064523, guid: b03c1483f9b5e954a87fb9536bd47f6b,
         type: 3}
       propertyPath: m_TagString
@@ -4517,6 +4522,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: -1411005627335285310, guid: b03c1483f9b5e954a87fb9536bd47f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1411005627335285310, guid: b03c1483f9b5e954a87fb9536bd47f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -1411005627335285310, guid: b03c1483f9b5e954a87fb9536bd47f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88
       objectReference: {fileID: 0}
     - target: {fileID: -1151593147928484911, guid: b03c1483f9b5e954a87fb9536bd47f6b,
         type: 3}
@@ -4811,6 +4831,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434732086270602450, guid: b03c1483f9b5e954a87fb9536bd47f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434732086270602450, guid: b03c1483f9b5e954a87fb9536bd47f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -74.9
       objectReference: {fileID: 0}
     - target: {fileID: 6467712658187726202, guid: b03c1483f9b5e954a87fb9536bd47f6b,
         type: 3}
@@ -8263,7 +8293,7 @@ Transform:
   m_GameObject: {fileID: 3922771255404079845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -303.7, y: 30.1, z: 10}
+  m_LocalPosition: {x: -303.7, y: 30.3, z: 10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8304,7 +8334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e17019eaf733f244916bf31c168e6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 7624716658207910600}
   _alvo: {fileID: 1172001837}
   _pos:
   - {fileID: 1172001837}
@@ -8317,7 +8347,7 @@ MonoBehaviour:
   - 0
   _distPosLimit: 2
   _distPlayerLimit: 8
-  _moveVelocidade: 10
+  _moveVelocidade: 20
   _isPlayer: 0
   _stopPlayer: 0
 --- !u!54 &4412308280048185442
