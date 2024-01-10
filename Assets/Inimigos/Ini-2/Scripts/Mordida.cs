@@ -1,45 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using DG.Tweening;
 using UnityEngine;
 
 public class Mordida : MonoBehaviour
 {
-
-    [SerializeField] public Transform _pos;
-    public Transform _pos2;
-
-
     [SerializeField] Animator _animInimigo;
+    [SerializeField] Transform _position;
+    [SerializeField] Transform _player;
 
-    // Start is called before the first frame update
-    void Start()
+    public void PlantaAnimacao()
     {
-        _animInimigo = GetComponent<Animator>();
+        StartCoroutine(TempoMordida());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(TempoMordida());
-
-        }
-    }
-
 
     IEnumerator TempoMordida()
     {
+        
         _animInimigo.SetBool("fechada", true);
         _animInimigo.SetBool("aberta", false);
+        _player.DOMove(new Vector3(_position.position.x, _player.position.y, _player.position.z), .5f);
         yield return new WaitForSeconds(1f);
         _animInimigo.SetBool("aberta", true);
         _animInimigo.SetBool("fechada", false);
