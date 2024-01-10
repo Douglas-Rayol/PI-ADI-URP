@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _jump;
     [SerializeField] float _gravidade;
 
-    [SerializeField] bool _rotacao;
+    bool _rotacao;
     [SerializeField] bool _checkGround;
     
     private float _animacao;

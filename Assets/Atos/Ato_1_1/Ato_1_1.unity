@@ -1754,7 +1754,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0eb5103cffcaf8b439d6dfe78e333685,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8261,6 +8261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animInimigo: {fileID: 4194780122582422256}
+  _position: {fileID: 174208132}
+  _position2: {fileID: 1774047523}
+  _player: {fileID: 7624716658207910600}
 --- !u!4 &4207429846634502632
 Transform:
   m_ObjectHideFlags: 0
@@ -8419,7 +8422,7 @@ MonoBehaviour:
   - 0
   _distPosLimit: 2
   _distPlayerLimit: 8
-  _moveVelocidade: 10
+  _moveVelocidade: 25
   _isPlayer: 0
   _stopPlayer: 0
 --- !u!54 &4412308280048185442
@@ -10939,7 +10942,6 @@ MonoBehaviour:
   _speed: 30
   _jump: 70
   _gravidade: 110
-  _rotacao: 0
   _checkGround: 0
 --- !u!4 &7681984023308178089
 Transform:
