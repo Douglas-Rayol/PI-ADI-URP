@@ -20,7 +20,12 @@ public class PlayerController : MonoBehaviour
     private float _animacao;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
+    [SerializeField] bool _plataforma;
 
+    [SerializeField] float _g2;
+
+    [SerializeField] Transform _PosPlayer;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +36,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        _g2 = _rb.velocity.y;
         Movimento();
         AnimacaoPlayer();
-        Gravidade();
+        if(_plataforma)
+        {
+
+        }
+        else
+        {
+           Gravidade();
+        }
+   
 
         if (_move.x > 0 && _rotacao)
         {
@@ -59,8 +72,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-    
     public void SetMove(InputAction.CallbackContext value) //Jotapê
     {
 
@@ -76,7 +87,8 @@ public class PlayerController : MonoBehaviour
 
     public void SetJump(InputAction.CallbackContext value)
     {
-        if (value.performed && _checkGround) //Jotapê
+       
+        if (value.performed && (_checkGround || _plataforma)) //Jotapê
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
         }
@@ -92,9 +104,9 @@ public class PlayerController : MonoBehaviour
     {
         _rotacao = !_rotacao;
 
-        Vector3 theScale = transform.localEulerAngles;
+        Vector3 theScale = transform.eulerAngles; // orientacao do pai (Plataforma) para o filho (Player)(Ivo)
         theScale.y *= -1;
-        transform.localEulerAngles = theScale;
+        transform.eulerAngles = new Vector3(0, theScale.y, 0);
     }
 
 
@@ -104,6 +116,12 @@ public class PlayerController : MonoBehaviour
         {
             _checkGround = true;
         }
+        if (other.gameObject.CompareTag("Plataforma"))
+        {
+            _plataforma = true;
+            transform.SetParent(other.transform); // traformando o Player em parente da plataforma (Ivo)
+          
+        }
     }
 
     private void OnTriggerExit(Collider other)  //Jotapê
@@ -111,6 +129,13 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             _checkGround = false;
+           
+
+        }
+        if (other.gameObject.CompareTag("Plataforma"))
+        {
+           _plataforma = false;
+            transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
 
         }
     }

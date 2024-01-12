@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Inimigo
+  - Plataforma
   layers:
   - Default
   - TransparentFX
