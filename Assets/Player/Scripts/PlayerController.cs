@@ -12,14 +12,17 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float _speed;
     [SerializeField] float _jump;
+    [SerializeField] float _runJump;
     [SerializeField] float _gravidade;
 
     bool _rotacao;
     [SerializeField] bool _checkGround;
+    [SerializeField] bool _isRunJump;
     
     private float _animacao;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
+    int _rumJump = Animator.StringToHash("Run-Jump");
     [SerializeField] bool _plataforma;
 
     [SerializeField] float _g2;
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
         _g2 = _rb.velocity.y;
         Movimento();
         AnimacaoPlayer();
-        if(_plataforma)
+        if (_plataforma)
         {
 
         }
@@ -67,6 +70,7 @@ public class PlayerController : MonoBehaviour
         _anim.SetFloat(_runHash, _animacao);
         //_anim.SetBool(_runHash, _move.x != 0);
         _anim.SetBool(_jumpHash, _checkGround);
+        _anim.SetBool(_rumJump, _checkGround);
         _anim.SetBool("GroundCheck", _checkGround);
         _anim.SetFloat("VelocidadeY", _rb.velocity.y);
 
@@ -87,12 +91,10 @@ public class PlayerController : MonoBehaviour
 
     public void SetJump(InputAction.CallbackContext value)
     {
-       
         if (value.performed && (_checkGround || _plataforma)) //Jotapê
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
         }
-
     }
 
     void Gravidade()  //Jotapê
@@ -119,7 +121,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Plataforma"))
         {
             _plataforma = true;
-            transform.SetParent(other.transform); // traformando o Player em parente da plataforma (Ivo)
+            transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
+            _checkGround = true;
           
         }
     }
@@ -129,13 +132,12 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             _checkGround = false;
-           
-
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
            _plataforma = false;
             transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
+            _checkGround = false;
 
         }
     }
