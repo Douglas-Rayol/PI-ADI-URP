@@ -15,19 +15,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _runJump;
     [SerializeField] float _gravidade;
 
-    bool _rotacao;
+    [SerializeField] Transform _PosPlayer;
+    [SerializeField] float _g2;
     [SerializeField] bool _checkGround;
-    [SerializeField] bool _isRunJump;
     
+    bool _rotacao;
     private float _animacao;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
-    int _rumJump = Animator.StringToHash("Run-Jump");
+    int _rumJump = Animator.StringToHash("RunJump");
     [SerializeField] bool _plataforma;
 
-    [SerializeField] float _g2;
-
-    [SerializeField] Transform _PosPlayer;
  
 
     // Start is called before the first frame update
@@ -95,6 +93,17 @@ public class PlayerController : MonoBehaviour
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
         }
+        if (value.performed && _checkGround == true && _plataforma == true)
+        {
+            _anim.SetBool("RunJump", true);
+            _anim.SetBool("Jump", false);
+        }
+        if (value.performed && _checkGround == true && _plataforma == true)
+        {
+            _anim.SetBool("RunJump", false);
+            _anim.SetBool("Jump", true );
+        }
+
     }
 
     void Gravidade()  //Jotapê
