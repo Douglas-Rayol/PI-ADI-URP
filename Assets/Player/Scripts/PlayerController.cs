@@ -95,15 +95,12 @@ public class PlayerController : MonoBehaviour
         }
         if (value.performed && _checkGround == true && _plataforma == true)
         {
-            _anim.SetBool("RunJump", true);
-            _anim.SetBool("Jump", false);
+            _anim.SetBool("RunJump", true); 
         }
         if (value.performed && _checkGround == true && _plataforma == true)
         {
             _anim.SetBool("RunJump", false);
-            _anim.SetBool("Jump", true );
         }
-
     }
 
     void Gravidade()  //Jotapê
