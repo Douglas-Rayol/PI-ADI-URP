@@ -553,7 +553,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -577,7 +577,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -779,7 +779,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: 0.022508219, w: 0.9997467}
   m_LocalPosition: {x: 0, y: 0, z: -3.2500005}
   m_LocalScale: {x: 1.4075003, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 735559640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.579}
@@ -1366,6 +1366,11 @@ MonoBehaviour:
   nomedoleveldejogo: jogo
   painelMenuInicial: {fileID: 934354644}
   painelOpcoes: {fileID: 0}
+  _butaoMenu:
+  - {fileID: 294881423}
+  - {fileID: 584319431}
+  - {fileID: 1014598890}
+  - {fileID: 273073063}
 --- !u!4 &574178104
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,7 +1382,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2804,7 +2809,6 @@ GameObject:
   - component: {fileID: 1311927763}
   - component: {fileID: 1311927761}
   - component: {fileID: 1311927760}
-  - component: {fileID: 1311927759}
   - component: {fileID: 1311927764}
   m_Layer: 0
   m_Name: Main Camera
@@ -2813,20 +2817,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1311927759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311927757}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517ff850362f42a4a8d66e6722f61179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startGame: 0
-  _paginas: {fileID: 0}
 --- !u!81 &1311927760
 AudioListener:
   m_ObjectHideFlags: 0

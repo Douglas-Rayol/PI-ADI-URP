@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MenuPrincipalManager : MonoBehaviour
 {
@@ -12,8 +13,23 @@ public class MenuPrincipalManager : MonoBehaviour
     [SerializeField] private GameObject painelMenuInicial;
     [SerializeField] private GameObject painelOpcoes;
 
+    //animacao hud
+    [SerializeField] List<Transform> _butaoMenu;
+
+    private void Start()
+    {
+        //Jotapê
+        for (int i = 0; i < _butaoMenu.Count; i++)
+        {
+            _butaoMenu[i].localScale = new Vector3(0, 0, 0);
+        }
+        StartCoroutine(TempoScale());
+
+    }
+
     public void AbrirOpcoes()
     {
+        
         painelMenuInicial.SetActive(false);
         painelOpcoes.SetActive(true); ;
     }
@@ -34,6 +50,17 @@ public class MenuPrincipalManager : MonoBehaviour
     {
         SceneManager.LoadScene("Run");
     }
+
+    IEnumerator TempoScale() //Jotapê
+    {
+        yield return new WaitForSeconds(.5f);
+        for (int i = 0; i < _butaoMenu.Count; i++)
+        {
+            _butaoMenu[i].DOScale(new Vector3(1.4075f, 1f, 1f), 1f);
+            yield return new WaitForSeconds(.3f);
+        }
+    }
+
 
 
 }
