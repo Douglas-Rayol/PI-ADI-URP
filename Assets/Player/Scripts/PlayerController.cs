@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _PosPlayer;
     [SerializeField] float _g2;
     [SerializeField] bool _checkGround;
-    
+    [SerializeField] int _groundTest;
+
     bool _rotacao;
     private float _animacao;
     int _runHash = Animator.StringToHash("Andando");
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
     int _rumJump = Animator.StringToHash("RunJump");
     [SerializeField] bool _plataforma;
 
- 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +123,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            _groundTest++;
             _checkGround = true;
         }
         if (other.gameObject.CompareTag("Plataforma"))
@@ -137,7 +139,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            _checkGround = false;
+            _groundTest--;
+            if(_groundTest == 0)
+            {
+                _checkGround = false;
+            }
+            
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
