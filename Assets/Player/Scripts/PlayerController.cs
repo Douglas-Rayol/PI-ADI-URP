@@ -27,7 +27,12 @@ public class PlayerController : MonoBehaviour
     int _rumJump = Animator.StringToHash("RunJump");
     [SerializeField] bool _plataforma;
 
-    
+
+    public float minimum = -1.0F;
+    public float maximum = 1.0F;
+    static float t = 0.0f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -66,12 +71,7 @@ public class PlayerController : MonoBehaviour
 
     void AnimacaoPlayer()
     {
-        _anim.SetFloat(_runHash, _animacao);
-        //_anim.SetBool(_runHash, _move.x != 0);
-        _anim.SetBool(_jumpHash, _checkGround);
-        _anim.SetBool(_rumJump, _checkGround);
-        _anim.SetBool("GroundCheck", _checkGround);
-        _anim.SetFloat("VelocidadeY", _rb.velocity.y);
+        _anim.SetFloat("InputX", _animacao);
 
     }
 
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     void Movimento() //Jotapê
     {
-        _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z); 
+        _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
         _animacao = Mathf.Abs(_move.x); 
     }
 
@@ -94,14 +94,15 @@ public class PlayerController : MonoBehaviour
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
         }
-        if (value.performed && _checkGround == true && _plataforma == true)
-        {
-            _anim.SetBool("RunJump", true); 
-        }
-        if (value.performed && _checkGround == true && _plataforma == true)
-        {
-            _anim.SetBool("RunJump", false);
-        }
+
+        //if (value.performed && _checkGround == true && _plataforma == true)
+        //{
+        //    _anim.SetBool("RunJump", true); 
+        //}
+        //if (value.performed && _checkGround == true && _plataforma == true)
+        //{
+        //    _anim.SetBool("RunJump", false);
+        //}
     }
 
     void Gravidade()  //Jotapê
@@ -125,13 +126,17 @@ public class PlayerController : MonoBehaviour
         {
             _groundTest++;
             _checkGround = true;
+            _anim.SetLayerWeight(1, 0);
+            _anim.SetBool("Jump", false);
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
             _plataforma = true;
             transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
             _checkGround = true;
-          
+            _anim.SetLayerWeight(1, 0);
+            _anim.SetBool("Jump", false);
+
         }
     }
 
@@ -143,6 +148,8 @@ public class PlayerController : MonoBehaviour
             if(_groundTest == 0)
             {
                 _checkGround = false;
+                _anim.SetBool("Jump", true);
+                _anim.SetLayerWeight(1, 1);
             }
             
         }
@@ -151,6 +158,8 @@ public class PlayerController : MonoBehaviour
            _plataforma = false;
             transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
             _checkGround = false;
+            _anim.SetBool("Jump", true);
+            _anim.SetLayerWeight(1, 1);
 
         }
     }
