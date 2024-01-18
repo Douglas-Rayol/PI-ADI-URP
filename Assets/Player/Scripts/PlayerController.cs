@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _jump;
     [SerializeField] float _runJump;
     [SerializeField] float _gravidade;
+    private bool _ativadorMovimento;
 
     [SerializeField] Transform _PosPlayer;
     [SerializeField] float _g2;
@@ -28,33 +29,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool _plataforma;
 
 
-    public float minimum = -1.0F;
-    public float maximum = 1.0F;
-    static float t = 0.0f;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _ativadorMovimento = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         _g2 = _rb.velocity.y;
-        Movimento();
-        AnimacaoPlayer();
-        if (_plataforma)
-        {
+        _anim.SetFloat("InputX", _animacao);
 
+        if (_ativadorMovimento)
+        {
+            Movimento();
+            
         }
         else
         {
-           Gravidade();
+            _rb.velocity = Vector3.zero;
         }
-   
+
+        
+        Gravidade();
+
 
         if (_move.x > 0 && _rotacao)
         {
@@ -69,11 +69,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void AnimacaoPlayer()
-    {
-        _anim.SetFloat("InputX", _animacao);
-
-    }
 
     public void SetMove(InputAction.CallbackContext value) //Jotapê
     {
@@ -84,26 +79,54 @@ public class PlayerController : MonoBehaviour
 
     void Movimento() //Jotapê
     {
+
         _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
         _animacao = Mathf.Abs(_move.x); 
     }
 
     public void SetJump(InputAction.CallbackContext value)
     {
+
         if (value.performed && (_checkGround || _plataforma)) //Jotapê
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
         }
 
-        //if (value.performed && _checkGround == true && _plataforma == true)
-        //{
-        //    _anim.SetBool("RunJump", true); 
-        //}
-        //if (value.performed && _checkGround == true && _plataforma == true)
-        //{
-        //    _anim.SetBool("RunJump", false);
-        //}
     }
+
+    public void SetAtaque(InputAction.CallbackContext value) //Jotapê
+    {
+        //Se estiver no chão, rola a animação dele atirando no chão
+        if(value.performed && _checkGround)
+        {
+            
+            StartCoroutine(TimeTiroChao());
+        }
+
+        //Se estiver no chão, rola a animação dele atirando no chão
+        if (value.performed && !_checkGround)
+        {
+            StartCoroutine(TimeTiroAr());
+        }
+
+
+    }
+
+
+    IEnumerator TimeTiroChao() //Jotapê
+    {
+        _anim.SetBool("Ataque", true);
+        yield return new WaitForSeconds(.2f);
+        _anim.SetBool("Ataque", false);
+    }
+
+    IEnumerator TimeTiroAr() //Jotapê
+    {
+        _anim.SetBool("Ataque", true);
+        yield return new WaitForSeconds(.2f);
+        _anim.SetBool("Ataque", false);
+    }
+
 
     void Gravidade()  //Jotapê
     {
@@ -126,7 +149,7 @@ public class PlayerController : MonoBehaviour
         {
             _groundTest++;
             _checkGround = true;
-            _anim.SetLayerWeight(1, 0);
+            //Jotapê
             _anim.SetBool("Jump", false);
         }
         if (other.gameObject.CompareTag("Plataforma"))
@@ -134,7 +157,7 @@ public class PlayerController : MonoBehaviour
             _plataforma = true;
             transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
             _checkGround = true;
-            _anim.SetLayerWeight(1, 0);
+            //Jotapê
             _anim.SetBool("Jump", false);
 
         }
@@ -148,8 +171,8 @@ public class PlayerController : MonoBehaviour
             if(_groundTest == 0)
             {
                 _checkGround = false;
+                //Jotapê
                 _anim.SetBool("Jump", true);
-                _anim.SetLayerWeight(1, 1);
             }
             
         }
@@ -158,8 +181,8 @@ public class PlayerController : MonoBehaviour
            _plataforma = false;
             transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
             _checkGround = false;
+            //Jotapê
             _anim.SetBool("Jump", true);
-            _anim.SetLayerWeight(1, 1);
 
         }
     }
