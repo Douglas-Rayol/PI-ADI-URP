@@ -41,7 +41,7 @@ public class Cogula : MonoBehaviour
         }
         else
         {
-            Ataque();
+           Ataque();
         }
         Anim();
     }
