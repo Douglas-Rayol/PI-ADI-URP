@@ -49,7 +49,7 @@ public class Cogula : MonoBehaviour
     void Anim()
     {
         _anim.SetFloat("Andando", Mathf.Abs(_rb.velocity.x));
-        _anim.SetBool("isPlayer", _isPlayer);
+        //_anim.SetBool("isPlayer", _isPlayer);
         _anim.SetBool("Attack", _ataqueOn);
     }
 

@@ -97,9 +97,6 @@ public class PlayerController : MonoBehaviour
 
         _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
         _animacao = Mathf.Abs(_move.x);
-        
-
-
     }
 
     public void SetJump(InputAction.CallbackContext value)
@@ -229,6 +226,4 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
-
 }
