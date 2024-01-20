@@ -18,7 +18,7 @@ public class Mordida : MonoBehaviour
 
     IEnumerator TempoMordida()
     {
-        
+        _player.GetComponent<PlayerController>()._ativadorMovimento = false;
         _animInimigo.SetBool("fechada", true);
         _animInimigo.SetBool("aberta", false);
         _player.DOMove(new Vector3(_position.position.x, _player.position.y, _player.position.z), .5f);
@@ -26,6 +26,7 @@ public class Mordida : MonoBehaviour
         _player.DOMove(new Vector3(_position2.position.x, _player.position.y, _player.position.z), .0f);
         _animInimigo.SetBool("aberta", true);
         _animInimigo.SetBool("fechada", false);
+        _player.GetComponent<PlayerController>()._ativadorMovimento = true;
 
     }
 

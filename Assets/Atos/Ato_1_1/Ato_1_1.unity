@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 149257131}
   - component: {fileID: 149257130}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 245221526}
   m_Layer: 0
   m_Name: Bacon
-  m_TagString: Inimigo
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1945,7 +1945,7 @@ GameObject:
   - component: {fileID: 298630661}
   m_Layer: 0
   m_Name: Bacon
-  m_TagString: Inimigo
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2391,7 +2391,7 @@ GameObject:
   - component: {fileID: 368645080}
   m_Layer: 0
   m_Name: Javali3
-  m_TagString: Untagged
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3501,6 +3501,92 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &454382855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454382856}
+  - component: {fileID: 454382858}
+  - component: {fileID: 454382857}
+  m_Layer: 3
+  m_Name: Vida
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454382856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454382855}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7624716658207910600}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &454382857
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454382855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.3
+  m_Height: 8
+  m_Direction: 1
+  m_Center: {x: 0, y: 4, z: 0}
+--- !u!114 &454382858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454382855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20ac1478f6f67f4b9cf20428b88b260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnDano:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7624716658207910608}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: VidaPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &455723055
 GameObject:
   m_ObjectHideFlags: 0
@@ -3724,7 +3810,7 @@ GameObject:
   - component: {fileID: 502049172}
   m_Layer: 0
   m_Name: planta-chao2
-  m_TagString: Inimigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3738,7 +3824,7 @@ Transform:
   m_GameObject: {fileID: 502049170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.3, y: -51.1, z: 1.0650034}
+  m_LocalPosition: {x: -58.3, y: -50.2, z: 1.0650034}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4029,7 +4115,7 @@ GameObject:
   - component: {fileID: 569158196}
   m_Layer: 0
   m_Name: gatilho
-  m_TagString: Inimigo
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4076,6 +4162,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _OnDano:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &569158197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4463,7 +4552,7 @@ GameObject:
   - component: {fileID: 634849867}
   - component: {fileID: 634849868}
   m_Layer: 0
-  m_Name: Vida (1)
+  m_Name: Vida2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5078,7 +5167,7 @@ GameObject:
   - component: {fileID: 787518233}
   m_Layer: 0
   m_Name: gatilho
-  m_TagString: Inimigo
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5125,6 +5214,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _OnDano:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &787518234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7015,7 +7107,7 @@ GameObject:
   - component: {fileID: 1104120054}
   m_Layer: 0
   m_Name: gatilho
-  m_TagString: Inimigo
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7083,6 +7175,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _OnDano:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1113504346
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,6 +8726,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74b63d7bd1799e43b965dd597b88e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vidaJogador: {fileID: 0}
+  _hudVida:
+  - {fileID: 1842952942}
+  - {fileID: 634849866}
+  - {fileID: 1480826427}
+  variavelNada: 0
 --- !u!4 &1407044444
 Transform:
   m_ObjectHideFlags: 0
@@ -8876,7 +8977,7 @@ GameObject:
   - component: {fileID: 1480826428}
   - component: {fileID: 1480826429}
   m_Layer: 0
-  m_Name: Vida (2)
+  m_Name: Vida3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10444,7 +10545,7 @@ GameObject:
   - component: {fileID: 1641196773}
   m_Layer: 0
   m_Name: Javali2
-  m_TagString: Untagged
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13293,7 +13394,7 @@ GameObject:
   - component: {fileID: 1840739405}
   m_Layer: 0
   m_Name: gatilho
-  m_TagString: Inimigo
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13340,6 +13441,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _OnDano:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1840739406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14270,7 +14374,7 @@ GameObject:
   - component: {fileID: 1935841133}
   m_Layer: 0
   m_Name: planta-chao4
-  m_TagString: Inimigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15274,7 +15378,7 @@ GameObject:
   - component: {fileID: 2076145075}
   m_Layer: 0
   m_Name: planta-chao3
-  m_TagString: Inimigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16244,12 +16348,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801231883305176639}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21136029, y: 0.791935, z: -0.28012782, w: 0.49969405}
-  m_LocalPosition: {x: -1.2888832, y: 6.978242, z: 0.6098123}
-  m_LocalScale: {x: 66.028885, y: 66.02889, z: 66.02889}
+  m_LocalRotation: {x: 0.5027914, y: 0.75806284, z: 0.3619024, w: 0.20388277}
+  m_LocalPosition: {x: -0.0033297027, y: -0.0022763994, z: -0.0006531685}
+  m_LocalScale: {x: 0.22995175, y: 0.21381363, z: 0.20770831}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &714312633472219723
 Transform:
@@ -17514,12 +17618,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4256221385774444620}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.502547, y: 0.5900445, z: -0.41535532, w: 0.47620788}
-  m_LocalPosition: {x: -0.578574, y: 7.6145744, z: 0.9778991}
-  m_LocalScale: {x: 100, y: 100, z: 99.99999}
+  m_LocalRotation: {x: 0.6920842, y: 0.71092504, z: 0.12352392, w: -0.018624626}
+  m_LocalPosition: {x: -0.00146943, y: -0.0036505342, z: 0.0017559013}
+  m_LocalScale: {x: 0.37323323, y: 0.26373222, z: 0.3748853}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2875647427004366044
 Transform:
@@ -17573,7 +17677,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -17624,7 +17728,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 124
@@ -17797,12 +17901,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4542605699999063465}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5454643, y: 0.55061305, z: -0.44996503, w: 0.44365022}
-  m_LocalPosition: {x: -0.0667972, y: 7.5862474, z: 0.97389966}
-  m_LocalScale: {x: 100, y: 100.00001, z: 100}
+  m_LocalRotation: {x: 0.6994095, y: 0.7075156, z: 0.071169026, w: -0.07199342}
+  m_LocalPosition: {x: -0.00012910526, y: -0.0036356105, z: 0.0016486695}
+  m_LocalScale: {x: 0.3734928, y: 0.26190674, z: 0.37837002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3088720364934636236
 GameObject:
@@ -17959,7 +18063,7 @@ GameObject:
   - component: {fileID: 5279129446313137024}
   m_Layer: 0
   m_Name: Bacon
-  m_TagString: Inimigo
+  m_TagString: Inimigo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18601,12 +18705,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4497665611581112481}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6234312, y: 0.10309035, z: 0.76610285, w: -0.117441334}
-  m_LocalPosition: {x: 0.8658511, y: 7.686445, z: 0.97474205}
-  m_LocalScale: {x: -100, y: -100, z: -100}
+  m_LocalRotation: {x: 0.3577889, y: -0.46882063, z: 0.61461234, w: -0.52387595}
+  m_LocalPosition: {x: 0.002313467, y: -0.0036386875, z: 0.002028003}
+  m_LocalScale: {x: -0.3673677, y: -0.36318818, z: -0.27299768}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4181567589085719900
 Transform:
@@ -18637,7 +18741,7 @@ GameObject:
   - component: {fileID: 4194780122582422258}
   m_Layer: 0
   m_Name: planta-chao1
-  m_TagString: Inimigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19496,12 +19600,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4851888220428410094}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.44254655, y: -0.4510595, z: -0.5515003, w: 0.5445598}
-  m_LocalPosition: {x: 0.94, y: 8.89, z: 1.26}
-  m_LocalScale: {x: -100, y: -100.01, z: -100}
+  m_LocalRotation: {x: 0.07213421, y: 0.0710224, z: -0.7089167, w: 0.69798964}
+  m_LocalPosition: {x: 0.0025076608, y: -0.004703635, z: 0.0065845265}
+  m_LocalScale: {x: -0.37347612, y: -0.2619414, z: -0.3783693}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: -78.38, y: -0.89, z: -90}
 --- !u!1 &5128273585514131496
 GameObject:
@@ -20602,12 +20706,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3694305255555554478}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.49969408, y: 0.28012758, z: 0.7919351, w: -0.21136028}
-  m_LocalPosition: {x: 2.43, y: 7.13, z: 1.18}
-  m_LocalScale: {x: -66.028885, y: -66.02889, z: -66.02889}
+  m_LocalRotation: {x: 0.20388275, y: -0.36190256, z: 0.7580628, w: -0.5027914}
+  m_LocalPosition: {x: 0.0064099166, y: -0.0044049304, z: -0.00007863713}
+  m_LocalScale: {x: -0.22995172, y: -0.21381366, z: -0.20770831}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6374788193437298252
 GameObject:
@@ -21257,7 +21361,15 @@ Transform:
   m_LocalPosition: {x: -0.017501086, y: 7.15077, z: 0}
   m_LocalScale: {x: 381.8306, y: 267.8801, z: 264.13916}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3086817005900375076}
+  - {fileID: 2874090224667139919}
+  - {fileID: 6981994123315965704}
+  - {fileID: 708671642228673562}
+  - {fileID: 5127054582731102533}
+  - {fileID: 9034558069565022962}
+  - {fileID: 4122341857697366186}
+  - {fileID: 6337705270487947270}
   m_Father: {fileID: 7624716658207910600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6939476222722477107
@@ -21285,12 +21397,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533151947860846612}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11744126, y: 0.76610273, z: -0.1030904, w: 0.6234312}
-  m_LocalPosition: {x: -0.9671825, y: 7.6756964, z: 0.97474205}
-  m_LocalScale: {x: 100.00001, y: 100, z: 100}
+  m_LocalRotation: {x: 0.5238761, y: 0.61461234, z: 0.46882042, w: 0.35778904}
+  m_LocalPosition: {x: -0.0024871798, y: -0.0036386861, z: 0.0019873055}
+  m_LocalScale: {x: 0.36736768, y: 0.36318806, z: 0.2729975}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7038451545044332430
 GameObject:
@@ -21693,16 +21805,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1540435812642437718}
-  - {fileID: 3086817005900375076}
-  - {fileID: 2874090224667139919}
-  - {fileID: 6981994123315965704}
-  - {fileID: 708671642228673562}
-  - {fileID: 5127054582731102533}
-  - {fileID: 9034558069565022962}
-  - {fileID: 4122341857697366186}
-  - {fileID: 6337705270487947270}
   - {fileID: 6902315992189197173}
   - {fileID: 1042579697}
+  - {fileID: 454382856}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &7624716658207910601
@@ -21908,13 +22013,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d155e01841f43443ac883eb9a7e8430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vida: 3
+  _dano: 1
+  _PlayerHit: {fileID: 38623186751407060}
   _rb: {fileID: 7624716658207910605}
   _anim: {fileID: 7624716658207910601}
   _move: {x: 0, y: 0, z: 0}
   _speed: 30
   _jump: 100
-  _runJump: 0
   _gravidade: 110
+  _ativadorMovimento: 0
   _PosPlayer: {fileID: 1149373877}
   _g2: 0
   _checkGround: 0
@@ -22696,12 +22804,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3782956145416660876}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.47620785, y: -0.41535524, z: -0.59004456, w: 0.502547}
-  m_LocalPosition: {x: 0.53, y: 7.96, z: 1.05}
-  m_LocalScale: {x: -99.99999, y: -100, z: -100}
+  m_LocalRotation: {x: 0.01862463, y: 0.12352397, z: -0.710925, w: 0.69208425}
+  m_LocalPosition: {x: 0.0014338837, y: -0.00391962, z: 0.0030636534}
+  m_LocalScale: {x: -0.3732331, y: -0.26373222, z: -0.37488526}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7624716658207910600}
+  m_Father: {fileID: 6902315992189197173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9134112813573281436
 GameObject:

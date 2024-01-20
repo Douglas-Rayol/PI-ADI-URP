@@ -149,7 +149,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Hit
+      name: P-Hit
       takeName: Armature|Hit
       internalID: -5578746458225771231
       firstFrame: 0
@@ -236,7 +236,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Morte
+      name: P-Morte
       takeName: Armature|Morte
       internalID: -3639635062991920298
       firstFrame: 0

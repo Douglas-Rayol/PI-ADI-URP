@@ -6,15 +6,19 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
+    //Vida do Jogador
+    [SerializeField] public int _vida = 3;
+    [SerializeField] bool _dano;
+    [SerializeField] GameObject _PlayerHit;
+
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
     [SerializeField] Vector3 _move;
 
     [SerializeField] float _speed;
     [SerializeField] float _jump;
-    [SerializeField] float _runJump;
     [SerializeField] float _gravidade;
-    private bool _ativadorMovimento;
+    public bool _ativadorMovimento;
 
     [SerializeField] Transform _PosPlayer;
     [SerializeField] float _g2;
@@ -28,18 +32,21 @@ public class PlayerController : MonoBehaviour
     int _rumJump = Animator.StringToHash("RunJump");
     [SerializeField] bool _plataforma;
 
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         _ativadorMovimento = true;
+        _dano = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         _g2 = _rb.velocity.y;
+
         _anim.SetFloat("InputX", _animacao);
 
         if (_ativadorMovimento)
@@ -66,6 +73,13 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
+        //VidaGameOver
+        if (_vida <= 0)
+        {
+            _ativadorMovimento = false;
+            _anim.SetBool("Morte", true);
+            _vida = 0;
+        }
 
     }
 
@@ -74,6 +88,7 @@ public class PlayerController : MonoBehaviour
     {
 
         _move = value.ReadValue<Vector3>();
+        
 
     }
 
@@ -81,7 +96,10 @@ public class PlayerController : MonoBehaviour
     {
 
         _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
-        _animacao = Mathf.Abs(_move.x); 
+        _animacao = Mathf.Abs(_move.x);
+        
+
+
     }
 
     public void SetJump(InputAction.CallbackContext value)
@@ -112,7 +130,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
     IEnumerator TimeTiroChao() //Jotapê
     {
         _anim.SetBool("Ataque", true);
@@ -142,6 +159,32 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, theScale.y, 0);
     }
 
+
+
+
+    public void VidaPlayer()
+    {
+
+        StartCoroutine(VidaTime());
+    }
+
+    IEnumerator VidaTime()
+    {
+        if(_dano == true)
+        {
+            _vida -= 1;
+            for (int i = 0; i < 3; i++)
+            {
+                _PlayerHit.SetActive(false);
+                yield return new WaitForSeconds(.1f);
+                _PlayerHit.SetActive(true);
+                yield return new WaitForSeconds(.5f);
+                _dano = false;
+            }
+            _dano = true;
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)  //Jotapê
     {
