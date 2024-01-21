@@ -19,12 +19,21 @@ public class Cogula : MonoBehaviour
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
-    
+
+    public int _vida;
+    public Transform _barCheio; //barra verde
+    public GameObject _barraVida; //barra principal(pai)
+
+    private Vector3 _barScale; //tamanho da barra
+    private float _barPercent; //calcula o percentual da vida do tamanho da barra 
+
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+        _barScale = _barCheio.localScale;
+        _barPercent = _barScale.x / _vida;
     }
 
     // Update is called once per frame
@@ -44,12 +53,14 @@ public class Cogula : MonoBehaviour
            Ataque();
         }
         Anim();
+        BarraDevida();
     }
 
     void Anim()
     {
         _anim.SetFloat("Andando", Mathf.Abs(_rb.velocity.x));
         //_anim.SetBool("isPlayer", _isPlayer);
+        //_anim.SetBool("Hit", _ataqueOn);
         _anim.SetBool("Attack", _ataqueOn);
     }
 
@@ -115,12 +126,19 @@ public class Cogula : MonoBehaviour
 
     }
 
+    void BarraDevida()
+    {
+        _barScale.x = _barPercent * _vida;
+        _barCheio.localScale = _barScale;
+    }
+
     void Flip()
     {
         _isFacingRight = !_isFacingRight;
         Vector3 theScale = transform.localEulerAngles;
         theScale.y *= -1;
         transform.localEulerAngles = theScale;
+        _barraVida.transform.localScale = new Vector3(_barraVida.transform.localScale.x * -1, _barraVida.transform.localScale.y, _barraVida.transform.localScale.z);
     }
 
 
