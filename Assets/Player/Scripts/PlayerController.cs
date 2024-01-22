@@ -162,14 +162,14 @@ public class PlayerController : MonoBehaviour
     IEnumerator TimeTiroChao() //Jotapê
     {
         _anim.SetBool("Ataque", true);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
         _anim.SetBool("Ataque", false);
     }
 
     IEnumerator TimeTiroAr() //Jotapê
     {
         _anim.SetBool("Ataque", true);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
         _anim.SetBool("Ataque", false);
     }
 
