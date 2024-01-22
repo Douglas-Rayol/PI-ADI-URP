@@ -52,6 +52,9 @@ public class Pato : MonoBehaviour {
 			} else {
                 this._alvo = null;
 				transform.Translate(Vector3.left * this._velociPato * Time.deltaTime);
+
+			
+
 			}
         } else {
             this._alvo = null;
