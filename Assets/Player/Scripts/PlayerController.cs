@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
+
 
     //Vida do Jogador
     [SerializeField] public int _vida = 3;
@@ -14,16 +16,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
     [SerializeField] Vector3 _move;
+    [SerializeField] Transform _RaycasGround;
 
     [SerializeField] float _speed;
     [SerializeField] float _jump;
     [SerializeField] float _gravidade;
     public bool _ativadorMovimento;
 
+    RaycastHit teto;
+
     [SerializeField] Transform _PosPlayer;
     [SerializeField] float _g2;
     [SerializeField] bool _checkGround;
-    [SerializeField] int _groundTest;
+    [SerializeField] int _groundCount;
 
     bool _rotacao;
     private float _animacao;
@@ -32,7 +37,9 @@ public class PlayerController : MonoBehaviour
     int _rumJump = Animator.StringToHash("RunJump");
     [SerializeField] bool _plataforma;
 
-    
+    [Header("Sistema de Orientação de Objeto")]
+    [SerializeField] UnityEvent _OnEnter;
+    [SerializeField] UnityEvent _OnExit;
 
 
     // Start is called before the first frame update
@@ -54,9 +61,11 @@ public class PlayerController : MonoBehaviour
             Movimento();
             
         }
+
         else
         {
-            _rb.velocity = Vector3.zero;
+    
+            _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
         }
 
         
@@ -81,8 +90,31 @@ public class PlayerController : MonoBehaviour
             _vida = 0;
         }
 
+        Verificacao();
     }
 
+
+    void Verificacao()
+    {
+        if(Physics.Raycast(_RaycasGround.position, transform.TransformDirection(Vector3.up), out teto, 12f))
+        {
+            //Debug.DrawRay(_RaycasGround.position, teto.point - transform.position, Color.red);
+            
+
+            if(teto.transform.CompareTag("Ground"))
+            {
+                _OnEnter.Invoke();
+            }
+            
+        }
+        else
+        {
+            _OnExit.Invoke();
+        }
+
+
+
+    }
 
     public void SetMove(InputAction.CallbackContext value) //Jotapê
     {
@@ -187,13 +219,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            _groundTest++;
+
+            
+            _groundCount++;
             _checkGround = true;
             //Jotapê
             _anim.SetBool("Jump", false);
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
+            _groundCount++;
             _plataforma = true;
             transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
             _checkGround = true;
@@ -207,8 +242,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            _groundTest--;
-            if(_groundTest == 0)
+            _groundCount--;
+            if(_groundCount == 0)
             {
                 _checkGround = false;
                 //Jotapê
@@ -218,11 +253,15 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
-           _plataforma = false;
-            transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
-            _checkGround = false;
-            //Jotapê
-            _anim.SetBool("Jump", true);
+            _groundCount--;
+            if(_groundCount == 0)
+            {
+                _plataforma = false;
+                transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
+                _checkGround = false;
+                //Jotapê
+                _anim.SetBool("Jump", true);
+            }
 
         }
     }
