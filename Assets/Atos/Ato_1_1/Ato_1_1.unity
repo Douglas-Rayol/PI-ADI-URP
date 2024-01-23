@@ -4939,7 +4939,7 @@ Transform:
   m_GameObject: {fileID: 610962407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13810,6 +13810,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 662dcbaebf5ae68419dd62845fd647eb, type: 2}
+    - target: {fileID: -41303083154044277, guid: b03c1483f9b5e954a87fb9536bd47f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.4
+      objectReference: {fileID: 0}
     - target: {fileID: -21202583189892586, guid: b03c1483f9b5e954a87fb9536bd47f6b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -23573,10 +23578,11 @@ MonoBehaviour:
   _rb: {fileID: 7624716658207910605}
   _anim: {fileID: 7624716658207910601}
   _move: {x: 0, y: 0, z: 0}
-  _RaycasGround: {fileID: 610962408}
+  _raycasGround: {fileID: 610962408}
   _speed: 30
-  _jump: 100
+  _jump: 105
   _gravidade: 110
+  coyoteTime: 0.2
   _ativadorMovimento: 0
   _PosPlayer: {fileID: 1149373877}
   _g2: 0
@@ -23586,7 +23592,7 @@ MonoBehaviour:
   _OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 218590184}
+      - m_Target: {fileID: 7624716658207910607}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_isTrigger
         m_Mode: 6
@@ -23601,7 +23607,7 @@ MonoBehaviour:
   _OnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 218590184}
+      - m_Target: {fileID: 7624716658207910607}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_isTrigger
         m_Mode: 6
@@ -23613,6 +23619,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _dentroPlataforma: 0
 --- !u!4 &7681984023308178089
 Transform:
   m_ObjectHideFlags: 0

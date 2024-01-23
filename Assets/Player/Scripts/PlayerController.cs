@@ -16,11 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
     [SerializeField] Vector3 _move;
-    [SerializeField] Transform _RaycasGround;
+    [SerializeField] Transform _raycasGround;
 
     [SerializeField] float _speed;
     [SerializeField] float _jump;
     [SerializeField] float _gravidade;
+    [SerializeField] private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
     public bool _ativadorMovimento;
 
     RaycastHit teto;
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour
     [Header("Sistema de Orientação de Objeto")]
     [SerializeField] UnityEvent _OnEnter;
     [SerializeField] UnityEvent _OnExit;
+    [SerializeField] private bool _dentroPlataforma;
 
 
     // Start is called before the first frame update
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         _ativadorMovimento = true;
         _dano = true;
+        _dentroPlataforma = false;
     }
 
     // Update is called once per frame
@@ -90,26 +95,38 @@ public class PlayerController : MonoBehaviour
             _vida = 0;
         }
 
-        Verificacao();
+        if (_checkGround)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            Verificacao();
+            coyoteTimeCounter -= Time.fixedDeltaTime;
+        }
+
     }
 
 
     void Verificacao()
     {
-        if(Physics.Raycast(_RaycasGround.position, transform.TransformDirection(Vector3.up), out teto, 12f))
-        {
-            //Debug.DrawRay(_RaycasGround.position, teto.point - transform.position, Color.red);
-            
 
-            if(teto.transform.CompareTag("Ground"))
+        if (Physics.Raycast(_raycasGround.position, transform.TransformDirection(Vector3.up), out teto, 10f))
+        {
+            Debug.DrawRay(_raycasGround.position, teto.point - transform.position, Color.red);
+
+            if (teto.transform.CompareTag("Ground"))
             {
                 _OnEnter.Invoke();
+                _dentroPlataforma = true;
             }
             
         }
         else
         {
+
             _OnExit.Invoke();
+            _dentroPlataforma = false;
         }
 
 
@@ -134,9 +151,10 @@ public class PlayerController : MonoBehaviour
     public void SetJump(InputAction.CallbackContext value)
     {
 
-        if (value.performed && (_checkGround || _plataforma)) //Jotapê
+        if (value.performed && (_checkGround || _plataforma || coyoteTimeCounter > 0) && !_dentroPlataforma && _ativadorMovimento) //Jotapê
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
+            coyoteTimeCounter = 0;
         }
 
     }
@@ -144,14 +162,14 @@ public class PlayerController : MonoBehaviour
     public void SetAtaque(InputAction.CallbackContext value) //Jotapê
     {
         //Se estiver no chão, rola a animação dele atirando no chão
-        if(value.performed && _checkGround)
+        if(value.performed && _checkGround && _ativadorMovimento)
         {
             
             StartCoroutine(TimeTiroChao());
         }
 
         //Se estiver no chão, rola a animação dele atirando no chão
-        if (value.performed && !_checkGround)
+        if (value.performed && !_checkGround && _ativadorMovimento)
         {
             StartCoroutine(TimeTiroAr());
         }
