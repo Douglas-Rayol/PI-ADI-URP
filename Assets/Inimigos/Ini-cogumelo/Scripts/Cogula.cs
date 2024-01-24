@@ -20,7 +20,8 @@ public class Cogula : MonoBehaviour
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
 
-    public int _vida;
+    public int _vidaAtual;
+    public int _vidbMax;
     public Transform _barCheio; //barra verde
     public GameObject _barraVida; //barra principal(pai)
 
@@ -33,7 +34,8 @@ public class Cogula : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
         _barScale = _barCheio.localScale;
-        _barPercent = _barScale.x / _vida;
+        _barPercent = _barScale.x / _vidaAtual;
+        _barraVida.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,21 +54,31 @@ public class Cogula : MonoBehaviour
         {
            Ataque();
         }
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            AplicarDano();
+        }
         Anim();
         BarraDevida();
+        
     }
 
     void Anim()
     {
         _anim.SetFloat("Andando", Mathf.Abs(_rb.velocity.x));
         //_anim.SetBool("isPlayer", _isPlayer);
-        //_anim.SetBool("Hit", _ataqueOn);
+        _anim.SetBool("Hit", _ataqueOn);
         _anim.SetBool("Attack", _ataqueOn);
     }
 
     void Ataque()
     {
         _rb.velocity = new Vector3(0, _rb.velocity.y);
+    }
+    void AplicarDano()
+    {
+        _barraVida.SetActive(true);
+        _vidaAtual -= 1;
     }
 
     void Patrulhamento()
@@ -128,9 +140,10 @@ public class Cogula : MonoBehaviour
 
     void BarraDevida()
     {
-        _barScale.x = _barPercent * _vida;
+        _barScale.x = _barPercent * _vidaAtual;
         _barCheio.localScale = _barScale;
     }
+
 
     void Flip()
     {
@@ -138,7 +151,7 @@ public class Cogula : MonoBehaviour
         Vector3 theScale = transform.localEulerAngles;
         theScale.y *= -1;
         transform.localEulerAngles = theScale;
-        _barraVida.transform.localScale = new Vector3(_barraVida.transform.localScale.x * -1, _barraVida.transform.localScale.y, _barraVida.transform.localScale.z);
+        _barraVida.transform.localScale = new Vector3(_barraVida.transform.localScale.x, _barraVida.transform.localScale.y, _barraVida.transform.localScale.z * -1);
     }
 
 
