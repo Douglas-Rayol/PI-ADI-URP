@@ -48,7 +48,7 @@ public class MenuPrincipalManager : MonoBehaviour
 
     public void ChamaJogo()
     {
-        SceneManager.LoadScene("Run");
+        SceneManager.LoadScene("Ato_1_1");
     }
 
     IEnumerator TempoScale() //Jotapê

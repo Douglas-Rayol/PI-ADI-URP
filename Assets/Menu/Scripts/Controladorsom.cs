@@ -11,7 +11,7 @@ public class Controladorsom : MonoBehaviour
     [SerializeField] private Sprite somLigadoSprite;
     [SerializeField] private Sprite somDesligadoSprite;
 
-    [SerializeField] private Image muteImage;
+    [SerializeField] private Sprite muteImage;
 
     public void LigarDesligarSom()
     {
@@ -20,11 +20,11 @@ public class Controladorsom : MonoBehaviour
 
         if (estadoSom)
         {
-            muteImage.sprite = somLigadoSprite;
+            muteImage = somLigadoSprite;
         }
         else
         {
-            muteImage.sprite = somDesligadoSprite;
+            muteImage = somDesligadoSprite;
         }
     }
 
