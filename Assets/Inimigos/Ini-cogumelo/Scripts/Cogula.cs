@@ -54,7 +54,7 @@ public class Cogula : MonoBehaviour
         {
            Ataque();
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && _vidaAtual >= 1)
         {
             AplicarDano();
         }
