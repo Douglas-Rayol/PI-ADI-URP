@@ -159,15 +159,15 @@ public class Cogula : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            _ataqueOn = true;
+            StartCoroutine(TempoDeAtaque());
+            
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    IEnumerator TempoDeAtaque()
     {
-        if (collision.gameObject.name == "Player")
-        {
-            _ataqueOn = false;
-        }
+        _ataqueOn = true;
+        yield return new WaitForSeconds(.5f);
+        _ataqueOn = false;
     }
 }
