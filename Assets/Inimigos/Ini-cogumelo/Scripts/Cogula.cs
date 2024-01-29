@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cogula : MonoBehaviour
@@ -9,6 +10,7 @@ public class Cogula : MonoBehaviour
     bool _isFacingRight;
     bool _ataqueOn;
     float _distPlayer;
+    bool _hit;
     [SerializeField] Transform _player;
     [SerializeField] Transform _alvo;
     [SerializeField] Transform[] _pos;
@@ -27,6 +29,7 @@ public class Cogula : MonoBehaviour
 
     private Vector3 _barScale; //tamanho da barra
     private float _barPercent; //calcula o percentual da vida do tamanho da barra 
+    bool _stop;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +70,7 @@ public class Cogula : MonoBehaviour
     {
         _anim.SetFloat("Andando", Mathf.Abs(_rb.velocity.x));
         //_anim.SetBool("isPlayer", _isPlayer);
-        _anim.SetBool("Hit", _ataqueOn);
+        _anim.SetBool("Hit", _hit);
         _anim.SetBool("Attack", _ataqueOn);
     }
 
@@ -118,13 +121,21 @@ public class Cogula : MonoBehaviour
 
     void MoverparaAlvo()
     {
-        if (transform.position.x < _alvo.position.x)
+        if (_hit == false && _stop == false)
         {
-            _rb.velocity = new Vector3(_moveVelocidade, _rb.velocity.y);
+            if (transform.position.x < _alvo.position.x)
+            {
+                _rb.velocity = new Vector3(_moveVelocidade, _rb.velocity.y);
+            }
+            else
+            {
+                _rb.velocity = new Vector3(-_moveVelocidade, _rb.velocity.y);
+            }
         }
         else
         {
-            _rb.velocity = new Vector3(-_moveVelocidade, _rb.velocity.y);
+            _rb.velocity = new Vector3(0, _rb.velocity.y);
+
         }
 
         if (_rb.velocity.x < 0 && !_isFacingRight)
@@ -136,6 +147,11 @@ public class Cogula : MonoBehaviour
             Flip();
         }
 
+    }
+
+    public void StopOff()
+    {
+        _stop = false;
     }
 
     void BarraDevida()
@@ -161,6 +177,20 @@ public class Cogula : MonoBehaviour
         {
             StartCoroutine(TempoDeAtaque());
             
+        }
+        if (collision.gameObject.CompareTag("AtaquePlayer"))
+        {
+            _hit = true;
+            _stop = true;
+        }
+    }
+    
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("AtaquePlayer"))
+        {
+            _hit = false;
+            Invoke("StopOff", 0.8f);
         }
     }
 
