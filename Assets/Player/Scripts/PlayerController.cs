@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
 
-
     //Vida do Jogador
     [SerializeField] public int _vida = 3;
     [SerializeField] bool _dano;
@@ -15,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
-    [SerializeField] Vector3 _move;
+    [SerializeField] public Vector3 _move;
     [SerializeField] Transform _raycasGround;
 
     [SerializeField] float _speed;
@@ -45,10 +44,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] UnityEvent _OnExit;
     [SerializeField] private bool _dentroPlataforma;
 
+    //Posicão do Tiro
+    public Transform _posTiro;
+    private bool _direcaoVerdadeira;
+    private bool _ativaTiro;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+        _ativaTiro = true;
+        _direcaoVerdadeira = true;
         _ativadorMovimento = true;
         _dano = true;
         _dentroPlataforma = false;
@@ -104,6 +112,9 @@ public class PlayerController : MonoBehaviour
             Verificacao();
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
+
+
+        ChecaDirecaoDoTiro();
 
     }
 
@@ -162,35 +173,45 @@ public class PlayerController : MonoBehaviour
     public void SetAtaque(InputAction.CallbackContext value) //Jotapê
     {
         //Se estiver no chão, rola a animação dele atirando no chão
-        if(value.performed && _checkGround && _ativadorMovimento)
+        if(value.performed && _checkGround && _ativadorMovimento && _ativaTiro)
         {
             
-            StartCoroutine(TimeTiroChao());
+            StartCoroutine(TimeTiro());
         }
 
         //Se estiver no chão, rola a animação dele atirando no chão
-        if (value.performed && !_checkGround && _ativadorMovimento)
+        if (value.performed && !_checkGround && _ativadorMovimento && _ativaTiro)
         {
-            StartCoroutine(TimeTiroAr());
+            StartCoroutine(TimeTiro());
         }
 
 
     }
 
-    IEnumerator TimeTiroChao() //Jotapê
+    IEnumerator TimeTiro() //Jotapê
     {
         _anim.SetBool("Ataque", true);
-        yield return new WaitForSeconds(.5f);
+        _ativaTiro = false;
+        yield return new WaitForSeconds(.3f);
+        TiroDoPlayer();
         _anim.SetBool("Ataque", false);
+        _ativaTiro = true;
     }
 
-    IEnumerator TimeTiroAr() //Jotapê
+    void ChecaDirecaoDoTiro()
     {
-        _anim.SetBool("Ataque", true);
-        yield return new WaitForSeconds(.5f);
-        _anim.SetBool("Ataque", false);
-    }
+        if(_move.x > 0.1f)
+        {
+            _direcaoVerdadeira = true;
+        }
+        
+        if(_move.x < -0.1f)
+        {
+            _direcaoVerdadeira = false;
+        }
 
+
+    } //Aqui que faz checar a dire
 
     void Gravidade()  //Jotapê
     {
@@ -283,4 +304,28 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    private void TiroDoPlayer()
+    {
+        
+        GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = _posTiro.transform.position;
+            bullet.SetActive(true);
+
+            //Verifica a Direção do Tiro
+            if (_direcaoVerdadeira == true)
+            {
+                bullet.gameObject.GetComponent<Tiro>().direction = 1;
+            }
+
+            else if(_direcaoVerdadeira == false)
+            {
+                bullet.gameObject.GetComponent<Tiro>().direction = -1;
+            }
+
+        }
+    }
+
 }
