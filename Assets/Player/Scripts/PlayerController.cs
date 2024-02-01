@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     //Posicão do Tiro
     public Transform _posTiro;
     private bool _direcaoVerdadeira;
-    private bool _ativaTiro;
+    public bool _ativaTiro;
 
 
 

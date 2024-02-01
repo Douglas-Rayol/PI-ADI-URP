@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cogula : MonoBehaviour
@@ -23,12 +22,12 @@ public class Cogula : MonoBehaviour
     [SerializeField] bool _stopPlayer;
 
     public int _vidaAtual;
-    public int _vidbMax;
+    public int _vidaMax;
     public Transform _barCheio; //barra verde
     public GameObject _barraVida; //barra principal(pai)
 
     private Vector3 _barScale; //tamanho da barra
-    private float _barPercent; //calcula o percentual da vida do tamanho da barra 
+    private float _barPercent; //calcula o percentual da vida do tamanho da barra
     bool _stop;
 
     // Start is called before the first frame update
@@ -57,10 +56,6 @@ public class Cogula : MonoBehaviour
         {
            Ataque();
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl) && _vidaAtual >= 1)
-        {
-            AplicarDano();
-        }
         Anim();
         BarraDevida();
         
@@ -78,10 +73,11 @@ public class Cogula : MonoBehaviour
     {
         _rb.velocity = new Vector3(0, _rb.velocity.y);
     }
-    void AplicarDano()
+    public void AplicarDano()
     {
         _barraVida.SetActive(true);
         _vidaAtual -= 1;
+        Morte();
     }
 
     void Patrulhamento()
@@ -199,5 +195,13 @@ public class Cogula : MonoBehaviour
         _ataqueOn = true;
         yield return new WaitForSeconds(.5f);
         _ataqueOn = false;
+    }
+
+    void Morte()
+    {
+        if(_vidaAtual <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

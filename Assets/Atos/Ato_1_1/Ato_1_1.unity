@@ -3529,7 +3529,7 @@ Transform:
   m_GameObject: {fileID: 434685777}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -448.8, y: 53.068027, z: -34.331757}
+  m_LocalPosition: {x: -418.50998, y: 53.068027, z: -34.331757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10736,7 +10736,7 @@ MonoBehaviour:
   _isPlayer: 0
   _stopPlayer: 0
   _vidaAtual: 6
-  _vidbMax: 6
+  _vidaMax: 0
   _barCheio: {fileID: 802794758}
   _barraVida: {fileID: 1591448757}
 --- !u!65 &1498218365
@@ -11155,7 +11155,7 @@ Transform:
   m_GameObject: {fileID: 1519864908}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -448.8, y: 53.068027, z: -34.331757}
+  m_LocalPosition: {x: -418.50998, y: 53.068027, z: -34.331757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23497,7 +23497,7 @@ Transform:
   m_GameObject: {fileID: 7105483718655750258}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -460.4, y: 37.1, z: 10}
+  m_LocalPosition: {x: -430.11, y: 37.1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23761,6 +23761,7 @@ MonoBehaviour:
         m_CallState: 2
   _dentroPlataforma: 0
   _posTiro: {fileID: 801942237}
+  _ativaTiro: 0
 --- !u!114 &7624716658207910609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23989,7 +23990,7 @@ MonoBehaviour:
   _isPlayer: 0
   _stopPlayer: 0
   _vidaAtual: 6
-  _vidbMax: 6
+  _vidaMax: 6
   _barCheio: {fileID: 886495411}
   _barraVida: {fileID: 839602423}
 --- !u!65 &8057982233281810770
