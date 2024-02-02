@@ -142,7 +142,6 @@ public class Cogula : MonoBehaviour
         {
             Flip();
         }
-
     }
 
     public void StopOff()

@@ -5522,14 +5522,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837866690}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000029802315, y: -0.0000000075087865, z: 0.00000009377798,
-    w: 1}
-  m_LocalPosition: {x: 0, y: -0.00513, z: -0}
+  m_LocalRotation: {x: 0, y: 0.46174863, z: 0, w: 0.8870109}
+  m_LocalPosition: {x: 0.0025, y: 0.0002, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5200270107333563701}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 55, z: 0}
 --- !u!65 &837866692
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5549,7 +5548,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 10, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &837866693
 MeshRenderer:
@@ -8242,7 +8241,7 @@ Transform:
   m_GameObject: {fileID: 1242441262}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.6, y: -1.62, z: -0.05}
+  m_LocalPosition: {x: 0.07, y: -1.62, z: -0.05}
   m_LocalScale: {x: 1.5000001, y: 1.5, z: 1.5000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -22011,15 +22010,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d05a4131d6b2cf4b989bdd74f883692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToPool: {fileID: 9172389168438244649, guid: 785caea46bab4bb4ab5fa1a111221dc4,
+    type: 3}
+  amountToPool: 5
   pooledObjects:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  objectToPool: {fileID: 9172389168438244649, guid: 785caea46bab4bb4ab5fa1a111221dc4,
-    type: 3}
-  amountToPool: 5
 --- !u!4 &7681984023308178089
 Transform:
   m_ObjectHideFlags: 0
@@ -22191,7 +22190,7 @@ Transform:
   m_GameObject: {fileID: 7248654141832793077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -42.5, y: -9.38, z: 48.56}
+  m_LocalPosition: {x: -42.29, y: -9.38, z: 50}
   m_LocalScale: {x: 1.5000001, y: 1.5, z: 1.5000001}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -22251,8 +22250,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 6, z: 5.5}
-  m_Center: {x: 0, y: 3.3, z: 5.5}
+  m_Size: {x: 4, y: 6, z: 5.5}
+  m_Center: {x: 0, y: 3, z: 4.6}
 --- !u!95 &8057982233281810771
 Animator:
   serializedVersion: 5
