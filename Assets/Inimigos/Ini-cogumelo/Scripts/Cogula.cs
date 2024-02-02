@@ -20,14 +20,7 @@ public class Cogula : MonoBehaviour
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
-
-    public int _vidaAtual;
-    public int _vidaMax;
-    public Transform _barCheio; //barra verde
-    public GameObject _barraVida; //barra principal(pai)
-
-    private Vector3 _barScale; //tamanho da barra
-    private float _barPercent; //calcula o percentual da vida do tamanho da barra
+    [SerializeField] Transform _barraVida;
     bool _stop;
 
     // Start is called before the first frame update
@@ -35,9 +28,6 @@ public class Cogula : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
-        _barScale = _barCheio.localScale;
-        _barPercent = _barScale.x / _vidaAtual;
-        _barraVida.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,9 +46,7 @@ public class Cogula : MonoBehaviour
         {
            Ataque();
         }
-        Anim();
-        BarraDevida();
-        
+        Anim();        
     }
 
     void Anim()
@@ -73,13 +61,7 @@ public class Cogula : MonoBehaviour
     {
         _rb.velocity = new Vector3(0, _rb.velocity.y);
     }
-    public void AplicarDano()
-    {
-        _barraVida.SetActive(true);
-        _vidaAtual -= 1;
-        Morte();
-    }
-
+    
     void Patrulhamento()
     {
         if (_distPos[0] < _distPlayerLimit && _isPlayer == false)
@@ -150,13 +132,6 @@ public class Cogula : MonoBehaviour
         _stop = false;
     }
 
-    void BarraDevida()
-    {
-        _barScale.x = _barPercent * _vidaAtual;
-        _barCheio.localScale = _barScale;
-    }
-
-
     void Flip()
     {
         _isFacingRight = !_isFacingRight;
@@ -195,13 +170,5 @@ public class Cogula : MonoBehaviour
         _ataqueOn = true;
         yield return new WaitForSeconds(.5f);
         _ataqueOn = false;
-    }
-
-    void Morte()
-    {
-        if(_vidaAtual <= 0)
-        {
-            gameObject.SetActive(false);
-        }
     }
 }

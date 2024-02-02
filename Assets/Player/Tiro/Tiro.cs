@@ -41,13 +41,4 @@ public class Tiro : MonoBehaviour
         _rb.velocity = new Vector3(direction * _speed, _rb.velocity.y, _rb.velocity.z);
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Inimigo1") && _ativaTempo == false)
-        {
-            other.gameObject.GetComponent<Cogula>().AplicarDano();
-            _ativaTempo = true;
-            other.gameObject.GetComponent<Collider>().enabled = false;
-        }
-    }
 }
