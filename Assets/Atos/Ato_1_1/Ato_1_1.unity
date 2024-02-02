@@ -3551,12 +3551,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 454382855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20ac1478f6f67f4b9cf20428b88b260, type: 3}
+  m_Script: {fileID: 11500000, guid: 109be014c99c1f541aec126a72c3aeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
   _OnDano:
     m_PersistentCalls:
       m_Calls:
@@ -4168,9 +4165,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _OnDano:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &569158197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5157,9 +5151,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _OnDano:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &787518234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5665,14 +5656,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839602423}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.033333495, y: 1.0799997, z: 1.0666667}
-  m_LocalScale: {x: 0.6666665, y: 0.66666675, z: 0.6666665}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 886495411}
   - {fileID: 2097354447}
-  m_Father: {fileID: 1242441263}
+  m_Father: {fileID: 8057982233281810767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850991535
 GameObject:
@@ -7343,9 +7334,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _OnDano:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1113504346
 GameObject:
   m_ObjectHideFlags: 0
@@ -8257,8 +8245,7 @@ Transform:
   m_LocalPosition: {x: -1.6, y: -1.62, z: -0.05}
   m_LocalScale: {x: 1.5000001, y: 1.5, z: 1.5000001}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 839602424}
+  m_Children: []
   m_Father: {fileID: 8057982233281810767}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1242441264
@@ -8276,8 +8263,8 @@ MonoBehaviour:
   _hpinimigo:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1407044443}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 8057982233281810769}
+        m_TargetAssemblyTypeName: Cogula, Assembly-CSharp
         m_MethodName: AplicarDano
         m_Mode: 1
         m_Arguments:
@@ -8288,7 +8275,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _vidaIniControle: {fileID: 0}
 --- !u!136 &1242441265
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8990,9 +8976,6 @@ MonoBehaviour:
   - {fileID: 634849866}
   - {fileID: 1480826427}
   variavelNada: 0
-  _vidaCogula: 6
-  _barCheio: {fileID: 886495411}
-  _barraVida: {fileID: 839602423}
 --- !u!4 &1407044444
 Transform:
   m_ObjectHideFlags: 0
@@ -13733,9 +13716,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _OnDano:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1840739406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21557,13 +21537,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8057982233281810767}
   - component: {fileID: 8057982233281810773}
-  - component: {fileID: 8057982233281810772}
   - component: {fileID: 8057982233281810771}
   - component: {fileID: 8057982233281810770}
   - component: {fileID: 8057982233281810769}
   m_Layer: 0
   m_Name: Cogula1
-  m_TagString: Inimigo1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21987,6 +21966,8 @@ MonoBehaviour:
   _checkGround: 0
   _groundCount: 0
   _plataforma: 0
+  _posTiro: {fileID: 801942237}
+  _ativaTiro: 0
   _OnEnter:
     m_PersistentCalls:
       m_Calls:
@@ -22018,8 +21999,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _dentroPlataforma: 0
-  _posTiro: {fileID: 801942237}
-  _ativaTiro: 0
 --- !u!114 &7624716658207910609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22036,9 +22015,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   objectToPool: {fileID: 9172389168438244649, guid: 785caea46bab4bb4ab5fa1a111221dc4,
     type: 3}
-  amountToPool: 3
+  amountToPool: 5
 --- !u!4 &7681984023308178089
 Transform:
   m_ObjectHideFlags: 0
@@ -22216,6 +22197,7 @@ Transform:
   m_Children:
   - {fileID: 1397067473605362129}
   - {fileID: 2530626109326403985}
+  - {fileID: 839602424}
   - {fileID: 1242441263}
   m_Father: {fileID: 1267425843}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -22231,6 +22213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2b06c9d9c769b4d93e8f6f614d462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vida: 6
+  _barCheio: {fileID: 886495411}
+  _barraVida: {fileID: 839602423}
   _player: {fileID: 7624716658207910600}
   _alvo: {fileID: 863466701}
   _pos:
@@ -22247,7 +22232,6 @@ MonoBehaviour:
   _moveVelocidade: 0
   _isPlayer: 0
   _stopPlayer: 0
-  _barraVida: {fileID: 839602424}
 --- !u!65 &8057982233281810770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22290,29 +22274,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &8057982233281810772
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7248654141832793077}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 2.5
-  m_Height: 7.7
-  m_Direction: 1
-  m_Center: {x: 0, y: 3.66, z: 0}
 --- !u!54 &8057982233281810773
 Rigidbody:
   m_ObjectHideFlags: 0

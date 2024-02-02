@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Patrulha : MonoBehaviour
 {
+
     Rigidbody _rb;
     Animator _anim;
     bool _isFacingRight;
@@ -99,4 +100,5 @@ public class Patrulha : MonoBehaviour
         theScale.y *= -1;
         transform.localEulerAngles = theScale;
     }
+
 }

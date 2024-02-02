@@ -39,15 +39,15 @@ public class PlayerController : MonoBehaviour
     int _rumJump = Animator.StringToHash("RunJump");
     [SerializeField] bool _plataforma;
 
-    [Header("Sistema de Orientação de Objeto")]
-    [SerializeField] UnityEvent _OnEnter;
-    [SerializeField] UnityEvent _OnExit;
-    [SerializeField] private bool _dentroPlataforma;
-
     //Posicão do Tiro
     public Transform _posTiro;
     private bool _direcaoVerdadeira;
     public bool _ativaTiro;
+
+    [Header("Sistema de Orientação de Objeto")]
+    [SerializeField] UnityEvent _OnEnter;
+    [SerializeField] UnityEvent _OnExit;
+    [SerializeField] private bool _dentroPlataforma;
 
 
 
