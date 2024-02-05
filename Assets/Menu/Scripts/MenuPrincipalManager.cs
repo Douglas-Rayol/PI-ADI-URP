@@ -53,11 +53,11 @@ public class MenuPrincipalManager : MonoBehaviour
 
     IEnumerator TempoScale() //Jotapê
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         for (int i = 0; i < _butaoMenu.Count; i++)
         {
             _butaoMenu[i].DOScale(new Vector3(1.4075f, 1f, 1f), 1f);
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.25f);
         }
     }
 

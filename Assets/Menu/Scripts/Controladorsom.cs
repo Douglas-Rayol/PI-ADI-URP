@@ -8,8 +8,8 @@ public class Controladorsom : MonoBehaviour
     private bool estadoSom = true;
     [SerializeField] private AudioSource fundoMusical;
 
-    [SerializeField] private Sprite somLigadoSprite;
-    [SerializeField] private Sprite somDesligadoSprite;
+    [SerializeField] private Sprite somLigado;
+    [SerializeField] private Sprite somDesligado;
 
     [SerializeField] private Sprite muteImage;
 
@@ -20,11 +20,11 @@ public class Controladorsom : MonoBehaviour
 
         if (estadoSom)
         {
-            muteImage = somLigadoSprite;
+            muteImage = somLigado;
         }
         else
         {
-            muteImage = somDesligadoSprite;
+            muteImage = somDesligado;
         }
     }
 
