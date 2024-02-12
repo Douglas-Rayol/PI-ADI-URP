@@ -258,8 +258,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-
-            
             _groundCount++;
             _checkGround = true;
             //Jotapê
@@ -273,7 +271,10 @@ public class PlayerController : MonoBehaviour
             _checkGround = true;
             //Jotapê
             _anim.SetBool("Jump", false);
-
+        }
+        if (other.gameObject.CompareTag("Item"))
+        {
+            other.GetComponent<Item>().DestroyItem();
         }
     }
 

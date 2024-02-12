@@ -8,6 +8,7 @@ TagManager:
   - Plataforma
   - Inimigo1
   - AtaquePlayer
+  - Item
   layers:
   - Default
   - TransparentFX
