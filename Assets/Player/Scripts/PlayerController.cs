@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] UnityEvent _OnExit;
     [SerializeField] private bool _dentroPlataforma;
 
+    [SerializeField] private GameObject transicaoGameOver;
+    [SerializeField] private GameObject painelGameOver;
+
 
 
     // Start is called before the first frame update
@@ -101,6 +104,7 @@ public class PlayerController : MonoBehaviour
             _ativadorMovimento = false;
             _anim.SetBool("Morte", true);
             _vida = 0;
+           // GameOver();
         }
 
         if (_checkGround)
@@ -234,6 +238,10 @@ public class PlayerController : MonoBehaviour
     {
 
         StartCoroutine(VidaTime());
+      if ( _vida == 1)
+        {
+            GameOver();
+        }
     }
 
     IEnumerator VidaTime()
@@ -250,6 +258,8 @@ public class PlayerController : MonoBehaviour
                 _dano = false;
             }
             _dano = true;
+
+
         }
 
     }
@@ -327,6 +337,23 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+    }
+    private void GameOver()
+    {
+        //Time.timeScale = 0;
+        Debug.Log("player");
+
+        transicaoGameOver.transform.position = transform.position;
+        transicaoGameOver.SetActive(true);
+
+        StartCoroutine(ExibirPainelGameOver());
+    }
+
+    private IEnumerator ExibirPainelGameOver()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        painelGameOver.SetActive(true);
+
     }
 
 }

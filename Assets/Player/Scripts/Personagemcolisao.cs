@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Personagemcolisao : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private Sprite spritePersonagemGameOver;
+    
     [SerializeField] private GameObject transicaoGameOver;
     [SerializeField] private GameObject painelGameOver;
 
@@ -14,7 +15,9 @@ public class Personagemcolisao : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   
+
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Inimigo" || collision.gameObject.tag == "limite")
         {
@@ -23,9 +26,9 @@ public class Personagemcolisao : MonoBehaviour
     }
     private void GameOver()
     {
-        Time.timeScale = 0;
-
-        spriteRenderer.sprite = spritePersonagemGameOver;
+        //Time.timeScale = 0;
+        Debug.Log("player");
+       
         transicaoGameOver.transform.position = transform.position;
         transicaoGameOver.SetActive(true);
 
