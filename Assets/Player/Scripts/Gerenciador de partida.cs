@@ -29,4 +29,8 @@ public class Gerenciadordepartida : MonoBehaviour
     {
         SceneManager.LoadScene("Ato_1_1");
     }
+    public void MenuPrincipal()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
