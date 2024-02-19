@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject transicaoGameOver;
     [SerializeField] private GameObject painelGameOver;
-
+   
 
 
     // Start is called before the first frame update
@@ -343,11 +344,12 @@ public class PlayerController : MonoBehaviour
         //Time.timeScale = 0;
         Debug.Log("player");
 
-        transicaoGameOver.transform.position = transform.position;
-        transicaoGameOver.SetActive(true);
+        //transicaoGameOver.transform.position = transform.position;
+       // transicaoGameOver.SetActive(true);
 
         StartCoroutine(ExibirPainelGameOver());
     }
+   
 
     private IEnumerator ExibirPainelGameOver()
     {
