@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _jump;
     [SerializeField] float _gravidade;
     [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] Transform _TelaGameOver;
     private float coyoteTimeCounter;
 
     public bool _ativadorMovimento;
@@ -341,13 +342,10 @@ public class PlayerController : MonoBehaviour
     }
     private void GameOver()
     {
-        //Time.timeScale = 0;
-        Debug.Log("player");
-
         //transicaoGameOver.transform.position = transform.position;
        // transicaoGameOver.SetActive(true);
-
         StartCoroutine(ExibirPainelGameOver());
+        _TelaGameOver.DOScale(1, 0.5f);
     }
    
 
