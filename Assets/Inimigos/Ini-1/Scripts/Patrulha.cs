@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Patrulha : MonoBehaviour
 {
@@ -19,14 +20,29 @@ public class Patrulha : MonoBehaviour
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
-    // Start is called before the first frame update
+    [SerializeField] GameObject _paticula;
+    bool _hit;
+    bool _stop;
+
+    [Header("Sistema de vida Cogula")]
+    [SerializeField] public int _vida;
+    //Barra de vida Cogula
+    public Transform _barCheio; //barra verde
+    public GameObject _barraVida; //barra principal(pai)
+    private Vector3 _barScale; //tamanho da barra
+    private float _barPercent; //calcula o percentual da vida do tamanho da barra
+    
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+
+        // barra de vida bacon
+        _barScale = _barCheio.localScale;
+        _barPercent = _barScale.x / _vida;
+        _barraVida.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         //_distPlayer = Vector3.Distance(transform.position, _player.position);
@@ -34,6 +50,7 @@ public class Patrulha : MonoBehaviour
         _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
         Patrulhamento();
         MoverparaAlvo();
+        BarraDevida();
     }
 
     void Patrulhamento()
@@ -99,6 +116,48 @@ public class Patrulha : MonoBehaviour
         Vector3 theScale = transform.localEulerAngles;
         theScale.y *= -1;
         transform.localEulerAngles = theScale;
+        _barraVida.transform.localScale = new Vector3(_barraVida.transform.localScale.x, _barraVida.transform.localScale.y, _barraVida.transform.localScale.z * -1);
+    }
+    void BarraDevida()
+    {
+        _barScale.x = _barPercent * _vida;
+        _barCheio.localScale = _barScale;
     }
 
+    public void AplicarDano()
+    {
+        _barraVida.SetActive(true);
+        _vida -= 1;
+
+        if (_vida <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("AtaquePlayer"))
+        {
+            _hit = true;
+            _stop = true;
+        }
+    }
+
+    public void DestroyItem()
+    {
+        StartCoroutine(DestroTime());
+    }
+
+    IEnumerator DestroTime()
+    {
+        Particula.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        gameObject.SetActive(false);
+    }
+    public virtual GameObject Particula
+    {
+        get { return _paticula; }
+        set { _paticula = value; }
+    }
 }

@@ -31,6 +31,7 @@ public class Cogula : MonoBehaviour
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
+    [SerializeField] GameObject _paticula;
     bool _stop;
 
     // Start is called before the first frame update
@@ -185,7 +186,7 @@ public class Cogula : MonoBehaviour
     IEnumerator TempoDeAtaque()
     {
         _ataqueOn = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         _ataqueOn = false;
     }
 
@@ -198,7 +199,6 @@ public class Cogula : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
     }
 
     void BarraDevida()
@@ -206,5 +206,20 @@ public class Cogula : MonoBehaviour
         _barScale.x = _barPercent * _vida;
         _barCheio.localScale = _barScale;
     }
+    public void DestroyItem()
+    {
+        StartCoroutine(DestroTime());
+    }
 
+    IEnumerator DestroTime()
+    {
+        Particula.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        gameObject.SetActive(false);
+    }
+    public virtual GameObject Particula
+    {
+        get { return _paticula; }
+        set { _paticula = value; }
+    }
 }

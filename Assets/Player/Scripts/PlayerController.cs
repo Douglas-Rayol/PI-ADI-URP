@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
     {
 
         StartCoroutine(VidaTime());
-      if ( _vida == 1)
+      if ( _vida == 0)
         {
             GameOver();
         }
