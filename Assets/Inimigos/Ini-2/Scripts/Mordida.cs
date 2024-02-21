@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Mordida : MonoBehaviour
@@ -14,6 +15,15 @@ public class Mordida : MonoBehaviour
         StartCoroutine(TempoMordida());
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(TempoMordida());
+        }
+    }
+
     IEnumerator TempoMordida()
     {
         _player.GetComponent<PlayerController>()._ativadorMovimento = false;
@@ -25,7 +35,6 @@ public class Mordida : MonoBehaviour
         _animInimigo.SetBool("aberta", true);
         _animInimigo.SetBool("fechada", false);
         _player.GetComponent<PlayerController>()._ativadorMovimento = true;
-
     }
 
 

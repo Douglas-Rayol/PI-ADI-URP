@@ -9,6 +9,7 @@ TagManager:
   - Inimigo1
   - AtaquePlayer
   - Item
+  - AtaqueEnemy
   layers:
   - Default
   - TransparentFX

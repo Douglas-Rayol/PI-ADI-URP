@@ -11,7 +11,7 @@ public class VidaEvent : MonoBehaviour
     {
         if (other.gameObject.CompareTag("AtaquePlayer"))
         {
-            _hpinimigo.Invoke();
+           // _hpinimigo.Invoke();
         }
     }
 }

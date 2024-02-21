@@ -12,6 +12,8 @@ public class Cogula : MonoBehaviour
     private Vector3 _barScale; //tamanho da barra
     private float _barPercent; //calcula o percentual da vida do tamanho da barra
 
+    bool checkHit;
+
     
     Rigidbody _rb;
     Animator _anim;
@@ -33,6 +35,8 @@ public class Cogula : MonoBehaviour
     [SerializeField] bool _stopPlayer;
     [SerializeField] GameObject _paticula;
     bool _stop;
+
+    VidaEvent vidaEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -147,7 +151,7 @@ public class Cogula : MonoBehaviour
 
     public void StopOff()
     {
-        _stop = false;
+        _stop = true;
     }
 
     void Flip()
@@ -160,34 +164,31 @@ public class Cogula : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name == "Player")
+        if (other.gameObject.CompareTag("AtaquePlayer") && checkHit == false)
         {
-            StartCoroutine(TempoDeAtaque());
-            
+            checkHit = true;
+            Invoke("HitTime", 1);
+            AplicarDano();
         }
-        if (collision.gameObject.CompareTag("AtaquePlayer"))
+
+        if (other.gameObject.CompareTag("Player"))
         {
-            _hit = true;
+            _ataqueOn = true;
             _stop = true;
+            Invoke("StopTime", 1);
         }
+
+    }
+    void HitTime()
+    {
+        checkHit = false;
     }
     
-    private void OnTriggerExit(Collider collision)
+    void StopTime()
     {
-        if (collision.gameObject.CompareTag("AtaquePlayer"))
-        {
-            _hit = false;
-            _stop = false;
-            Invoke("StopOff", 0.8f);
-        }
-    }
-
-    IEnumerator TempoDeAtaque()
-    {
-        _ataqueOn = true;
-        yield return new WaitForSeconds(1f);
+        _stop = false;
         _ataqueOn = false;
     }
 
@@ -196,6 +197,7 @@ public class Cogula : MonoBehaviour
         _barraVida.SetActive(true);
         _vida -= 1;
 
+      
         if (_vida <= 0)
         {
             gameObject.SetActive(false);

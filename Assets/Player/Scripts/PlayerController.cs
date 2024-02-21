@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _g2;
     [SerializeField] bool _checkGround;
     [SerializeField] int _groundCount;
+    bool checkHitIni;
+
 
     bool _rotacao;
     private float _animacao;
@@ -63,7 +65,6 @@ public class PlayerController : MonoBehaviour
         _ativaTiro = true;
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
-        _dano = true;
         _dentroPlataforma = false;
     }
 
@@ -248,21 +249,19 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator VidaTime()
     {
-        if(_dano == true)
+        _vida -= 1;
+
+        for (int i = 0; i < 3; i++)
         {
-            _vida -= 1;
-            for (int i = 0; i < 3; i++)
-            {
-                _PlayerHit.SetActive(false);
-                yield return new WaitForSeconds(.3f);
-                _PlayerHit.SetActive(true);
-                yield return new WaitForSeconds(.5f);
-                _dano = false;
-            }
-            _dano = true;
-
-
+            _PlayerHit.SetActive(false);
+            yield return new WaitForSeconds(.3f);
+            _PlayerHit.SetActive(true);
+            yield return new WaitForSeconds(.5f);
+            
+         
         }
+        _dano = false;
+
 
     }
 
@@ -287,6 +286,13 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Item"))
         {
             other.GetComponent<Item>().DestroyItem();
+        }
+        if (other.gameObject.CompareTag("AtaqueEnemy") && _dano == false)
+        {
+           _dano = true;
+           VidaPlayer();
+
+
         }
     }
 

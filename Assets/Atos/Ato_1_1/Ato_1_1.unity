@@ -2399,7 +2399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &454382856
 Transform:
   m_ObjectHideFlags: 0
@@ -3718,7 +3718,7 @@ GameObject:
   - component: {fileID: 837866695}
   m_Layer: 0
   m_Name: Dano
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5609,87 +5609,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1104120051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1104120052}
-  - component: {fileID: 1104120053}
-  - component: {fileID: 1104120054}
-  m_Layer: 0
-  m_Name: gatilho
-  m_TagString: Inimigo1
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1104120052
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104120051}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3566018469211490389}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1104120053
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104120051}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.32, y: 0.09, z: 0.6}
-  m_Center: {x: -0.24, y: 0.06, z: 0}
---- !u!114 &1104120054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104120051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20ac1478f6f67f4b9cf20428b88b260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _OnEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4194780122582422258}
-        m_TargetAssemblyTypeName: Mordida, Assembly-CSharp
-        m_MethodName: PlantaAnimacao
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1122329898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6830350685417341589, guid: b03c1483f9b5e954a87fb9536bd47f6b,
@@ -6285,7 +6204,6 @@ GameObject:
   - component: {fileID: 1242441267}
   - component: {fileID: 1242441266}
   - component: {fileID: 1242441265}
-  - component: {fileID: 1242441264}
   m_Layer: 0
   m_Name: Vida
   m_TagString: Untagged
@@ -6308,33 +6226,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8057982233281810767}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1242441264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242441262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 145dd3ddc37fee947a4bbe02233a6f4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hpinimigo:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8057982233281810769}
-        m_TargetAssemblyTypeName: Cogula, Assembly-CSharp
-        m_MethodName: AplicarDano
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!136 &1242441265
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14827,7 +14718,7 @@ GameObject:
   - component: {fileID: 5279129446313137024}
   m_Layer: 0
   m_Name: Bacon
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15092,7 +14983,6 @@ Transform:
   - {fileID: 8201077319420148265}
   - {fileID: 174208132}
   - {fileID: 1774047523}
-  - {fileID: 1104120052}
   m_Father: {fileID: 1725055631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3613440689117493846
@@ -15286,7 +15176,7 @@ GameObject:
   - component: {fileID: 4412308280048185440}
   m_Layer: 0
   m_Name: Javali
-  m_TagString: Inimigo1
+  m_TagString: AtaquePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29740,9 +29630,11 @@ GameObject:
   - component: {fileID: 3566018469211490389}
   - component: {fileID: 4194780122582422256}
   - component: {fileID: 4194780122582422258}
+  - component: {fileID: 4194780122582422259}
+  - component: {fileID: 4194780122582422260}
   m_Layer: 0
   m_Name: planta-chao1
-  m_TagString: Untagged
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29784,6 +29676,54 @@ MonoBehaviour:
   _position: {fileID: 174208132}
   _position2: {fileID: 1774047523}
   _player: {fileID: 7624716658207910600}
+--- !u!54 &4194780122582422259
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194780122582422255}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &4194780122582422260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194780122582422255}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.49, y: 0.4, z: 1.84}
+  m_Center: {x: -0.28, y: 0, z: 0}
 --- !u!4 &4207429846634502632
 Transform:
   m_ObjectHideFlags: 0
@@ -51424,8 +51364,8 @@ GameObject:
   - component: {fileID: 8057982233281810767}
   - component: {fileID: 8057982233281810773}
   - component: {fileID: 8057982233281810771}
-  - component: {fileID: 8057982233281810770}
   - component: {fileID: 8057982233281810769}
+  - component: {fileID: 8057982233281810774}
   m_Layer: 0
   m_Name: Cogula1
   m_TagString: Untagged
@@ -51836,7 +51776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vida: 3
-  _dano: 1
+  _dano: 0
   _PlayerHit: {fileID: 38623186751407060}
   _rb: {fileID: 7624716658207910605}
   _anim: {fileID: 7624716658207910601}
@@ -52166,27 +52106,6 @@ MonoBehaviour:
   _isPlayer: 0
   _stopPlayer: 0
   _paticula: {fileID: 4037280674803363233}
---- !u!65 &8057982233281810770
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7248654141832793077}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4, y: 6, z: 2}
-  m_Center: {x: 0, y: 3, z: 4}
 --- !u!95 &8057982233281810771
 Animator:
   serializedVersion: 5
@@ -52235,6 +52154,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
+--- !u!65 &8057982233281810774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7248654141832793077}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.84, y: 8.91, z: 0.64}
+  m_Center: {x: 0.14, y: 3.95, z: 4.04}
 --- !u!4 &8074348247066333078
 Transform:
   m_ObjectHideFlags: 0
