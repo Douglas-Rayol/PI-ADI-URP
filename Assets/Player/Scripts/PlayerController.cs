@@ -254,7 +254,7 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 _PlayerHit.SetActive(false);
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.3f);
                 _PlayerHit.SetActive(true);
                 yield return new WaitForSeconds(.5f);
                 _dano = false;
@@ -346,6 +346,7 @@ public class PlayerController : MonoBehaviour
        // transicaoGameOver.SetActive(true);
         StartCoroutine(ExibirPainelGameOver());
         _TelaGameOver.DOScale(1, 0.5f);
+        
     }
    
 
@@ -353,7 +354,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         painelGameOver.SetActive(true);
-
+        DOTween.KillAll();
     }
 
 }

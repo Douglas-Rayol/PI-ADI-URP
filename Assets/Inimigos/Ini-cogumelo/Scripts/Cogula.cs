@@ -179,6 +179,7 @@ public class Cogula : MonoBehaviour
         if (collision.gameObject.CompareTag("AtaquePlayer"))
         {
             _hit = false;
+            _stop = false;
             Invoke("StopOff", 0.8f);
         }
     }
@@ -186,7 +187,7 @@ public class Cogula : MonoBehaviour
     IEnumerator TempoDeAtaque()
     {
         _ataqueOn = true;
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(1f);
         _ataqueOn = false;
     }
 
@@ -205,21 +206,5 @@ public class Cogula : MonoBehaviour
     {
         _barScale.x = _barPercent * _vida;
         _barCheio.localScale = _barScale;
-    }
-    public void DestroyItem()
-    {
-        StartCoroutine(DestroTime());
-    }
-
-    IEnumerator DestroTime()
-    {
-        Particula.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
-        gameObject.SetActive(false);
-    }
-    public virtual GameObject Particula
-    {
-        get { return _paticula; }
-        set { _paticula = value; }
     }
 }
