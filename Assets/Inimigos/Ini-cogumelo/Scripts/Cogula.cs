@@ -12,15 +12,6 @@ public class Cogula : MonoBehaviour
     private Vector3 _barScale; //tamanho da barra
     private float _barPercent; //calcula o percentual da vida do tamanho da barra
 
-    bool checkHit;
-
-    
-    Rigidbody _rb;
-    Animator _anim;
-    bool _isFacingRight;
-    bool _ataqueOn;
-    float _distPlayer;
-    bool _hit;
 
     [Header("Sistema de IA do Inimigo")]
     [SerializeField] Transform _player;
@@ -34,6 +25,14 @@ public class Cogula : MonoBehaviour
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
     [SerializeField] GameObject _paticula;
+    
+    bool _checkHit;
+    Rigidbody _rb;
+    Animator _anim;
+    bool _isFacingRight;
+    bool _ataqueOn;
+    float _distPlayer;
+    bool _hit;
     bool _stop;
 
     VidaEvent vidaEvent;
@@ -166,9 +165,9 @@ public class Cogula : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("AtaquePlayer") && checkHit == false)
+        if (other.gameObject.CompareTag("AtaquePlayer") && _checkHit == false)
         {
-            checkHit = true;
+            _checkHit = true;
             Invoke("HitTime", 1);
             AplicarDano();
         }
@@ -183,12 +182,12 @@ public class Cogula : MonoBehaviour
     }
     void HitTime()
     {
-        checkHit = false;
+        _checkHit = false;
     }
     
     void StopTime()
     {
-        _stop = false;
+        _stop = true;
         _ataqueOn = false;
     }
 
