@@ -23,10 +23,11 @@ public class Patrulha : MonoBehaviour
     [SerializeField] GameObject _paticula;
     bool _hit;
     bool _stop;
+    [SerializeField]GameObject _bacon, _porco;
 
     [Header("Sistema de vida Cogula")]
     [SerializeField] public int _vida;
-    //Barra de vida Cogula
+    //Barra de vida Bacon
     public Transform _barCheio; //barra verde
     public GameObject _barraVida; //barra principal(pai)
     private Vector3 _barScale; //tamanho da barra
@@ -131,7 +132,9 @@ public class Patrulha : MonoBehaviour
 
         if (_vida <= 0)
         {
-            gameObject.SetActive(false);
+            _bacon.gameObject.SetActive(false);
+            _porco.gameObject.SetActive(true);
+            _barraVida.SetActive(false);
         }
     }
 

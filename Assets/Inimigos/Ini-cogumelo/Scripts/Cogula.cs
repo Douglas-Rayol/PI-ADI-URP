@@ -24,7 +24,8 @@ public class Cogula : MonoBehaviour
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
-    [SerializeField] GameObject _paticula;
+    [SerializeField] GameObject _paticula, _cogula, _cogulinha;
+    
     
     bool _checkHit;
     Rigidbody _rb;
@@ -199,7 +200,9 @@ public class Cogula : MonoBehaviour
       
         if (_vida <= 0)
         {
-            gameObject.SetActive(false);
+            _cogula.gameObject.SetActive(false);
+            _cogulinha.gameObject.SetActive(true);
+            _barraVida.SetActive(false);
         }
     }
 
