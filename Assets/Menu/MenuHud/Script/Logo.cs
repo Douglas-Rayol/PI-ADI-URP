@@ -27,7 +27,7 @@ public class Logo : MonoBehaviour
     IEnumerator TempoMenu()
     {
         yield return new WaitForSeconds(.5f);
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("Menu");
     }
 
 

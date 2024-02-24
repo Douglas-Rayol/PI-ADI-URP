@@ -203,6 +203,7 @@ public class Cogula : MonoBehaviour
             _cogula.gameObject.SetActive(false);
             _cogulinha.gameObject.SetActive(true);
             _barraVida.SetActive(false);
+            _vida = 0;
         }
     }
 

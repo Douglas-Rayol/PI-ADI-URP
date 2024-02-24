@@ -3806,7 +3806,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 3.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &839602423
 GameObject:
@@ -4072,7 +4072,7 @@ Transform:
   m_GameObject: {fileID: 863466700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -78.70001, y: -8.156864, z: 48.587875}
+  m_LocalPosition: {x: -19.1, y: -8.156864, z: 48.587875}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9006,7 +9006,7 @@ Transform:
   m_GameObject: {fileID: 1718825334}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.899994, y: -8.156864, z: 48.587875}
+  m_LocalPosition: {x: -78.8, y: -8.156864, z: 48.587875}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15740,8 +15740,6 @@ MonoBehaviour:
   _distPosLimit: 2
   _distPlayerLimit: 8
   _moveVelocidade: 25
-  _isPlayer: 0
-  _stopPlayer: 0
   _paticula: {fileID: 0}
   _bacon: {fileID: 4349283951565997532}
   _porco: {fileID: 7804442008350659356}
@@ -31278,8 +31276,6 @@ MonoBehaviour:
   _distPosLimit: 2
   _distPlayerLimit: 8
   _moveVelocidade: 25
-  _isPlayer: 0
-  _stopPlayer: 0
   _paticula: {fileID: 0}
   _bacon: {fileID: 0}
   _porco: {fileID: 0}
@@ -54567,7 +54563,7 @@ Transform:
   m_GameObject: {fileID: 7248654141832793077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -42.29, y: -9.38, z: 50}
+  m_LocalPosition: {x: -42.29, y: -9.22, z: 50}
   m_LocalScale: {x: 1.5000001, y: 1.5, z: 1.5000001}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -54590,7 +54586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2b06c9d9c769b4d93e8f6f614d462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vida: 1
+  _vida: 6
   _barCheio: {fileID: 886495411}
   _barraVida: {fileID: 839602423}
   _player: {fileID: 7624716658207910600}
@@ -54603,9 +54599,9 @@ MonoBehaviour:
   - 0
   _velocidade:
   - 10
-  - 6
-  _distPosLimit: 3
-  _distPlayerLimit: 6
+  - 15
+  _distPosLimit: 2
+  _distPlayerLimit: 8
   _moveVelocidade: 0
   _isPlayer: 0
   _stopPlayer: 0
@@ -54679,8 +54675,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6, y: 6, z: 2}
-  m_Center: {x: 0, y: 3, z: 4}
+  m_Size: {x: 4, y: 6, z: 2}
+  m_Center: {x: 0, y: 4, z: 5}
 --- !u!4 &8074348247066333078
 Transform:
   m_ObjectHideFlags: 0

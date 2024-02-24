@@ -9,6 +9,8 @@ public class Patrulha : MonoBehaviour
     Rigidbody _rb;
     Animator _anim;
     bool _isFacingRight;
+    bool _isPlayer;
+    private bool _hit;
     float _distPlayer;
     [SerializeField] Transform _player;
     [SerializeField] Transform _alvo;
@@ -18,11 +20,7 @@ public class Patrulha : MonoBehaviour
     [SerializeField] float _distPosLimit;
     [SerializeField] float _distPlayerLimit;
     [SerializeField] float _moveVelocidade;
-    [SerializeField] bool _isPlayer;
-    [SerializeField] bool _stopPlayer;
     [SerializeField] GameObject _paticula;
-    bool _hit;
-    bool _stop;
     [SerializeField]GameObject _bacon, _porco;
 
     [Header("Sistema de vida Cogula")]
@@ -46,7 +44,6 @@ public class Patrulha : MonoBehaviour
 
     void Update()
     {
-        //_distPlayer = Vector3.Distance(transform.position, _player.position);
         _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
         _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
         Patrulhamento();
@@ -59,33 +56,10 @@ public class Patrulha : MonoBehaviour
         if (_distPos[0] < _distPlayerLimit && _isPlayer == false)
         {
             _alvo = _pos[1];
-            _stopPlayer = true;
         }
         if (_distPos[1] < _distPlayerLimit && _isPlayer == false)
         {
             _alvo = _pos[0];
-            _stopPlayer = true;
-        }
-    }
-
-    void SeguirPlayer()
-    {
-        if (_distPlayer < _distPlayerLimit)
-        {
-            _isPlayer = true;
-            _alvo = _player;
-            _stopPlayer = false;
-            _moveVelocidade = _velocidade[1];
-        }
-        else
-        {
-            _isPlayer = false;
-            if (_stopPlayer == false)
-            {
-                _alvo = _pos[0];
-                _moveVelocidade = _velocidade[0];
-                _stopPlayer = true;
-            }
         }
     }
 
@@ -108,7 +82,6 @@ public class Patrulha : MonoBehaviour
         {
             Flip();
         }
-
     }
 
     void Flip()
@@ -135,6 +108,7 @@ public class Patrulha : MonoBehaviour
             _bacon.gameObject.SetActive(false);
             _porco.gameObject.SetActive(true);
             _barraVida.SetActive(false);
+            _vida = 0;
         }
     }
 
@@ -143,7 +117,6 @@ public class Patrulha : MonoBehaviour
         if (collision.gameObject.CompareTag("AtaquePlayer"))
         {
             _hit = true;
-            _stop = true;
         }
     }
 
