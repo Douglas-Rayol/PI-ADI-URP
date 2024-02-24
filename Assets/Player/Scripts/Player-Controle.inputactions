@@ -6,7 +6,7 @@
             "id": "59b7fd9f-b48b-40c1-be03-fc9d04c150f3",
             "actions": [
                 {
-                    "name": "Teclado-WASD",
+                    "name": "WASD",
                     "type": "Value",
                     "id": "b6f50f10-da81-4755-81ac-67321c246bba",
                     "expectedControlType": "Vector3",
@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Teclado-SETAS",
+                    "name": "SETAS",
                     "type": "Value",
                     "id": "49632f99-9775-4eea-a466-391c18380ef8",
                     "expectedControlType": "Vector3",
@@ -53,13 +53,13 @@
             ],
             "bindings": [
                 {
-                    "name": "3D Vector",
+                    "name": "Teclado",
                     "id": "fbc46146-f909-45e8-b2c9-697712f3d3bb",
                     "path": "3DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-WASD",
+                    "action": "WASD",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -70,7 +70,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-WASD",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -81,7 +81,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-WASD",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -92,7 +92,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-WASD",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -103,18 +103,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-WASD",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "3D Vector",
+                    "name": "Teclado",
                     "id": "62c7ef4d-0b75-4a16-8852-74ad9276bff7",
                     "path": "3DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-SETAS",
+                    "action": "SETAS",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -125,7 +125,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-SETAS",
+                    "action": "SETAS",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -136,7 +136,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-SETAS",
+                    "action": "SETAS",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -147,7 +147,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-SETAS",
+                    "action": "SETAS",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -158,12 +158,12 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teclado-SETAS",
+                    "action": "SETAS",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "3D Vector",
+                    "name": "Xbox",
                     "id": "64ac3c85-9cc2-4dcf-aa82-2fe566a492f0",
                     "path": "3DVector",
                     "interactions": "",
@@ -176,7 +176,7 @@
                 {
                     "name": "up",
                     "id": "44bf8020-3b33-4d99-9c21-db536ddfc3c3",
-                    "path": "<Gamepad>/leftStick/up",
+                    "path": "<XInputController>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -187,7 +187,7 @@
                 {
                     "name": "down",
                     "id": "ae964401-bd21-4b69-91d2-d88f03816ad5",
-                    "path": "<Gamepad>/leftStick/down",
+                    "path": "<XInputController>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -198,7 +198,7 @@
                 {
                     "name": "left",
                     "id": "2c1684f8-1d82-4d00-99c0-6891408220f2",
-                    "path": "<Gamepad>/leftStick/left",
+                    "path": "<XInputController>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -209,7 +209,7 @@
                 {
                     "name": "right",
                     "id": "8425fbc7-3c4c-419e-a080-08d3e91f48e7",
-                    "path": "<Gamepad>/leftStick/right",
+                    "path": "<XInputController>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -231,7 +231,7 @@
                 {
                     "name": "",
                     "id": "167725d5-b269-48b9-b731-5987d70f6be7",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -242,7 +242,18 @@
                 {
                     "name": "",
                     "id": "5ae19d2c-71ba-4bd6-aacc-8f19a4129805",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ataque",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb0f6cfb-bbff-4e4d-bc6d-f8bfb23a4ca4",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
