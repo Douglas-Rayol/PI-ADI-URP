@@ -169,7 +169,7 @@ public class Cogula : MonoBehaviour
         if (other.gameObject.CompareTag("AtaquePlayer") && _checkHit == false)
         {
             _checkHit = true;
-            Invoke("HitTime", 1);
+            Invoke("HitTime", .35f);
             AplicarDano();
         }
 
@@ -177,7 +177,7 @@ public class Cogula : MonoBehaviour
         {
             _ataqueOn = true;
             _stop = true;
-            Invoke("StopTime", 1);
+            Invoke("StopTime", 1f);
         }
 
     }
@@ -188,7 +188,7 @@ public class Cogula : MonoBehaviour
     
     void StopTime()
     {
-        _stop = true;
+        _stop = false;
         _ataqueOn = false;
     }
 

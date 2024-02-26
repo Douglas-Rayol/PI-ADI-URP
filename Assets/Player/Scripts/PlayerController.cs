@@ -21,9 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] float _jump;
     [SerializeField] float _gravidade;
-    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float coyoteTime = 0f;
     [SerializeField] Transform _TelaGameOver;
-    private float coyoteTimeCounter;
 
     public bool _ativadorMovimento;
 
@@ -55,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject transicaoGameOver;
     [SerializeField] private GameObject painelGameOver;
+    [SerializeField] int _vjunp;
    
 
 
@@ -112,12 +112,12 @@ public class PlayerController : MonoBehaviour
 
         if (_checkGround)
         {
-            coyoteTimeCounter = coyoteTime;
+           
         }
         else
         {
             Verificacao();
-            coyoteTimeCounter -= Time.fixedDeltaTime;
+           // coyoteTime += Time.deltaTime;
         }
 
 
@@ -169,10 +169,16 @@ public class PlayerController : MonoBehaviour
     public void SetJump(InputAction.CallbackContext value)
     {
 
-        if (value.performed && (_checkGround || _plataforma || coyoteTimeCounter > 0) && !_dentroPlataforma && _ativadorMovimento) //Jotapê
+        if (value.performed) //Jotapê
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
-            coyoteTimeCounter = 0;
+            
+            Debug.Log(_vjunp);
+            if ((_checkGround || _plataforma || _rb.velocity.y != 0) && !_dentroPlataforma && _ativadorMovimento)
+            {
+                _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
+             
+             
+            }
         }
 
     }
@@ -256,9 +262,8 @@ public class PlayerController : MonoBehaviour
             _PlayerHit.SetActive(false);
             yield return new WaitForSeconds(.3f);
             _PlayerHit.SetActive(true);
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.06f);
             
-         
         }
         _dano = false;
 
@@ -300,6 +305,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            
             _groundCount--;
             if(_groundCount == 0)
             {
@@ -312,7 +318,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Plataforma"))
         {
             _groundCount--;
-            if(_groundCount == 0)
+            _vjunp++;
+            if (_groundCount == 0)
             {
                 _plataforma = false;
                 transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)

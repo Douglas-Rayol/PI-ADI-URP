@@ -54142,7 +54142,7 @@ MonoBehaviour:
   _speed: 30
   _jump: 105
   _gravidade: 110
-  coyoteTime: 0.2
+  coyoteTime: 0
   _TelaGameOver: {fileID: 1543997482}
   _ativadorMovimento: 0
   _PosPlayer: {fileID: 1149373877}
@@ -54185,6 +54185,7 @@ MonoBehaviour:
   _dentroPlataforma: 0
   transicaoGameOver: {fileID: 0}
   painelGameOver: {fileID: 1543997481}
+  _vjunp: 0
 --- !u!114 &7624716658207910609
 MonoBehaviour:
   m_ObjectHideFlags: 0
