@@ -257,12 +257,12 @@ public class PlayerController : MonoBehaviour
     {
         _vida -= 1;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 30; i++)
         {
             _PlayerHit.SetActive(false);
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.010f);
             _PlayerHit.SetActive(true);
-            yield return new WaitForSeconds(.06f);
+            yield return new WaitForSeconds(.02f);
             
         }
         _dano = false;
