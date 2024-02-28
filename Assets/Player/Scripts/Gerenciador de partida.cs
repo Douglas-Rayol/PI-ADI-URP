@@ -16,14 +16,8 @@ public class Gerenciadordepartida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PartidaIniada) return;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            PartidaIniada = true;
-            Time.timeScale = 1;
-        }
-
+        PartidaIniada = true;
+        Time.timeScale = 1;
     }
     public void reiniciarpartida()
     {
