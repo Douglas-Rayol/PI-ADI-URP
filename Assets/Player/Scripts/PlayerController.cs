@@ -8,6 +8,9 @@ using DG.Tweening;
 public class PlayerController : MonoBehaviour
 {
 
+    [SerializeField] int coyote;
+    [SerializeField] bool SinalCoyote;
+
     //Vida do Jogador
     [SerializeField] public int _vida = 3;
     [SerializeField] bool _dano;
@@ -54,8 +57,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject transicaoGameOver;
     [SerializeField] private GameObject painelGameOver;
-    [SerializeField] int _vjunp;
-   
+
+
+
+    
 
 
     // Start is called before the first frame update
@@ -110,14 +115,18 @@ public class PlayerController : MonoBehaviour
            // GameOver();
         }
 
-        if (_checkGround)
-        {
-           
-        }
-        else
+        if(!_checkGround)
         {
             Verificacao();
-           // coyoteTime += Time.deltaTime;
+        }
+
+        if(SinalCoyote == true)
+        {
+            if (!_checkGround)
+            {
+                coyote = 0;
+                SinalCoyote = false;
+            }
         }
 
 
@@ -131,10 +140,12 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(_raycasGround.position, transform.TransformDirection(Vector3.up), out teto, 10f))
         {
+            SinalCoyote = true;
             Debug.DrawRay(_raycasGround.position, teto.point - transform.position, Color.red);
 
             if (teto.transform.CompareTag("Ground"))
             {
+                
                 _OnEnter.Invoke();
                 _dentroPlataforma = true;
             }
@@ -142,7 +153,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-
+            
             _OnExit.Invoke();
             _dentroPlataforma = false;
         }
@@ -172,14 +183,15 @@ public class PlayerController : MonoBehaviour
         if (value.performed) //Jotapê
         {
             
-            Debug.Log(_vjunp);
-            if ((_checkGround || _plataforma || _rb.velocity.y != 0) && !_dentroPlataforma && _ativadorMovimento)
+            if ((_checkGround || _plataforma || coyote == 1) && !_dentroPlataforma && _ativadorMovimento)
             {
                 _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
-             
-             
+                SinalCoyote = true;
+                
+
             }
         }
+
 
     }
 
@@ -229,6 +241,9 @@ public class PlayerController : MonoBehaviour
     void Gravidade()  //Jotapê
     {
         _rb.AddForce(Vector3.down * _gravidade);
+
+        
+
     }
 
     private void Flip() // Flip do Personagem (Direita e Esquerda)
@@ -274,6 +289,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            if(SinalCoyote == false)
+            {
+                coyote = 0;
+            }
+            
             _groundCount++;
             _checkGround = true;
             //Jotapê
@@ -281,6 +301,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
+            coyote = 0;
             _groundCount++;
             _plataforma = true;
             transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
@@ -305,7 +326,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            
+            coyote = 1;
             _groundCount--;
             if(_groundCount == 0)
             {
@@ -317,8 +338,9 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
+            
+            coyote = 1;
             _groundCount--;
-            _vjunp++;
             if (_groundCount == 0)
             {
                 _plataforma = false;
