@@ -10,7 +10,7 @@ TagManager:
   - AtaquePlayer
   - Item
   - AtaqueEnemy
-  - Agua
+  - Morte
   layers:
   - Default
   - TransparentFX

@@ -5422,7 +5422,7 @@ GameObject:
   - component: {fileID: 1156993990}
   m_Layer: 0
   m_Name: Agua
-  m_TagString: Agua
+  m_TagString: Morte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

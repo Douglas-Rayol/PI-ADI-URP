@@ -260,12 +260,12 @@ public class PlayerController : MonoBehaviour
 
     public void VidaPlayer()
     {
-
         StartCoroutine(VidaTime());
       if ( _vida == 0)
-        {
+      {
             GameOver();
-        }
+      }
+
     }
 
     IEnumerator VidaTime()
@@ -293,7 +293,6 @@ public class PlayerController : MonoBehaviour
             {
                 coyote = 0;
             }
-            
             _groundCount++;
             _checkGround = true;
             //Jotapê
@@ -317,8 +316,10 @@ public class PlayerController : MonoBehaviour
         {
            _dano = true;
            VidaPlayer();
-
-
+        }
+        if (other.gameObject.CompareTag("Morte"))
+        {
+            GameOver();
         }
     }
 
