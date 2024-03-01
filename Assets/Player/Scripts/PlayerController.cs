@@ -367,6 +367,7 @@ public class PlayerController : MonoBehaviour
             if (_direcaoVerdadeira == true)
             {
                 bullet.gameObject.GetComponent<Tiro>().direction = 1;
+
             }
 
             else if(_direcaoVerdadeira == false)
