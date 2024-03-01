@@ -9,21 +9,15 @@ using UnityEngine.UIElements;
 
 public class Pato : MonoBehaviour {
 
-    float _inicioRay, _distMax;
-    [SerializeField] float _velociPato, _atakPato, _volta;
-
-    [SerializeField] Vector3 _direcaoRay;
+    [SerializeField] float _velociPato;
     [SerializeField] Transform _direcaoPato;
     [SerializeField] Rigidbody _rbPato;
-
-
-    public Transform _alvo, _pointCast;
-    [SerializeField] bool _posplayer;
     [SerializeField] float dist;
     [SerializeField] float distPlayer;
+    public Transform _alvo;
+    [SerializeField] bool _posplayer;
 
     void Start() {
-       // myTransform = this.GetComponent<Transform>();
 
     }
 
@@ -32,10 +26,10 @@ public class Pato : MonoBehaviour {
         if(dist< distPlayer && !_posplayer) {
         
             Voltar(_alvo);
-            _velociPato = _velociPato + 1.5f;
+            _velociPato = _velociPato + 1.2f;
             if (dist < 5) {
                 _posplayer = true;
-                _velociPato = _velociPato - 1.5f;
+                _velociPato = _velociPato - 1.2f;
             }
 
         } else  {
