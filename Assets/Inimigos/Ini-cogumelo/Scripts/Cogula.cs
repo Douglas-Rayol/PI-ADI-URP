@@ -200,10 +200,7 @@ public class Cogula : MonoBehaviour
       
         if (_vida <= 0)
         {
-            _cogula.gameObject.SetActive(false);
-            _cogulinha.gameObject.SetActive(true);
-            _barraVida.SetActive(false);
-            _vida = 0;
+            StartCoroutine(Morte());
         }
     }
 
@@ -211,5 +208,15 @@ public class Cogula : MonoBehaviour
     {
         _barScale.x = _barPercent * _vida;
         _barCheio.localScale = _barScale;
+    }
+
+    IEnumerator Morte()
+    {
+        _paticula.gameObject.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        _cogula.gameObject.SetActive(false);
+        _cogulinha.gameObject.SetActive(true);
+        _barraVida.SetActive(false);
+        _vida = 0;
     }
 }

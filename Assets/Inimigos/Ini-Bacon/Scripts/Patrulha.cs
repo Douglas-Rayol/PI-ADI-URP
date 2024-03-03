@@ -105,10 +105,7 @@ public class Patrulha : MonoBehaviour
 
         if (_vida <= 0)
         {
-            _bacon.gameObject.SetActive(false);
-            _porco.gameObject.SetActive(true);
-            _barraVida.SetActive(false);
-            _vida = 0;
+            StartCoroutine(Morte());
         }
     }
 
@@ -122,18 +119,16 @@ public class Patrulha : MonoBehaviour
 
     public void DestroyItem()
     {
-        StartCoroutine(DestroTime());
+        
     }
 
-    IEnumerator DestroTime()
+    IEnumerator Morte()
     {
-        Particula.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
-        gameObject.SetActive(false);
-    }
-    public virtual GameObject Particula
-    {
-        get { return _paticula; }
-        set { _paticula = value; }
+        _paticula.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        _bacon.gameObject.SetActive(false);
+        _porco.gameObject.SetActive(true);
+        _barraVida.SetActive(false);
+        _vida = 0;
     }
 }
