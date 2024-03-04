@@ -87,12 +87,12 @@ public class Cogula : MonoBehaviour
     
     void Patrulhamento()
     {
-        if (_distPos[0] < _distPlayerLimit && _isPlayer == false)
+        if (_distPos[0] < _distPosLimit && _isPlayer == false)
         {
             _alvo = _pos[1];
             _stopPlayer = true;
         }
-        if (_distPos[1] < _distPlayerLimit && _isPlayer == false)
+        if (_distPos[1] < _distPosLimit && _isPlayer == false)
         {
             _alvo = _pos[0];
             _stopPlayer = true;
