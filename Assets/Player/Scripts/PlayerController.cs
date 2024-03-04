@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] int coyote;
     [SerializeField] bool SinalCoyote;
+    [SerializeField] float timeCoyote;
 
     //Vida do Jogador
     [SerializeField] public int _vida = 3;
@@ -129,6 +130,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(coyote == 1)
+        {
+            timeCoyote += Time.deltaTime;
+            if (timeCoyote > .15f)
+            {
+                coyote = 0;
+                
+            }
+
+        }
+
+
 
         ChecaDirecaoDoTiro();
 
@@ -213,13 +226,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void AtivaTiro()
+    {
+        TiroDoPlayer();
+    }
     IEnumerator TimeTiro() //Jotapê
     {
         _anim.SetBool("Ataque", true);
         _ativaTiro = false;
+        _ativadorMovimento = false;
         yield return new WaitForSeconds(.3f);
-        TiroDoPlayer();
         _anim.SetBool("Ataque", false);
+        yield return new WaitForSeconds(.32f);
+        _ativadorMovimento = true;
         _ativaTiro = true;
     }
 
@@ -292,6 +311,7 @@ public class PlayerController : MonoBehaviour
             if(SinalCoyote == false)
             {
                 coyote = 0;
+                timeCoyote = 0f;
             }
             _groundCount++;
             _checkGround = true;
@@ -300,7 +320,11 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
-            coyote = 0;
+            if(SinalCoyote == false)
+            {
+                coyote = 0;
+                timeCoyote = 0f;
+            }
             _groundCount++;
             _plataforma = true;
             transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)

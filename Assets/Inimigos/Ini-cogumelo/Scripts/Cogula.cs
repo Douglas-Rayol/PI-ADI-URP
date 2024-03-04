@@ -33,7 +33,7 @@ public class Cogula : MonoBehaviour
     bool _isFacingRight;
     bool _ataqueOn;
     float _distPlayer;
-    bool _hit;
+    [SerializeField] bool _hit;
     bool _stop;
 
     VidaEvent vidaEvent;
@@ -76,8 +76,8 @@ public class Cogula : MonoBehaviour
     {
         _anim.SetFloat("Andando", Mathf.Abs(_rb.velocity.x));
         //_anim.SetBool("isPlayer", _isPlayer);
-        _anim.SetBool("Hit", _hit);
         _anim.SetBool("Attack", _ataqueOn);
+
     }
 
     void Ataque()
@@ -169,7 +169,9 @@ public class Cogula : MonoBehaviour
         if (other.gameObject.CompareTag("AtaquePlayer") && _checkHit == false)
         {
             _checkHit = true;
-            Invoke("HitTime", .35f);
+            _anim.SetBool("Hit", true);
+            Invoke("HitTime", .25f);
+            _stop = true;
             AplicarDano();
         }
 
@@ -183,9 +185,13 @@ public class Cogula : MonoBehaviour
     }
     void HitTime()
     {
+        _anim.SetBool("Hit", false);
+        _stop = false;
         _checkHit = false;
     }
     
+
+
     void StopTime()
     {
         _stop = false;
@@ -195,6 +201,7 @@ public class Cogula : MonoBehaviour
     public void AplicarDano()
     {
         _barraVida.SetActive(true);
+        
         _vida -= 1;
 
       
