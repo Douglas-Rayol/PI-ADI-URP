@@ -69928,7 +69928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2b06c9d9c769b4d93e8f6f614d462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vida: 6
+  _vida: 3
   _barCheio: {fileID: 886495411}
   _barraVida: {fileID: 839602423}
   _player: {fileID: 7624716658207910600}

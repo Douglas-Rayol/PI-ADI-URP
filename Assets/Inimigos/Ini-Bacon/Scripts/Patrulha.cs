@@ -96,6 +96,12 @@ public class Patrulha : MonoBehaviour
     {
         _barScale.x = _barPercent * _vida;
         _barCheio.localScale = _barScale;
+        
+        if(_vida <= 0)
+        {
+            _vida = 0;
+            _barraVida.SetActive(false);
+        }
     }
 
     public void AplicarDano()
@@ -116,19 +122,11 @@ public class Patrulha : MonoBehaviour
             _hit = true;
         }
     }
-
-    public void DestroyItem()
-    {
-        
-    }
-
     IEnumerator Morte()
     {
         _paticula.SetActive(true);
         yield return new WaitForSeconds(.2f);
         _bacon.gameObject.SetActive(false);
         _porco.gameObject.SetActive(true);
-        _barraVida.SetActive(false);
-        _vida = 0;
     }
 }

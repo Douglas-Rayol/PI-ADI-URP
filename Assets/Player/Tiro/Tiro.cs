@@ -21,7 +21,7 @@ public class Tiro : MonoBehaviour
     {
         _tempoVida += Time.deltaTime;
 
-        if(_tempoVida >= 0.5f)
+        if(_tempoVida >= 0.6f)
         {
             gameObject.SetActive(false);
             _tempoVida = 0;
@@ -30,7 +30,7 @@ public class Tiro : MonoBehaviour
         if(_ativaTempo == true)
         {
           _timeRespanw += Time.deltaTime;
-          if (_timeRespanw >= 0.5f)
+          if (_timeRespanw >= 0.6f)
           {
             _ativaTempo = false;
           }
