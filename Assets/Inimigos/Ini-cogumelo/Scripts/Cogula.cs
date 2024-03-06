@@ -24,9 +24,11 @@ public class Cogula : MonoBehaviour
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
-    [SerializeField] GameObject _paticula, _cogula, _cogulinha;
-    
-    
+    [SerializeField] GameObject _paticula, _cogulinha;
+    [SerializeField] GameObject[] _cogula;
+
+
+
     bool _checkHit;
     Rigidbody _rb;
     Animator _anim;
@@ -70,6 +72,11 @@ public class Cogula : MonoBehaviour
         Anim();
         BarraDevida(); 
 
+        if( _vida <= 0)
+        {
+            _alvo = null;
+            _player = null;
+        }
     }
 
     void Anim()
@@ -201,10 +208,7 @@ public class Cogula : MonoBehaviour
     public void AplicarDano()
     {
         _barraVida.SetActive(true);
-        
         _vida -= 1;
-
-      
         if (_vida <= 0)
         {
             StartCoroutine(Morte());
@@ -221,7 +225,11 @@ public class Cogula : MonoBehaviour
     {
         _paticula.gameObject.SetActive(true);
         yield return new WaitForSeconds(.2f);
-        _cogula.gameObject.SetActive(false);
+        for (int i = 0; i < _cogula.Length; i++)
+        {
+            _cogula[i].gameObject.SetActive(false);
+            _paticula.gameObject.SetActive(false);
+        }        
         _cogulinha.gameObject.SetActive(true);
         _barraVida.SetActive(false);
         _vida = 0;
