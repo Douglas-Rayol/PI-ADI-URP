@@ -596,13 +596,14 @@ GameObject:
   m_Component:
   - component: {fileID: 138975550}
   - component: {fileID: 138975551}
+  - component: {fileID: 138975552}
   m_Layer: 0
   m_Name: botao-de-seta-para-a-esquerda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &138975550
 Transform:
   m_ObjectHideFlags: 0
@@ -613,7 +614,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 2.166, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450651644990287}
@@ -670,6 +671,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &138975552
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138975549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53b03b5529d16e7489f779befdcfe8ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &149257128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,7 +2286,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.55, y: 15.6, z: 107.33}
   m_LocalScale: {x: 215.80392, y: 215.80392, z: 844}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450651999748902}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -3381,7 +3403,7 @@ Transform:
   m_GameObject: {fileID: 863466700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.489996, y: -8.156864, z: 0}
+  m_LocalPosition: {x: 11.6, y: -8.156864, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6331,6 +6353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039a3e5a189f7a940a2e87a3f6890726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Audio: {fileID: 2081992320983608492, guid: a00f22270374a99478a267a053ecd0e5, type: 3}
 --- !u!1 &1554386993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6850,7 +6873,7 @@ Transform:
   m_GameObject: {fileID: 1718825334}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.699997, y: -8.156864, z: 0}
+  m_LocalPosition: {x: -29.8, y: -8.156864, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9824,6 +9847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450651644990287}
   - component: {fileID: 919132147995986422}
+  - component: {fileID: 919132147995986423}
   m_Layer: 0
   m_Name: Bau
   m_TagString: Untagged
@@ -9850,8 +9874,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.56, y: 1, z: 4.04}
-  m_Center: {x: 0, y: 0.39, z: 1.47}
+  m_Size: {x: 4.56, y: 2.5, z: 4.04}
+  m_Center: {x: 0, y: 0.22, z: 1.47}
+--- !u!114 &919132147995986423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147995986421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e1111f9b423b4b9798201f80e55cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _seta: {fileID: 138975549}
 --- !u!4 &934015414212705957
 Transform:
   m_ObjectHideFlags: 0
@@ -47904,7 +47941,7 @@ Transform:
   m_GameObject: {fileID: 7248654141832793077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -7.7000046, y: -9.22, z: 0}
+  m_LocalPosition: {x: -7.7, y: -9, z: 0}
   m_LocalScale: {x: 1.5000001, y: 1.5, z: 1.5000001}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -47944,6 +47981,7 @@ MonoBehaviour:
   - 20
   _distPosLimit: 2
   _distPlayerLimit: 25
+  _dist: 0
   _moveVelocidade: 0
   _isPlayer: 0
   _stopPlayer: 0
@@ -47957,6 +47995,7 @@ MonoBehaviour:
   - {fileID: 1416302857239293344}
   - {fileID: 863466700}
   - {fileID: 1718825334}
+  _playerH: 2
   _hit: 0
 --- !u!95 &8057982233281810771
 Animator:

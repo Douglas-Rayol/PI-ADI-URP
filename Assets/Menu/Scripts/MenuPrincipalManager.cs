@@ -9,12 +9,22 @@ using DG.Tweening;
 
 public class MenuPrincipalManager : MonoBehaviour
 {
+
+    [SerializeField] AudioAmbient _audioAb;
+
     [SerializeField] private string nomedoleveldejogo;
     [SerializeField] private GameObject painelMenuInicial;
     [SerializeField] private GameObject painelOpcoes;
 
     //animacao hud
     [SerializeField] List<Transform> _butaoMenu;
+
+
+    private void Awake()
+    {
+        _audioAb = FindAnyObjectByType<AudioAmbient>();
+        _audioAb._ativaDestruicao = true;
+    }
 
     private void Start()
     {

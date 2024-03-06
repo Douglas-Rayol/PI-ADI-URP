@@ -21,6 +21,7 @@ public class Cogula : MonoBehaviour
     [SerializeField] float[] _velocidade;
     [SerializeField] float _distPosLimit;
     [SerializeField] float _distPlayerLimit;
+    [SerializeField] float _dist;
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
@@ -35,6 +36,7 @@ public class Cogula : MonoBehaviour
     bool _isFacingRight;
     bool _ataqueOn;
     float _distPlayer;
+    [SerializeField] float _playerH;
     [SerializeField] bool _hit;
     bool _stop;
 
@@ -76,6 +78,8 @@ public class Cogula : MonoBehaviour
         {
             _alvo = null;
             _player = null;
+            GetComponent<BoxCollider>().enabled = false;
+
         }
     }
 
@@ -108,7 +112,9 @@ public class Cogula : MonoBehaviour
 
     void SeguirPlayer()
     {
-        if (_distPlayer < _distPlayerLimit)
+        _playerH = _player.position.y - transform.position.y;
+
+        if (_distPlayer < _distPlayerLimit && _playerH<18)
         {
             _isPlayer = true;
             _alvo = _player;
@@ -125,6 +131,9 @@ public class Cogula : MonoBehaviour
                 _stopPlayer = true;
             }
         }
+
+
+
     }
 
     void MoverparaAlvo()
@@ -209,9 +218,11 @@ public class Cogula : MonoBehaviour
     {
         _barraVida.SetActive(true);
         _vida -= 1;
+
         if (_vida <= 0)
         {
             StartCoroutine(Morte());
+            _vida = 0;
         }
     }
 
@@ -232,6 +243,6 @@ public class Cogula : MonoBehaviour
         }        
         _cogulinha.gameObject.SetActive(true);
         _barraVida.SetActive(false);
-        _vida = 0;
+        
     }
 }
