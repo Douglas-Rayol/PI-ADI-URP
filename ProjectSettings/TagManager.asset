@@ -11,6 +11,8 @@ TagManager:
   - Item
   - AtaqueEnemy
   - Morte
+  - FxTemporaire
+  - Alerta
   layers:
   - Default
   - TransparentFX

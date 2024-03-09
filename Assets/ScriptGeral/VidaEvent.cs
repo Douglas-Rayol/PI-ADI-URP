@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class VidaEvent : MonoBehaviour
 {
     [SerializeField] UnityEvent _hpinimigo;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("AtaquePlayer"))
@@ -14,4 +13,5 @@ public class VidaEvent : MonoBehaviour
             _hpinimigo.Invoke();
         }
     }
+
 }

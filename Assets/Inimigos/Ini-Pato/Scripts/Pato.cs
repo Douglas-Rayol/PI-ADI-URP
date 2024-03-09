@@ -16,6 +16,7 @@ public class Pato : MonoBehaviour {
     [SerializeField] float distPlayer;
     public Transform _alvo;
     [SerializeField] bool _posplayer;
+    [SerializeField] SpriteRenderer _alerta;
 
     void Start() {
 
@@ -42,5 +43,25 @@ public class Pato : MonoBehaviour {
         transform.Rotate(new Vector3(0, 90, 0), Space.Self);//correcting the original rotation
         transform.position = Vector2.MoveTowards(transform.position, value.position, _velociPato * Time.deltaTime);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Alerta"))
+        {
+            StartCoroutine(Alerta());
+        }
+    }
+    
+
+    IEnumerator Alerta()
+    {
+        _alerta.enabled = true;
+        yield return new WaitForSeconds(.4f);
+        _alerta.enabled = false;
+        yield return new WaitForSeconds(.4f);
+        _alerta.enabled = true;
+        yield return new WaitForSeconds(.4f);
+        _alerta.enabled = false;
     }
 }
