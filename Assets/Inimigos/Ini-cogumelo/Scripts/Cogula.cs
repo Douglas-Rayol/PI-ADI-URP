@@ -29,7 +29,7 @@ public class Cogula : MonoBehaviour
     [SerializeField] GameObject[] _cogula;
 
 
-
+    bool _ativador;
     bool _checkHit;
     Rigidbody _rb;
     Animator _anim;
@@ -58,10 +58,15 @@ public class Cogula : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         _distPlayer = Vector3.Distance(transform.position, _player.position);
         _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
         _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
-        if (_ataqueOn == false)
+
+
+
+        if (_ataqueOn == false && _ativador == false)
         {
             SeguirPlayer();
             Patrulhamento();
@@ -72,15 +77,15 @@ public class Cogula : MonoBehaviour
            Ataque();
         }
         Anim();
-        BarraDevida(); 
+        BarraDevida();
 
-        if( _vida <= 0)
+        if (_vida <= 0)
         {
-            _alvo = null;
-            _player = null;
+            _ativador = true;
             GetComponent<BoxCollider>().enabled = false;
 
         }
+
     }
 
     void Anim()

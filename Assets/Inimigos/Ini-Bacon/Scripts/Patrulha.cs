@@ -119,6 +119,7 @@ public class Patrulha : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("AtaquePlayer"))
         {
+            AplicarDano();
             _hit = true;
         }
     }
