@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject transicaoGameOver;
     [SerializeField] private GameObject painelGameOver;
-
+    public AudioSource _SomDoPulo;
+    
 
 
     
@@ -200,7 +201,7 @@ public class PlayerController : MonoBehaviour
             {
                 _rb.velocity = new Vector3(_rb.velocity.x, _jump, _rb.velocity.z);
                 SinalCoyote = true;
-                
+                _SomDoPulo.Play();
 
             }
         }
@@ -240,6 +241,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(.32f);
         _ativadorMovimento = true;
         _ativaTiro = true;
+       
     }
 
     void ChecaDirecaoDoTiro()
