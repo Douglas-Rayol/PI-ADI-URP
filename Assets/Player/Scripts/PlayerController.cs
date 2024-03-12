@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
-    [SerializeField] public Vector3 _move;
+    [SerializeField] public Vector2 _move;
     [SerializeField] Transform _raycasGround;
 
     [SerializeField] float _speed;
