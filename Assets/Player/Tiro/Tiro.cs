@@ -30,7 +30,7 @@ public class Tiro : MonoBehaviour
         if(_ativaTempo == true)
         {
           _timeRespanw += Time.deltaTime;
-          if (_timeRespanw >= 0.6f)
+          if (_timeRespanw >= 5f)
           {
             _ativaTempo = false;
           }

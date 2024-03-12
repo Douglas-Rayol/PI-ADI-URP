@@ -10,7 +10,7 @@ public class Patrulha : MonoBehaviour
     Animator _anim;
     bool _isFacingRight;
     bool _isPlayer;
-    private bool _hit;
+    bool _hit;
     float _distPlayer;
     [SerializeField] Transform _player;
     [SerializeField] Transform _alvo;
