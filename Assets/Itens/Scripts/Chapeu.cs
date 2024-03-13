@@ -9,10 +9,10 @@ public class Chapeu : Item
         StartCoroutine(DestroTime());
     }
 
-    IEnumerator DestroTime ()
+    IEnumerator DestroTime()
     {
         Particula.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
 }

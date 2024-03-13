@@ -13,6 +13,8 @@ TagManager:
   - Morte
   - FxTemporaire
   - Alerta
+  - Chapeu
+  - Cajado
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,11 @@ public class PlayerController : MonoBehaviour
     //Vida do Jogador
     [SerializeField] public int _vida = 3;
     [SerializeField] bool _dano;
-    [SerializeField] GameObject _PlayerHit;
+    [SerializeField] GameObject[] _PlayerHitPadrao;
+    [SerializeField] GameObject[] _PlayerHitInd;
+    [SerializeField] GameObject[] _PlayerHitMago;
+
+    [SerializeField] int _trocaS = 0;
 
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
@@ -294,11 +298,45 @@ public class PlayerController : MonoBehaviour
     IEnumerator VidaTime()
     {
         _vida -= 1;
+
         for (int i = 0; i < 30; i++)
         {
-            _PlayerHit.SetActive(false);
+            if(_trocaS == 0)
+            {
+                _PlayerHitPadrao[0].SetActive(false);
+            }
+
+            if(_trocaS == 1)
+            {
+                _PlayerHitInd[0].SetActive(false);
+                _PlayerHitInd[1].SetActive(false);
+            }
+
+            if (_trocaS == 2)
+            {
+                _PlayerHitMago[0].SetActive(false);
+                _PlayerHitMago[1].SetActive(false);
+            }
+
             yield return new WaitForSeconds(.010f);
-            _PlayerHit.SetActive(true);
+
+            if (_trocaS == 0)
+            {
+                _PlayerHitPadrao[0].SetActive(true);
+            }
+
+            if (_trocaS == 1)
+            {
+                _PlayerHitInd[0].SetActive(true);
+                _PlayerHitInd[1].SetActive(true);
+            }
+
+            if (_trocaS == 2)
+            {
+                _PlayerHitMago[0].SetActive(true);
+                _PlayerHitMago[1].SetActive(true);
+            }
+
             yield return new WaitForSeconds(.02f);
             
         }
@@ -335,10 +373,41 @@ public class PlayerController : MonoBehaviour
             //Jotapê
             _anim.SetBool("Jump", false);
         }
-        if (other.gameObject.CompareTag("Item"))
+
+        if (other.gameObject.CompareTag("Chapeu"))
         {
+
             other.GetComponent<Item>().DestroyItem();
+            _PlayerHitPadrao[0].SetActive(false);
+            _PlayerHitInd[0].SetActive(true);
+            _PlayerHitInd[1].SetActive(true);
+            _PlayerHitMago[0].SetActive(false);
+            _PlayerHitMago[1].SetActive(false);
+            _trocaS = 1;
+            
+
         }
+
+        if (other.gameObject.CompareTag("Cajado"))
+        {
+
+            other.GetComponent<Item>().DestroyItem();
+            _PlayerHitPadrao[0].SetActive(false);
+            _PlayerHitInd[0].SetActive(false);
+            _PlayerHitInd[1].SetActive(false);
+            _PlayerHitMago[0].SetActive(true);
+            _PlayerHitMago[1].SetActive(true);
+            _trocaS = 2;
+
+
+        }
+
+
+
+
+
+
+
         if (other.gameObject.CompareTag("AtaqueEnemy") && _dano == false)
         {
            _dano = true;
@@ -349,6 +418,7 @@ public class PlayerController : MonoBehaviour
             GameOver();
         }
     }
+
 
     private void OnTriggerExit(Collider other)  //Jotapê
     {

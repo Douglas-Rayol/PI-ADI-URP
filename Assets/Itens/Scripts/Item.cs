@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private string _nome;
+    [SerializeField] public string _nome;
     //[SerializeField] private int _tipo;
     [SerializeField] GameObject _paticula;
     void Start()

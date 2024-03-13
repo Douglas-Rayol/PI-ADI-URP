@@ -12,7 +12,7 @@ public class Cajado : Item
     IEnumerator DestroTime()
     {
         Particula.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
 }

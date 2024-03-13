@@ -46,15 +46,6 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Gamepad"",
-                    ""type"": ""Value"",
-                    ""id"": ""72b61de3-0a71-44f2-823e-5d4bd8e35bb0"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Joystick"",
                     ""type"": ""Value"",
                     ""id"": ""a4ab45d7-99be-4fb7-8a20-a1da756b5358"",
@@ -80,6 +71,15 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""type"": ""Value"",
+                    ""id"": ""dd43067d-1c66-464f-9e9d-9f79985ffebc"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -304,15 +304,37 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""fe83fea6-4d3d-4227-ac21-5e60546e895a"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""name"": ""3D Vector"",
+                    ""id"": ""797a8b30-cc9f-4d45-b75f-2cbbe50046cb"",
+                    ""path"": ""3DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gamepad"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""0d0c7008-5b19-4f70-8ef4-ad8a71188776"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Gamepad"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""99813264-09de-4db5-bb1b-321b5e5d9bbf"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gamepad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -323,10 +345,10 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
         m_Move_WASD = m_Move.FindAction("WASD", throwIfNotFound: true);
         m_Move_SETAS = m_Move.FindAction("SETAS", throwIfNotFound: true);
-        m_Move_Gamepad = m_Move.FindAction("Gamepad", throwIfNotFound: true);
         m_Move_Joystick = m_Move.FindAction("Joystick", throwIfNotFound: true);
         m_Move_Jump = m_Move.FindAction("Jump", throwIfNotFound: true);
         m_Move_Ataque = m_Move.FindAction("Ataque", throwIfNotFound: true);
+        m_Move_Gamepad = m_Move.FindAction("Gamepad", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -390,20 +412,20 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
     private List<IMoveActions> m_MoveActionsCallbackInterfaces = new List<IMoveActions>();
     private readonly InputAction m_Move_WASD;
     private readonly InputAction m_Move_SETAS;
-    private readonly InputAction m_Move_Gamepad;
     private readonly InputAction m_Move_Joystick;
     private readonly InputAction m_Move_Jump;
     private readonly InputAction m_Move_Ataque;
+    private readonly InputAction m_Move_Gamepad;
     public struct MoveActions
     {
         private @PlayerControle m_Wrapper;
         public MoveActions(@PlayerControle wrapper) { m_Wrapper = wrapper; }
         public InputAction @WASD => m_Wrapper.m_Move_WASD;
         public InputAction @SETAS => m_Wrapper.m_Move_SETAS;
-        public InputAction @Gamepad => m_Wrapper.m_Move_Gamepad;
         public InputAction @Joystick => m_Wrapper.m_Move_Joystick;
         public InputAction @Jump => m_Wrapper.m_Move_Jump;
         public InputAction @Ataque => m_Wrapper.m_Move_Ataque;
+        public InputAction @Gamepad => m_Wrapper.m_Move_Gamepad;
         public InputActionMap Get() { return m_Wrapper.m_Move; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -419,9 +441,6 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
             @SETAS.started += instance.OnSETAS;
             @SETAS.performed += instance.OnSETAS;
             @SETAS.canceled += instance.OnSETAS;
-            @Gamepad.started += instance.OnGamepad;
-            @Gamepad.performed += instance.OnGamepad;
-            @Gamepad.canceled += instance.OnGamepad;
             @Joystick.started += instance.OnJoystick;
             @Joystick.performed += instance.OnJoystick;
             @Joystick.canceled += instance.OnJoystick;
@@ -431,6 +450,9 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
             @Ataque.started += instance.OnAtaque;
             @Ataque.performed += instance.OnAtaque;
             @Ataque.canceled += instance.OnAtaque;
+            @Gamepad.started += instance.OnGamepad;
+            @Gamepad.performed += instance.OnGamepad;
+            @Gamepad.canceled += instance.OnGamepad;
         }
 
         private void UnregisterCallbacks(IMoveActions instance)
@@ -441,9 +463,6 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
             @SETAS.started -= instance.OnSETAS;
             @SETAS.performed -= instance.OnSETAS;
             @SETAS.canceled -= instance.OnSETAS;
-            @Gamepad.started -= instance.OnGamepad;
-            @Gamepad.performed -= instance.OnGamepad;
-            @Gamepad.canceled -= instance.OnGamepad;
             @Joystick.started -= instance.OnJoystick;
             @Joystick.performed -= instance.OnJoystick;
             @Joystick.canceled -= instance.OnJoystick;
@@ -453,6 +472,9 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
             @Ataque.started -= instance.OnAtaque;
             @Ataque.performed -= instance.OnAtaque;
             @Ataque.canceled -= instance.OnAtaque;
+            @Gamepad.started -= instance.OnGamepad;
+            @Gamepad.performed -= instance.OnGamepad;
+            @Gamepad.canceled -= instance.OnGamepad;
         }
 
         public void RemoveCallbacks(IMoveActions instance)
@@ -474,9 +496,9 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
     {
         void OnWASD(InputAction.CallbackContext context);
         void OnSETAS(InputAction.CallbackContext context);
-        void OnGamepad(InputAction.CallbackContext context);
         void OnJoystick(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAtaque(InputAction.CallbackContext context);
+        void OnGamepad(InputAction.CallbackContext context);
     }
 }
