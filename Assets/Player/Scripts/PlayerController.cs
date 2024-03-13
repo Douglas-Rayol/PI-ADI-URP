@@ -231,6 +231,7 @@ public class PlayerController : MonoBehaviour
     {
         TiroDoPlayer();
     }
+
     IEnumerator TimeTiro() //Jotapê
     {
         _anim.SetBool("Ataque", true);
@@ -282,7 +283,8 @@ public class PlayerController : MonoBehaviour
     public void VidaPlayer()
     {
         StartCoroutine(VidaTime());
-      if ( _vida == 0)
+
+      if ( _vida <= 0)
       {
             GameOver();
       }
@@ -292,7 +294,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator VidaTime()
     {
         _vida -= 1;
-
         for (int i = 0; i < 30; i++)
         {
             _PlayerHit.SetActive(false);
