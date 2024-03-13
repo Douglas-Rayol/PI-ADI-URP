@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _vidaJogador = FindObjectOfType<PlayerController>();
-
+        
     }
 
     // Update is called once per frame
@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Ato_1_1");
         }
-        
+
+
     }
 
     void VidaDoJogadorHud()

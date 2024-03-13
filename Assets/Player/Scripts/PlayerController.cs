@@ -8,6 +8,9 @@ using DG.Tweening;
 public class PlayerController : MonoBehaviour
 {
 
+
+    
+
     [SerializeField] int coyote;
     [SerializeField] bool SinalCoyote;
     [SerializeField] float timeCoyote;
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
 
     bool _rotacao;
+    bool _pauseJogo;
     private float _animacao;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
@@ -63,16 +67,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject transicaoGameOver;
     [SerializeField] private GameObject painelGameOver;
     public AudioSource _SomDoPulo;
+
+
     
-
-
     
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+       
         _ativaTiro = true;
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
@@ -80,7 +84,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         _g2 = _rb.velocity.y;
 
@@ -147,11 +151,23 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        if(_pauseJogo == true)
+        {
+            Time.timeScale = 0;
+        }
+        
+
 
         ChecaDirecaoDoTiro();
 
     }
 
+    //IEnumerator TimePause()
+    //{
+    //    Time.timeScale = 0;
+    //    yield return new WaitForSeconds(1f);
+    //    Time.timeScale = 1;
+    //}
 
     void Verificacao()
     {
@@ -376,7 +392,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Chapeu"))
         {
-
+            _pauseJogo = true;
             other.GetComponent<Item>().DestroyItem();
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(true);
@@ -390,7 +406,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Cajado"))
         {
-
+            _pauseJogo = true;
             other.GetComponent<Item>().DestroyItem();
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(false);
