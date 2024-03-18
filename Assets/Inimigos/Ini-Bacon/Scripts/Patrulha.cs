@@ -5,6 +5,7 @@ using static UnityEngine.ParticleSystem;
 
 public class Patrulha : MonoBehaviour
 {
+    public GameManager _pausaJogo;
 
     Rigidbody _rb;
     Animator _anim;
@@ -33,6 +34,8 @@ public class Patrulha : MonoBehaviour
     
     void Start()
     {
+        _pausaJogo = FindAnyObjectByType<GameManager>();
+
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
 
@@ -44,12 +47,25 @@ public class Patrulha : MonoBehaviour
 
     void Update()
     {
-        _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
-        _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
-        Patrulhamento();
-        MoverparaAlvo();
-        BarraDevida();
+
+
+
+        if(_pausaJogo._pause == false)
+        {
+            _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
+            _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
+            Patrulhamento();
+            MoverparaAlvo();
+            BarraDevida();
+        }
+        else
+        {
+            _rb.velocity = Vector3.zero;
+        }
     }
+
+    
+
 
     void Patrulhamento()
     {

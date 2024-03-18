@@ -9,6 +9,8 @@ using UnityEngine.UIElements;
 
 public class Pato : MonoBehaviour {
 
+    public GameManager _pausaJogo;
+
     [SerializeField] float _velociPato;
     [SerializeField] Transform _direcaoPato;
     [SerializeField] Rigidbody _rbPato;
@@ -18,25 +20,44 @@ public class Pato : MonoBehaviour {
     [SerializeField] bool _posplayer;
     [SerializeField] SpriteRenderer _alerta;
 
-    void Start() {
-
+    void Start() 
+    {
+        _pausaJogo = FindAnyObjectByType<GameManager>();
     }
 
     void Update() {
-        dist = Vector3.Distance(_alvo.position, transform.position);
-        if(dist< distPlayer && !_posplayer) {
-        
-            Voltar(_alvo);
-            _velociPato = _velociPato + 1.2f;
-            if (dist < 5) {
-                _posplayer = true;
-                _velociPato = _velociPato - 1.2f;
-            }
 
-        } else  {
-            Voltar(_direcaoPato);
-          
+
+        if(_pausaJogo._pause == false)
+        {
+            dist = Vector3.Distance(_alvo.position, transform.position);
+            if (dist < distPlayer && !_posplayer)
+            {
+
+                Voltar(_alvo);
+                _velociPato = _velociPato + 1.2f;
+                if (dist < 5)
+                {
+                    _posplayer = true;
+                    _velociPato = _velociPato - 1.2f;
+                }
+
+            }
+            else
+            {
+                Voltar(_direcaoPato);
+
+            }
         }
+        else
+        {
+            _rbPato.velocity = Vector3.zero;
+        }
+
+
+
+
+
     }
     void Voltar(Transform value) {
         transform.LookAt(value.position);

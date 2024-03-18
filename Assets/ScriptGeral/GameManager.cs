@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerController _vidaJogador;
     [SerializeField] GameObject[] _hudVida;
 
-    [Header("Coisas pro Futuro")]
-    [SerializeField] int variavelNada;
+    [Header("Pause do Jogo")]
+    [SerializeField] public bool _pause;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,13 @@ public class GameManager : MonoBehaviour
         }
 
 
+    }
+
+
+    public IEnumerator pausaTime()
+    {
+        yield return new WaitForSeconds(1.38f);
+        _pause = false;
     }
 
     void VidaDoJogadorHud()

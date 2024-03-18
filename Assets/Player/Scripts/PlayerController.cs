@@ -8,8 +8,9 @@ using DG.Tweening;
 public class PlayerController : MonoBehaviour
 {
 
+    GameObject bullet;
 
-    
+    public GameManager _pausaJogo;
 
     [SerializeField] int coyote;
     [SerializeField] bool SinalCoyote;
@@ -47,7 +48,6 @@ public class PlayerController : MonoBehaviour
 
 
     bool _rotacao;
-    bool _pauseJogo;
     private float _animacao;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
@@ -76,7 +76,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
+        _pausaJogo = FindAnyObjectByType<GameManager>();
+
         _ativaTiro = true;
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
@@ -86,88 +88,101 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _g2 = _rb.velocity.y;
 
-        _anim.SetFloat("InputX", _animacao);
 
-        if (_ativadorMovimento)
+        if(_pausaJogo._pause == false)
         {
-            Movimento();
+            _anim.SetLayerWeight(0, 1);
+            _anim.SetBool("Transform", false);
             
-        }
 
-        else
-        {
-    
-            _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
-        }
+            _g2 = _rb.velocity.y;
 
-        
-        Gravidade();
+            _anim.SetFloat("InputX", _animacao);
+
+            if (_ativadorMovimento)
+            {
+                Movimento();
+
+            }
+
+            else
+            {
+
+                _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
+            }
 
 
-        if (_move.x > 0 && _rotacao)
-        {
-            Flip();
-        }
+            Gravidade();
 
-        else if (_move.x < 0 && !_rotacao)
-        {
-            Flip();
-        }
 
-        //VidaGameOver
-        if (_vida <= 0)
-        {
-            _ativadorMovimento = false;
-            _anim.SetBool("Morte", true);
-            _vida = 0;
-           // GameOver();
-        }
+            if (_move.x > 0 && _rotacao)
+            {
+                Flip();
+            }
 
-        if(!_checkGround)
-        {
-            Verificacao();
-        }
+            else if (_move.x < 0 && !_rotacao)
+            {
+                Flip();
+            }
 
-        if(SinalCoyote == true)
-        {
+            //VidaGameOver
+            if (_vida <= 0)
+            {
+                _ativadorMovimento = false;
+                _anim.SetBool("Morte", true);
+                _vida = 0;
+                // GameOver();
+            }
+
             if (!_checkGround)
             {
-                coyote = 0;
-                SinalCoyote = false;
+                Verificacao();
             }
-        }
 
-        if(coyote == 1)
-        {
-            timeCoyote += Time.deltaTime;
-            if (timeCoyote > .15f)
+            if (SinalCoyote == true)
             {
-                coyote = 0;
-                
+                if (!_checkGround)
+                {
+                    coyote = 0;
+                    SinalCoyote = false;
+                }
             }
 
+            if (coyote == 1)
+            {
+                timeCoyote += Time.deltaTime;
+                if (timeCoyote > .15f)
+                {
+                    coyote = 0;
+
+                }
+
+            }
+
+
+            ChecaDirecaoDoTiro();
         }
-
-
-        if(_pauseJogo == true)
+        else
         {
-            //Time.timeScale = 0;
+            _rb.velocity = Vector3.zero;
+            TransformacaoTransicao();
+            
+
+
         }
-        
 
-
-        ChecaDirecaoDoTiro();
 
     }
 
-    //IEnumerator TimePause()
-    //{
-    //    Time.timeScale = 0;
-    //    yield return new WaitForSeconds(1f);
-    //    Time.timeScale = 1;
-    //}
+
+    void TransformacaoTransicao()
+    {
+        
+        _anim.SetLayerWeight(1, 1);
+        _anim.SetBool("Transform", true);
+        
+    }
 
     void Verificacao()
     {
@@ -231,17 +246,23 @@ public class PlayerController : MonoBehaviour
 
     public void SetAtaque(InputAction.CallbackContext value) //Jotapê
     {
-        //Se estiver no chão, rola a animação dele atirando no chão
-        if(value.performed && _checkGround && _ativadorMovimento && _ativaTiro)
+        if(_pausaJogo._pause == false)
         {
-            
-            StartCoroutine(TimeTiro());
-        }
+            //Se estiver no chão, rola a animação dele atirando no chão
+            if (value.performed && _checkGround && _ativadorMovimento && _ativaTiro)
+            {
 
-        //Se estiver no chão, rola a animação dele atirando no chão
-        if (value.performed && !_checkGround && _ativadorMovimento && _ativaTiro)
-        {
-            StartCoroutine(TimeTiro());
+                StartCoroutine(TimeTiro());
+
+            }
+
+            //Se estiver no chão, rola a animação dele atirando no chão
+            if (value.performed && !_checkGround && _ativadorMovimento && _ativaTiro)
+            {
+
+                StartCoroutine(TimeTiro());
+
+            }
         }
 
 
@@ -392,13 +413,15 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Chapeu"))
         {
-            _pauseJogo = true;
+            
             other.GetComponent<Item>().DestroyItem();
+            _pausaJogo._pause = true;
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(true);
             _PlayerHitInd[1].SetActive(true);
             _PlayerHitMago[0].SetActive(false);
             _PlayerHitMago[1].SetActive(false);
+            _PlayerHitMago[2].SetActive(false);
             _trocaS = 1;
             
 
@@ -406,7 +429,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Cajado"))
         {
-            _pauseJogo = true;
+            _pausaJogo._pause = true;
             other.GetComponent<Item>().DestroyItem();
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(false);
@@ -470,8 +493,8 @@ public class PlayerController : MonoBehaviour
 
     private void TiroDoPlayer()
     {
-        
-        GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+
+        bullet = ObjectPool.SharedInstance.GetPooledObject();
         if (bullet != null)
         {
             bullet.transform.position = _posTiro.transform.position;
@@ -484,12 +507,15 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if(_direcaoVerdadeira == false)
+            else if (_direcaoVerdadeira == false)
             {
                 bullet.gameObject.GetComponent<Tiro>().direction = -1;
             }
 
         }
+
+
+
     }
     private void GameOver()
     {

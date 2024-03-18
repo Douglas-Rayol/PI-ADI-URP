@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Cajado : Item
 {
+    [SerializeField] GameManager _pausaJogo;
+
+    private void Start()
+    {
+        _pausaJogo = FindAnyObjectByType<GameManager>();
+    }
+
     public override void DestroyItem()
     {
         StartCoroutine(DestroTime());
@@ -12,6 +19,7 @@ public class Cajado : Item
     IEnumerator DestroTime()
     {
         Particula.SetActive(true);
+        _pausaJogo.StartCoroutine(_pausaJogo.pausaTime());
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 public class Cogula : MonoBehaviour
 {
 
+    public GameManager _pausaJogo;
+
     [Header("Sistema de vida Cogula")]
     [SerializeField] public int _vida;
     //Barra de vida Cogula
@@ -45,6 +47,8 @@ public class Cogula : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _pausaJogo = FindAnyObjectByType<GameManager>();
+
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
 
@@ -60,31 +64,42 @@ public class Cogula : MonoBehaviour
     {
 
 
-        _distPlayer = Vector3.Distance(transform.position, _player.position);
-        _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
-        _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
-
-
-
-        if (_ataqueOn == false && _ativador == false)
+        if(_pausaJogo._pause == false)
         {
-            SeguirPlayer();
-            Patrulhamento();
-            MoverparaAlvo();
-        }
-        else
-        {
-           Ataque();
-        }
-        Anim();
-        BarraDevida();
+            _distPlayer = Vector3.Distance(transform.position, _player.position);
+            _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
+            _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
 
-        if (_vida <= 0)
-        {
-            _ativador = true;
-            GetComponent<BoxCollider>().enabled = false;
 
+
+            if (_ataqueOn == false && _ativador == false)
+            {
+                SeguirPlayer();
+                Patrulhamento();
+                MoverparaAlvo();
+            }
+            else
+            {
+                Ataque();
+            }
+            Anim();
+            BarraDevida();
+
+            if (_vida <= 0)
+            {
+                _ativador = true;
+                GetComponent<BoxCollider>().enabled = false;
+
+            }
         }
+
+        if (_pausaJogo._pause == true)
+        {
+            _rb.velocity = Vector3.zero;
+            
+        }
+
+
 
     }
 
