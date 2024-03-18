@@ -8,7 +8,7 @@ using DG.Tweening;
 public class PlayerController : MonoBehaviour
 {
 
-    GameObject bullet;
+    [SerializeField] Chicote _chicoteAnim;
 
     public GameManager _pausaJogo;
 
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject[] _PlayerHitPadrao;
     [SerializeField] GameObject[] _PlayerHitInd;
     [SerializeField] GameObject[] _PlayerHitMago;
+    GameObject bullet;
 
     [SerializeField] int _trocaS = 0;
 
@@ -76,7 +77,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _chicoteAnim = FindAnyObjectByType<Chicote>();
         _pausaJogo = FindAnyObjectByType<GameManager>();
 
         _ativaTiro = true;
@@ -266,6 +267,12 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+
+    public void ChicoteAtaqueAtiva()
+    {
+        _chicoteAnim.ChicoteLigado();
     }
 
     public void AtivaTiro()
