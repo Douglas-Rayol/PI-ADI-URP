@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
 
         if(_pauseJogo == true)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
         
 
@@ -413,6 +413,7 @@ public class PlayerController : MonoBehaviour
             _PlayerHitInd[1].SetActive(false);
             _PlayerHitMago[0].SetActive(true);
             _PlayerHitMago[1].SetActive(true);
+            _PlayerHitMago[2].SetActive(true);
             _trocaS = 2;
 
 
