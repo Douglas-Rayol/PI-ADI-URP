@@ -426,6 +426,7 @@ public class PlayerController : MonoBehaviour
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(true);
             _PlayerHitInd[1].SetActive(true);
+            _PlayerHitInd[2].SetActive(true);
             _PlayerHitMago[0].SetActive(false);
             _PlayerHitMago[1].SetActive(false);
             _PlayerHitMago[2].SetActive(false);
@@ -441,6 +442,7 @@ public class PlayerController : MonoBehaviour
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(false);
             _PlayerHitInd[1].SetActive(false);
+            _PlayerHitInd[2].SetActive(false);
             _PlayerHitMago[0].SetActive(true);
             _PlayerHitMago[1].SetActive(true);
             _PlayerHitMago[2].SetActive(true);
