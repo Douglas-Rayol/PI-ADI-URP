@@ -54,10 +54,6 @@ public class Pato : MonoBehaviour {
             _rbPato.velocity = Vector3.zero;
         }
 
-
-
-
-
     }
     void Voltar(Transform value) {
         transform.LookAt(value.position);
@@ -70,7 +66,10 @@ public class Pato : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Alerta"))
         {
-            StartCoroutine(Alerta());
+            if (_pausaJogo._pause == false)
+            {
+                StartCoroutine(Alerta());
+            }
         }
     }
     

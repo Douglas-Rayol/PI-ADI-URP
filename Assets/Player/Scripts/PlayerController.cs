@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject[] _PlayerHitPadrao;
     [SerializeField] GameObject[] _PlayerHitInd;
     [SerializeField] GameObject[] _PlayerHitMago;
+    [SerializeField] GameObject _paticula;
+
     GameObject bullet;
 
     [SerializeField] int _trocaS = 0;
@@ -182,7 +184,7 @@ public class PlayerController : MonoBehaviour
         
         _anim.SetLayerWeight(1, 1);
         _anim.SetBool("Transform", true);
-        
+        StartCoroutine(Transforme());
     }
 
     void Verificacao()
@@ -452,11 +454,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-
-
-
-
         if (other.gameObject.CompareTag("AtaqueEnemy") && _dano == false)
         {
            _dano = true;
@@ -543,4 +540,10 @@ public class PlayerController : MonoBehaviour
         DOTween.KillAll();
     }
 
+    IEnumerator Transforme()
+    {
+        _paticula.SetActive(true);
+        yield return new WaitForSecondsRealtime(.8f);
+        _paticula.SetActive(true);
+    }
 }

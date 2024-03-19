@@ -20,7 +20,7 @@ public class Cajado : Item
     {
         Particula.SetActive(true);
         _pausaJogo.StartCoroutine(_pausaJogo.pausaTime());
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         gameObject.SetActive(false);
     }
 }
