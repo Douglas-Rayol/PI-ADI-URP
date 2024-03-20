@@ -314,8 +314,6 @@ public class PlayerController : MonoBehaviour
     {
         _rb.AddForce(Vector3.down * _gravidade);
 
-        
-
     }
 
     private void Flip() // Flip do Personagem (Direita e Esquerda)
@@ -439,8 +437,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Cajado"))
         {
-            _pausaJogo._pause = true;
             other.GetComponent<Item>().DestroyItem();
+            _pausaJogo._pause = true;
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(false);
             _PlayerHitInd[1].SetActive(false);
@@ -543,9 +541,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Transforme()
     {
         _paticula.SetActive(true);
-        yield return new WaitForSecondsRealtime(.8f);
-        _paticula.SetActive(false);
         yield return new WaitForSecondsRealtime(1f);
-        _paticula.SetActive(true);
+        _paticula.SetActive(false);
     }
 }
