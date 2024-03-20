@@ -544,6 +544,8 @@ public class PlayerController : MonoBehaviour
     {
         _paticula.SetActive(true);
         yield return new WaitForSecondsRealtime(.8f);
+        _paticula.SetActive(false);
+        yield return new WaitForSecondsRealtime(1f);
         _paticula.SetActive(true);
     }
 }

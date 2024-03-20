@@ -13,12 +13,12 @@ public class Pato : MonoBehaviour {
 
     [SerializeField] float _velociPato;
     [SerializeField] Transform _direcaoPato;
-    [SerializeField] Rigidbody _rbPato;
     [SerializeField] float dist;
     [SerializeField] float distPlayer;
-    public Transform _alvo;
     [SerializeField] bool _posplayer;
     [SerializeField] SpriteRenderer _alerta;
+    public Transform _alvo;
+    Rigidbody _rbPato;
 
     void Start() 
     {
@@ -48,10 +48,6 @@ public class Pato : MonoBehaviour {
                 Voltar(_direcaoPato);
 
             }
-        }
-        else
-        {
-            _rbPato.velocity = Vector3.zero;
         }
 
     }
