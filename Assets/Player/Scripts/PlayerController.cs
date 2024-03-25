@@ -7,10 +7,10 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
-
-    [SerializeField] Chicote _chicoteAnim;
-
+    //Variaveis Publicas
+    Chicote _chicoteAnim;
     public GameManager _pausaJogo;
+    Bau _podeAbrir;
 
     [SerializeField] int coyote;
     [SerializeField] bool SinalCoyote;
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         _chicoteAnim = FindAnyObjectByType<Chicote>();
         _pausaJogo = FindAnyObjectByType<GameManager>();
+        _podeAbrir = FindAnyObjectByType<Bau>();
 
         _ativaTiro = true;
         _direcaoVerdadeira = true;
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
 
@@ -217,7 +218,7 @@ public class PlayerController : MonoBehaviour
     public void SetMove(InputAction.CallbackContext value) //Jotapê
     {
 
-        _move = value.ReadValue<Vector3>();
+        _move = value.ReadValue<Vector3>().normalized;
         
 
     }
@@ -245,6 +246,17 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void SetAbrirBau(InputAction.CallbackContext value)
+    {
+        if(_podeAbrir._abrir == true)
+        {
+            _podeAbrir._anim.SetBool("Aberto", true);
+            _podeAbrir._seta.SetActive(false);
+            _podeAbrir._desativa = true;
+
+        }
     }
 
     public void SetAtaque(InputAction.CallbackContext value) //Jotapê

@@ -80,6 +80,15 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AbreBau"",
+                    ""type"": ""Value"",
+                    ""id"": ""fe8d77df-70d2-4f97-a45c-3efd865c6e68"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -148,17 +157,6 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""action"": ""SETAS"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""3ec16c6e-8ee7-4511-9d2d-8b6b59d3e5be"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SETAS"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
@@ -335,6 +333,28 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""action"": ""Gamepad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Teclado"",
+                    ""id"": ""d9c47ce6-6e64-4335-887b-258cd3eb5e8d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbreBau"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""12f84e44-939f-492f-8494-816239785291"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbreBau"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -349,6 +369,7 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
         m_Move_Jump = m_Move.FindAction("Jump", throwIfNotFound: true);
         m_Move_Ataque = m_Move.FindAction("Ataque", throwIfNotFound: true);
         m_Move_Gamepad = m_Move.FindAction("Gamepad", throwIfNotFound: true);
+        m_Move_AbreBau = m_Move.FindAction("AbreBau", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -416,6 +437,7 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
     private readonly InputAction m_Move_Jump;
     private readonly InputAction m_Move_Ataque;
     private readonly InputAction m_Move_Gamepad;
+    private readonly InputAction m_Move_AbreBau;
     public struct MoveActions
     {
         private @PlayerControle m_Wrapper;
@@ -426,6 +448,7 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Move_Jump;
         public InputAction @Ataque => m_Wrapper.m_Move_Ataque;
         public InputAction @Gamepad => m_Wrapper.m_Move_Gamepad;
+        public InputAction @AbreBau => m_Wrapper.m_Move_AbreBau;
         public InputActionMap Get() { return m_Wrapper.m_Move; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -453,6 +476,9 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
             @Gamepad.started += instance.OnGamepad;
             @Gamepad.performed += instance.OnGamepad;
             @Gamepad.canceled += instance.OnGamepad;
+            @AbreBau.started += instance.OnAbreBau;
+            @AbreBau.performed += instance.OnAbreBau;
+            @AbreBau.canceled += instance.OnAbreBau;
         }
 
         private void UnregisterCallbacks(IMoveActions instance)
@@ -475,6 +501,9 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
             @Gamepad.started -= instance.OnGamepad;
             @Gamepad.performed -= instance.OnGamepad;
             @Gamepad.canceled -= instance.OnGamepad;
+            @AbreBau.started -= instance.OnAbreBau;
+            @AbreBau.performed -= instance.OnAbreBau;
+            @AbreBau.canceled -= instance.OnAbreBau;
         }
 
         public void RemoveCallbacks(IMoveActions instance)
@@ -500,5 +529,6 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAtaque(InputAction.CallbackContext context);
         void OnGamepad(InputAction.CallbackContext context);
+        void OnAbreBau(InputAction.CallbackContext context);
     }
 }

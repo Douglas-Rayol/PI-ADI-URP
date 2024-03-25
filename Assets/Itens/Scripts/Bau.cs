@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Bau : MonoBehaviour
 {
+    [SerializeField] public bool _abrir;
+    [SerializeField] public Animator _anim;
 
-    [SerializeField] GameObject _seta;
+    [SerializeField] public GameObject _seta;
+
+    public  bool  _desativa;
 
     // Start is called before the first frame update
     void Start()
@@ -16,14 +20,27 @@ public class Bau : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            _seta.SetActive(true);
+            _abrir = true;
+            
+            if(_desativa == false)
+            {
+                _seta.SetActive(true);
+            }
+            else
+            {
+                _seta.SetActive(false);
+            }
+           
+
         }
     }
 
@@ -31,7 +48,10 @@ public class Bau : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+
+            _abrir = false;
             _seta.SetActive(false);
+
         }
     }
 
