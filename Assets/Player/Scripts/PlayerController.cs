@@ -7,8 +7,9 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+
     //Variaveis Publicas
-    Chicote _chicoteAnim;
+    [SerializeField] Chicote _chicote;
     public GameManager _pausaJogo;
     Bau _podeAbrir;
 
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _chicoteAnim = FindAnyObjectByType<Chicote>();
+        _chicote = FindAnyObjectByType<Chicote>();
         _pausaJogo = FindAnyObjectByType<GameManager>();
         _podeAbrir = FindAnyObjectByType<Bau>();
 
@@ -245,7 +246,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
+         
     }
 
     public void SetAbrirBau(InputAction.CallbackContext value)
@@ -283,10 +284,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-    public void ChicoteAtaqueAtiva()
+    public void AtaqueChicote()
     {
-        _chicoteAnim.ChicoteLigado();
+        _chicote.ChicoteLigado();
     }
 
     public void AtivaTiro()
@@ -296,14 +296,30 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator TimeTiro() //Jotapê
     {
-        _anim.SetBool("Ataque", true);
-        _ativaTiro = false;
-        _ativadorMovimento = false;
-        yield return new WaitForSeconds(.3f);
-        _anim.SetBool("Ataque", false);
-        yield return new WaitForSeconds(.32f);
-        _ativadorMovimento = true;
-        _ativaTiro = true;
+        
+        if(_trocaS == 0 || _trocaS == 2)
+        {
+            _anim.SetBool("Ataque", true);
+            _ativaTiro = false;
+            _ativadorMovimento = false;
+            yield return new WaitForSeconds(.3f);
+            _anim.SetBool("Ataque", false);
+            yield return new WaitForSeconds(.32f);
+            _ativadorMovimento = true;
+            _ativaTiro = true;
+        }
+
+        if(_trocaS == 1)
+        {
+            _anim.SetBool("AtaqueIndi", true);
+            _ativaTiro = false;
+            _ativadorMovimento = false;
+            yield return new WaitForSeconds(.3f);
+            _anim.SetBool("AtaqueIndi", false);
+            yield return new WaitForSeconds(.32f);
+            _ativadorMovimento = true;
+            _ativaTiro = true;
+        }
        
     }
 
@@ -537,6 +553,7 @@ public class PlayerController : MonoBehaviour
     {
         //transicaoGameOver.transform.position = transform.position;
        // transicaoGameOver.SetActive(true);
+        _ativadorMovimento = false;
         StartCoroutine(ExibirPainelGameOver());
         _TelaGameOver.DOScale(1, 0.8f);
         

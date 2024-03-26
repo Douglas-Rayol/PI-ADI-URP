@@ -1,15 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Chicote : MonoBehaviour
 {
-
-
     [SerializeField] Animator _anim;
-
-
-    
 
     public void ChicoteLigado()
     {
