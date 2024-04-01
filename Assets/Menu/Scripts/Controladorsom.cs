@@ -5,31 +5,33 @@ using UnityEngine.UI;
 
 public class Controladorsom : MonoBehaviour
 {
-    private bool estadoSom = true;
-    [SerializeField] private AudioSource fundoMusical;
+    public bool _somHud;
+    public bool _somMusic;
+    public bool _somGame;
+    public GameControl _gameControl;
+    public AudioSource _audioSource;
 
-    [SerializeField] private Sprite somLigado;
-    [SerializeField] private Sprite somDesligado;
-
-    [SerializeField] private Sprite muteImage;
-
-    public void LigarDesligarSom()
+    void Start()
     {
-        estadoSom = !estadoSom;
-        fundoMusical.enabled = estadoSom;
-
-        if (estadoSom)
+        _gameControl = Camera.main.GetComponent<GameControl>();
+        _audioSource = GetComponent<AudioSource>();
+        if (_somHud)
         {
-            muteImage = somLigado;
+            _gameControl._audioHud.Add(_audioSource);
         }
-        else
+        else if (_somMusic)
         {
-            muteImage = somDesligado;
+            _gameControl._somMusic.Add(_audioSource);
+        }
+        else if (_somGame)
+        {
+            _gameControl._somGame.Add(_audioSource);
         }
     }
 
-    public void VolumeMusical(float value)
+
+    void Update()
     {
-        //fundoMusical.volume = value;
+
     }
 }

@@ -22,8 +22,8 @@ public class MenuPrincipalManager : MonoBehaviour
 
     private void Awake()
     {
-        _audioAb = FindAnyObjectByType<AudioAmbient>();
-        _audioAb._ativaDestruicao = true;
+       // _audioAb = FindAnyObjectByType<AudioAmbient>();
+       // _audioAb._ativaDestruicao = true;
     }
 
     private void Start()
