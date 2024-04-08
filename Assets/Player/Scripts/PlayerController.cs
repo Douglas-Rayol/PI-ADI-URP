@@ -555,7 +555,7 @@ public class PlayerController : MonoBehaviour
        // transicaoGameOver.SetActive(true);
         _ativadorMovimento = false;
         StartCoroutine(ExibirPainelGameOver());
-        _TelaGameOver.DOScale(1, 0.8f);
+        _TelaGameOver.DOScale(.8f, 1f);
         
     }
    
