@@ -27,7 +27,7 @@ public class Cogula : MonoBehaviour
     [SerializeField] float _moveVelocidade;
     [SerializeField] bool _isPlayer;
     [SerializeField] bool _stopPlayer;
-    [SerializeField] GameObject _paticula, _cogulinha;
+    [SerializeField] GameObject _paticulaMorte, _paticulaHit, _cogulinha;
     [SerializeField] GameObject[] _cogula;
 
 
@@ -238,7 +238,10 @@ public class Cogula : MonoBehaviour
     {
         _barraVida.SetActive(true);
         _vida -= 1;
-
+        if(_vida > 0)
+        {
+            StartCoroutine(Hit());
+        }
         if (_vida <= 0)
         {
             StartCoroutine(Morte());
@@ -254,15 +257,21 @@ public class Cogula : MonoBehaviour
 
     IEnumerator Morte()
     {
-        _paticula.gameObject.SetActive(true);
+        _paticulaMorte.gameObject.SetActive(true);
         yield return new WaitForSeconds(.2f);
         for (int i = 0; i < _cogula.Length; i++)
         {
             _cogula[i].gameObject.SetActive(false);
-            _paticula.gameObject.SetActive(false);
+            _paticulaMorte.gameObject.SetActive(false);
         }        
         _cogulinha.gameObject.SetActive(true);
         _barraVida.SetActive(false);
         
+    }
+    IEnumerator Hit()
+    {
+        _paticulaHit.gameObject.SetActive(true);
+        yield return new WaitForSeconds(.6f);
+        _paticulaHit.gameObject.SetActive(false);
     }
 }

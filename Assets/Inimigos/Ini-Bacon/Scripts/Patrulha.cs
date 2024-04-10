@@ -21,7 +21,7 @@ public class Patrulha : MonoBehaviour
     [SerializeField] float _distPosLimit;
     [SerializeField] float _distPlayerLimit;
     [SerializeField] float _moveVelocidade;
-    [SerializeField] GameObject _paticula;
+    [SerializeField] GameObject _paticulaMorte, _paticulaHit;
     [SerializeField]GameObject _bacon, _porco;
 
     [Header("Sistema de vida Cogula")]
@@ -124,7 +124,10 @@ public class Patrulha : MonoBehaviour
     {
         _barraVida.SetActive(true);
         _vida -= 1;
-
+        if (_vida > 0)
+        {
+            StartCoroutine(Hit());
+        }
         if (_vida <= 0)
         {
             StartCoroutine(Morte());
@@ -141,9 +144,15 @@ public class Patrulha : MonoBehaviour
     }
     IEnumerator Morte()
     {
-        _paticula.SetActive(true);
+        _paticulaMorte.SetActive(true);
         yield return new WaitForSeconds(.2f);
         _bacon.gameObject.SetActive(false);
         _porco.gameObject.SetActive(true);
+    }
+    IEnumerator Hit()
+    {
+        _paticulaHit.gameObject.SetActive(true);
+        yield return new WaitForSeconds(.6f);
+        _paticulaHit.gameObject.SetActive(false);
     }
 }
