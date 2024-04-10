@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Tiro : MonoBehaviour
@@ -7,25 +8,25 @@ public class Tiro : MonoBehaviour
     public int direction = 0;
     public float _speed;
     public float _tempoVida = 0;
-    bool _ativaTempo;
+    int index;
     [SerializeField] float _timeRespanw;
 
     // Start is called before the first frame update
     void Start()
     {
-        _ativaTempo = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
         _tempoVida += Time.deltaTime;
 
-        if(_tempoVida >= 0.8f)
+        if (_tempoVida >= 0.8f)
         {
             gameObject.SetActive(false);
             _tempoVida = 0;
-            
+
         }
 
         //if(_ativaTempo == true)
@@ -46,6 +47,9 @@ public class Tiro : MonoBehaviour
         if (other.gameObject.CompareTag("AtaqueEnemy"))
         {
             gameObject.SetActive(false);
+            _tempoVida = 0;
+
+
         }
     }
 

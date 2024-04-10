@@ -355,6 +355,17 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""action"": ""AbreBau"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""558987e3-2d4d-482a-8517-7702e52ceb18"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbreBau"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }

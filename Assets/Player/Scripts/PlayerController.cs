@@ -555,14 +555,14 @@ public class PlayerController : MonoBehaviour
        // transicaoGameOver.SetActive(true);
         _ativadorMovimento = false;
         StartCoroutine(ExibirPainelGameOver());
-        _TelaGameOver.DOScale(.8f, 1f);
+        _TelaGameOver.DOScale(.8f, 2f);
         
     }
    
 
     private IEnumerator ExibirPainelGameOver()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(2f);
         painelGameOver.SetActive(true);
         DOTween.KillAll();
     }
@@ -570,7 +570,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Transforme()
     {
         _paticula.SetActive(true);
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         _paticula.SetActive(false);
     }
 }
