@@ -21,22 +21,32 @@ public class Tiro : MonoBehaviour
     {
         _tempoVida += Time.deltaTime;
 
-        if(_tempoVida >= 0.6f)
+        if(_tempoVida >= 0.8f)
         {
             gameObject.SetActive(false);
             _tempoVida = 0;
             
         }
-        if(_ativaTempo == true)
-        {
-          _timeRespanw += Time.deltaTime;
-          if (_timeRespanw >= 5f)
-          {
-            _ativaTempo = false;
-          }
-        }
+
+        //if(_ativaTempo == true)
+        //{
+        //  _timeRespanw += Time.deltaTime;
+        //  if (_timeRespanw >= 5f)
+        //  {
+        //    _ativaTempo = false;
+        //  }
+        //}
 
         _rb.velocity = new Vector3(direction * _speed, _rb.velocity.y, _rb.velocity.z);
 
     }
+
+    private void OnTriggerEnter(Collider other) //Desativa o tiro quando acerta o inimigo.
+    {
+        if (other.gameObject.CompareTag("AtaqueEnemy"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
 }
