@@ -5193,6 +5193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e17019eaf733f244916bf31c168e6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pausaJogo: {fileID: 0}
   _player: {fileID: 0}
   _alvo: {fileID: 1294949552508532392}
   _pos:
@@ -5207,7 +5208,8 @@ MonoBehaviour:
   _distPosLimit: 1
   _distPlayerLimit: 8
   _moveVelocidade: 25
-  _paticula: {fileID: 6285720426183894103}
+  _paticulaMorte: {fileID: 6285720426183894103}
+  _paticulaHit: {fileID: 6285720426183894103}
   _bacon: {fileID: 9208170436251586069}
   _porco: {fileID: 3089625389140647688}
   _vida: 3
