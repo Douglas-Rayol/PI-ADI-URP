@@ -640,15 +640,16 @@ public class PlayerController : MonoBehaviour
        // transicaoGameOver.SetActive(true);
         _ativadorMovimento = false;
         StartCoroutine(ExibirPainelGameOver());
+        
 
     }
    
 
     private IEnumerator ExibirPainelGameOver()
     {
-        yield return new WaitForSeconds(2f);
         painelGameOver.SetActive(true);
         _TelaGameOver.DOScale(.8f, 2f);
+        yield return new WaitForSeconds(1f);
         DOTween.KillAll();
     }
 
