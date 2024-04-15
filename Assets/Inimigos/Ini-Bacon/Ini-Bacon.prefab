@@ -5203,9 +5203,7 @@ MonoBehaviour:
   _distPos:
   - 0
   - 0
-  _velocidade:
-  - 0
-  - 0
+  _velocidade: []
   _distPosLimit: 1
   _distPlayerLimit: 8
   _moveVelocidade: 25

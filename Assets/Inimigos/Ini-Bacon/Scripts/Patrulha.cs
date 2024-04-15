@@ -17,7 +17,7 @@ public class Patrulha : MonoBehaviour
     [SerializeField] Transform _alvo;
     [SerializeField] Transform[] _pos;
     [SerializeField] float[] _distPos;
-    [SerializeField] float[] _velocidade;
+    //[SerializeField] float[] _velocidade;
     [SerializeField] float _distPosLimit;
     [SerializeField] float _distPlayerLimit;
     [SerializeField] float _moveVelocidade;
@@ -48,9 +48,12 @@ public class Patrulha : MonoBehaviour
     void Update()
     {
 
+        if (_hit == true)
+        {
+            _rb.velocity = Vector3.zero;
+        }
 
-
-        if(_pausaJogo._pause == false)
+        if (_pausaJogo._pause == false || _hit == false)
         {
             _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
             _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
@@ -62,6 +65,10 @@ public class Patrulha : MonoBehaviour
         {
             _rb.velocity = Vector3.zero;
         }
+
+
+
+
     }
 
     
@@ -69,35 +76,42 @@ public class Patrulha : MonoBehaviour
 
     void Patrulhamento()
     {
+
         if (_distPos[0] < _distPlayerLimit && _isPlayer == false)
         {
             _alvo = _pos[1];
         }
-        if (_distPos[1] < _distPlayerLimit && _isPlayer == false)
+            if (_distPos[1] < _distPlayerLimit && _isPlayer == false)
         {
             _alvo = _pos[0];
         }
+
+
     }
 
     void MoverparaAlvo()
     {
-        if (transform.position.x < _alvo.position.x)
+        if (_hit == false)
         {
-            _rb.velocity = new Vector3(_moveVelocidade, _rb.velocity.y);
-        }
-        else
-        {
-            _rb.velocity = new Vector3(-_moveVelocidade, _rb.velocity.y);
+            if (transform.position.x < _alvo.position.x)
+            {
+                _rb.velocity = new Vector3(_moveVelocidade, _rb.velocity.y);
+            }
+            else
+            {
+                _rb.velocity = new Vector3(-_moveVelocidade, _rb.velocity.y);
+            }
+
+            if (_rb.velocity.x < 0 && !_isFacingRight)
+            {
+                Flip();
+            }
+            else if (_rb.velocity.x > 0 && _isFacingRight)
+            {
+                Flip();
+            }
         }
 
-        if (_rb.velocity.x < 0 && !_isFacingRight)
-        {
-            Flip();
-        }
-        else if (_rb.velocity.x > 0 && _isFacingRight)
-        {
-            Flip();
-        }
     }
 
     void Flip()
@@ -122,8 +136,9 @@ public class Patrulha : MonoBehaviour
 
     public void AplicarDano()
     {
-        _barraVida.SetActive(true);
-        _vida -= 1;
+
+        StartCoroutine(TimeHit());
+
         if (_vida > 0)
         {
             StartCoroutine(Hit());
@@ -134,12 +149,26 @@ public class Patrulha : MonoBehaviour
         }
     }
 
+    IEnumerator TimeHit()
+    {
+        _barraVida.SetActive(true);
+        _vida -= 1;
+        _hit = true;
+        _anim.SetBool("parar", true);
+        yield return new WaitForSeconds(.3f);
+        _anim.SetBool("parar", false);
+        _hit = false;
+
+
+
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("AtaquePlayer"))
         {
             AplicarDano();
-            _hit = true;
+            
         }
     }
     IEnumerator Morte()
@@ -152,7 +181,7 @@ public class Patrulha : MonoBehaviour
     IEnumerator Hit()
     {
         _paticulaHit.gameObject.SetActive(true);
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.1f);
         _paticulaHit.gameObject.SetActive(false);
     }
 }

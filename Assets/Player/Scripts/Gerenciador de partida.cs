@@ -9,6 +9,7 @@ public class Gerenciadordepartida : MonoBehaviour
 
     private void Awake()
     {
+
         Time.timeScale = 0;
         Application.targetFrameRate = 60;
     }

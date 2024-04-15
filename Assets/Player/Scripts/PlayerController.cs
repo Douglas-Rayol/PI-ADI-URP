@@ -19,11 +19,15 @@ public class PlayerController : MonoBehaviour
 
     //Vida do Jogador
     [SerializeField] public int _vida = 3;
+    [SerializeField] public int _defesaUp = 0;
     [SerializeField] bool _dano;
+    [SerializeField] public bool _ativaDefesa;
+    
     [SerializeField] GameObject[] _PlayerHitPadrao;
     [SerializeField] GameObject[] _PlayerHitInd;
     [SerializeField] GameObject[] _PlayerHitMago;
     [SerializeField] GameObject _paticula;
+    [SerializeField] GameObject _hudDefesaUp;
 
     GameObject bullet;
 
@@ -80,10 +84,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         _chicote = FindAnyObjectByType<Chicote>();
         _pausaJogo = FindAnyObjectByType<GameManager>();
         _podeAbrir = FindAnyObjectByType<Bau>();
 
+        painelGameOver.SetActive(false);
         _ativaTiro = true;
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
@@ -138,6 +144,22 @@ public class PlayerController : MonoBehaviour
                 _anim.SetBool("Morte", true);
                 _vida = 0;
                 // GameOver();
+            }
+
+            if(_defesaUp == 0)
+            {
+                _ativaDefesa = false;
+
+                if(_trocaS == 2)
+                {
+                    _PlayerHitMago[0].SetActive(false);
+                    _PlayerHitMago[1].SetActive(false);
+                    _PlayerHitMago[2].SetActive(false);
+                    _PlayerHitPadrao[0].SetActive(true);
+                    _trocaS = 0;
+
+                }
+
             }
 
             if (!_checkGround)
@@ -358,13 +380,72 @@ public class PlayerController : MonoBehaviour
 
     public void VidaPlayer()
     {
-        StartCoroutine(VidaTime());
+
+        if(_ativaDefesa == false)
+        {
+            StartCoroutine(VidaTime());
+        }
+
+        if(_ativaDefesa == true && _defesaUp > 0)
+        {
+            StartCoroutine(DefesaTime());
+        }
+
+        
+
 
       if ( _vida <= 0)
       {
             GameOver();
       }
 
+    }
+
+    IEnumerator DefesaTime()
+    {
+        _defesaUp -= 1;
+        for (int i = 0; i < 30; i++)
+        {
+            if (_trocaS == 0)
+            {
+                _PlayerHitPadrao[0].SetActive(false);
+            }
+
+            if (_trocaS == 1)
+            {
+                _PlayerHitInd[0].SetActive(false);
+                _PlayerHitInd[1].SetActive(false);
+            }
+
+            if (_trocaS == 2)
+            {
+                _PlayerHitMago[0].SetActive(false);
+                _PlayerHitMago[1].SetActive(false);
+            }
+
+            yield return new WaitForSeconds(.010f);
+
+            if (_trocaS == 0)
+            {
+                _PlayerHitPadrao[0].SetActive(true);
+            }
+
+            if (_trocaS == 1)
+            {
+                _PlayerHitInd[0].SetActive(true);
+                _PlayerHitInd[1].SetActive(true);
+            }
+
+            if (_trocaS == 2)
+            {
+                _PlayerHitMago[0].SetActive(true);
+                _PlayerHitMago[1].SetActive(true);
+            }
+
+            yield return new WaitForSeconds(.02f);
+
+        }
+        _dano = false;
     }
 
     IEnumerator VidaTime()
@@ -466,6 +547,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Cajado"))
         {
             other.GetComponent<Item>().DestroyItem();
+            _ativaDefesa = true;
+            _hudDefesaUp.SetActive(true);
+            _defesaUp = 3;
+            _vida = 3;
             _pausaJogo._pause = true;
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(false);
@@ -555,8 +640,7 @@ public class PlayerController : MonoBehaviour
        // transicaoGameOver.SetActive(true);
         _ativadorMovimento = false;
         StartCoroutine(ExibirPainelGameOver());
-        _TelaGameOver.DOScale(.8f, 2f);
-        
+
     }
    
 
@@ -564,6 +648,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         painelGameOver.SetActive(true);
+        _TelaGameOver.DOScale(.8f, 2f);
         DOTween.KillAll();
     }
 

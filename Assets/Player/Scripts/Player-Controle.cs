@@ -260,7 +260,7 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""167725d5-b269-48b9-b731-5987d70f6be7"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -282,7 +282,7 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fb0f6cfb-bbff-4e4d-bc6d-f8bfb23a4ca4"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -360,6 +360,17 @@ public partial class @PlayerControle: IInputActionCollection2, IDisposable
                     ""name"": ""up"",
                     ""id"": ""558987e3-2d4d-482a-8517-7702e52ceb18"",
                     ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbreBau"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""532432e0-a5e1-4737-bf6c-0340b76546c7"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

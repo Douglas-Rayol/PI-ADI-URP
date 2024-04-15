@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Hud Vida do Jogador")]
     [SerializeField] PlayerController _vidaJogador;
     [SerializeField] GameObject[] _hudVida;
+    [SerializeField] GameObject[] _hudDef;
 
     [Header("Pause do Jogo")]
     [SerializeField] public bool _pause;
@@ -24,11 +25,20 @@ public class GameManager : MonoBehaviour
     {
         VidaDoJogadorHud();
 
-        //Só para reiniciar o jogo. Futuramente Tiramos;
-        if(Input.GetKeyDown(KeyCode.R))
+
+        if(_vidaJogador._ativaDefesa == true)
         {
-            SceneManager.LoadScene("Ato_1_1");
+            DefesaDoJogadorHud();
         }
+
+
+        
+
+        ////Só para reiniciar o jogo. Futuramente Tiramos;
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    SceneManager.LoadScene("Ato_1_1");
+        //}
 
 
     }
@@ -40,14 +50,24 @@ public class GameManager : MonoBehaviour
         _pause = false;
     }
 
+
+
     void VidaDoJogadorHud()
     {
-        if(_vidaJogador._vida == 2)
+
+        if(_vidaJogador._vida == 3)
+        {
+            _hudVida[2].SetActive(true);
+            _hudVida[1].SetActive(true);
+            _hudVida[0].SetActive(true);
+        }
+
+        if (_vidaJogador._vida == 2)
         {
             _hudVida[2].SetActive(false);
         }
 
-        if(_vidaJogador._vida == 1)
+        if (_vidaJogador._vida == 1)
         {
             _hudVida[1].SetActive(false);
         }
@@ -58,6 +78,33 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    void DefesaDoJogadorHud()
+    {
+        if (_vidaJogador._defesaUp == 3)
+        {
+            _hudDef[2].SetActive(true);
+            _hudDef[1].SetActive(true);
+            _hudDef[0].SetActive(true);
+        }
+
+        if (_vidaJogador._defesaUp == 2)
+        {
+            _hudDef[2].SetActive(false);
+        }
+
+        if (_vidaJogador._defesaUp == 1)
+        {
+            _hudDef[1].SetActive(false);
+        }
+
+        if (_vidaJogador._defesaUp == 0)
+        {
+            _hudDef[0].SetActive(false);
+        }
+    }
+
+
 
 
 }
