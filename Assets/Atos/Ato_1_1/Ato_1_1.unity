@@ -17344,7 +17344,7 @@ Transform:
   m_GameObject: {fileID: 648775917}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1568934, y: 0.6607956, z: 41.215088}
+  m_LocalPosition: {x: 1.1568934, y: 0.6607956, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39717,6 +39717,10 @@ MonoBehaviour:
   - {fileID: 1842952942}
   - {fileID: 634849866}
   - {fileID: 1480826427}
+  _hudVidaVazia:
+  - {fileID: 1099763938}
+  - {fileID: 1554386993}
+  - {fileID: 1239771964}
   _hudDef:
   - {fileID: 1665535703}
   - {fileID: 1606372740}
