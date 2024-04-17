@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Menu/menu.unity
     guid: f49b339a4fed5f14288b9e7570d93262
   - enabled: 1
+    path: "Assets/Atos/Introdu\xE7\xE3o/Introdu\xE7\xE3o.unity"
+    guid: 6f20aa4cd266c8e42a115985f382adf4
+  - enabled: 1
     path: Assets/Atos/Ato_1_1/Ato_1_1.unity
     guid: 01e5723cbb8d3654b90ac9201b83a565
   - enabled: 1
