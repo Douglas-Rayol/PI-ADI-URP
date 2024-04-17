@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
 {
 
     //Variaveis Publicas
-    [SerializeField] Chicote _chicote;
+    CameraShake _shakeCam;
+    Chicote _chicote;
     public GameManager _pausaJogo;
     Bau _podeAbrir;
 
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _shakeCam = FindAnyObjectByType<CameraShake>();
         _chicote = FindAnyObjectByType<Chicote>();
         _pausaJogo = FindAnyObjectByType<GameManager>();
         _podeAbrir = FindAnyObjectByType<Bau>();
@@ -547,6 +548,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Cajado"))
         {
             other.GetComponent<Item>().DestroyItem();
+            _shakeCam.Shake();
             _ativaDefesa = true;
             _hudDefesaUp.SetActive(true);
             _defesaUp = 3;
