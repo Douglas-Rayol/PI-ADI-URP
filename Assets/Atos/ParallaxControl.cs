@@ -11,7 +11,7 @@ public class ParallaxControl : MonoBehaviour
     float _distance;
     float[] _backSpeed;
     float _farthestBack;
-    [Range(0.01f, 0.5f)]
+    [Range(0.01f, 0.8f)]
     public float _parallaxSpeed;
     int _backCount;
 
@@ -52,7 +52,7 @@ public class ParallaxControl : MonoBehaviour
     private void LateUpdate()
     {
         _distance = _cam.position.x - _camStartPos.x;
-        transform.position = new Vector3(_cam.position.x, transform.position.y, 0);
+        transform.position = new Vector3(_cam.position.x, transform.position.y, transform.position.z);
         for (int i = 0; i < _backgrounds.Length; i++)
         {
             float _speed = _backSpeed[i] * _parallaxSpeed;
