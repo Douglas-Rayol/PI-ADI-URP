@@ -96,10 +96,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _hudDef.Length; i++)
         {
             _hudDef[i].transform.DOScale(8f, .25f);
-            //_hudVidaVazia[i].transform.DOScale(8f, .25f);
             yield return new WaitForSeconds(0.25f);
             _hudDef[i].transform.DOScale(5f, .25f);
-            //_hudVidaVazia[i].transform.DOScale(6f, .25f);
         }
     }
 
