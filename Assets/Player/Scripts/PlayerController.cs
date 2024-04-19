@@ -649,8 +649,9 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ExibirPainelGameOver()
     {
+        yield return new WaitForSeconds(2f);
         painelGameOver.SetActive(true);
-        _TelaGameOver.DOScale(.8f, 2f);
+        _TelaGameOver.DOScale(.8f, 1f);
         yield return new WaitForSeconds(1f);
         DOTween.KillAll();
     }
