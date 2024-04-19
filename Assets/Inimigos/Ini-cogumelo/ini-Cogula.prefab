@@ -10392,7 +10392,7 @@ MonoBehaviour:
   - 10
   - 20
   _distPosLimit: 2
-  _distPlayerLimit: 25
+  _distPlayerLimit: 20
   _dist: 0
   _moveVelocidade: 0
   _isPlayer: 0
