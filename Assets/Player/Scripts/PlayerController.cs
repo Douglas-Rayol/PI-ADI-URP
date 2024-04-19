@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using DG.Tweening;
+using System.Runtime.CompilerServices;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,9 +35,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] int _trocaS = 0;
 
-    [SerializeField] Rigidbody _rb;
+    [SerializeField] public Rigidbody _rb;
     [SerializeField] Animator _anim;
     [SerializeField] public Vector2 _move;
+    [SerializeField] private float _ultimaPosicaoDoPlayer;
     [SerializeField] Transform _raycasGround;
 
     [SerializeField] float _speed;
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
 
     bool _rotacao;
-    private float _animacao;
+    private float _blendAnim;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
     int _rumJump = Animator.StringToHash("RunJump");
@@ -110,7 +112,9 @@ public class PlayerController : MonoBehaviour
 
             _g2 = _rb.velocity.y;
 
-            _anim.SetFloat("InputX", _animacao);
+
+            
+            _anim.SetFloat("InputX", _blendAnim);
 
             if (_ativadorMovimento)
             {
@@ -126,7 +130,6 @@ public class PlayerController : MonoBehaviour
 
 
             Gravidade();
-
 
             if (_move.x > 0 && _rotacao)
             {
@@ -243,6 +246,16 @@ public class PlayerController : MonoBehaviour
     {
 
         _move = value.ReadValue<Vector3>().normalized;
+
+        if(_move.x > 0.1f)
+        {
+            _ultimaPosicaoDoPlayer = _move.x;
+        }
+
+        if(_move.x < -0.1f)
+        {
+            _ultimaPosicaoDoPlayer = _move.x;
+        }
         
 
     }
@@ -251,7 +264,7 @@ public class PlayerController : MonoBehaviour
     {
 
         _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
-        _animacao = Mathf.Abs(_move.x);
+        _blendAnim = Mathf.Abs(_move.x);
     }
 
     public void SetJump(InputAction.CallbackContext value)
@@ -369,11 +382,14 @@ public class PlayerController : MonoBehaviour
 
     private void Flip() // Flip do Personagem (Direita e Esquerda)
     {
+
         _rotacao = !_rotacao;
 
         Vector3 theScale = transform.eulerAngles; // orientacao do pai (Plataforma) para o filho (Player)(Ivo)
         theScale.y *= -1;
         transform.eulerAngles = new Vector3(0, theScale.y, 0);
+
+
     }
 
 
@@ -384,12 +400,20 @@ public class PlayerController : MonoBehaviour
 
         if(_ativaDefesa == false)
         {
+            _ativadorMovimento = false;
             StartCoroutine(VidaTime());
+            Invoke("TimeHitAnim", .5f);
+            EmpurraoHit();
+
+
         }
 
         if(_ativaDefesa == true && _defesaUp > 0)
         {
+            _ativadorMovimento = false;
             StartCoroutine(DefesaTime());
+            Invoke("TimeHitAnim", .5f);
+            EmpurraoHit();
         }
 
         
@@ -398,11 +422,30 @@ public class PlayerController : MonoBehaviour
       if ( _vida <= 0)
       {
             GameOver();
-      }
+            
+        }
 
     }
 
-    IEnumerator DefesaTime()
+    private void EmpurraoHit()
+    {
+        if (_ultimaPosicaoDoPlayer == 1)
+        {
+            _rb.DOMove(new Vector3(_rb.transform.position.x + 5f * -1, _rb.transform.position.y + 5, _rb.transform.position.z), .3f, false);
+        }
+
+        if (_ultimaPosicaoDoPlayer == -1)
+        {
+            _rb.DOMove(new Vector3(_rb.transform.position.x - 5f * -1, _rb.transform.position.y + 5, _rb.transform.position.z), .3f, false);
+        }
+    }
+
+    private void TimeHitAnim()
+    {
+        _ativadorMovimento = true;
+    }
+
+    private IEnumerator DefesaTime()
     {
         _defesaUp -= 1;
         for (int i = 0; i < 30; i++)
@@ -449,15 +492,29 @@ public class PlayerController : MonoBehaviour
         _dano = false;
     }
 
-    IEnumerator VidaTime()
+    private IEnumerator VidaTime()
     {
         _vida -= 1;
+        _anim.SetBool("Hit", true);
+
+        if(_move.x > 0.1f)
+        {
+            _rb.DOMove(new Vector3(transform.position.x - 5f, transform.position.y + 5f, transform.position.z), .3f, false);
+        }
+
+        else if(_move.x < -0.1f)
+        {
+            _rb.DOMove(new Vector3(transform.position.x + 5f, transform.position.y + 5f, transform.position.z), .3f, false);
+        }
 
         for (int i = 0; i < 30; i++)
         {
-            if(_trocaS == 0)
+            
+            if (_trocaS == 0)
             {
                 _PlayerHitPadrao[0].SetActive(false);
+
+
             }
 
             if(_trocaS == 1)
@@ -492,9 +549,13 @@ public class PlayerController : MonoBehaviour
             }
 
             yield return new WaitForSeconds(.02f);
+            _anim.SetBool("Hit", false);
             
+
         }
         _dano = false;
+        
+
 
 
     }
@@ -571,6 +632,8 @@ public class PlayerController : MonoBehaviour
         {
            _dano = true;
            VidaPlayer();
+           
+
         }
         if (other.gameObject.CompareTag("Morte"))
         {
@@ -656,7 +719,7 @@ public class PlayerController : MonoBehaviour
         DOTween.KillAll();
     }
 
-    IEnumerator Transforme()
+    private IEnumerator Transforme()
     {
         _paticula.SetActive(true);
         yield return new WaitForSeconds(1f);
