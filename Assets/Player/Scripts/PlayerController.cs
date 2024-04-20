@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Rigidbody _rb;
     [SerializeField] Animator _anim;
     [SerializeField] public Vector2 _move;
-    [SerializeField] private float _ultimaPosicaoDoPlayer;
+    [SerializeField] private float _ultimaHorizontal;
     [SerializeField] Transform _raycasGround;
 
     [SerializeField] float _speed;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     bool checkHitIni;
 
 
-    bool _rotacao;
+    public bool _rotacao;
     private float _blendAnim;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
@@ -249,12 +249,12 @@ public class PlayerController : MonoBehaviour
 
         if(_move.x > 0.1f)
         {
-            _ultimaPosicaoDoPlayer = _move.x;
+            _ultimaHorizontal = _move.x;
         }
 
         if(_move.x < -0.1f)
         {
-            _ultimaPosicaoDoPlayer = _move.x;
+            _ultimaHorizontal = _move.x;
         }
         
 
@@ -403,7 +403,7 @@ public class PlayerController : MonoBehaviour
             _ativadorMovimento = false;
             StartCoroutine(VidaTime());
             Invoke("TimeHitAnim", .5f);
-            EmpurraoHit();
+            Empurrao();
 
 
         }
@@ -413,7 +413,7 @@ public class PlayerController : MonoBehaviour
             _ativadorMovimento = false;
             StartCoroutine(DefesaTime());
             Invoke("TimeHitAnim", .5f);
-            EmpurraoHit();
+            Empurrao();
         }
 
         
@@ -427,18 +427,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void EmpurraoHit()
+
+    private void Empurrao()
     {
-        if (_ultimaPosicaoDoPlayer == 1)
+        if(_rotacao == false)
         {
-            _rb.DOMove(new Vector3(_rb.transform.position.x + 5f * -1, _rb.transform.position.y + 5, _rb.transform.position.z), .3f, false);
+            _rb.DOMove(new Vector3(_rb.transform.position.x - 5f, _rb.transform.position.y + 3, _rb.transform.position.z), .3f, false);
         }
 
-        if (_ultimaPosicaoDoPlayer == -1)
+        if(_rotacao == true)
         {
-            _rb.DOMove(new Vector3(_rb.transform.position.x - 5f * -1, _rb.transform.position.y + 5, _rb.transform.position.z), .3f, false);
+            _rb.DOMove(new Vector3(_rb.transform.position.x + 5f, _rb.transform.position.y + 3, _rb.transform.position.z), .3f, false);
         }
+
     }
+
 
     private void TimeHitAnim()
     {
@@ -448,6 +451,8 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DefesaTime()
     {
         _defesaUp -= 1;
+
+
         for (int i = 0; i < 30; i++)
         {
             if (_trocaS == 0)
@@ -496,16 +501,6 @@ public class PlayerController : MonoBehaviour
     {
         _vida -= 1;
         _anim.SetBool("Hit", true);
-
-        if(_move.x > 0.1f)
-        {
-            _rb.DOMove(new Vector3(transform.position.x - 5f, transform.position.y + 5f, transform.position.z), .3f, false);
-        }
-
-        else if(_move.x < -0.1f)
-        {
-            _rb.DOMove(new Vector3(transform.position.x + 5f, transform.position.y + 5f, transform.position.z), .3f, false);
-        }
 
         for (int i = 0; i < 30; i++)
         {

@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 25320319}
   - component: {fileID: 25320322}
   - component: {fileID: 25320321}
-  - component: {fileID: 25320320}
+  - component: {fileID: 25320323}
   m_Layer: 5
   m_Name: Ataque
   m_TagString: GameController
@@ -369,51 +369,16 @@ RectTransform:
   m_GameObject: {fileID: 25320318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.000057935722}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1150378818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1560.408, y: 3.9006653}
+  m_AnchoredPosition: {x: 1317, y: 165.34}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &25320320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25320318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovementRange: 120
-  m_DynamicOriginRange: 100
-  m_ControlPath: <Gamepad>/dpad
-  m_Behaviour: 0
-  m_UseIsolatedInputActions: 0
-  m_PointerDownAction:
-    m_Name: Pointer Down
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 5791b9b8-4028-4e2d-a886-013f0392a20e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  m_PointerMoveAction:
-    m_Name: Pointer Move
-    m_Type: 0
-    m_ExpectedControlType: Vector2
-    m_Id: dea7fa96-b45f-4068-a25b-007ff84148c3
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!114 &25320321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +417,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25320318}
   m_CullTransparentMesh: 1
+--- !u!114 &25320323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25320318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/buttonWest
 --- !u!4 &35889415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3786857514590453068, guid: 0c7c33a6a145d604ab3e30126c2c793a,
@@ -28962,7 +28940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1150378818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28972,8 +28950,8 @@ RectTransform:
   m_GameObject: {fileID: 1150378817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2109275459}
   - {fileID: 25320319}
@@ -34668,7 +34646,7 @@ GameObject:
   - component: {fileID: 1352554969}
   - component: {fileID: 1352554972}
   - component: {fileID: 1352554971}
-  - component: {fileID: 1352554970}
+  - component: {fileID: 1352554973}
   m_Layer: 5
   m_Name: Pulo
   m_TagString: GameController
@@ -34685,51 +34663,16 @@ RectTransform:
   m_GameObject: {fileID: 1352554968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00047636038}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1150378818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1346.8552, y: -106.59973}
+  m_AnchoredPosition: {x: 1012.3, y: -2.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1352554970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352554968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovementRange: 120
-  m_DynamicOriginRange: 100
-  m_ControlPath: <Gamepad>/dpad
-  m_Behaviour: 0
-  m_UseIsolatedInputActions: 0
-  m_PointerDownAction:
-    m_Name: Pointer Down
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 5791b9b8-4028-4e2d-a886-013f0392a20e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  m_PointerMoveAction:
-    m_Name: Pointer Move
-    m_Type: 0
-    m_ExpectedControlType: Vector2
-    m_Id: dea7fa96-b45f-4068-a25b-007ff84148c3
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!114 &1352554971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34768,6 +34711,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352554968}
   m_CullTransparentMesh: 1
+--- !u!114 &1352554973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352554968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/buttonSouth
 --- !u!64 &1353509160
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67349,8 +67305,8 @@ RectTransform:
   m_GameObject: {fileID: 2109275458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00092697155}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1150378818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92093,7 +92049,7 @@ MonoBehaviour:
   _rb: {fileID: 3035624650047387629}
   _anim: {fileID: 3035624650047387633}
   _move: {x: 0, y: 0}
-  _ultimaPosicaoDoPlayer: 0
+  _ultimaHorizontal: 0
   _raycasGround: {fileID: 610962408}
   _speed: 30
   _jump: 105
@@ -92105,6 +92061,7 @@ MonoBehaviour:
   _g2: 0
   _checkGround: 0
   _groundCount: 0
+  _rotacao: 0
   _plataforma: 0
   _posTiro: {fileID: 801942237}
   _ativaTiro: 0
