@@ -18,9 +18,17 @@ public class GameManager : MonoBehaviour
     bool _CheckStartesc;
     bool _iniCheck;
 
+    [SerializeField] int _fase;
+    [SerializeField] int _partfase;
+    [SerializeField] int _life;
+    [SerializeField] Transform _posPlayer;
+    [SerializeField] Transform[] _pos;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Carregar();
+        //_posPlayer.transform.localPosition = _pos[0].transform.position;
         _vidaJogador = FindObjectOfType<PlayerController>();
         StartCoroutine(StartHud());
         
@@ -163,6 +171,19 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void Aumentarfase()
+    {
+        _fase++;
+    }
 
+    public void Salvar()
+    {
+        PlayerPrefs.SetInt("fase", _fase);
+    }
+
+    public void Carregar()
+    {
+        _fase = PlayerPrefs.GetInt("fase");
+    }
 
 }
