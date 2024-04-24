@@ -18,17 +18,9 @@ public class GameManager : MonoBehaviour
     bool _CheckStartesc;
     bool _iniCheck;
 
-    [SerializeField] int _fase;
-    [SerializeField] int _partfase;
-    [SerializeField] int _life;
-    [SerializeField] Transform _posPlayer;
-    [SerializeField] Transform[] _pos;
-
     // Start is called before the first frame update
     void Start()
     {
-        //Carregar();
-        //_posPlayer.transform.localPosition = _pos[0].transform.position;
         _vidaJogador = FindObjectOfType<PlayerController>();
         StartCoroutine(StartHud());
         
@@ -55,8 +47,6 @@ public class GameManager : MonoBehaviour
            
         }
 
-
-        
 
         ////Só para reiniciar o jogo. Futuramente Tiramos;
         //if (Input.GetKeyDown(KeyCode.R))
@@ -169,21 +159,4 @@ public class GameManager : MonoBehaviour
             _hudDef[0].transform.DOScale(0f, .25f);
         }
     }
-
-
-    public void Aumentarfase()
-    {
-        _fase++;
-    }
-
-    public void Salvar()
-    {
-        PlayerPrefs.SetInt("fase", _fase);
-    }
-
-    public void Carregar()
-    {
-        _fase = PlayerPrefs.GetInt("fase");
-    }
-
 }

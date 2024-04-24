@@ -79,9 +79,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject painelGameOver;
     public AudioSource _SomDoPulo;
 
+    [SerializeField] string _tagCheckPoint;
+    CheckPoint _checkpoint;
+    public Vector3 _posSalva;
 
-    
-    
 
 
     // Start is called before the first frame update
@@ -97,6 +98,12 @@ public class PlayerController : MonoBehaviour
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
         _dentroPlataforma = false;
+
+        _checkpoint = Camera.main.GetComponent<CheckPoint>();
+        _posSalva.x = PlayerPrefs.GetFloat("posX");
+        _posSalva.y = PlayerPrefs.GetFloat("posY");
+        _posSalva.z = PlayerPrefs.GetFloat("posZ");
+        //transform.localPosition = _posSalva;
     }
 
     // Update is called once per frame
@@ -665,6 +672,12 @@ public class PlayerController : MonoBehaviour
                 _anim.SetBool("Jump", true);
             }
 
+        }
+        if (other.gameObject.CompareTag(_tagCheckPoint))
+        {
+            //UnityEngine.Debug.Log(other.gameObject.name); //mostra o nome do objeto(checkpoint)
+            Debug.Log(other.transform.localPosition); //mostra o local do objrto(checkpoint)
+            _checkpoint.CkeckPointSalvar(other.transform.localPosition);
         }
     }
 

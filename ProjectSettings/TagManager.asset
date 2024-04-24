@@ -15,6 +15,7 @@ TagManager:
   - Alerta
   - Chapeu
   - Cajado
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
