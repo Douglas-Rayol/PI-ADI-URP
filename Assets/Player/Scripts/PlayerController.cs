@@ -98,12 +98,16 @@ public class PlayerController : MonoBehaviour
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
         _dentroPlataforma = false;
+        Debug.Log(PlayerPrefs.GetInt("StartSalve"));
 
         _checkpoint = Camera.main.GetComponent<CheckPoint>();
-        _posSalva.x = PlayerPrefs.GetFloat("posX");
-        _posSalva.y = PlayerPrefs.GetFloat("posY");
-        _posSalva.z = PlayerPrefs.GetFloat("posZ");
-        //transform.localPosition = _posSalva;
+        if (PlayerPrefs.GetInt("StartSalve") == 1)
+        {
+            _posSalva.x = PlayerPrefs.GetFloat("posX");
+            _posSalva.y = PlayerPrefs.GetFloat("posY");
+            _posSalva.z = PlayerPrefs.GetFloat("posZ");
+            //transform.localPosition = _posSalva;
+        }
     }
 
     // Update is called once per frame
@@ -675,8 +679,9 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag(_tagCheckPoint))
         {
-            //UnityEngine.Debug.Log(other.gameObject.name); //mostra o nome do objeto(checkpoint)
-            Debug.Log(other.transform.localPosition); //mostra o local do objrto(checkpoint)
+            //Debug.Log(other.transform.localPosition); //mostra o local do objrto(checkpoint)
+            UnityEngine.Debug.Log(other.gameObject.name); //mostra o nome do objeto(checkpoint)
+            _checkpoint.Salvar();
             _checkpoint.CkeckPointSalvar(other.transform.localPosition);
         }
     }

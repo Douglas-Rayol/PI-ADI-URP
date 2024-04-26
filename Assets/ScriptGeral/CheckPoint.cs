@@ -12,7 +12,11 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] Transform[] _pos;
     void Start()
     {
-        
+        if (PlayerPrefs.GetInt("StartSalve") == 0)  
+        {
+            PlayerPrefs.SetInt("StartSalve", 0);
+        }
+        Carregar();
     }
 
     // Update is called once per frame
@@ -35,8 +39,10 @@ public class CheckPoint : MonoBehaviour
 
     public void Salvar()
     {
+        PlayerPrefs.SetInt("StartSalve", 1);
         PlayerPrefs.SetInt("fase", _fase);
         PlayerPrefs.SetInt("_partfase", _partfase);
+       // Debug.Log(PlayerPrefs.GetInt("StartSalve"));
     }
 
     public void Carregar()
