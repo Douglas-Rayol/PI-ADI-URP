@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             _posSalva.x = PlayerPrefs.GetFloat("posX");
             _posSalva.y = PlayerPrefs.GetFloat("posY");
             _posSalva.z = PlayerPrefs.GetFloat("posZ");
-            transform.localPosition = _posSalva;
+            //transform.localPosition = _posSalva;
         }
     }
 
