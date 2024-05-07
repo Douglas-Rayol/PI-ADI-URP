@@ -66,7 +66,7 @@ public class MenuPrincipalManager : MonoBehaviour
         yield return new WaitForSeconds(.25f);
         for (int i = 0; i < _butaoMenu.Count; i++)
         {
-            _butaoMenu[i].DOScale(new Vector3(1.4075f, 1f, 1f), 1f);
+            _butaoMenu[i].DOScale(new Vector3(1f, 1f, 1f), 1f);
             yield return new WaitForSeconds(.25f);
         }
     }
