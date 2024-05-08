@@ -31,9 +31,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _paticula;
     [SerializeField] GameObject _hudDefesaUp;
 
-    GameObject bullet;
+    GameObject cura;
 
-    [SerializeField] int _trocaS = 0;
+    [SerializeField] public int _trocaS = 0;
 
     [SerializeField] public Rigidbody _rb;
     [SerializeField] Animator _anim;
@@ -689,22 +689,22 @@ public class PlayerController : MonoBehaviour
     private void TiroDoPlayer()
     {
 
-        bullet = ObjectPool.SharedInstance.GetPooledObject();
-        if (bullet != null)
+        cura = ObjectPool.SharedInstance.GetPooledObject();
+        if (cura != null)
         {
-            bullet.transform.position = _posTiro.transform.position;
-            bullet.SetActive(true);
+            cura.transform.position = _posTiro.transform.position;
+            cura.SetActive(true);
 
             //Verifica a Direção do Tiro
             if (_direcaoVerdadeira == true)
             {
-                bullet.gameObject.GetComponent<Tiro>().direction = 1;
+                cura.gameObject.GetComponent<Tiro>().direction = 1;
 
             }
 
             else if (_direcaoVerdadeira == false)
             {
-                bullet.gameObject.GetComponent<Tiro>().direction = -1;
+                cura.gameObject.GetComponent<Tiro>().direction = -1;
             }
 
         }

@@ -1,9 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tiro : MonoBehaviour
 {
-    
+
+    [SerializeField] private PlayerController _player;
+
+
     [SerializeField] Rigidbody _rb;
     public int direction = 0;
     public float _speed;
@@ -11,14 +15,24 @@ public class Tiro : MonoBehaviour
     int index;
     [SerializeField] float _timeRespanw;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        _player = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (_player._trocaS == 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        else if (_player._trocaS == 2)
+        {
+            transform.localScale = new Vector3(3, 3, 3);
+        }
 
         _tempoVida += Time.deltaTime;
 
@@ -28,15 +42,6 @@ public class Tiro : MonoBehaviour
             _tempoVida = 0;
 
         }
-
-        //if(_ativaTempo == true)
-        //{
-        //  _timeRespanw += Time.deltaTime;
-        //  if (_timeRespanw >= 5f)
-        //  {
-        //    _ativaTempo = false;
-        //  }
-        //}
 
         _rb.velocity = new Vector3(direction * _speed, _rb.velocity.y, _rb.velocity.z);
 
@@ -48,6 +53,7 @@ public class Tiro : MonoBehaviour
         {
             gameObject.SetActive(false);
             _tempoVida = 0;
+            
 
 
         }

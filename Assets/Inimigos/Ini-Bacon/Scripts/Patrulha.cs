@@ -7,6 +7,7 @@ using static UnityEngine.ParticleSystem;
 public class Patrulha : MonoBehaviour
 {
     public GameManager _pausaJogo;
+    [SerializeField] private PlayerController _playerControle;
 
     Rigidbody _rb;
     Animator _anim;
@@ -36,6 +37,7 @@ public class Patrulha : MonoBehaviour
     void Start()
     {
         _pausaJogo = FindAnyObjectByType<GameManager>();
+        _playerControle = FindObjectOfType<PlayerController>();
 
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
@@ -137,17 +139,40 @@ public class Patrulha : MonoBehaviour
 
     public void AplicarDano()
     {
-
-        StartCoroutine(TimeHit());
-
-        if (_vida > 0)
+        if (_playerControle._trocaS == 0)
         {
-            StartCoroutine(Hit());
+            StartCoroutine(TimeHit());
+
+            if (_vida > 0)
+            {
+                StartCoroutine(Hit());
+            }
+            if (_vida <= 0)
+            {
+                StartCoroutine(Morte());
+            }
         }
-        if (_vida <= 0)
+
+        if(_playerControle._trocaS == 2)
         {
-            StartCoroutine(Morte());
+            StartCoroutine(TimeHit2());
+
+            if (_vida > 0)
+            {
+                StartCoroutine(Hit());
+            }
+            if (_vida <= 0)
+            {
+                StartCoroutine(Morte());
+            }
         }
+
+
+
+
+
+       
+
     }
 
     IEnumerator TimeHit()
@@ -159,9 +184,17 @@ public class Patrulha : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         _anim.SetBool("parar", false);
         _hit = false;
+    }
 
-
-
+    IEnumerator TimeHit2()
+    {
+        _barraVida.SetActive(true);
+        _vida -= 2;
+        _hit = true;
+        _anim.SetBool("parar", true);
+        yield return new WaitForSeconds(.3f);
+        _anim.SetBool("parar", false);
+        _hit = false;
     }
 
     private void OnTriggerEnter(Collider collision)
