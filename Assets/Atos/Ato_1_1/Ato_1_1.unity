@@ -73267,6 +73267,7 @@ GameObject:
   - component: {fileID: 8462468871237016206}
   - component: {fileID: 4192081862365341373}
   - component: {fileID: 2907528841129180748}
+  - component: {fileID: 8462468871237016207}
   m_Layer: 0
   m_Name: Cube.005
   m_TagString: Untagged
@@ -96201,6 +96202,7 @@ GameObject:
   - component: {fileID: 9029682453809449841}
   - component: {fileID: 338528398865251823}
   - component: {fileID: 8193380480534634800}
+  - component: {fileID: 9029682453809449842}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -102715,6 +102717,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5277733654139686932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8462468871237016207
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2844227232496540416}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000005, y: 0.020000007, z: 0.020000001}
+  m_Center: {x: 3.4924597e-10, y: -0.00000023841858, z: 0.000000007450581}
 --- !u!1 &8474428639579667659
 GameObject:
   m_ObjectHideFlags: 0
@@ -103865,6 +103888,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5277733654139686932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9029682453809449842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987908363475060123}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000005, y: 0.020000007, z: 0.020000001}
+  m_Center: {x: 4.656613e-10, y: -0.00000017881393, z: -0.000000007450581}
 --- !u!23 &9035335889812735849
 MeshRenderer:
   m_ObjectHideFlags: 0
