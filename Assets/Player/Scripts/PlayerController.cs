@@ -65,12 +65,12 @@ public class PlayerController : MonoBehaviour
     int _rumJump = Animator.StringToHash("RunJump");
     [SerializeField] bool _plataforma;
 
-    //Posicão do Tiro
+    //Posicao do Tiro
     public Transform _posTiro;
     private bool _direcaoVerdadeira;
     public bool _ativaTiro;
 
-    [Header("Sistema de Orientação de Objeto")]
+    [Header("Sistema de Orientacao de Objeto")]
     [SerializeField] UnityEvent _OnEnter;
     [SerializeField] UnityEvent _OnExit;
     [SerializeField] private bool _dentroPlataforma;
@@ -98,7 +98,6 @@ public class PlayerController : MonoBehaviour
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
         _dentroPlataforma = false;
-        Debug.Log(PlayerPrefs.GetInt("StartSalve"));
 
         _checkpoint = Camera.main.GetComponent<CheckPoint>();
         if (PlayerPrefs.GetInt("StartSalve") == 1)
@@ -106,7 +105,7 @@ public class PlayerController : MonoBehaviour
             _posSalva.x = PlayerPrefs.GetFloat("posX");
             _posSalva.y = PlayerPrefs.GetFloat("posY");
             _posSalva.z = PlayerPrefs.GetFloat("posZ");
-            //transform.localPosition = _posSalva;
+            transform.localPosition = _posSalva;
         }
     }
 
@@ -253,7 +252,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void SetMove(InputAction.CallbackContext value) //Jotapê
+    public void SetMove(InputAction.CallbackContext value) //Jotapï¿½
     {
 
         _move = value.ReadValue<Vector3>().normalized;
@@ -271,7 +270,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Movimento() //Jotapê
+    void Movimento() //Jotape
     {
 
         _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
@@ -281,7 +280,7 @@ public class PlayerController : MonoBehaviour
     public void SetJump(InputAction.CallbackContext value)
     {
 
-        if (value.performed) //Jotapê
+        if (value.performed) //Jotapï¿½
         {
             
             if ((_checkGround || _plataforma || coyote == 1) && !_dentroPlataforma && _ativadorMovimento)
@@ -307,11 +306,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SetAtaque(InputAction.CallbackContext value) //Jotapê
+    public void SetAtaque(InputAction.CallbackContext value) //Jotapï¿½
     {
         if(_pausaJogo._pause == false)
         {
-            //Se estiver no chão, rola a animação dele atirando no chão
+            //Se estiver no chï¿½o, rola a animaï¿½ï¿½o dele atirando no chï¿½o
             if (value.performed && _checkGround && _ativadorMovimento && _ativaTiro)
             {
 
@@ -319,7 +318,7 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            //Se estiver no chão, rola a animação dele atirando no chão
+            //Se estiver no chï¿½o, rola a animaï¿½ï¿½o dele atirando no chï¿½o
             if (value.performed && !_checkGround && _ativadorMovimento && _ativaTiro)
             {
 
@@ -341,7 +340,7 @@ public class PlayerController : MonoBehaviour
         TiroDoPlayer();
     }
 
-    IEnumerator TimeTiro() //Jotapê
+    IEnumerator TimeTiro() //Jotapï¿½
     {
         
         if(_trocaS == 0 || _trocaS == 2)
@@ -385,7 +384,7 @@ public class PlayerController : MonoBehaviour
 
     } //Aqui que faz checar a dire
 
-    void Gravidade()  //Jotapê
+    void Gravidade()  //Jotape
     {
         _rb.AddForce(Vector3.down * _gravidade);
 
@@ -566,7 +565,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)  //Jotapê
+    private void OnTriggerEnter(Collider other)  //Jotapï¿½
     {
         if (other.gameObject.CompareTag("Ground"))
         {
@@ -577,7 +576,7 @@ public class PlayerController : MonoBehaviour
             }
             _groundCount++;
             _checkGround = true;
-            //Jotapê
+            //Jotapï¿½
             _anim.SetBool("Jump", false);
         }
         if (other.gameObject.CompareTag("Plataforma"))
@@ -591,7 +590,7 @@ public class PlayerController : MonoBehaviour
             _plataforma = true;
             transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
             _checkGround = true;
-            //Jotapê
+            //Jotapï¿½
             _anim.SetBool("Jump", false);
         }
 
@@ -648,7 +647,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void OnTriggerExit(Collider other)  //Jotapê
+    private void OnTriggerExit(Collider other)  //Jotapï¿½
     {
         if (other.gameObject.CompareTag("Ground"))
         {
@@ -657,7 +656,7 @@ public class PlayerController : MonoBehaviour
             if(_groundCount == 0)
             {
                 _checkGround = false;
-                //Jotapê
+                //Jotapï¿½
                 _anim.SetBool("Jump", true);
             }
             
@@ -672,7 +671,7 @@ public class PlayerController : MonoBehaviour
                 _plataforma = false;
                 transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
                 _checkGround = false;
-                //Jotapê
+                //Jotapï¿½
                 _anim.SetBool("Jump", true);
             }
 
@@ -695,7 +694,7 @@ public class PlayerController : MonoBehaviour
             cura.transform.position = _posTiro.transform.position;
             cura.SetActive(true);
 
-            //Verifica a Direção do Tiro
+            //Verifica a Direï¿½ï¿½o do Tiro
             if (_direcaoVerdadeira == true)
             {
                 cura.gameObject.GetComponent<Tiro>().direction = 1;
