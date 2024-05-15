@@ -2,71 +2,161 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
-public class CadeadoMT : MonoBehaviour
+public class CadeadoMT: MonoBehaviour
 {
-    [Header("Numeros e Resultado")]
-    [SerializeField] private List<int> _num1 = new List<int>();
-    [SerializeField] private List<int> _num2 = new List<int>();
-    [SerializeField] private List<string> _sinais = new List<string>();
+
+    [Header("Calculo")]
+    [SerializeField] private string[] _calculo;
+
+
+
+
+    [SerializeField] private int _index = 0;
+
+
     [SerializeField] private int _result;
 
-    [SerializeField] int sorteioNum1;
-    [SerializeField] int sorteioNum2;
+    [SerializeField] private TextMeshProUGUI _textoCalculo;
+    [SerializeField] private TextMeshProUGUI _textoResultado;
 
-    [Header("Hud Text")]
-    [SerializeField] private TextMeshProUGUI _textNum1;
-    [SerializeField] private TextMeshProUGUI _textNum2;
-    [SerializeField] private TextMeshProUGUI _textSinais;
-    [SerializeField] private TextMeshProUGUI _textResultad;
 
     private void Start()
     {
 
+        ShuffleString(_calculo);
+        _textoCalculo.text = "" + _calculo[0];
 
-        string sorteioSinal = _sinais[Random.Range(0, 2)];
-        sorteioNum1 = Random.Range(_num1[0], _num1[9]);
-        sorteioNum2 = Random.Range(_num2[0], _num2[9]);
+    }
 
-        _textNum1.text = "" + sorteioNum1;
-        _textNum2.text = "" + sorteioNum2;
-        _textSinais.text = sorteioSinal;
-
-
-        if (sorteioSinal == _sinais[0])
-        {
-            
-            if(sorteioNum1 > sorteioNum2)
-            {
-                _result = sorteioNum1 + sorteioNum2;
-                _textResultad.text = "" + _result;
-            }
-            
-        }
-        else if (sorteioSinal == _sinais[1])
-        {
-            if(sorteioNum1 > sorteioNum2)
-            {
-                _result = sorteioNum1 - sorteioNum2;
-                _textResultad.text = "" + _result;
-            }
-
-        }
-        else if (sorteioSinal == _sinais[2])
-        {
-            if(sorteioNum1 > sorteioNum2)
-            {
-                _result = sorteioNum1 * sorteioNum2;
-                _textResultad.text = "" + _result;
-            }
-
-        }
-
-
-
-
-
+    private void Update()
+    {
 
 
     }
+
+
+    public void Adiciona()
+    {
+        _index += 1;
+        
+
+        if (_index >= 10)
+        {
+            _textoResultado.text = "" + _index;
+        }
+        else if(_index < 10)
+        {
+            _textoResultado.text = "0" + _index;
+        }
+
+
+    }
+
+    public void Retirar()
+    {
+        _index -= 1;
+        if(_index <= 0)
+        {
+            _index = 0;
+        }
+
+        if (_index >= 10)
+        {
+            _textoResultado.text = "" + _index;
+        }
+        else if (_index < 10)
+        {
+            _textoResultado.text = "0" + _index;
+        }
+
+    }
+
+    public void Resultado()
+    {
+        if (_calculo[0] == "2+3")
+        {
+            if(_index == 5)
+            {
+                Debug.Log("Você acertou!");
+            }
+            else
+            {
+                Debug.Log("Você errou!");
+            }
+        }
+
+        else if (_calculo[0] == "8+2")
+        {
+            if (_index == 10)
+            {
+                Debug.Log("Você acertou!");
+            }
+            else
+            {
+                Debug.Log("Você errou!");
+            }
+        }
+
+        else if (_calculo[0] == "4+8")
+        {
+            if (_index == 12)
+            {
+                Debug.Log("Você acertou!");
+            }
+            else
+            {
+                Debug.Log("Você errou!");
+            }
+        }
+        else if (_calculo[0] == "6-2")
+        {
+            if (_index == 4)
+            {
+                Debug.Log("Você acertou!");
+            }
+            else
+            {
+                Debug.Log("Você errou!");
+            }
+        }
+        else if (_calculo[0] == "4-4")
+        {
+            if (_index == 0)
+            {
+                Debug.Log("Você acertou!");
+            }
+            else
+            {
+                Debug.Log("Você errou!");
+            }
+        }
+        else if (_calculo[0] == "7-2")
+        {
+            if (_index == 5)
+            {
+                Debug.Log("Você acertou!");
+            }
+            else
+            {
+                Debug.Log("Você errou!");
+            }
+        }
+    }
+
+
+
+
+    void ShuffleString(string[] lists)
+    {
+        for (int j = lists.Length - 1; j > 0; j--)
+        {
+            int rnd = UnityEngine.Random.Range(0, j + 1);
+            string temp = lists[j];
+            lists[j] = lists[rnd];
+            lists[rnd] = temp;
+        }
+    }
+
 }
