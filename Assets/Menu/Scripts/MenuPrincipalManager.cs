@@ -15,6 +15,7 @@ public class MenuPrincipalManager : MonoBehaviour
     [SerializeField] private string nomedoleveldejogo;
     [SerializeField] private GameObject painelMenuInicial;
     [SerializeField] private GameObject painelOpcoes;
+   
 
     //animacao hud
     [SerializeField] List<Transform> _butaoMenu;
@@ -36,6 +37,7 @@ public class MenuPrincipalManager : MonoBehaviour
         StartCoroutine(TempoScale());
 
     }
+   
 
     public void AbrirOpcoes()
     {
