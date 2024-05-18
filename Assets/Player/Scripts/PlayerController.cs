@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     Chicote _chicote;
     public GameManager _pausaJogo;
     Bau _podeAbrir;
+    CadeadoMT _puzzleCadeado;
 
     [SerializeField] int coyote;
     [SerializeField] bool SinalCoyote;
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
         _chicote = FindAnyObjectByType<Chicote>();
         _pausaJogo = FindAnyObjectByType<GameManager>();
         _podeAbrir = FindAnyObjectByType<Bau>();
+        _puzzleCadeado = FindAnyObjectByType<CadeadoMT>();
 
         painelGameOver.SetActive(false);
         _ativaTiro = true;
@@ -299,9 +301,8 @@ public class PlayerController : MonoBehaviour
     {
         if(_podeAbrir._abrir == true)
         {
-            _podeAbrir._anim.SetBool("Aberto", true);
-            _podeAbrir._seta.SetActive(false);
-            _podeAbrir._desativa = true;
+            _puzzleCadeado._chamaPuzzle = true;
+            _podeAbrir._abrir = false;
 
         }
     }

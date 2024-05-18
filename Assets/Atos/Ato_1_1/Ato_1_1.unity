@@ -46869,6 +46869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1407044444}
   - component: {fileID: 1407044443}
+  - component: {fileID: 1407044445}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46917,6 +46918,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407044445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407044442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1db0358617b84f4faedbb64d771cd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chamaPuzzle: 0
+  _puzzleHud: {fileID: 1742034923}
+  _calculo:
+  - 2+3
+  - 8+2
+  - 4+8
+  - 6-2
+  - 4-4
+  - 7-2
+  _index: 0
+  _result: 0
+  _textoCalculo: {fileID: 1346172631}
+  _textoResultado: {fileID: 1120876654}
 --- !u!1 &1409278831
 GameObject:
   m_ObjectHideFlags: 0
@@ -107133,7 +107159,7 @@ Transform:
   m_GameObject: {fileID: 6423071144808951237}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -94.32774, y: -21.157501, z: -26.64875}
+  m_LocalPosition: {x: -651.7, y: -82.7, z: -26.64875}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -112355,7 +112381,7 @@ Transform:
   m_GameObject: {fileID: 4987908363475060123}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
-  m_LocalPosition: {x: -0.30579698, y: 19.737667, z: -60.38322}
+  m_LocalPosition: {x: -0.3, y: 22.05049, z: -120}
   m_LocalScale: {x: 191.13518, y: 191.13518, z: 191.13518}
   m_ConstrainProportionsScale: 0
   m_Children: []

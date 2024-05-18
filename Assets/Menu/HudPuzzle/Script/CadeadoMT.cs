@@ -7,13 +7,15 @@ using UnityEngine.UI;
 public class CadeadoMT: MonoBehaviour
 {
 
+    [SerializeField] Bau _bau;
+
+    [SerializeField] public bool _chamaPuzzle;
+    [SerializeField] GameObject _puzzleHud;
+
     [Header("Calculo")]
     [SerializeField] private string[] _calculo;
 
-
-
-
-    [SerializeField] private int _index = 0;
+    [SerializeField] private int _resultado = 0;
 
 
     [SerializeField] private int _result;
@@ -28,27 +30,35 @@ public class CadeadoMT: MonoBehaviour
         ShuffleString(_calculo);
         _textoCalculo.text = "" + _calculo[0];
 
+        _bau = FindObjectOfType<Bau>();
+
+
     }
 
     private void Update()
     {
+        if(_chamaPuzzle == true)
+        {
+            _puzzleHud.SetActive(true);
+            _chamaPuzzle = false;
 
+        }
 
     }
 
 
     public void Adiciona()
     {
-        _index += 1;
+        _resultado += 1;
         
 
-        if (_index >= 10)
+        if (_resultado >= 10)
         {
-            _textoResultado.text = "" + _index;
+            _textoResultado.text = "" + _resultado;
         }
-        else if(_index < 10)
+        else if(_resultado < 10)
         {
-            _textoResultado.text = "0" + _index;
+            _textoResultado.text = "0" + _resultado;
         }
 
 
@@ -56,19 +66,19 @@ public class CadeadoMT: MonoBehaviour
 
     public void Retirar()
     {
-        _index -= 1;
-        if(_index <= 0)
+        _resultado -= 1;
+        if(_resultado <= 0)
         {
-            _index = 0;
+            _resultado = 0;
         }
 
-        if (_index >= 10)
+        if (_resultado >= 10)
         {
-            _textoResultado.text = "" + _index;
+            _textoResultado.text = "" + _resultado;
         }
-        else if (_index < 10)
+        else if (_resultado < 10)
         {
-            _textoResultado.text = "0" + _index;
+            _textoResultado.text = "0" + _resultado;
         }
 
     }
@@ -77,9 +87,10 @@ public class CadeadoMT: MonoBehaviour
     {
         if (_calculo[0] == "2+3")
         {
-            if(_index == 5)
+            if(_resultado == 5)
             {
-                Debug.Log("Você acertou!");
+                AcertouPuzzle();
+
             }
             else
             {
@@ -89,9 +100,9 @@ public class CadeadoMT: MonoBehaviour
 
         else if (_calculo[0] == "8+2")
         {
-            if (_index == 10)
+            if (_resultado == 10)
             {
-                Debug.Log("Você acertou!");
+                AcertouPuzzle();
             }
             else
             {
@@ -101,9 +112,9 @@ public class CadeadoMT: MonoBehaviour
 
         else if (_calculo[0] == "4+8")
         {
-            if (_index == 12)
+            if (_resultado == 12)
             {
-                Debug.Log("Você acertou!");
+                AcertouPuzzle();
             }
             else
             {
@@ -112,9 +123,9 @@ public class CadeadoMT: MonoBehaviour
         }
         else if (_calculo[0] == "6-2")
         {
-            if (_index == 4)
+            if (_resultado == 4)
             {
-                Debug.Log("Você acertou!");
+                AcertouPuzzle();
             }
             else
             {
@@ -123,9 +134,9 @@ public class CadeadoMT: MonoBehaviour
         }
         else if (_calculo[0] == "4-4")
         {
-            if (_index == 0)
+            if (_resultado == 0)
             {
-                Debug.Log("Você acertou!");
+                AcertouPuzzle();
             }
             else
             {
@@ -134,9 +145,9 @@ public class CadeadoMT: MonoBehaviour
         }
         else if (_calculo[0] == "7-2")
         {
-            if (_index == 5)
+            if (_resultado == 5)
             {
-                Debug.Log("Você acertou!");
+                AcertouPuzzle();
             }
             else
             {
@@ -146,7 +157,15 @@ public class CadeadoMT: MonoBehaviour
     }
 
 
+    private void AcertouPuzzle()
+    {
+        _puzzleHud.SetActive(false);
 
+        _bau._anim.SetBool("Aberto", true);
+        _bau._seta.SetActive(false);
+        _bau._desativa = true;
+        _bau._abrir = false;
+    }
 
     void ShuffleString(string[] lists)
     {
