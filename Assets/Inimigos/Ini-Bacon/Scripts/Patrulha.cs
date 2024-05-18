@@ -167,12 +167,6 @@ public class Patrulha : MonoBehaviour
             }
         }
 
-
-
-
-
-       
-
     }
 
     IEnumerator TimeHit()
