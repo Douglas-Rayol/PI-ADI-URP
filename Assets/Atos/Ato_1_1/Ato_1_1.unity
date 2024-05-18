@@ -20687,6 +20687,38 @@ Transform:
   - {fileID: 800907485}
   m_Father: {fileID: 1171728544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &643795501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643795502}
+  m_Layer: 0
+  m_Name: Pedras
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643795502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643795501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9029682453809449841}
+  m_Father: {fileID: 543450651999748902}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &648775917
 GameObject:
   m_ObjectHideFlags: 0
@@ -46837,7 +46869,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1407044444}
   - component: {fileID: 1407044443}
-  - component: {fileID: 1407044446}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46886,18 +46917,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1407044446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407044442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f76e3587678c948bcea475c23ab006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1409278831
 GameObject:
   m_ObjectHideFlags: 0
@@ -64737,7 +64756,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1407044446}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestCalculo, Assembly-CSharp
         m_MethodName: Adiciona
         m_Mode: 1
@@ -65331,7 +65350,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1407044446}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestCalculo, Assembly-CSharp
         m_MethodName: Retirar
         m_Mode: 1
@@ -71344,7 +71363,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1407044446}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TestCalculo, Assembly-CSharp
         m_MethodName: Resultado
         m_Mode: 1
@@ -79062,6 +79081,7 @@ Transform:
   - {fileID: 333879753}
   - {fileID: 6681576401480387188}
   - {fileID: 5277733654139686932}
+  - {fileID: 643795502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &543450652299420048
@@ -105599,8 +105619,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9029682453809449841}
   - component: {fileID: 338528398865251823}
+  - component: {fileID: 9029682453809449844}
   - component: {fileID: 8193380480534634800}
   - component: {fileID: 9029682453809449842}
+  - component: {fileID: 9029682453809449843}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Ground
@@ -106245,7 +106267,6 @@ Transform:
   - {fileID: 8394350260203029281}
   - {fileID: 1798497698748452336}
   - {fileID: 1700676174144839019}
-  - {fileID: 9029682453809449841}
   - {fileID: 8511659395908365906}
   - {fileID: 8462468871237016206}
   - {fileID: 3190117577896510526}
@@ -112338,7 +112359,7 @@ Transform:
   m_LocalScale: {x: 191.13518, y: 191.13518, z: 191.13518}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5277733654139686932}
+  m_Father: {fileID: 643795502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9029682453809449842
 BoxCollider:
@@ -112361,6 +112382,47 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.020000005, y: 0.020000007, z: 0.020000001}
   m_Center: {x: 4.656613e-10, y: -0.00000017881393, z: -0.000000007450581}
+--- !u!54 &9029682453809449843
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987908363475060123}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
+--- !u!114 &9029682453809449844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987908363475060123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828b3d8824a88c8478484c43687b1672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rbPedra: {fileID: 0}
+  _gravidade: 120
 --- !u!33 &9037715262010062478
 MeshFilter:
   m_ObjectHideFlags: 0
