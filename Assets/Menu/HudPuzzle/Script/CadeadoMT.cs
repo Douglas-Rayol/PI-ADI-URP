@@ -95,7 +95,6 @@ public class CadeadoMT: MonoBehaviour
             if(_resultado == 5)
             {
                 AcertouPuzzle();
-
             }
             else
             {
