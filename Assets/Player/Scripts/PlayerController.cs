@@ -9,12 +9,13 @@ using System.Runtime.CompilerServices;
 public class PlayerController : MonoBehaviour
 {
 
+    [SerializeField] public bool _bauOn;
+
     //Variaveis Publicas
     CameraShake _shakeCam;
     Chicote _chicote;
     public GameManager _pausaJogo;
-    Bau _podeAbrir;
-    CadeadoMT _puzzleCadeado;
+    GameControle _gameControle;
 
     [SerializeField] int coyote;
     [SerializeField] bool SinalCoyote;
@@ -92,8 +93,10 @@ public class PlayerController : MonoBehaviour
         _shakeCam = FindAnyObjectByType<CameraShake>();
         _chicote = FindAnyObjectByType<Chicote>();
         _pausaJogo = FindAnyObjectByType<GameManager>();
-        _podeAbrir = FindAnyObjectByType<Bau>();
-        _puzzleCadeado = FindAnyObjectByType<CadeadoMT>();
+
+        _gameControle = Camera.main.GetComponent<GameControle>();
+
+
 
         painelGameOver.SetActive(false);
         _ativaTiro = true;
@@ -299,11 +302,13 @@ public class PlayerController : MonoBehaviour
 
     public void SetAbrirBau(InputAction.CallbackContext value)
     {
-        if(_podeAbrir._abrir == true)
+        if(_bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
         {
-            _puzzleCadeado._chamaPuzzle = true;
-            _podeAbrir._abrir = false;
-
+            _gameControle._cadeadoMT._bauAberto = true;
+            _gameControle._cadeadoMT._puzzleHud.SetActive(true);
+            _gameControle._cadeadoMT.ChamaQuestao(_gameControle._cadeadoMT._question);
+            _gameControle._cadeadoMT._question++;
+            Debug.Log("test");
         }
     }
 

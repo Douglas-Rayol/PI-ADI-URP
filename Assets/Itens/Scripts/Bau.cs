@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Bau : MonoBehaviour
 {
-    [SerializeField] public bool _abrir;
+
+    [SerializeField] CadeadoMT _cadeadoMT;
+
     [SerializeField] public Animator _anim;
 
     [SerializeField] public GameObject _seta;
 
     public  bool  _desativa;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public int _tipoBau;
+
+    [SerializeField] GameControle _gamecontrole;
+
+    private void Start()
     {
-        
+        _cadeadoMT = Camera.main.GetComponent<CadeadoMT>();
+        _gamecontrole = Camera.main.GetComponent<GameControle>();
     }
 
     // Update is called once per frame
@@ -29,9 +35,11 @@ public class Bau : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            _abrir = true;
-            
-            if(_desativa == false)
+
+            _cadeadoMT._bau = GetComponent<Bau>(); //Envia o componente para a variavel publica do Bau no CadeadoMT.
+            _gamecontrole._playerController._bauOn = true;
+
+            if (_desativa == false)
             {
                 _seta.SetActive(true);
             }
@@ -49,7 +57,8 @@ public class Bau : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            _abrir = false;
+            _gamecontrole._playerController._bauOn = false;
+
             _seta.SetActive(false);
 
         }

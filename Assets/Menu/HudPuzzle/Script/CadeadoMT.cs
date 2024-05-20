@@ -7,30 +7,30 @@ using UnityEngine.UI;
 public class CadeadoMT: MonoBehaviour
 {
 
-    [SerializeField] Bau _bau;
+    [SerializeField] public Bau _bau;
 
     [SerializeField] public bool _chamaPuzzle;
-    [SerializeField] GameObject _puzzleHud;
+    [SerializeField] public GameObject _puzzleHud;
 
     [Header("Calculo")]
     [SerializeField] private string[] _calculo;
+    public int _question;
 
     [SerializeField] private int _resultado = 0;
 
 
     [SerializeField] private int _result;
 
-    [SerializeField] private TextMeshProUGUI _textoCalculo;
-    [SerializeField] private TextMeshProUGUI _textoResultado;
+    [SerializeField] public TextMeshProUGUI _textoCalculo;
+    [SerializeField] public TextMeshProUGUI _textoResultado;
+
+    public bool _bauAberto;
 
 
     private void Start()
     {
 
         ShuffleString(_calculo);
-        _textoCalculo.text = "" + _calculo[0];
-
-        _bau = FindObjectOfType<Bau>();
 
 
     }
@@ -46,6 +46,11 @@ public class CadeadoMT: MonoBehaviour
 
     }
 
+    public void ChamaQuestao(int value)
+    {
+        _textoCalculo.text = "" + _calculo[value];
+        
+    }
 
     public void Adiciona()
     {
@@ -159,13 +164,18 @@ public class CadeadoMT: MonoBehaviour
 
     private void AcertouPuzzle()
     {
-        _puzzleHud.SetActive(false);
+        _bauAberto = false;
 
         _bau._anim.SetBool("Aberto", true);
         _bau._seta.SetActive(false);
         _bau._desativa = true;
-        _bau._abrir = false;
+        _bau.GetComponent<BoxCollider>().enabled = false;
+
+        _puzzleHud.SetActive(false);
+
     }
+
+
 
     void ShuffleString(string[] lists)
     {
