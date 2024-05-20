@@ -305,10 +305,12 @@ public class PlayerController : MonoBehaviour
         if(_bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
         {
             _gameControle._cadeadoMT._bauAberto = true;
+            _gameControle._btPuzzle.Select();
             _gameControle._cadeadoMT._puzzleHud.SetActive(true);
             _gameControle._cadeadoMT.ChamaQuestao(_gameControle._cadeadoMT._question);
             _gameControle._cadeadoMT._question++;
             _pausaJogo._pause = true;
+            
         }
     }
 
