@@ -16,11 +16,13 @@ public class Bau : MonoBehaviour
     [SerializeField] public int _tipoBau;
 
     [SerializeField] GameControle _gamecontrole;
+    BoxCollider _box;
 
     private void Start()
     {
         _cadeadoMT = Camera.main.GetComponent<CadeadoMT>();
         _gamecontrole = Camera.main.GetComponent<GameControle>();
+        _box = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -47,8 +49,6 @@ public class Bau : MonoBehaviour
             {
                 _seta.SetActive(false);
             }
-           
-
         }
     }
 
@@ -60,6 +60,7 @@ public class Bau : MonoBehaviour
             _gamecontrole._playerController._bauOn = false;
 
             _seta.SetActive(false);
+            _box.GetComponent<BoxCollider>().enabled = false;
 
         }
     }

@@ -33,7 +33,6 @@ public class CadeadoMT: MonoBehaviour
     {
 
         ShuffleString(_calculo);
-
         _gameControle = Camera.main.GetComponent<GameControle>();
 
 
@@ -176,7 +175,6 @@ public class CadeadoMT: MonoBehaviour
         _bau._desativa = true;
         _bau.GetComponent<BoxCollider>().enabled = false;
         _gameControle._playerController._pausaJogo._pause = false;
-
         _puzzleHud.SetActive(false);
 
     }
