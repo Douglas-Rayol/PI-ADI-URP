@@ -14,6 +14,7 @@ public class CadeadoMT: MonoBehaviour
 
     [Header("Calculo")]
     [SerializeField] private string[] _calculo;
+    [SerializeField] private string _calculoTemp;
     public int _question;
 
     [SerializeField] private int _resultado = 0;
@@ -49,7 +50,9 @@ public class CadeadoMT: MonoBehaviour
     public void ChamaQuestao(int value)
     {
         _textoCalculo.text = "" + _calculo[value];
-        
+        _calculoTemp = _calculo[value];
+
+
     }
 
     public void Adiciona()
@@ -90,7 +93,7 @@ public class CadeadoMT: MonoBehaviour
 
     public void Resultado()
     {
-        if (_calculo[0] == "2+3")
+        if (_calculoTemp == "2+3")
         {
             if(_resultado == 5)
             {
@@ -102,7 +105,7 @@ public class CadeadoMT: MonoBehaviour
             }
         }
 
-        else if (_calculo[0] == "8+2")
+        else if (_calculoTemp == "8+2")
         {
             if (_resultado == 10)
             {
@@ -114,7 +117,7 @@ public class CadeadoMT: MonoBehaviour
             }
         }
 
-        else if (_calculo[0] == "4+8")
+        else if (_calculoTemp == "4+8")
         {
             if (_resultado == 12)
             {
@@ -125,7 +128,7 @@ public class CadeadoMT: MonoBehaviour
                 Debug.Log("Você errou!");
             }
         }
-        else if (_calculo[0] == "6-2")
+        else if (_calculoTemp == "6-2")
         {
             if (_resultado == 4)
             {
@@ -136,7 +139,7 @@ public class CadeadoMT: MonoBehaviour
                 Debug.Log("Você errou!");
             }
         }
-        else if (_calculo[0] == "4-4")
+        else if (_calculoTemp == "4-4")
         {
             if (_resultado == 0)
             {
@@ -147,7 +150,7 @@ public class CadeadoMT: MonoBehaviour
                 Debug.Log("Você errou!");
             }
         }
-        else if (_calculo[0] == "7-2")
+        else if (_calculoTemp == "7-2")
         {
             if (_resultado == 5)
             {
