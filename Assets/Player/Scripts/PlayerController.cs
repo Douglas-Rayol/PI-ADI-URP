@@ -212,8 +212,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             _rb.velocity = Vector3.zero;
+
             TransformacaoTransicao();
-            
 
 
         }
@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void TransformacaoTransicao()
+    public void TransformacaoTransicao()
     {
         
         _anim.SetLayerWeight(1, 1);
@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour
             _gameControle._cadeadoMT._puzzleHud.SetActive(true);
             _gameControle._cadeadoMT.ChamaQuestao(_gameControle._cadeadoMT._question);
             _gameControle._cadeadoMT._question++;
-            Debug.Log("test");
+            _pausaJogo._pause = true;
         }
     }
 

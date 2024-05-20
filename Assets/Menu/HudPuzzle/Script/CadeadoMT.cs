@@ -8,6 +8,7 @@ public class CadeadoMT: MonoBehaviour
 {
 
     [SerializeField] public Bau _bau;
+    [SerializeField] GameControle _gameControle;
 
     [SerializeField] public bool _chamaPuzzle;
     [SerializeField] public GameObject _puzzleHud;
@@ -32,6 +33,8 @@ public class CadeadoMT: MonoBehaviour
     {
 
         ShuffleString(_calculo);
+
+        _gameControle = Camera.main.GetComponent<GameControle>();
 
 
     }
@@ -172,6 +175,7 @@ public class CadeadoMT: MonoBehaviour
         _bau._seta.SetActive(false);
         _bau._desativa = true;
         _bau.GetComponent<BoxCollider>().enabled = false;
+        _gameControle._playerController._pausaJogo._pause = false;
 
         _puzzleHud.SetActive(false);
 

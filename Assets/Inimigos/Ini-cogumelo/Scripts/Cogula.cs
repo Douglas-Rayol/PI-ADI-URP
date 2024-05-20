@@ -5,6 +5,7 @@ public class Cogula : MonoBehaviour
 {
 
     public GameManager _pausaJogo;
+    [SerializeField] GameControle _gameControle;
 
     [Header("Sistema de vida Cogula")]
     [SerializeField] public int _vida;
@@ -48,6 +49,8 @@ public class Cogula : MonoBehaviour
     void Start()
     {
         _pausaJogo = FindAnyObjectByType<GameManager>();
+
+        _gameControle = Camera.main.GetComponent<GameControle>();
 
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
@@ -236,17 +239,38 @@ public class Cogula : MonoBehaviour
 
     public void AplicarDano()
     {
-        _barraVida.SetActive(true);
-        _vida -= 1;
-        if(_vida > 0)
+
+        if(_gameControle._playerController._trocaS == 0)
         {
-            StartCoroutine(Hit());
+            _barraVida.SetActive(true);
+            _vida -= 1;
+            if (_vida > 0)
+            {
+                StartCoroutine(Hit());
+            }
+            if (_vida <= 0)
+            {
+                StartCoroutine(Morte());
+                _vida = 0;
+            }
         }
-        if (_vida <= 0)
+
+        else if(_gameControle._playerController._trocaS == 2)
         {
-            StartCoroutine(Morte());
-            _vida = 0;
+            _barraVida.SetActive(true);
+            _vida -= 2;
+            if (_vida > 0)
+            {
+                StartCoroutine(Hit());
+            }
+            if (_vida <= 0)
+            {
+                StartCoroutine(Morte());
+                _vida = 0;
+            }
         }
+
+
     }
 
     void BarraDevida()
