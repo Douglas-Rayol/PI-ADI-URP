@@ -40,15 +40,8 @@ public class Bau : MonoBehaviour
 
             _cadeadoMT._bau = GetComponent<Bau>(); //Envia o componente para a variavel publica do Bau no CadeadoMT.
             _gamecontrole._playerController._bauOn = true;
+            _seta.SetActive(true);
 
-            if (_desativa == false)
-            {
-                _seta.SetActive(true);
-            }
-            else
-            {
-                _seta.SetActive(false);
-            }
         }
     }
 
@@ -58,9 +51,7 @@ public class Bau : MonoBehaviour
         {
 
             _gamecontrole._playerController._bauOn = false;
-
             _seta.SetActive(false);
-            _box.GetComponent<BoxCollider>().enabled = false;
 
         }
     }

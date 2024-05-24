@@ -2,22 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Gerenciadordepartida : MonoBehaviour
 {
-    private bool PartidaIniada;
+    private bool PartidaIniciada;
+    [SerializeField] Button _buttonGameOver;
 
     private void Awake()
     {
 
         Time.timeScale = 0;
         Application.targetFrameRate = 60;
+
+    }
+
+    private void Start()
+    {
+        _buttonGameOver.Select();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PartidaIniada = true;
+        PartidaIniciada = true;
         Time.timeScale = 1;
     }
     public void reiniciarpartida()

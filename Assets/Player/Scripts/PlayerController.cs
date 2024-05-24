@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using DG.Tweening;
 using System.Runtime.CompilerServices;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+
 
     [SerializeField] public bool _bauOn;
 
@@ -61,7 +63,6 @@ public class PlayerController : MonoBehaviour
 
 
     public bool _rotacao;
-    private float _blendAnim;
     int _runHash = Animator.StringToHash("Andando");
     int _jumpHash = Animator.StringToHash("Jump");
     int _rumJump = Animator.StringToHash("RunJump");
@@ -84,6 +85,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string _tagCheckPoint;
     CheckPoint _checkpoint;
     public Vector3 _posSalva;
+
+    [Header("Variaveis para Suavizar a Animacao")]
+    [SerializeField] private float smoothInputX;
+    [SerializeField] private float velocityX;
 
 
 
@@ -117,10 +122,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
 
-
-        if(_pausaJogo._pause == false)
+        if (_pausaJogo._pause == false)
         {
+            AnimacaoPlayer();
             _anim.SetLayerWeight(0, 1);
             _anim.SetBool("Transform", false);
             
@@ -128,8 +134,9 @@ public class PlayerController : MonoBehaviour
             _g2 = _rb.velocity.y;
 
 
+
+            _anim.SetFloat("InputX", smoothInputX);
             
-            _anim.SetFloat("InputX", _blendAnim);
 
             if (_ativadorMovimento)
             {
@@ -230,6 +237,14 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Transforme());
     }
 
+
+
+    void AnimacaoPlayer()
+    {
+        smoothInputX = Mathf.SmoothDamp(smoothInputX, _move.x, ref velocityX, 0.1f);
+
+    }
+
     void Verificacao()
     {
 
@@ -279,7 +294,6 @@ public class PlayerController : MonoBehaviour
     {
 
         _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
-        _blendAnim = Mathf.Abs(_move.x);
     }
 
     public void SetJump(InputAction.CallbackContext value)
@@ -305,12 +319,17 @@ public class PlayerController : MonoBehaviour
         if(_bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
         {
             _gameControle._cadeadoMT._bauAberto = true;
-            _gameControle._btPuzzle.Select();
             _gameControle._cadeadoMT._puzzleHud.SetActive(true);
             _gameControle._cadeadoMT.ChamaQuestao(_gameControle._cadeadoMT._question);
             _gameControle._cadeadoMT._question++;
             _pausaJogo._pause = true;
-            
+
+
+            _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[0]; //Faz o botão Cima do Puzzle ser o Primeiro do EventSystem
+            _gameControle._btPuzzles[0].GetComponent<Button>().Select();
+
+
+
         }
     }
 
@@ -350,17 +369,20 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator TimeTiro() //Jotap�
     {
-        
+
+        _anim.SetLayerWeight(2, 1);
         if(_trocaS == 0 || _trocaS == 2)
         {
+
             _anim.SetBool("Ataque", true);
             _ativaTiro = false;
-            _ativadorMovimento = false;
+            //_ativadorMovimento = false;
             yield return new WaitForSeconds(.3f);
             _anim.SetBool("Ataque", false);
-            yield return new WaitForSeconds(.32f);
-            _ativadorMovimento = true;
+            yield return new WaitForSeconds(.1f);
+            //_ativadorMovimento = true;
             _ativaTiro = true;
+            _anim.SetLayerWeight(0, 1);
         }
 
         if(_trocaS == 1)
@@ -373,6 +395,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(.32f);
             _ativadorMovimento = true;
             _ativaTiro = true;
+            _anim.SetLayerWeight(0, 1);
         }
        
     }

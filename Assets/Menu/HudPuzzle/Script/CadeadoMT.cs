@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class CadeadoMT: MonoBehaviour
 {
@@ -168,8 +169,9 @@ public class CadeadoMT: MonoBehaviour
 
     private void AcertouPuzzle()
     {
-        _bauAberto = false;
 
+        _gameControle._playerController._bauOn = false;
+        _bauAberto = false;
         _bau._anim.SetBool("Aberto", true);
         _bau._seta.SetActive(false);
         _bau._desativa = true;
@@ -177,6 +179,8 @@ public class CadeadoMT: MonoBehaviour
         _gameControle._playerController._pausaJogo._pause = false;
         _puzzleHud.SetActive(false);
 
+        _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[1]; //Faz o botão Restart ser o Primeiro do EventSystem
+        _gameControle._btPuzzles[1].GetComponent<Button>().Select();
     }
 
 
