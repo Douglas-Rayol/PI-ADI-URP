@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] public string _nome;
-    [SerializeField] GameObject _paticula;
+    [SerializeField] GameObject _paticula, _partculaStart;
     void Start()
     {
         
@@ -31,5 +31,11 @@ public class Item : MonoBehaviour
         get { return _paticula; }
         set { _paticula = value; }
         
+    }
+    public virtual GameObject ParticulaStart
+    {
+        get { return _partculaStart; }
+        set { _partculaStart = value; }
+
     }
 }

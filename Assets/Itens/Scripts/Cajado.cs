@@ -9,6 +9,7 @@ public class Cajado : Item
     private void Start()
     {
         _pausaJogo = FindAnyObjectByType<GameManager>();
+        ParticulaStart.SetActive(true);
     }
 
     public override void DestroyItem()
