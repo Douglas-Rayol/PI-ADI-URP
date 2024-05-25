@@ -6,6 +6,7 @@ public class Pedra : MonoBehaviour
 {
     [SerializeField] Rigidbody _rbPedra;
     [SerializeField] float _gravidade;
+    [SerializeField] GameObject _particula;
 
     [SerializeField] Vector3 _posicao;
 
@@ -32,7 +33,12 @@ public class Pedra : MonoBehaviour
     IEnumerator TempoRespawn()
     {
         yield return new WaitForSeconds(2f);
+        _particula.SetActive(true);
+        yield return new WaitForSeconds(.4f);
         transform.position = _posicao;
-    }
+        _particula.SetActive(true);
+        yield return new WaitForSeconds(.4f);
+        _particula.SetActive(false);
 
+    }
 }

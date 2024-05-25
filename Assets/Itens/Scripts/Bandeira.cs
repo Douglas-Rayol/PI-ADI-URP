@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bandeira : MonoBehaviour
 {
     Animator _anim;
+    [SerializeField] GameObject _particula;
 
     void Start()
     {
@@ -22,6 +23,13 @@ public class Bandeira : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _anim.SetTrigger("Bandeira");
+            StartCoroutine(PartBandeira());
         }
+    }
+
+    IEnumerator PartBandeira()
+    {
+        yield return new WaitForSeconds(1f);
+        _particula.SetActive(true);
     }
 }
