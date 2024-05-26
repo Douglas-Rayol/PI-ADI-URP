@@ -6,17 +6,14 @@ public class Bau : MonoBehaviour
 {
 
     [SerializeField] CadeadoMT _cadeadoMT;
-
     [SerializeField] public Animator _anim;
-
     [SerializeField] public GameObject _seta;
-
-    public  bool  _desativa;
-
-    [SerializeField] public int _tipoBau;
-
     [SerializeField] GameControle _gamecontrole;
     BoxCollider _box;
+    [SerializeField] public Transform _dropPag;
+    [SerializeField] public GameObject _Pag;
+    [SerializeField] public int _tipoBau;
+    public  bool  _desativa;
 
     private void Start()
     {
@@ -41,7 +38,6 @@ public class Bau : MonoBehaviour
             _cadeadoMT._bau = GetComponent<Bau>(); //Envia o componente para a variavel publica do Bau no CadeadoMT.
             _gamecontrole._playerController._bauOn = true;
             _seta.SetActive(true);
-
         }
     }
 
@@ -54,6 +50,17 @@ public class Bau : MonoBehaviour
             _seta.SetActive(false);
 
         }
+    }
+
+    public void DropPag()
+    {
+        Instantiate(_dropPag, transform.position, transform.rotation);
+        StartCoroutine(DropTime());
+    }
+    public IEnumerator DropTime()
+    {
+        yield return new WaitForSeconds(1f);
+        _Pag.SetActive(true);
     }
 
 }

@@ -11,8 +11,8 @@ public class CadeadoMT: MonoBehaviour
     [SerializeField] public Bau _bau;
     [SerializeField] GameControle _gameControle;
 
-    [SerializeField] public bool _chamaPuzzle;
     [SerializeField] public GameObject _puzzleHud;
+    [SerializeField] public bool _chamaPuzzle;
 
     [Header("Calculo")]
     [SerializeField] private string[] _calculo;
@@ -104,7 +104,7 @@ public class CadeadoMT: MonoBehaviour
             }
             else
             {
-                Debug.Log("Você errou!");
+                Debug.Log("Voce errou!");
             }
         }
 
@@ -116,7 +116,7 @@ public class CadeadoMT: MonoBehaviour
             }
             else
             {
-                Debug.Log("Você errou!");
+                Debug.Log("Voce errou!");
             }
         }
 
@@ -128,7 +128,7 @@ public class CadeadoMT: MonoBehaviour
             }
             else
             {
-                Debug.Log("Você errou!");
+                Debug.Log("Voce errou!");
             }
         }
         else if (_calculoTemp == "6-2")
@@ -139,7 +139,7 @@ public class CadeadoMT: MonoBehaviour
             }
             else
             {
-                Debug.Log("Você errou!");
+                Debug.Log("Voce errou!");
             }
         }
         else if (_calculoTemp == "4-4")
@@ -150,7 +150,7 @@ public class CadeadoMT: MonoBehaviour
             }
             else
             {
-                Debug.Log("Você errou!");
+                Debug.Log("Voce errou!");
             }
         }
         else if (_calculoTemp == "7-2")
@@ -161,7 +161,7 @@ public class CadeadoMT: MonoBehaviour
             }
             else
             {
-                Debug.Log("Você errou!");
+                Debug.Log("Voce errou!");
             }
         }
     }
@@ -174,12 +174,13 @@ public class CadeadoMT: MonoBehaviour
         _bauAberto = false;
         _bau._anim.SetBool("Aberto", true);
         _bau._seta.SetActive(false);
+        _bau.DropPag();
         _bau._desativa = true;
         _bau.GetComponent<BoxCollider>().enabled = false;
         _gameControle._playerController._pausaJogo._pause = false;
         _puzzleHud.SetActive(false);
 
-        _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[1]; //Faz o botão Restart ser o Primeiro do EventSystem
+        _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[1]; //Faz o botao Restart ser o Primeiro do EventSystem
         _gameControle._btPuzzles[1].GetComponent<Button>().Select();
     }
 
