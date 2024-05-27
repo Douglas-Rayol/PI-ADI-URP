@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.EventSystems;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,10 +15,17 @@ public class GameControle : MonoBehaviour
     public EventSystem _eventButton;
 
 
+    [SerializeField] public ColetaConf _coletaConf;
+
+    public Text _scorePag;
+
+
     private void Update()
     {
 
-        
+        _scorePag.text = "" + _coletaConf._totalPag;
+
+
     }
 
 }

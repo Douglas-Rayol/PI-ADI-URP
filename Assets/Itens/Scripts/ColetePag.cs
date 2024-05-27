@@ -9,10 +9,18 @@ public class ColetePag : MonoBehaviour
     [SerializeField] GameObject _particula;
     public int _pagScore;
     private BoxCollider _box;
-    
+
+
+    [SerializeField] ColetaConf _coletaConf;
+
+    [SerializeField] GameControle _gameControle;
+
     // Start is called before the first frame update
     void Start()
     {
+        _gameControle = Camera.main.GetComponent<GameControle>();
+        _gameControle._coletaConf = _coletaConf;
+
         _box = GetComponent<BoxCollider>();
         _particula.gameObject.SetActive(true);
     }
@@ -27,10 +35,11 @@ public class ColetePag : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            
             _box.enabled = false;
             StartCoroutine(Coletar());
-            ControlePag._instance._totalPag += _pagScore;
-            ControlePag._instance.UpdatePagText();
+            _coletaConf._totalPag += _pagScore;
+
         }
     }
 

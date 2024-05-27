@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particula: {fileID: 3529763572782272578}
   _pagScore: 1
+  _coletaConf: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22, type: 2}
 --- !u!95 &9140571537800538433
 Animator:
   serializedVersion: 5

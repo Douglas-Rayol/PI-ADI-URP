@@ -63,6 +63,11 @@ public class MenuPrincipalManager : MonoBehaviour
         SceneManager.LoadScene("Introdução");
     }
 
+    public void ChamaContinue()
+    {
+        SceneManager.LoadScene("Ato_1_1");
+    }
+
     IEnumerator TempoScale() //Jotapê
     {
         yield return new WaitForSeconds(.25f);
