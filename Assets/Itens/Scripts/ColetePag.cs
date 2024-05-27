@@ -14,6 +14,7 @@ public class ColetePag : MonoBehaviour
     void Start()
     {
         _box = GetComponent<BoxCollider>();
+        _particula.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -36,8 +37,6 @@ public class ColetePag : MonoBehaviour
     IEnumerator Coletar()
     {
         _particula.gameObject.SetActive(true);
-        yield return new WaitForSeconds(.2f);
-        _particula.gameObject.SetActive(false);
         yield return new WaitForSeconds(.1f);
         gameObject.SetActive(false);
     }

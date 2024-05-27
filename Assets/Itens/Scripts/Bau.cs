@@ -9,11 +9,12 @@ public class Bau : MonoBehaviour
     [SerializeField] public Animator _anim;
     [SerializeField] public GameObject _seta;
     [SerializeField] GameControle _gamecontrole;
-    BoxCollider _box;
     [SerializeField] public Transform _dropPag;
     [SerializeField] public GameObject _Pag;
     [SerializeField] public int _tipoBau;
+    [SerializeField] GameObject _particula;
     public  bool  _desativa;
+    BoxCollider _box;
 
     private void Start()
     {
@@ -61,6 +62,8 @@ public class Bau : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         _Pag.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        _particula.SetActive(true);
     }
 
 }
