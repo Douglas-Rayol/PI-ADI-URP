@@ -11,8 +11,8 @@ public class Bau : MonoBehaviour
     [SerializeField] GameControle _gamecontrole;
     [SerializeField] public Transform _dropPag;
     [SerializeField] public GameObject _Pag;
-    [SerializeField] public int _tipoBau;
     [SerializeField] GameObject _particula;
+    [SerializeField] public int _tipoBau;
     public  bool  _desativa;
     BoxCollider _box;
 
@@ -39,6 +39,7 @@ public class Bau : MonoBehaviour
             _cadeadoMT._bau = GetComponent<Bau>(); //Envia o componente para a variavel publica do Bau no CadeadoMT.
             _gamecontrole._playerController._bauOn = true;
             _seta.SetActive(true);
+
         }
     }
 
@@ -49,7 +50,6 @@ public class Bau : MonoBehaviour
 
             _gamecontrole._playerController._bauOn = false;
             _seta.SetActive(false);
-
         }
     }
 

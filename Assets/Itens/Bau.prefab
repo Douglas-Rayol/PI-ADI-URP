@@ -255,21 +255,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &9017208044005680699
-Transform:
+--- !u!224 &9017208044005680699
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2899254319556861423}
-  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 2.1660004, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.30000004, y: 0.30000004, z: 0.3}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1528804005035658956}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 2.1660004}
+  m_SizeDelta: {x: 5.12, y: 5.12}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1258389831371431494
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -465,7 +469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particula: {fileID: 7331652020785767212}
-  _pagScore: 1
+  _coletaConf: {fileID: 0}
+  _gameControle: {fileID: 0}
 --- !u!95 &4912885906803936050
 Animator:
   serializedVersion: 5
@@ -20195,8 +20200,9 @@ MonoBehaviour:
   _gamecontrole: {fileID: 0}
   _dropPag: {fileID: 5050381829579357334}
   _Pag: {fileID: 2930390124341674494}
-  _tipoBau: 0
   _particula: {fileID: 5250548499384883701}
+  _text: {fileID: 0}
+  _tipoBau: 0
   _desativa: 0
 --- !u!95 &6852885974746572527
 Animator:

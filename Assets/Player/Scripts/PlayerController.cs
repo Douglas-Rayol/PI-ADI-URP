@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 {
 
 
-    [SerializeField] public bool _bauOn;
 
     //Variaveis Publicas
     CameraShake _shakeCam;
@@ -20,13 +19,14 @@ public class PlayerController : MonoBehaviour
     GameControle _gameControle;
 
     [SerializeField] int coyote;
-    [SerializeField] bool SinalCoyote;
     [SerializeField] float timeCoyote;
 
     //Vida do Jogador
     [SerializeField] public int _vida = 3;
     [SerializeField] public int _defesaUp = 0;
     [SerializeField] bool _dano;
+    [SerializeField] bool SinalCoyote;
+    [SerializeField] public bool _bauOn;
     [SerializeField] public bool _ativaDefesa;
     
     [SerializeField] GameObject[] _PlayerHitPadrao;

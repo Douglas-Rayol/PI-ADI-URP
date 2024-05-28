@@ -14534,11 +14534,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8109860154569328252, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_Name
       value: Bau4
       objectReference: {fileID: 0}
+    - target: {fileID: 8447639816161277317, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993600341193955390, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: _coletaConf
+      value: 
+      objectReference: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34230,6 +34246,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1177305293}
     m_Modifications:
+    - target: {fileID: 506824907854724486, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1528804005035658956, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34280,11 +34301,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321937087472403815, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1519864911}
+    - target: {fileID: 2321937087472403815, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717074184659926234, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453891351187238707, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453891351187238707, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453891351187238707, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453891351187238707, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453891351187238707, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8109860154569328252, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_Name
       value: Bau
       objectReference: {fileID: 0}
+    - target: {fileID: 8447639816161277317, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993600341193955390, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: _coletaConf
+      value: 
+      objectReference: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40656,11 +40733,27 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8109860154569328252, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_Name
       value: Bau2
       objectReference: {fileID: 0}
+    - target: {fileID: 8447639816161277317, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993600341193955390, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: _coletaConf
+      value: 
+      objectReference: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64076,11 +64169,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8109860154569328252, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_Name
       value: Bau3
       objectReference: {fileID: 0}
+    - target: {fileID: 8447639816161277317, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993600341193955390, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
+        type: 3}
+      propertyPath: _coletaConf
+      value: 
+      objectReference: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -100966,14 +101075,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d155e01841f43443ac883eb9a7e8430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bauOn: 0
   _pausaJogo: {fileID: 0}
   coyote: 0
-  SinalCoyote: 0
   timeCoyote: 0
   _vida: 3
   _defesaUp: 0
   _dano: 0
+  SinalCoyote: 0
+  _bauOn: 0
   _ativaDefesa: 0
   _PlayerHitPadrao:
   - {fileID: 4862177287667932916}
