@@ -14,16 +14,28 @@ public class GameControle : MonoBehaviour
     public GameObject[] _btPuzzles;
     public EventSystem _eventButton;
 
+    public Text _textPagScore;
+    public int _salvaScore;
 
-    [SerializeField] public ColetaConf _coletaConf;
+    [SerializeField] ColetaConf _coletaConf;
+    
 
-    public Text _scorePag;
+    private void Start()
+    {
+        _salvaScore = PlayerPrefs.GetInt("SalvaPaginaScore");
+        _coletaConf._totalPag = _salvaScore;
+    }
 
 
     private void Update()
     {
 
-        _scorePag.text = "" + _coletaConf._totalPag;
+        _textPagScore.text = "" + _salvaScore;
+
+        if(Input.GetKey(KeyCode.R))
+        {
+            PlayerPrefs.DeleteKey("SalvaPaginaScore");
+        }
 
 
     }

@@ -7,7 +7,6 @@ public class ColetePag : MonoBehaviour
 {
 
     [SerializeField] GameObject _particula;
-    public int _pagScore;
     private BoxCollider _box;
 
 
@@ -19,7 +18,6 @@ public class ColetePag : MonoBehaviour
     void Start()
     {
         _gameControle = Camera.main.GetComponent<GameControle>();
-        _gameControle._coletaConf = _coletaConf;
 
         _box = GetComponent<BoxCollider>();
         _particula.gameObject.SetActive(true);
@@ -38,7 +36,11 @@ public class ColetePag : MonoBehaviour
             
             _box.enabled = false;
             StartCoroutine(Coletar());
-            _coletaConf._totalPag += _pagScore;
+            
+            _coletaConf._totalPag += 1;
+            _gameControle._salvaScore = _coletaConf._totalPag;
+            PlayerPrefs.SetInt("SalvaPaginaScore", _coletaConf._totalPag);
+            
 
         }
     }

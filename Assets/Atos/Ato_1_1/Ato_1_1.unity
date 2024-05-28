@@ -47603,8 +47603,9 @@ MonoBehaviour:
   - {fileID: 1693677751}
   - {fileID: 2069465824}
   _eventButton: {fileID: 1876100295}
-  _coletaConf: {fileID: 0}
-  _scorePag: {fileID: 2136531}
+  _textPagScore: {fileID: 2136531}
+  _salvaScore: 0
+  _coletaConf: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22, type: 2}
 --- !u!64 &1529265229
 MeshCollider:
   m_ObjectHideFlags: 0

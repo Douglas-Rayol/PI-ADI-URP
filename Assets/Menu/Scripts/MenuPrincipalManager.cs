@@ -61,6 +61,7 @@ public class MenuPrincipalManager : MonoBehaviour
     public void ChamaJogo()
     {
         SceneManager.LoadScene("Introdução");
+        PlayerPrefs.DeleteKey("SalvaPaginaScore");
     }
 
     public void ChamaContinue()
