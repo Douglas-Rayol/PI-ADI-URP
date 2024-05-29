@@ -10,7 +10,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-
+    [SerializeField] Transform _verificaParede;
+    [SerializeField] bool ativaJump;
 
     //Variaveis Publicas
     CameraShake _shakeCam;
@@ -115,15 +116,15 @@ public class PlayerController : MonoBehaviour
             _posSalva.x = PlayerPrefs.GetFloat("posX");
             _posSalva.y = PlayerPrefs.GetFloat("posY");
             _posSalva.z = PlayerPrefs.GetFloat("posZ");
-            //transform.localPosition = _posSalva;
+            transform.localPosition = _posSalva;
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
 
+        
         if (_pausaJogo._pause == false)
         {
             AnimacaoPlayer();
@@ -190,7 +191,7 @@ public class PlayerController : MonoBehaviour
 
             if (!_checkGround)
             {
-                Verificacao();
+                VerificaTeto();
             }
 
             if (SinalCoyote == true)
@@ -215,6 +216,8 @@ public class PlayerController : MonoBehaviour
 
 
             ChecaDirecaoDoTiro();
+
+
         }
         else
         {
@@ -227,6 +230,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
 
 
     public void TransformacaoTransicao()
@@ -245,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Verificacao()
+    void VerificaTeto()
     {
 
         if (Physics.Raycast(_raycasGround.position, transform.TransformDirection(Vector3.up), out teto, 10f))
@@ -270,7 +274,10 @@ public class PlayerController : MonoBehaviour
 
 
 
+
     }
+
+
 
     public void SetMove(InputAction.CallbackContext value) //Jotap�
     {
@@ -299,7 +306,7 @@ public class PlayerController : MonoBehaviour
     public void SetJump(InputAction.CallbackContext value)
     {
 
-        if (value.performed) //Jotap�
+        if (value.performed && !ativaJump) //Jotap�
         {
             
             if ((_checkGround || _plataforma || coyote == 1) && !_dentroPlataforma && _ativadorMovimento)

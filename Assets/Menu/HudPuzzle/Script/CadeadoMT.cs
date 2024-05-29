@@ -177,14 +177,21 @@ public class CadeadoMT: MonoBehaviour
         _bau.DropPag();
         _bau._desativa = true;
         _bau.GetComponent<BoxCollider>().enabled = false;
-        _gameControle._playerController._pausaJogo._pause = false;
         _puzzleHud.SetActive(false);
 
         _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[1]; //Faz o botao Restart ser o Primeiro do EventSystem
         _gameControle._btPuzzles[1].GetComponent<Button>().Select();
+
+
+        StartCoroutine(TempoPlayerControle());
+
     }
 
-
+    private IEnumerator TempoPlayerControle()
+    {
+        yield return new WaitForSeconds(1);
+        _gameControle._playerController._pausaJogo._pause = false;
+    }
 
     void ShuffleString(string[] lists)
     {
