@@ -10,7 +10,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [SerializeField] DynamicJoystick _dynamicJoystick;
 
     [SerializeField] Transform _verificaParede;
     [SerializeField] bool ativaJump;
@@ -126,7 +126,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        
         if (_pausaJogo._pause == false)
         {
             AnimacaoPlayer();
@@ -284,8 +283,8 @@ public class PlayerController : MonoBehaviour
     public void SetMove(InputAction.CallbackContext value) //Jotap�
     {
 
-        
         _move = value.ReadValue<Vector3>().normalized;
+        _dynamicJoystick._verificaJoystick = false;
 
         if (_move.x > 0.1f)
         {
@@ -302,7 +301,16 @@ public class PlayerController : MonoBehaviour
 
     void Movimento() //Jotape
     {
-        _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
+        if(_dynamicJoystick._verificaJoystick == true) //Usa Joystick Celular
+        {
+            _move.x = _dynamicJoystick.Horizontal;
+            _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
+        }
+        else if(_dynamicJoystick._verificaJoystick == false)
+        {
+            _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
+        }
+        
 
     }
 
@@ -779,8 +787,4 @@ public class PlayerController : MonoBehaviour
         _paticula.SetActive(false);
     }
 
-    internal void SetMove()
-    {
-        throw new NotImplementedException();
-    }
 }
