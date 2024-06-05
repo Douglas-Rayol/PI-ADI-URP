@@ -6,9 +6,11 @@ using UnityEngine.Events;
 using DG.Tweening;
 using System.Runtime.CompilerServices;
 using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
+
 
     [SerializeField] Transform _verificaParede;
     [SerializeField] bool ativaJump;
@@ -282,9 +284,10 @@ public class PlayerController : MonoBehaviour
     public void SetMove(InputAction.CallbackContext value) //Jotap�
     {
 
+        
         _move = value.ReadValue<Vector3>().normalized;
 
-        if(_move.x > 0.1f)
+        if (_move.x > 0.1f)
         {
             _ultimaHorizontal = _move.x;
         }
@@ -299,8 +302,8 @@ public class PlayerController : MonoBehaviour
 
     void Movimento() //Jotape
     {
-
         _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
+
     }
 
     public void SetJump(InputAction.CallbackContext value)
@@ -774,5 +777,10 @@ public class PlayerController : MonoBehaviour
         _paticula.SetActive(true);
         yield return new WaitForSeconds(1f);
         _paticula.SetActive(false);
+    }
+
+    internal void SetMove()
+    {
+        throw new NotImplementedException();
     }
 }
