@@ -332,6 +332,7 @@ public class PlayerController : MonoBehaviour
          
     }
 
+
     public void SetAbrirBau(InputAction.CallbackContext value)
     {
         if(_bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
@@ -345,9 +346,6 @@ public class PlayerController : MonoBehaviour
 
             _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[0]; //Faz o botão Cima do Puzzle ser o Primeiro do EventSystem
             _gameControle._btPuzzles[0].GetComponent<Button>().Select();
-
-
-
         }
     }
 

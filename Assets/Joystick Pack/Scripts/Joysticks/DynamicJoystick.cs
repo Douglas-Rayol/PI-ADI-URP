@@ -26,6 +26,8 @@ public class DynamicJoystick : Joystick
         background.anchoredPosition = _salvaPos;
         background.gameObject.SetActive(true);
         base.OnPointerDown(eventData);
+
+
     }
 
     public override void OnPointerUp(PointerEventData eventData)
@@ -38,7 +40,7 @@ public class DynamicJoystick : Joystick
 
     protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
-        
+
         if (magnitude > moveThreshold)
         {
             _verificaJoystick = true;
