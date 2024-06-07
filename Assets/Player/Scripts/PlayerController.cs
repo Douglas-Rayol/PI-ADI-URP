@@ -295,8 +295,6 @@ public class PlayerController : MonoBehaviour
         {
             _ultimaHorizontal = _move.x;
         }
-        
-
     }
 
     void Movimento() //Jotape
@@ -310,8 +308,6 @@ public class PlayerController : MonoBehaviour
         {
             _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
         }
-        
-
     }
 
     public void SetJump(InputAction.CallbackContext value)
