@@ -17,7 +17,7 @@ public class PlayerMap : MonoBehaviour
     [SerializeField] int _mudaFase;
     [SerializeField] bool _checkPos;
 
-    //[SerializeField] bool _bonus1;
+    [SerializeField] int _numPag;
 
     void Start()
     {
@@ -27,6 +27,10 @@ public class PlayerMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        _numPag = PlayerPrefs.GetInt("SalvaPaginaScore");
+
         AnimacaoPlayerMap();
 
         
@@ -50,9 +54,9 @@ public class PlayerMap : MonoBehaviour
             
             _checkPos = true;
             _mudaFase++;
-            
 
-            if(_mudaFase == 3) //Pula Fase
+
+            if (_mudaFase == 3) //Pula Fase
             {
                 _mudaFase += 1;
             }

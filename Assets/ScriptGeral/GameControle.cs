@@ -32,11 +32,6 @@ public class GameControle : MonoBehaviour
 
         _textPagScore.text = "" + _salvaScore;
 
-        if(Input.GetKey(KeyCode.R))
-        {
-            PlayerPrefs.DeleteKey("SalvaPaginaScore");
-        }
-
 
     }
 
