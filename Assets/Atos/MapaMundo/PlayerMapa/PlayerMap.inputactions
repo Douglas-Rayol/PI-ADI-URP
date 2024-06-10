@@ -1,0 +1,98 @@
+{
+    "name": "PlayerMap",
+    "maps": [
+        {
+            "name": "Movimento",
+            "id": "efffc317-5462-4c43-9e53-fdc6bb99c3d4",
+            "actions": [
+                {
+                    "name": "Movimento-Frente",
+                    "type": "Value",
+                    "id": "4e7b564f-c644-443c-b7b6-8fc695859676",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Movimento-Tras",
+                    "type": "Value",
+                    "id": "17eae4ee-fcfe-4eea-888a-ae30681a54f1",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Teclado-Frente",
+                    "id": "eaaaf56d-3775-4a58-b135-514bd60c61b5",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimento-Frente",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "153a79ae-7069-4dd1-a372-b117f0a094c4",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimento-Frente",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "7c156a71-ffb5-4691-9570-ef5daea74840",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimento-Frente",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Teclado-Tras",
+                    "id": "6a2cd967-c642-4d1a-a85c-4fca5481d54c",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimento-Tras",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "down",
+                    "id": "050bd4a1-ebc3-4149-aa25-3f540b298cac",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimento-Tras",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a3fde4d8-c4b5-43e9-8cbd-c51acd5f71c0",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimento-Tras",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
