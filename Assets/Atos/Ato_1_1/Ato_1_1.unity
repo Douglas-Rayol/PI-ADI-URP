@@ -101287,6 +101287,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fe8d77df-70d2-4f97-a45c-3efd865c6e68
     m_ActionName: Move/AbreBau[/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 202bc024-f0d0-4fc9-b2e7-8a9b418746ae
+    m_ActionName: PlayerMap/Map[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Move
