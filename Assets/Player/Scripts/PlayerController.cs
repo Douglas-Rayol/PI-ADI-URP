@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        painelGameOver.SetActive(false);
+        //painelGameOver.SetActive(false);
         _ativaTiro = true;
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
