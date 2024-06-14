@@ -484,7 +484,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1115246253}
+      - m_Target: {fileID: 1359893357}
         m_TargetAssemblyTypeName: TrocarCena, Assembly-CSharp
         m_MethodName: Loadscenes
         m_Mode: 5
@@ -493,7 +493,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Ato_1_1
+          m_StringArgument: Mapa
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1061771815
@@ -546,7 +546,6 @@ GameObject:
   - component: {fileID: 1115246252}
   - component: {fileID: 1115246251}
   - component: {fileID: 1115246250}
-  - component: {fileID: 1115246253}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -640,19 +639,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1115246253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115246248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22afc4b446002cf4ca183c04fdc205a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coletaConf: {fileID: 0}
 --- !u!1 &1311519324
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +770,7 @@ GameObject:
   - component: {fileID: 1359893352}
   - component: {fileID: 1359893355}
   - component: {fileID: 1359893356}
+  - component: {fileID: 1359893357}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -922,6 +909,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coletaConf: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22, type: 2}
+--- !u!114 &1359893357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359893351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22afc4b446002cf4ca183c04fdc205a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1481937610
 GameObject:
   m_ObjectHideFlags: 0

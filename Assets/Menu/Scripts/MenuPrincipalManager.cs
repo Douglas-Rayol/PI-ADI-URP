@@ -29,7 +29,7 @@ public class MenuPrincipalManager : MonoBehaviour
 
     private void Start()
     {
-        //Jotapê
+        //Jotapï¿½
         for (int i = 0; i < _butaoMenu.Count; i++)
         {
             _butaoMenu[i].localScale = new Vector3(0, 0, 0);
@@ -60,16 +60,16 @@ public class MenuPrincipalManager : MonoBehaviour
 
     public void ChamaJogo()
     {
-        SceneManager.LoadScene("Introdução");
+        SceneManager.LoadScene("Introducao");
         PlayerPrefs.DeleteKey("SalvaPaginaScore");
     }
 
     public void ChamaContinue()
     {
-        SceneManager.LoadScene("Ato_1_1");
+        SceneManager.LoadSceneAsync("Mapa");
     }
 
-    IEnumerator TempoScale() //Jotapê
+    IEnumerator TempoScale() //Jotape
     {
         yield return new WaitForSeconds(.25f);
         for (int i = 0; i < _butaoMenu.Count; i++)
