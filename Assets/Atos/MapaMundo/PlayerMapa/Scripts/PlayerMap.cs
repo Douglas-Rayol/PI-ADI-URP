@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Schema;
 using Unity.Mathematics;
@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMap : MonoBehaviour
 {
+    
+    
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
     [SerializeField] NavMeshAgent _agentPlayer;
