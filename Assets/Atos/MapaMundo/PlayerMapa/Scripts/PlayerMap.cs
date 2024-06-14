@@ -58,10 +58,10 @@ public class PlayerMap : MonoBehaviour
             _mudaFase++;
 
 
-            if (_mudaFase == 3) //Pula Fase
+            /*if (_mudaFase == 3) //Pula Fase
             {
                 _mudaFase += 1;
-            }
+            }*/
 
 
         }

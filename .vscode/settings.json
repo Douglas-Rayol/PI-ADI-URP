@@ -56,5 +56,9 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "PI-ADI-URP.sln"
+    "dotnet.defaultSolution": "PI-ADI-URP.sln",
+    "workbench.editor.autoLockGroups": {
+        "terminalEditor": false
+    },
+    "output.smartScroll.enabled": false
 }
