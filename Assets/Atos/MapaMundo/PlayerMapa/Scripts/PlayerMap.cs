@@ -12,14 +12,16 @@ public class PlayerMap : MonoBehaviour
     
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
-    [SerializeField] NavMeshAgent _agentPlayer;
+    [SerializeField] public NavMeshAgent _agentPlayer;
     [SerializeField] Vector3 _move;
     [SerializeField] MapControle _mapControle;
     
-    [SerializeField] int _mudaFase;
+    [SerializeField] public int _mudaFase;
     [SerializeField] bool _checkPos;
-
+    [SerializeField] public bool _podeAvanca;
     [SerializeField] int _numPag;
+
+    
 
     void Start()
     {
@@ -33,15 +35,13 @@ public class PlayerMap : MonoBehaviour
         AnimacaoPlayerMap();
 
         float _distance = Vector3.Distance(transform.position, _mapControle._posFase[_mudaFase].position);
+
         if (_mudaFase > 0)
         {
             _agentPlayer.SetDestination(_mapControle._posFase[_mudaFase].position);
-            _agentPlayer.speed = 10;
+            
         }
-        if(_distance < 2)
-        {
-            _agentPlayer.speed = 0;
-        }
+
 
     }
 
@@ -49,38 +49,72 @@ public class PlayerMap : MonoBehaviour
     public void SetFrente(InputAction.CallbackContext value)
     {
 
-        if (value.performed && !_checkPos)
+        if (value.performed && !_checkPos && _podeAvanca && _numPag != 7)
         {
+            
             _checkPos = true;
-            _mudaFase++;
-
-            if (_mudaFase == 3) //Pula Fase
+            _agentPlayer.speed = 10;
+            
+            if(_mudaFase < 5)
             {
-                _mudaFase += 1;
+                _mudaFase++;
             }
+
+            if(_mudaFase == 3)
+            {
+                _mudaFase++;
+            }
+
         }
         else
         {
             _checkPos = false;
+        }
+
+        if(value.performed && !_checkPos && _podeAvanca && _numPag == 7)
+        {
+            _checkPos = true;
+            _agentPlayer.speed = 10;
+
+            if(_mudaFase < 5)
+            {
+                _mudaFase++;
+            }
         }
     }
 
     public void SetTras(InputAction.CallbackContext value)
     {
-        if (value.performed && !_checkPos)
+        if (value.performed && !_checkPos && _podeAvanca && _numPag != 7)
         {
             _checkPos = true;
-            _mudaFase--;
-
-            if(_mudaFase == 3) //Pula Fase
+            _agentPlayer.speed = 10;
+            
+            if(_mudaFase > 0)
             {
-                _mudaFase -= 1;
-
+                _mudaFase--;
             }
+
+            if(_mudaFase == 3)
+            {
+                _mudaFase--;
+            }
+            
         }
         else
         {
             _checkPos = false;
+        }
+
+        if(value.performed && !_checkPos && _podeAvanca && _numPag == 7)
+        {
+            _checkPos = true;
+            _agentPlayer.speed = 10;
+
+            if(_mudaFase > 0)
+            {
+                _mudaFase--;
+            }
         }
 
     }
