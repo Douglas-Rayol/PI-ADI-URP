@@ -29,23 +29,21 @@ public class PlayerMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         _numPag = PlayerPrefs.GetInt("SalvaPaginaScore");
-
         AnimacaoPlayerMap();
 
-        
         float _distance = Vector3.Distance(transform.position, _mapControle._posFase[_mudaFase].position);
         if (_mudaFase > 0)
         {
             _agentPlayer.SetDestination(_mapControle._posFase[_mudaFase].position);
-            
-
+            _agentPlayer.speed = 10;
+        }
+        if(_distance < 2)
+        {
+            _agentPlayer.speed = 0;
         }
 
     }
-
 
 
     public void SetFrente(InputAction.CallbackContext value)
@@ -53,32 +51,24 @@ public class PlayerMap : MonoBehaviour
 
         if (value.performed && !_checkPos)
         {
-            
             _checkPos = true;
             _mudaFase++;
 
-
-            /*if (_mudaFase == 3) //Pula Fase
+            if (_mudaFase == 3) //Pula Fase
             {
                 _mudaFase += 1;
-            }*/
-
-
+            }
         }
         else
         {
             _checkPos = false;
         }
-
-
-
     }
 
     public void SetTras(InputAction.CallbackContext value)
     {
         if (value.performed && !_checkPos)
         {
-            
             _checkPos = true;
             _mudaFase--;
 
@@ -87,32 +77,27 @@ public class PlayerMap : MonoBehaviour
                 _mudaFase -= 1;
 
             }
-
         }
         else
         {
             _checkPos = false;
-
-            
         }
-
-
 
     }
 
 
     private void AnimacaoPlayerMap()
     {
-        _anim.SetFloat("Input", _agentPlayer.speed);
+      _anim.SetFloat("Input", _agentPlayer.speed);
     }
 
 
     private IEnumerator TempoParaMudarFase()
     {
         _agentPlayer.speed = 0;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.2f);
         _mudaFase++;
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.2f);
         _agentPlayer.speed = 10;
 
     }
