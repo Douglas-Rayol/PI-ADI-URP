@@ -10,7 +10,8 @@ public class SelecionaFase : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Button _button0;
 
-    [SerializeField] PlayerMap _playerMap;
+    [SerializeField] public PlayerMap _playerMap;
+
 
 
 
@@ -21,6 +22,8 @@ public class SelecionaFase : MonoBehaviour
             _playerMap._agentPlayer.speed = 0;
             _playerMap._podeAvanca = true;
             _button.Select();
+            
+            
         }
     }
 

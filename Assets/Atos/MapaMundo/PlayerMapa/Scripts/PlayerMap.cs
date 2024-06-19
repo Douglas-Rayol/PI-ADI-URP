@@ -19,7 +19,11 @@ public class PlayerMap : MonoBehaviour
     [SerializeField] public int _mudaFase;
     [SerializeField] bool _checkPos;
     [SerializeField] public bool _podeAvanca;
+
+    [SerializeField] int _checkqtdBonus;
     [SerializeField] int _numPag;
+
+    [SerializeField] int _pagTest;
 
     
 
@@ -36,7 +40,7 @@ public class PlayerMap : MonoBehaviour
 
         float _distance = Vector3.Distance(transform.position, _mapControle._posFase[_mudaFase].position);
 
-        if (_mudaFase > 0)
+        if (_mudaFase >= 0)
         {
             _agentPlayer.SetDestination(_mapControle._posFase[_mudaFase].position);
             
@@ -49,73 +53,79 @@ public class PlayerMap : MonoBehaviour
     public void SetFrente(InputAction.CallbackContext value)
     {
 
-        if (value.performed && !_checkPos && _podeAvanca && _numPag != 7)
+        if (value.performed && !_checkPos && _podeAvanca)
         {
             
             _checkPos = true;
             _agentPlayer.speed = 10;
-            
-            if(_mudaFase < 5)
-            {
-                _mudaFase++;
-            }
 
-            if(_mudaFase == 3)
+            if(_pagTest < 6 && _mudaFase == 2) //Não tem pagina
             {
-                _mudaFase++;
+                _mudaFase = 4;
             }
+            else if(_pagTest >= 6 && _mudaFase == 2 && _checkqtdBonus == 0)
+            {
+                _mudaFase = 3;
+                _checkqtdBonus = 1;
+            }
+            else if(_pagTest >= 6 && _mudaFase == 3 && _checkqtdBonus == 1)
+            {
+                _mudaFase = 2;
+                _checkqtdBonus = 2;
+            }
+            else if(_pagTest >= 6 && _mudaFase == 2 && _checkqtdBonus == 2)
+            {
+                _mudaFase = 4;
+                _checkqtdBonus = 0;
+            }
+            else
+            {
+                _mudaFase ++;
+            }
+             
+            
+            
+            
 
         }
         else
         {
             _checkPos = false;
-        }
-
-        if(value.performed && !_checkPos && _podeAvanca && _numPag == 7)
-        {
-            _checkPos = true;
-            _agentPlayer.speed = 10;
-
-            if(_mudaFase < 5)
-            {
-                _mudaFase++;
-            }
         }
     }
 
     public void SetTras(InputAction.CallbackContext value)
     {
-        if (value.performed && !_checkPos && _podeAvanca && _numPag != 7)
+        if (value.performed && !_checkPos && _podeAvanca)
         {
             _checkPos = true;
             _agentPlayer.speed = 10;
-            
-            if(_mudaFase > 0)
+
+            if(_pagTest < 6 && _mudaFase == 2)
             {
-                _mudaFase--;
+                _mudaFase = 1;
+            }
+            else if(_pagTest >= 6 && _mudaFase == 4 && _checkqtdBonus == 0)
+            {
+                _mudaFase = 2;
+                _checkqtdBonus = 1;
+            }
+            else if(_pagTest >= 6 && _mudaFase == 2 && _checkqtdBonus == 1)
+            {
+                _mudaFase = 1;
+                _checkqtdBonus = 0;
+            }
+            else
+            {
+                _mudaFase --;
             }
 
-            if(_mudaFase == 3)
-            {
-                _mudaFase--;
-            }
-            
         }
         else
         {
             _checkPos = false;
         }
 
-        if(value.performed && !_checkPos && _podeAvanca && _numPag == 7)
-        {
-            _checkPos = true;
-            _agentPlayer.speed = 10;
-
-            if(_mudaFase > 0)
-            {
-                _mudaFase--;
-            }
-        }
 
     }
 
