@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
     void VidaDoJogadorHud()
     {
 
-        /*if(_vidaJogador._vida == 3)
+        if(_vidaJogador._vida == 3)
         {
             _hudVida[2].transform.DOScale(5f, .25f);
             _hudVida[1].transform.DOScale(5f, .25f);
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
         if (_vidaJogador._vida == 0)
         {
             _hudVida[0].transform.DOScale(0f, .25f);
-        }*/
+        }
 
     }
 
