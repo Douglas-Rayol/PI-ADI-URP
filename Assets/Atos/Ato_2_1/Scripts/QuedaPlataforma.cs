@@ -1,15 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Dynamic;
-using Unity.VisualScripting;
+
 using UnityEngine;
-using UnityEngine.UIElements;
-using DG.Tweening;
+
+
 
 public class QuedaPlataforma : MonoBehaviour
 {
 
-    Rigidbody rb;
+    [SerializeField] Rigidbody rb;
     float _gravidade;
     Vector3 _posicao;
     
@@ -17,6 +15,8 @@ public class QuedaPlataforma : MonoBehaviour
     void Start(){
         rb.GetComponent<Rigidbody>();
         _posicao = transform.position;
+
+    
 
      }
 
