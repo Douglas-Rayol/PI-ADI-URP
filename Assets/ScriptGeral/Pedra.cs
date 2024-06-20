@@ -10,28 +10,23 @@ public class Pedra : MonoBehaviour
 
     [SerializeField] Vector3 _posicao;
 
-    private void Start()
-    {
+    private void Start() {
         _rbPedra = GetComponent<Rigidbody>();
         _posicao = transform.position;
     }
 
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         _rbPedra.AddForce(Vector3.down * _gravidade);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Morte"))
-        {
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("Morte")) {
             StartCoroutine(TempoRespawn());
         }
     }
 
-    IEnumerator TempoRespawn()
-    {
+    IEnumerator TempoRespawn() {
         yield return new WaitForSeconds(2f);
         _particula.SetActive(true);
         yield return new WaitForSeconds(.4f);
