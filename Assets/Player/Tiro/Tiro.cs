@@ -14,7 +14,7 @@ public class Tiro : MonoBehaviour
     public float _tempoVida = 0;
     int index;
     [SerializeField] float _timeRespanw;
-
+    [SerializeField] GameObject _particula;
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -27,11 +27,13 @@ public class Tiro : MonoBehaviour
         if (_player._trocaS == 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            _particula.SetActive(false);
         }
 
         else if (_player._trocaS == 2)
         {
             transform.localScale = new Vector3(3, 3, 3);
+            _particula.SetActive(true);
         }
 
         _tempoVida += Time.deltaTime;
@@ -53,9 +55,6 @@ public class Tiro : MonoBehaviour
         {
             gameObject.SetActive(false);
             _tempoVida = 0;
-            
-
-
         }
     }
 
