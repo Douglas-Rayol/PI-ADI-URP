@@ -217,6 +217,7 @@ public class PlayerController : MonoBehaviour
 
 
             ChecaDirecaoDoTiro();
+            VerificaFrente();
 
 
         }
@@ -273,8 +274,27 @@ public class PlayerController : MonoBehaviour
             _dentroPlataforma = false;
         }
 
+    }
 
+    void VerificaFrente()
+    {
+        RaycastHit _checkPedra;
 
+        if(Physics.Raycast(_verificaParede.position, transform.TransformDirection(Vector3.forward), out _checkPedra, 2f))
+        {   
+            if(_checkPedra.transform.CompareTag("Pedra"))
+            {
+                GetComponent<CapsuleCollider>().center = new Vector3(0, 4, 2);
+                _anim.SetLayerWeight(3, 1);
+                _anim.SetBool("Empurrar", true);
+            }
+        }
+        else
+        {
+            GetComponent<CapsuleCollider>().center = new Vector3(0, 4, 0);
+            _anim.SetLayerWeight(0, 1);
+            _anim.SetBool("Empurrar", false);
+        }
 
     }
 
