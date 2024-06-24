@@ -30,11 +30,14 @@ public class BoxColliderRay : MonoBehaviour
         m_HitDetect = Physics.BoxCast(m_Collider.bounds.center, transform.localScale * 0.5f, transform.forward, out m_Hit, transform.rotation, m_MaxDistance);
         if (m_HitDetect && m_Hit.collider.CompareTag("Pedra"))
         {
+            m_Animator.SetLayerWeight(3, 1);
             m_Animator.SetBool("Empurrar", true);
         }
         else
         {
+            m_Animator.SetLayerWeight(0, 1);
             m_Animator.SetBool("Empurrar", false);
+
         }
     }
 
