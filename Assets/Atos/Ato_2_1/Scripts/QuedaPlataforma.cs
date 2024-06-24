@@ -1,5 +1,5 @@
 using System.Collections;
-
+using DG.Tweening;
 using UnityEngine;
 
 
@@ -10,23 +10,42 @@ public class QuedaPlataforma : MonoBehaviour
     [SerializeField] Rigidbody rb;
     float _gravidade;
     Vector3 _posicao;
+     [SerializeField] Vector3 _scaleIni;
     
 
     void Start(){
         rb.GetComponent<Rigidbody>();
         _posicao = transform.position;
+        _scaleIni = transform.localScale;
 
-    
 
      }
 
+    private void Gravidade(){
+        rb.AddForce(Vector3.down * 40f);
+    }
+
+
     IEnumerator Queda(){
+        //derruba plataforma
         yield return new WaitForSeconds(0.5f);
         rb.isKinematic = false;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        yield return new WaitForSeconds(2f);
+        rb.transform.DOScale(new Vector3(0,0,0), 1f);
+       
   
-        yield return new WaitForSeconds(3.5f);
+        //restaura plataforma
+        yield return new WaitForSeconds(4f);
         transform.position = _posicao;
         rb.isKinematic = true;
+        gameObject.GetComponent<BoxCollider>().enabled = true;
+
+        yield return new WaitForSeconds(2f);
+        rb.transform.DOScale(_scaleIni, .25f);
+        
+
 
     }
  
@@ -36,5 +55,10 @@ public class QuedaPlataforma : MonoBehaviour
         }
 
     }
+
+private void Update(){
+    Gravidade();
+}
+
 
 }

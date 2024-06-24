@@ -17,14 +17,21 @@ public class PlataformaQueGira : MonoBehaviour
      }
 
     IEnumerator Gira(){
-        yield return new WaitForSeconds(2f);
-        transform.DOLocalRotate(new Vector3(0, 0, 180), 2.0f);
+
+
+           yield return new WaitForSeconds(2f);
+           transform.DORotate(new Vector3(0, 0, 180), 1f);
+           //transform.Rotate(new Vector3(0, 0, 180), 1f);
+    
+
+    
 
     }
 
-    private void FixedUpdate (){
+    private void Update (){
         StartCoroutine(Gira());
     }
+
 
 
 
