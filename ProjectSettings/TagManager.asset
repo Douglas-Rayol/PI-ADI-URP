@@ -16,6 +16,7 @@ TagManager:
   - Chapeu
   - Cajado
   - CheckPoint
+  - Pedra
   layers:
   - Default
   - TransparentFX
