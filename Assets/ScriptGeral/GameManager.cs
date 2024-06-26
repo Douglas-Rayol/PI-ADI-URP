@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] _hudVidaVazia;
     [SerializeField] GameObject[] _hudDef;
 
+
     [Header("Pause do Jogo")]
     [SerializeField] public bool _pause;
 
