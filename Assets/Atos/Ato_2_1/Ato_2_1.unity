@@ -2812,7 +2812,7 @@ GameObject:
   - component: {fileID: 834199652}
   - component: {fileID: 834199651}
   - component: {fileID: 834199650}
-  - component: {fileID: 834199649}
+  - component: {fileID: 834199654}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Ground
@@ -2820,20 +2820,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &834199649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834199648}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245290097416e314083f180516f92841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  to: {fileID: 834199653}
-  checkRot: 0
 --- !u!65 &834199650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2920,6 +2906,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &834199654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834199648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d072132cb285d44dbe905fb58da26d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotacaoSpeed: 300
+  force: 20
 --- !u!65 &859898608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4596,7 +4596,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
@@ -4679,6 +4679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotacaoSpeed: 300
+  force: 5
 --- !u!1 &1754154000
 GameObject:
   m_ObjectHideFlags: 0
