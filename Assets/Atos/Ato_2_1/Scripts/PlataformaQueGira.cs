@@ -12,6 +12,7 @@ public class PlataformaQueGira : MonoBehaviour
     
     Vector3 _posicao;
 
+    
 
     [SerializeField] Transform to;
     float speed = 0.01f;
