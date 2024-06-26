@@ -113,7 +113,7 @@ public class PlayerMap : MonoBehaviour
 
     public void SetTras(InputAction.CallbackContext value)
     {
-        if (value.performed && !_checkPos && _podeAvanca)
+        if (value.performed && !_checkPos && _podeAvanca && _mudaFase != 0)
         {
             _checkPos = true;
             _agentPlayer.speed = 10;
