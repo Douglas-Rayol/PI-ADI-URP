@@ -6,8 +6,6 @@ public class GiraPlataforma : MonoBehaviour
 {
     public float rotacaoSpeed = 300f; // Velocidade de rotação em graus por segundo
 
-    [SerializeField] float force = 5f; //forca o player a cair da plataforma quando ela girar
-
     private void Start(){
         StartCoroutine(RotateCoroutine());
     }
@@ -16,15 +14,19 @@ public class GiraPlataforma : MonoBehaviour
         while(true){
             // Girar 180 graus
             yield return RotacionaAngulo(180);
-            
+                this.GetComponent<BoxCollider>().enabled = true;
+
             // Esperar 2 segundos
             yield return new WaitForSeconds(3.5f);
+                this.GetComponent<BoxCollider>().enabled = false;
 
             // Girar mais 180 graus
             yield return RotacionaAngulo(180);
-    
+                this.GetComponent<BoxCollider>().enabled = true;
+            
             // Esperar 2 segundos
             yield return new WaitForSeconds(3.5f);
+                this.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
