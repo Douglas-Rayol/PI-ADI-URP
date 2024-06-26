@@ -20,7 +20,7 @@ public class SelecionaFase : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             _playerMap._agentPlayer.speed = 0;
-            _playerMap._podeAvanca = true;
+           // _playerMap._podeAvanca = true;
             _button.Select();
             _particula.SetActive(true);
             
@@ -32,7 +32,7 @@ public class SelecionaFase : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             _playerMap._agentPlayer.speed = 10;
-            _playerMap._podeAvanca = false;
+           // _playerMap._podeAvanca = false;
             _button0.Select();
             _particula.SetActive(false);
         }

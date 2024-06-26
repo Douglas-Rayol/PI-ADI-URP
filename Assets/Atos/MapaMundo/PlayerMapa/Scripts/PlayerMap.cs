@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Xml.Schema;
 using Unity.Mathematics;
 using UnityEngine;
@@ -25,7 +26,9 @@ public class PlayerMap : MonoBehaviour
 
     [SerializeField] int _pagTest;
 
-    
+    [SerializeField] Vector3 _velocidade;
+
+
 
     void Start()
     {
@@ -40,6 +43,18 @@ public class PlayerMap : MonoBehaviour
 
         float _distance = Vector3.Distance(transform.position, _mapControle._posFase[_mudaFase].position);
 
+        _velocidade = _agentPlayer.velocity;
+
+        if(_velocidade.x+ _velocidade.y + _velocidade.z==0)
+        {
+            _podeAvanca = true;
+        }
+        else
+        {
+            _podeAvanca = false;
+        }
+
+
         if (_mudaFase >= 0)
         {
             _agentPlayer.SetDestination(_mapControle._posFase[_mudaFase].position);
@@ -52,6 +67,8 @@ public class PlayerMap : MonoBehaviour
 
     public void SetFrente(InputAction.CallbackContext value)
     {
+
+        
 
         if (value.performed && !_checkPos && _podeAvanca)
         {
@@ -117,6 +134,7 @@ public class PlayerMap : MonoBehaviour
             }
             else
             {
+                if(_mudaFase!=0)
                 _mudaFase --;
             }
 
