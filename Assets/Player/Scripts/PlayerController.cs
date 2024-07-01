@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _verificaParede;
     [SerializeField] bool ativaJump;
 
+    [SerializeField] bool _vezesTutorial;
+
     //Variaveis Publicas
     CameraShake _shakeCam;
     Chicote _chicote;
@@ -104,8 +106,6 @@ public class PlayerController : MonoBehaviour
 
         _gameControle = Camera.main.GetComponent<GameControle>();
 
-
-
         //painelGameOver.SetActive(false);
         _ativaTiro = true;
         _direcaoVerdadeira = true;
@@ -125,10 +125,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        AnimacaoPlayer();
 
         if (_pausaJogo._pause == false)
         {
-            AnimacaoPlayer();
+            
             _anim.SetLayerWeight(0, 1);
             _anim.SetBool("Transform", false);
             
@@ -224,8 +225,9 @@ public class PlayerController : MonoBehaviour
         else
         {
             _rb.velocity = Vector3.zero;
+            _anim.SetFloat("InputX", 0);
+            
 
-            TransformacaoTransicao();
 
 
         }
@@ -351,18 +353,27 @@ public class PlayerController : MonoBehaviour
 
     public void SetAbrirBau(InputAction.CallbackContext value)
     {
-        if(_bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
+        if(value.performed && _bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
         {
-            _gameControle._cadeadoMT._bauAberto = true;
-            _gameControle._cadeadoMT._puzzleHud.SetActive(true);
-            _gameControle._cadeadoMT.ChamaQuestao(_gameControle._cadeadoMT._question);
-            _gameControle._cadeadoMT._question++;
-            _pausaJogo._pause = true;
+            if(!_vezesTutorial)
+            {
+                _gameControle._tutorialBau[0].SetActive(true);
+                _gameControle._tutorialBau[1].GetComponent<Button>().Select();
+                _vezesTutorial = true;
 
+            }
+            else
+            {
+                _pausaJogo._pause = true;
+                _gameControle.AtivaBau();
+                
+            }
 
-            _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[0]; //Faz o botão Cima do Puzzle ser o Primeiro do EventSystem
-            _gameControle._btPuzzles[0].GetComponent<Button>().Select();
+            
+            
         }
+
+
     }
 
     public void SetAtaque(InputAction.CallbackContext value) //Jotap�
@@ -659,7 +670,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Chapeu"))
         {
-            
+            TransformacaoTransicao();
             other.GetComponent<Item>().DestroyItem();
             _pausaJogo._pause = true;
             _PlayerHitPadrao[0].SetActive(false);
@@ -676,6 +687,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Cajado"))
         {
+            TransformacaoTransicao();
             other.GetComponent<Item>().DestroyItem();
             _shakeCam.Shake();
             _ativaDefesa = true;

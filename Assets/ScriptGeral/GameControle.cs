@@ -9,13 +9,14 @@ public class GameControle : MonoBehaviour
     //Variaves Globais
     public PlayerController _playerController;
     public CadeadoMT _cadeadoMT;
-
     
     public GameObject[] _btPuzzles;
     public EventSystem _eventButton;
 
     public Text _textPagScore;
     public int _salvaScore;
+
+    [SerializeField] public GameObject[] _tutorialBau;
 
     [SerializeField] ColetaConf _coletaConf;
     
@@ -33,6 +34,19 @@ public class GameControle : MonoBehaviour
         _textPagScore.text = "" + _salvaScore;
 
 
+    }
+
+    public void AtivaBau()
+    {
+            _cadeadoMT._bauAberto = true;
+            _cadeadoMT._puzzleHud.SetActive(true);
+            _cadeadoMT.ChamaQuestao(_cadeadoMT._question);
+            _cadeadoMT._question++;
+            _playerController._pausaJogo._pause = true;
+
+
+            _eventButton.firstSelectedGameObject = _btPuzzles[0]; //Faz o botão Cima do Puzzle ser o Primeiro do EventSystem
+            _btPuzzles[0].GetComponent<Button>().Select();
     }
 
 }
