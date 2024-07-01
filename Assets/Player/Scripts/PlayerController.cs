@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _raycasGround;
 
     [SerializeField] float _speed;
-    [SerializeField] float _jump;
+    [SerializeField] public float _jump;
     [SerializeField] float _gravidade;
     [SerializeField] private float coyoteTime = 0f;
     [SerializeField] Transform _TelaGameOver;
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Transform _PosPlayer;
     [SerializeField] float _g2;
-    [SerializeField] bool _checkGround;
+    [SerializeField] public bool _checkGround;
     [SerializeField] int _groundCount;
     bool checkHitIni;
 
