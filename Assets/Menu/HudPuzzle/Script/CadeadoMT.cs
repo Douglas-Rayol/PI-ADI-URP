@@ -11,6 +11,7 @@ public class CadeadoMT: MonoBehaviour
     [SerializeField] public Bau _bau;
     [SerializeField] GameControle _gameControle;
 
+    [SerializeField] public GameObject _tutorialPuzzle;
     [SerializeField] public GameObject _puzzleHud;
     [SerializeField] public bool _chamaPuzzle;
 
@@ -32,11 +33,8 @@ public class CadeadoMT: MonoBehaviour
 
     private void Start()
     {
-
         ShuffleString(_calculo);
         _gameControle = Camera.main.GetComponent<GameControle>();
-
-
     }
 
     private void Update()
@@ -45,17 +43,13 @@ public class CadeadoMT: MonoBehaviour
         {
             _puzzleHud.SetActive(true);
             _chamaPuzzle = false;
-
         }
-
     }
 
     public void ChamaQuestao(int value)
     {
         _textoCalculo.text = "" + _calculo[value];
         _calculoTemp = _calculo[value];
-
-
     }
 
     public void Adiciona()
@@ -71,8 +65,6 @@ public class CadeadoMT: MonoBehaviour
         {
             _textoResultado.text = "0" + _resultado;
         }
-
-
     }
 
     public void Retirar()
@@ -91,7 +83,6 @@ public class CadeadoMT: MonoBehaviour
         {
             _textoResultado.text = "0" + _resultado;
         }
-
     }
 
     public void Resultado()
