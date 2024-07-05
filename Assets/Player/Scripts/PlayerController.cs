@@ -11,17 +11,21 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] DynamicJoystick _dynamicJoystick;
-
     [SerializeField] Transform _verificaParede;
-    [SerializeField] bool ativaJump;
-
-    [SerializeField] bool _vezesTutorial;
 
     //Variaveis Publicas
     CameraShake _shakeCam;
     Chicote _chicote;
     public GameManager _pausaJogo;
     GameControle _gameControle;
+
+    //Variaveis PosInicial
+    [SerializeField] public Vector3 _posInicial;
+
+
+    [SerializeField] bool ativaJump;
+
+    [SerializeField] bool _vezesTutorial;
 
     [SerializeField] int coyote;
     [SerializeField] float timeCoyote;
@@ -54,7 +58,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float _jump;
     [SerializeField] float _gravidade;
     [SerializeField] private float coyoteTime = 0f;
-    [SerializeField] Transform _TelaGameOver;
 
     public bool _ativadorMovimento;
 
@@ -64,13 +67,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _g2;
     [SerializeField] public bool _checkGround;
     [SerializeField] int _groundCount;
+
     bool checkHitIni;
-
-
     public bool _rotacao;
-    int _runHash = Animator.StringToHash("Andando");
-    int _jumpHash = Animator.StringToHash("Jump");
-    int _rumJump = Animator.StringToHash("RunJump");
+
     [SerializeField] bool _plataforma;
 
     //Posicao do Tiro
@@ -84,12 +84,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _dentroPlataforma;
 
     [SerializeField] private GameObject transicaoGameOver;
-    [SerializeField] private GameObject painelGameOver;
     public AudioSource _SomDoPulo;
-
-    [SerializeField] string _tagCheckPoint;
-    CheckPoint _checkpoint;
-    public Vector3 _posSalva;
 
     [Header("Variaveis para Suavizar a Animacao")]
     [SerializeField] private float smoothInputX;
@@ -106,20 +101,15 @@ public class PlayerController : MonoBehaviour
 
         _gameControle = Camera.main.GetComponent<GameControle>();
 
-        //painelGameOver.SetActive(false);
+        _posInicial = transform.position;
+
         _ativaTiro = true;
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
         _dentroPlataforma = false;
 
-        _checkpoint = Camera.main.GetComponent<CheckPoint>();
-        if (PlayerPrefs.GetInt("StartSalve") == 1)
-        {
-            _posSalva.x = PlayerPrefs.GetFloat("posX");
-            _posSalva.y = PlayerPrefs.GetFloat("posY");
-            _posSalva.z = PlayerPrefs.GetFloat("posZ");
-            //transform.localPosition = _posSalva;
-        }
+
+
     }
 
     // Update is called once per frame
@@ -505,7 +495,7 @@ public class PlayerController : MonoBehaviour
 
       if ( _vida <= 0)
       {
-            GameOver();
+            _gameControle.GameOver();
             
         }
 
@@ -717,7 +707,12 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Morte"))
         {
-            GameOver();
+            _gameControle.GameOver();
+        }
+
+        if(other.gameObject.CompareTag("CheckPoint"))
+        {
+            _gameControle._checkPoint.SalvaPos();
         }
     }
 
@@ -751,13 +746,6 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        if (other.gameObject.CompareTag(_tagCheckPoint))
-        {
-            //Debug.Log(other.transform.localPosition); //mostra o local do objrto(checkpoint)
-            UnityEngine.Debug.Log(other.gameObject.name); //mostra o nome do objeto(checkpoint)
-            _checkpoint.Salvar();
-            _checkpoint.CkeckPointSalvar(other.transform.localPosition);
-        }
     }
 
     private void TiroDoPlayer()
@@ -783,29 +771,8 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
-
-    }
-    private void GameOver()
-    {
-        //transicaoGameOver.transform.position = transform.position;
-       // transicaoGameOver.SetActive(true);
-        _ativadorMovimento = false;
-        StartCoroutine(ExibirPainelGameOver());
-        
-
     }
    
-
-    private IEnumerator ExibirPainelGameOver()
-    {
-        yield return new WaitForSeconds(2f);
-        painelGameOver.SetActive(true);
-        _TelaGameOver.DOScale(.8f, 1f);
-        yield return new WaitForSeconds(1f);
-        DOTween.KillAll();
-    }
-
     private IEnumerator Transforme()
     {
         _paticula.SetActive(true);

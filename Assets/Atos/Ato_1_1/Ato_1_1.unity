@@ -44126,7 +44126,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1543997485}
         m_TargetAssemblyTypeName: Gerenciadordepartida, Assembly-CSharp
-        m_MethodName: MenuPrincipal
+        m_MethodName: MapaPrincipal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59115,11 +59115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf98ba80ca6b9e4fb395dd4aa4bc1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fase: 0
-  _partfase: 0
-  _life: 0
-  _posPlayer: {fileID: 0}
-  _pos: []
+  _gameControle: {fileID: 0}
 --- !u!114 &1519864915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59165,10 +59161,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 3035624650047387632}
   _cadeadoMT: {fileID: 1519864915}
+  _checkPoint: {fileID: 0}
   _btPuzzles:
   - {fileID: 1693677751}
   - {fileID: 2069465824}
   _eventButton: {fileID: 1876100295}
+  _painelGameOver: {fileID: 1543997481}
+  _gerenciadorDePartida: {fileID: 0}
   _textPagScore: {fileID: 2136531}
   _salvaScore: 0
   _tutorialBau:
@@ -59499,6 +59498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonGameOver: {fileID: 2069465826}
+  _gameControle: {fileID: 0}
 --- !u!1 &1546204465
 GameObject:
   m_ObjectHideFlags: 0
@@ -122293,9 +122293,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dynamicJoystick: {fileID: 782006353}
   _verificaParede: {fileID: 1604867568}
+  _pausaJogo: {fileID: 0}
+  _posInicial: {x: 0, y: 0, z: 0}
   ativaJump: 0
   _vezesTutorial: 0
-  _pausaJogo: {fileID: 0}
   coyote: 0
   timeCoyote: 0
   _vida: 3
@@ -122326,7 +122327,6 @@ MonoBehaviour:
   _jump: 105
   _gravidade: 110
   coyoteTime: 0
-  _TelaGameOver: {fileID: 1543997482}
   _ativadorMovimento: 0
   _PosPlayer: {fileID: 1149373877}
   _g2: 0
@@ -122380,10 +122380,7 @@ MonoBehaviour:
         m_CallState: 2
   _dentroPlataforma: 0
   transicaoGameOver: {fileID: 0}
-  painelGameOver: {fileID: 1543997481}
   _SomDoPulo: {fileID: 3035624650047387625}
-  _tagCheckPoint: CheckPoint
-  _posSalva: {x: 0, y: 0, z: 0}
   smoothInputX: 0
   velocityX: 0
 --- !u!95 &3035624650047387633

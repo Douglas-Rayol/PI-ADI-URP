@@ -43,7 +43,7 @@ public class MenuPrincipalManager : MonoBehaviour
     {
         
         painelMenuInicial.SetActive(false);
-        painelOpcoes.SetActive(true); ;
+        painelOpcoes.SetActive(true);
     }
 
     public void fecharOpcoes()

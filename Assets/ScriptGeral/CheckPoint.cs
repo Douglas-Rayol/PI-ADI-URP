@@ -1,55 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    CheckPoint _manager;
-    [SerializeField] int _fase;
-    [SerializeField] int _partfase;
-    [SerializeField] int _life;
-    [SerializeField] Transform _posPlayer;
-    [SerializeField] Transform[] _pos;
-    void Start()
+    [SerializeField] public GameControle _gameControle;
+
+    private void Start()
     {
-        if (PlayerPrefs.GetInt("StartSalve") == 0)  
+        _gameControle = Camera.main.GetComponent<GameControle>();
+        _gameControle._checkPoint = GetComponent<CheckPoint>();
+    }
+
+
+    public void SalvaPos()
+    {
+        PlayerPrefs.SetFloat("posX", _gameControle._playerController.transform.position.x);
+        PlayerPrefs.SetFloat("posY", _gameControle._playerController.transform.position.y);
+        PlayerPrefs.SetFloat("posZ", _gameControle._playerController.transform.position.z);
+        PlayerPrefs.SetInt("Salvou", 1);
+    }
+
+    public void ReiniciaSalvePos()
+    {
+        _gameControle._painelGameOver.SetActive(false);
+        _gameControle._playerController._ativadorMovimento = true;
+
+        if (PlayerPrefs.GetInt("Salvou") == 1)
         {
-            PlayerPrefs.SetInt("StartSalve", 0);
+            _gameControle._playerController.transform.position = new Vector3(PlayerPrefs.GetFloat("posX"), PlayerPrefs.GetFloat("posY"), PlayerPrefs.GetFloat("posZ"));
         }
-        Carregar();
+        else
+        {
+            _gameControle._playerController.transform.position = _gameControle._playerController._posInicial;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ApagaSave()
     {
-        
-    }
-
-    public void Aumentarfase()
-    {
-        _fase++;
-    }
-
-    public void CkeckPointSalvar(Vector3 pos)
-    {
-        PlayerPrefs.SetFloat("posX", pos.x);
-        PlayerPrefs.SetFloat("posY", pos.y);
-        PlayerPrefs.SetFloat("posZ", pos.z);
-    }
-
-    public void Salvar()
-    {
-        PlayerPrefs.SetInt("StartSalve", 1);
-        PlayerPrefs.SetInt("fase", _fase);
-        PlayerPrefs.SetInt("_partfase", _partfase);
-       // Debug.Log(PlayerPrefs.GetInt("StartSalve"));
-    }
-
-    public void Carregar()
-    {
-        _fase = PlayerPrefs.GetInt("fase");
-        _partfase = PlayerPrefs.GetInt("_partfase");
-        // _posPlayer.transform.localPosition = _pos[_partfase].transform.position;
-
+        PlayerPrefs.DeleteKey("SalvaPaginaScore");
+        PlayerPrefs.DeleteKey("posX");
+        PlayerPrefs.DeleteKey("posY");
+        PlayerPrefs.DeleteKey("posZ");
+        PlayerPrefs.DeleteKey("Salvou");
     }
 }

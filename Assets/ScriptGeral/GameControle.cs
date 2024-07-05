@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,11 @@ public class GameControle : MonoBehaviour
     //Variaves Globais
     public PlayerController _playerController;
     public CadeadoMT _cadeadoMT;
-    
+    public CheckPoint _checkPoint;
     public GameObject[] _btPuzzles;
     public EventSystem _eventButton;
+    public GameObject _painelGameOver;
+    public Gerenciadordepartida _gerenciadorDePartida;
 
     public Text _textPagScore;
     public int _salvaScore;
@@ -47,6 +50,22 @@ public class GameControle : MonoBehaviour
 
             _eventButton.firstSelectedGameObject = _btPuzzles[0]; //Faz o botão Cima do Puzzle ser o Primeiro do EventSystem
             _btPuzzles[0].GetComponent<Button>().Select();
+    }
+
+    public void GameOver()
+    {
+        _playerController._ativadorMovimento = false;
+        StartCoroutine(ExibirPainelGameOver());
+    }
+
+
+    private IEnumerator ExibirPainelGameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        _painelGameOver.SetActive(true);
+        _painelGameOver.transform.DOScale(.8f, 1f);
+        yield return new WaitForSeconds(1f);
+        DOTween.KillAll();
     }
 
 }
