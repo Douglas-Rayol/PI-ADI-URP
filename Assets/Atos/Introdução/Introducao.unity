@@ -170,8 +170,9 @@ MonoBehaviour:
   _textWriter: {fileID: 599203849}
   _delayWriter: 0.05
   _escrevaFrase: "Uma crian\xE7a chama \u201CTito\u201D acorda e se arruma para escola.
-    Antes ela fazia alguns atividades. Assim que sai de casa uma brisa forte de vento
-    leva as p\xE1ginas do dever de casa dele, ent\xE3o ele vai atr\xE1s das p\xE1ginas."
+    Antes ela fazia algumas atividades. Assim que sai de casa uma brisa forte de
+    vento leva as p\xE1ginas do dever de casa dele, ent\xE3o ele vai atr\xE1s das
+    p\xE1ginas."
 --- !u!1 &590836931
 GameObject:
   m_ObjectHideFlags: 0
