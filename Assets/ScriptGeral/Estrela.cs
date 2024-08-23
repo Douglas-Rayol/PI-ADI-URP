@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Estrela : MonoBehaviour
 {
     [SerializeField] GameObject[] _estrelaVazia;
     [SerializeField] GameObject[] _estrela;
     GameControle _gameControle;
+
     // Start is called before the first frame update
     void Start()
-    {
-       
+    { 
         _gameControle = Camera.main.GetComponent<GameControle>();
          StartCoroutine(VaziaEstrelas());
        

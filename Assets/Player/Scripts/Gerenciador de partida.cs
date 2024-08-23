@@ -32,24 +32,37 @@ public class Gerenciadordepartida : MonoBehaviour
         PartidaIniciada = true;
         Time.timeScale = 1;
     }
-    public void reiniciarpartida()
+    public void GameMenuReiniar()
     {
         _gameControle._checkPoint.ReiniciaSalvePos();
 
     }
-    public void MenuPrincipal()
+    public void GameMenuPrincipal()
     {
         _gameControle._checkPoint.ApagaSave();
         SceneManager.LoadScene("Menu");
         
     }
 
-    public void MapaPrincipal()
+    public void GameMapaPrincipal()
     {
+        if(PlayerPrefs.GetInt("fase1point") == 1)
+        {
+            SceneManager.LoadScene("Mapa");
+        }
+
         _gameControle._checkPoint.ApagaSave();
         SceneManager.LoadScene("Mapa");
 
     }
+
+    public void GameMenuReiniciarInicio()
+    {
+        _gameControle._checkPoint.ApagaSave();
+        SceneManager.LoadScene("Ato_1_1");
+    }
+
+
 
     
 

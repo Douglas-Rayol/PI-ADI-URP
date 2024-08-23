@@ -33,11 +33,21 @@ public class PlayerMap : MonoBehaviour
     void Start()
     {
         _mapControle = Camera.main.GetComponent<MapControle>();
+
+        if (PlayerPrefs.GetInt("fase1point") == 1)
+        {
+            transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+        }
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        UnityEngine.Debug.Log(PlayerPrefs.GetInt("fase1point"));
+
         _numPag = PlayerPrefs.GetInt("SalvaPaginaScore");
         AnimacaoPlayerMap();
 

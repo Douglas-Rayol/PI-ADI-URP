@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ChamaMap : MonoBehaviour
 {
     [SerializeField] GameObject _particula;
     [SerializeField] GameObject _placaLevel;
     GameControle _gamecontrole;
+
+    [SerializeField] Button _buttonFim;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +45,6 @@ public class ChamaMap : MonoBehaviour
         }
     }
 
-    public void ChamaMapa()
-    {
-        SceneManager.LoadScene("Mapa");
-    }
-
     IEnumerator Portal()
     {
         yield return new WaitForSeconds(.25f);
@@ -62,5 +60,8 @@ public class ChamaMap : MonoBehaviour
     public void JumpAr()
     {
         _placaLevel.SetActive(true);
+        _buttonFim.Select();
+
+
     }
 }
