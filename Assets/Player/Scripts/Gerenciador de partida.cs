@@ -50,9 +50,13 @@ public class Gerenciadordepartida : MonoBehaviour
         {
             SceneManager.LoadScene("Mapa");
         }
+        else
+        {
+            _gameControle._checkPoint.ApagaSave();
+            SceneManager.LoadScene("Mapa");
+        }
 
-        _gameControle._checkPoint.ApagaSave();
-        SceneManager.LoadScene("Mapa");
+
 
     }
 

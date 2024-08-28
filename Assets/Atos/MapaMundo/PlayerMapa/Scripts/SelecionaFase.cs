@@ -12,6 +12,8 @@ public class SelecionaFase : MonoBehaviour
     [SerializeField] GameObject _particula;
     [SerializeField] public PlayerMap _playerMap;
 
+    [SerializeField] ColetaConf _coletaPagina;
+
 
     public void PointFase1(int index)
     {
@@ -48,5 +50,9 @@ public class SelecionaFase : MonoBehaviour
     public void EntrarNaFase(string fase)
     {
         SceneManager.LoadSceneAsync(fase);
+        PlayerPrefs.SetInt("Salvou", 0);
+        _coletaPagina._totalPag -= 6;
+
+
     }
 }
