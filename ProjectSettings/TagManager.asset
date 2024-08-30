@@ -17,6 +17,7 @@ TagManager:
   - Cajado
   - CheckPoint
   - Pedra
+  - trampolin
   layers:
   - Default
   - TransparentFX
