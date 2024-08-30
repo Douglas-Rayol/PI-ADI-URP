@@ -18,6 +18,7 @@ TagManager:
   - CheckPoint
   - Pedra
   - trampolin
+  - Ladeira
   layers:
   - Default
   - TransparentFX
