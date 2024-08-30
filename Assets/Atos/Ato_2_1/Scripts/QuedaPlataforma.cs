@@ -30,17 +30,17 @@ public class QuedaPlataforma : MonoBehaviour
         //derruba plataforma
         yield return new WaitForSeconds(0.5f);
         rb.isKinematic = false;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+        gameObject.GetComponent<MeshCollider>().enabled = false;
 
         yield return new WaitForSeconds(2f);
         rb.transform.DOScale(new Vector3(0,0,0), 1f);
        
   
         //restaura plataforma
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
         transform.position = _posicao;
         rb.isKinematic = true;
-        gameObject.GetComponent<BoxCollider>().enabled = true;
+        gameObject.GetComponent<MeshCollider>().enabled = true;
 
         yield return new WaitForSeconds(2f);
         rb.transform.DOScale(_scaleIni, .25f);
