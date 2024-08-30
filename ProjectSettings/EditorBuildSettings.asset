@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Atos/Ato_1_1/Ato_1_1.unity
     guid: 01e5723cbb8d3654b90ac9201b83a565
   - enabled: 1
-    path: Assets/Atos/Ato_2_1/Ato_2_1.unity
+    path: Assets/Atos/Ato_1_2/Ato_2_1.unity
     guid: c5a24122a33ffb84abc136148edecf04
   - enabled: 1
     path: Assets/Musicas/Musica.unity

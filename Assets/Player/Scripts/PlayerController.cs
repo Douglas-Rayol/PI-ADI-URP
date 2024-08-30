@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float _speed;
     [SerializeField] public float _jump;
-    [SerializeField] float _gravidade;
+    [SerializeField] public float _gravidade;
     [SerializeField] private float coyoteTime = 0f;
 
     public bool _ativadorMovimento;
