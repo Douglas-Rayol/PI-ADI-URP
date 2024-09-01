@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Gerenciadordepartida : MonoBehaviour
 {
-    private bool PartidaIniciada;
+    public bool PartidaIniciada;
     [SerializeField] Button _buttonGameOver;
     [SerializeField] GameControle _gameControle;
 
