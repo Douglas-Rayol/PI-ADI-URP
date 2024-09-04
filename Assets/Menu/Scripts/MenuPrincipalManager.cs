@@ -54,18 +54,20 @@ public class MenuPrincipalManager : MonoBehaviour
 
     public void sairjogo()
     {
-        Debug.Log("Sair do jogo");
+        PlayerPrefs.DeleteKey("loadingCena");
         Application.Quit();
     }
 
     public void ChamaJogo()
     {
+        PlayerPrefs.DeleteKey("loadingCena");
         SceneManager.LoadScene("Introducao");
         PlayerPrefs.DeleteKey("SalvaPaginaScore");
     }
 
     public void ChamaContinue()
     {
+        PlayerPrefs.DeleteKey("loadingCena");
         SceneManager.LoadSceneAsync("Mapa");
     }
 
