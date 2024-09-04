@@ -14,7 +14,7 @@ public class Tiro : MonoBehaviour
     public float _tempoVida = 0;
     int index;
     [SerializeField] float _timeRespanw;
-    [SerializeField] GameObject _particula;
+    [SerializeField] GameObject _particula, _particulaAtaque;
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -34,6 +34,7 @@ public class Tiro : MonoBehaviour
         {
             transform.localScale = new Vector3(3, 3, 3);
             _particula.SetActive(true);
+            _particulaAtaque.SetActive(true);
         }
 
         _tempoVida += Time.deltaTime;
