@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class TrocarCena : MonoBehaviour
 {
 
+
+
     public void Loadscenes(string mudaFase)
    {
-        SceneManager.LoadSceneAsync(mudaFase);
+        PlayerPrefs.SetInt("loadingCena", 3);
+        SceneManager.LoadScene(mudaFase);
    }
 
 }

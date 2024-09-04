@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using TMPro;
+using DG.Tweening;
 
 public class SelecionaFase : MonoBehaviour
 {
@@ -47,12 +49,16 @@ public class SelecionaFase : MonoBehaviour
         }
     }
 
-    public void EntrarNaFase(string fase)
+    public void EntraNoLoading() //Entra sempre no Loading
     {
-        SceneManager.LoadSceneAsync(fase);
+        SceneManager.LoadScene(6);
         PlayerPrefs.SetInt("Salvou", 0);
         _coletaPagina._totalPag -= 6;
 
+    }
 
+    public void CenaLoad(int load) //Escolhe qual a fase que ele vai entrar
+    {
+        PlayerPrefs.SetInt("loadingCena", load);
     }
 }
