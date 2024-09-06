@@ -6591,7 +6591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97d09a4c706e104e89fe0ce449e9a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: 20
+  velocidadeRotacao: 25
 --- !u!136 &218661380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6674,7 +6674,7 @@ Transform:
   m_GameObject: {fileID: 218661378}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -53.500977, y: -9.93158, z: 4.6020303}
+  m_LocalPosition: {x: -53.7, y: -9.93158, z: 4.6020303}
   m_LocalScale: {x: 71.90001, y: -0.5388011, z: 71.90001}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7839,7 +7839,7 @@ Transform:
   m_GameObject: {fileID: 317716157}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 5200.201, y: 274.8, z: 5.83}
+  m_LocalPosition: {x: 5203.6, y: 274.8, z: 5.83}
   m_LocalScale: {x: 71.90001, y: -0.5388012, z: 71.900024}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7931,7 +7931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97d09a4c706e104e89fe0ce449e9a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: -20
+  velocidadeRotacao: -25
 --- !u!1 &339579963
 GameObject:
   m_ObjectHideFlags: 0
@@ -8710,7 +8710,7 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 1
   m_XDamping: 1
   m_YDamping: 1
-  m_ZDamping: 20
+  m_ZDamping: 3
   m_TargetMovementOnly: 1
   m_ScreenX: 0.38
   m_ScreenY: 0.38
@@ -8812,7 +8812,7 @@ Transform:
   m_GameObject: {fileID: 434685777}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 5756.7646, y: 170.47708, z: -40.603474}
+  m_LocalPosition: {x: 2694.5996, y: 120.17708, z: -40.603474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31993,7 +31993,7 @@ GameObject:
   - component: {fileID: 754316487}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32096,7 +32096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: 20
+  velocidadeRotacao: 25
 --- !u!1 &760448713
 GameObject:
   m_ObjectHideFlags: 0
@@ -32112,7 +32112,7 @@ GameObject:
   - component: {fileID: 760448719}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32215,7 +32215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: 20
+  velocidadeRotacao: 25
 --- !u!1 &762572177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6507901977716847365, guid: cd5dbbb9729b4e742aba73b5aae840cc,
@@ -33185,7 +33185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &801734462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45200,7 +45200,7 @@ GameObject:
   - component: {fileID: 1084499790}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45303,7 +45303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: -20
+  velocidadeRotacao: -25
 --- !u!1 &1086611676
 GameObject:
   m_ObjectHideFlags: 0
@@ -53903,7 +53903,7 @@ GameObject:
   - component: {fileID: 1363948255}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54006,7 +54006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: 20
+  velocidadeRotacao: 25
 --- !u!1 &1369974000
 GameObject:
   m_ObjectHideFlags: 0
@@ -60175,7 +60175,7 @@ Transform:
   m_GameObject: {fileID: 1519864908}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 5756.7646, y: 170.47708, z: -40.603474}
+  m_LocalPosition: {x: 2694.5996, y: 120.17708, z: -40.603474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60437,7 +60437,7 @@ GameObject:
   - component: {fileID: 1542682637}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60540,7 +60540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: 20
+  velocidadeRotacao: 25
 --- !u!1 &1543997481
 GameObject:
   m_ObjectHideFlags: 0
@@ -65580,6 +65580,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: -9134644770103096187, guid: 9e2e0e2424ce6e149ab42958f595e18e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -9073195085557812544, guid: 9e2e0e2424ce6e149ab42958f595e18e,
         type: 3}
       propertyPath: m_TagString
@@ -66195,6 +66200,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 6875005967300682730, guid: 9e2e0e2424ce6e149ab42958f595e18e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -174.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875005967300682730, guid: 9e2e0e2424ce6e149ab42958f595e18e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.77
+      objectReference: {fileID: 0}
     - target: {fileID: 7372713423766186234, guid: 9e2e0e2424ce6e149ab42958f595e18e,
         type: 3}
       propertyPath: m_TagString
@@ -66242,6 +66257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1734407942796334477, guid: 9e2e0e2424ce6e149ab42958f595e18e, type: 3}
+    - {fileID: -9134644770103096187, guid: 9e2e0e2424ce6e149ab42958f595e18e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 332560300984219106, guid: 9e2e0e2424ce6e149ab42958f595e18e, type: 3}
     - {fileID: -5036730251079991282, guid: 9e2e0e2424ce6e149ab42958f595e18e, type: 3}
@@ -82846,7 +82862,7 @@ GameObject:
   - component: {fileID: 1759865323}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82949,7 +82965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: -20
+  velocidadeRotacao: -25
 --- !u!1 &1760992616
 GameObject:
   m_ObjectHideFlags: 0
@@ -88544,7 +88560,7 @@ GameObject:
   - component: {fileID: 1845254700}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88647,7 +88663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: -20
+  velocidadeRotacao: -25
 --- !u!1 &1876100293
 GameObject:
   m_ObjectHideFlags: 0
@@ -89324,7 +89340,7 @@ GameObject:
   - component: {fileID: 1944493811}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89427,7 +89443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e97050c24c2604e8169eb90699cea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeRotacao: -20
+  velocidadeRotacao: -25
 --- !u!1 &1952908390
 GameObject:
   m_ObjectHideFlags: 0
@@ -122307,7 +122323,7 @@ Transform:
   m_GameObject: {fileID: 2408128538852863314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5724.8, y: 158.4, z: -0}
+  m_LocalPosition: {x: 2682.2, y: 108.1, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

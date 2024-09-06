@@ -14,4 +14,18 @@ public class Gira_Sem_Parar_Anti_Horario : MonoBehaviour{
         transform.Rotate( 0,0,velocidadeRotacao * Time.deltaTime);
     }
 
+        // Detecta quando o jogador entra na plataforma
+    private void OnCollisionEnter(Collision collision){
+
+        if (collision.gameObject.CompareTag("Player")){
+            collision.transform.SetParent(transform);
+        }
+    }
+       private void OnCollisionExit(Collision collision){
+
+        if (collision.gameObject.CompareTag("Player")){
+            collision.transform.SetParent(null);
+        }
+    }
+
 }
