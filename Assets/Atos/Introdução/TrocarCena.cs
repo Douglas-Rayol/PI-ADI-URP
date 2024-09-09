@@ -10,7 +10,7 @@ public class TrocarCena : MonoBehaviour
 
     public void Loadscenes(string mudaFase)
    {
-        PlayerPrefs.SetInt("loadingCena", 3);
+        //PlayerPrefs.SetInt("loadingCena", 3);
         SceneManager.LoadScene(mudaFase);
    }
 

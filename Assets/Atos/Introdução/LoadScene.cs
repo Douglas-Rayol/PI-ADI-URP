@@ -12,9 +12,15 @@ public class LoadScene : MonoBehaviour
 
     [SerializeField] int index;
 
+    [SerializeField] string[] _dicas;
+    [SerializeField] Text _textDicas;
+
     private void Start()
     {
         StartCoroutine(LoadScene_Estiloso());
+
+        _textDicas.text = ""+ _dicas[Random.Range(0, _dicas.Length)];
+
     }
 
 

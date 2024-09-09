@@ -55,11 +55,13 @@ public class MenuPrincipalManager : MonoBehaviour
     public void sairjogo()
     {
         PlayerPrefs.DeleteKey("loadingCena");
+        PlayerPrefs.DeleteAll();
         Application.Quit();
     }
 
     public void ChamaJogo()
     {
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.DeleteKey("loadingCena");
         SceneManager.LoadScene("Introducao");
         PlayerPrefs.DeleteKey("SalvaPaginaScore");
