@@ -73,11 +73,15 @@ public class Pato : MonoBehaviour {
     IEnumerator Alerta()
     {
         _alerta.enabled = true;
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.5f);
         _alerta.enabled = false;
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.5f);
         _alerta.enabled = true;
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.5f);
+        _alerta.enabled = false;
+
+        _alerta.enabled = true;
+        yield return new WaitForSeconds(.5f);
         _alerta.enabled = false;
     }
 }
