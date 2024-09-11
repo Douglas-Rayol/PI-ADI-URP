@@ -20,6 +20,10 @@ public class Pato : MonoBehaviour {
     public Transform _alvo;
     Rigidbody _rbPato;
 
+    bool _iniVeloPato;
+
+    [SerializeField] GameObject _boxAlerta;
+
     void Start() 
     {
         _pausaJogo = FindAnyObjectByType<GameManager>();
@@ -28,7 +32,7 @@ public class Pato : MonoBehaviour {
     void Update() {
 
 
-        if(_pausaJogo._pause == false)
+        if(_pausaJogo._pause == false && _iniVeloPato == true)
         {
             dist = Vector3.Distance(_alvo.position, transform.position);
             if (dist < distPlayer && !_posplayer)
@@ -60,11 +64,17 @@ public class Pato : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Alerta"))
+        if (other.gameObject.CompareTag("Player"))
         {
+
             if (_pausaJogo._pause == false)
             {
-                StartCoroutine(Alerta());
+                _iniVeloPato = true;
+                if (_iniVeloPato == true)
+                {
+                    StartCoroutine(Alerta());
+                    Destroy(_boxAlerta);
+                }
             }
         }
     }
@@ -79,9 +89,19 @@ public class Pato : MonoBehaviour {
         _alerta.enabled = true;
         yield return new WaitForSeconds(.5f);
         _alerta.enabled = false;
-
+        yield return new WaitForSeconds(.5f);
         _alerta.enabled = true;
         yield return new WaitForSeconds(.5f);
         _alerta.enabled = false;
+        yield return new WaitForSeconds(.5f);
+        _alerta.enabled = true;
+        yield return new WaitForSeconds(.5f);
+        _alerta.enabled = false;
+        yield return new WaitForSeconds(.5f);
+        _alerta.enabled = true;
+        yield return new WaitForSeconds(.5f);
+        _alerta.enabled = false;
+        yield return new WaitForSeconds(1f);
+
     }
 }
