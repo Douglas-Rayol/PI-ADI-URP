@@ -279,6 +279,7 @@ public class PlayerController : MonoBehaviour
                 GetComponent<CapsuleCollider>().center = new Vector3(0, 4, 2);
                 _anim.SetLayerWeight(3, 1);
                 _anim.SetBool("Empurrar", true);
+                _ativaTiro = false;
             }
         }
         else
@@ -286,6 +287,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<CapsuleCollider>().center = new Vector3(0, 4, 0);
             _anim.SetLayerWeight(0, 1);
             _anim.SetBool("Empurrar", false);
+            _ativaTiro = true;
         }
 
     }
