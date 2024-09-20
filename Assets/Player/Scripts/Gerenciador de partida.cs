@@ -34,7 +34,7 @@ public class Gerenciadordepartida : MonoBehaviour
     }
     public void GameMenuReiniar()
     {
-        _gameControle._checkPoint.ReiniciaSalvePos();
+        SceneManager.LoadScene("Ato_1_1");
 
     }
     public void GameMenuPrincipal()

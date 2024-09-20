@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bau : MonoBehaviour
 {
-
     [SerializeField] CadeadoMT _cadeadoMT;
     [SerializeField] public Animator _anim;
     [SerializeField] public GameObject _seta;
@@ -16,11 +15,14 @@ public class Bau : MonoBehaviour
     public  bool  _desativa;
     BoxCollider _box;
 
+
     private void Start()
     {
         _cadeadoMT = Camera.main.GetComponent<CadeadoMT>();
         _gamecontrole = Camera.main.GetComponent<GameControle>();
         _box = GetComponent<BoxCollider>();
+
+
     }
 
     private void OnTriggerEnter(Collider other)

@@ -35,6 +35,7 @@ public class CadeadoMT: MonoBehaviour
     {
         ShuffleString(_calculo);
         _gameControle = Camera.main.GetComponent<GameControle>();
+
     }
 
     private void Update()
@@ -160,7 +161,6 @@ public class CadeadoMT: MonoBehaviour
 
     private void AcertouPuzzle()
     {
-
         _gameControle._playerController._bauOn = false;
         _bauAberto = false;
         _bau._anim.SetBool("Aberto", true);
