@@ -28,7 +28,6 @@ public class PainelTutorial : MonoBehaviour
         {
             _nomeTexto.text = dialogo._nome;
             _contTexto.text = dialogo._texto;
-            _btFechar.Select();
             _painelTutor.DOScale(1, .25f);
         }
         else

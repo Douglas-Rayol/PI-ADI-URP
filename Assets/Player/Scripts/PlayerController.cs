@@ -274,12 +274,16 @@ public class PlayerController : MonoBehaviour
 
         if(Physics.Raycast(_verificaParede.position, transform.TransformDirection(Vector3.forward), out _checkPedra, 2f))
         {   
-            if(_checkPedra.transform.CompareTag("Pedra"))
+            if(_checkPedra.transform.CompareTag("Pedra") && _move.x != 0)
             {
                 GetComponent<CapsuleCollider>().center = new Vector3(0, 4, 2);
                 _anim.SetLayerWeight(3, 1);
                 _anim.SetBool("Empurrar", true);
                 _ativaTiro = false;
+            }
+            else
+            {
+                _anim.SetBool("Empurrar", false);
             }
         }
         else
@@ -347,22 +351,21 @@ public class PlayerController : MonoBehaviour
     {
         if(value.performed && _bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
         {
-            if(!_vezesTutorial)
+            if (!_vezesTutorial)
             {
                 _gameControle._tutorialBau[0].SetActive(true);
                 _gameControle._tutorialBau[1].GetComponent<Button>().Select();
                 _vezesTutorial = true;
+                _bauOn = false;
 
             }
             else
             {
-                _pausaJogo._pause = true;
                 _gameControle.AtivaBau();
-                
+                _pausaJogo._pause = true;
+
             }
 
-            
-            
         }
 
 

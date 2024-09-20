@@ -50,6 +50,7 @@ public class GameControle : MonoBehaviour
 
             _eventButton.firstSelectedGameObject = _btPuzzles[0]; //Faz o botão Cima do Puzzle ser o Primeiro do EventSystem
             _btPuzzles[0].GetComponent<Button>().Select();
+            
     }
 
     public void GameOver()
