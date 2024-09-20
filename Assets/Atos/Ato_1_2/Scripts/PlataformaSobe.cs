@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Runtime.InteropServices;
 
 public class PlataformaSobe : MonoBehaviour {    
     
@@ -11,8 +12,7 @@ public class PlataformaSobe : MonoBehaviour {
 
 
     private void Start(){
-
-        // Guarda a posição inicial da plataforma
+            // Guarda a posição inicial da plataforma
         Vector3 initialPosition = transform.position;
 
         // Cria uma sequência de animação
@@ -32,11 +32,10 @@ public class PlataformaSobe : MonoBehaviour {
 
         // Faz o movimento repetir indefinidamente
         moveSequence.SetLoops(-1, LoopType.Restart);
+
     }
 
-
-  
-
+     
         // Detecta quando o jogador entra na plataforma
         private void OnCollisionEnter(Collision collision){
 

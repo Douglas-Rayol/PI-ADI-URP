@@ -65,7 +65,7 @@ public class GameControle : MonoBehaviour
         _painelGameOver.SetActive(true);
         _painelGameOver.transform.DOScale(.8f, 1f);
         yield return new WaitForSeconds(1f);
-        DOTween.KillAll();
+        //DOTween.KillAll();
     }
 
 }
