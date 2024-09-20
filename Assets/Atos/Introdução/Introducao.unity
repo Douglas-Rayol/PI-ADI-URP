@@ -168,11 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textWriter: {fileID: 599203849}
-  _delayWriter: 0.05
-  _escrevaFrase: "Uma crian\xE7a chama \u201CTito\u201D acorda e se arruma para escola.
-    Antes ela fazia algumas atividades. Assim que sai de casa uma brisa forte de
-    vento leva as p\xE1ginas do dever de casa dele, ent\xE3o ele vai atr\xE1s das
-    p\xE1ginas."
+  _delayWriter: 0.1
+  _escrevaFrase: "Tito acorda atrasado para escola. Antes disso estava fazendo algumas
+    atividades de casa. Se arrumando para a escola esquece a janela aberta, uma brisa
+    forte de vento leva as atividades dele, ent\xE3o ajude-o a recuperar as p\xE1ginas."
 --- !u!1 &590836931
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +286,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 11e461e613c262c4fad51bf8e87afde4, type: 3}
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 85
     m_FontStyle: 0
     m_BestFit: 0
