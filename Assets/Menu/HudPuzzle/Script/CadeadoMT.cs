@@ -161,9 +161,13 @@ public class CadeadoMT: MonoBehaviour
 
     private void AcertouPuzzle()
     {
+
+        
+
         _gameControle._playerController._bauOn = false;
         _bauAberto = false;
         _bau._anim.SetBool("Aberto", true);
+         PlayerPrefs.SetInt("Bau" + _bau._tipoBau, 1);
         _bau._seta.SetActive(false);
         _bau.DropPag();
         _bau._desativa = true;
@@ -172,7 +176,6 @@ public class CadeadoMT: MonoBehaviour
 
         _gameControle._eventButton.firstSelectedGameObject = _gameControle._btPuzzles[1]; //Faz o botao Restart ser o Primeiro do EventSystem
         _gameControle._btPuzzles[1].GetComponent<Button>().Select();
-
 
         StartCoroutine(TempoPlayerControle());
 

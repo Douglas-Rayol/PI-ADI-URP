@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] bool ativaJump;
 
-    [SerializeField] bool _vezesTutorial;
-
     [SerializeField] int coyote;
     [SerializeField] float timeCoyote;
 
@@ -351,20 +349,31 @@ public class PlayerController : MonoBehaviour
     {
         if(value.performed && _bauOn == true && _gameControle._cadeadoMT._bauAberto == false)
         {
-            if (!_vezesTutorial)
+            if(!PlayerPrefs.HasKey("ativaTutorial"))
+            {
+                PlayerPrefs.SetInt("ativaTutorial", 0);
+            }
+
+            if (PlayerPrefs.GetInt("ativaTutorial") == 0)
             {
                 _gameControle._tutorialBau[0].SetActive(true);
                 _gameControle._tutorialBau[1].GetComponent<Button>().Select();
-                _vezesTutorial = true;
+                _gameControle.GetComponent<GameManager>()._pause = true;
                 _bauOn = false;
 
+                PlayerPrefs.SetInt("ativaTutorial", 1);
             }
-            else
+
+            else if (PlayerPrefs.GetInt("ativaTutorial") == 1)
             {
+                _gameControle.GetComponent<GameManager>()._pause = true;
                 _gameControle.AtivaBau();
                 _pausaJogo._pause = true;
-
             }
+
+
+
+
 
         }
 

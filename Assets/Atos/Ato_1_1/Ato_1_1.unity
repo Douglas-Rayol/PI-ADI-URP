@@ -31698,12 +31698,12 @@ PrefabInstance:
     - target: {fileID: 1528804005035658956, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -94.11
+      value: -94.02
       objectReference: {fileID: 0}
     - target: {fileID: 1528804005035658956, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.04
+      value: -21.13
       objectReference: {fileID: 0}
     - target: {fileID: 1528804005035658956, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
@@ -38538,12 +38538,12 @@ PrefabInstance:
     - target: {fileID: 1528804005035658956, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 599.0423
+      value: 602.7
       objectReference: {fileID: 0}
     - target: {fileID: 1528804005035658956, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -73.32268
+      value: -73.29
       objectReference: {fileID: 0}
     - target: {fileID: 1528804005035658956, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
@@ -90828,7 +90828,6 @@ MonoBehaviour:
   _pausaJogo: {fileID: 0}
   _posInicial: {x: 0, y: 0, z: 0}
   ativaJump: 0
-  _vezesTutorial: 0
   coyote: 0
   timeCoyote: 0
   _vida: 3
