@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509af2f345b93ad4fa8e09fa9950879c, type: 3}
   m_Name: New Dialogo
   m_EditorClassIdentifier: 
-  _nome: Dex
-  _texto: 'bla bla bla bla bla bla '
+  _nome: Tutorial
+  _texto: Movimento
+  _texto2: Pulo
+  _texto3: Ataque
