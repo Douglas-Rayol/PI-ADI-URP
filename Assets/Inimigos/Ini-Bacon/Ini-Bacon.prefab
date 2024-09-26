@@ -5170,7 +5170,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -269, y: 30.2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6155671423096031044}
@@ -5195,6 +5195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pausaJogo: {fileID: 0}
+  _playerControle: {fileID: 0}
   _player: {fileID: 0}
   _alvo: {fileID: 1294949552508532392}
   _pos:
@@ -5203,7 +5204,6 @@ MonoBehaviour:
   _distPos:
   - 0
   - 0
-  _velocidade: []
   _distPosLimit: 1
   _distPlayerLimit: 8
   _moveVelocidade: 25
@@ -5211,6 +5211,7 @@ MonoBehaviour:
   _paticulaHit: {fileID: 3140139384029893185}
   _bacon: {fileID: 9208170436251586069}
   _porco: {fileID: 3089625389140647688}
+  _javaPorco: {fileID: 1645482660600096144}
   _vida: 3
   _barCheio: {fileID: 119952254021084292}
   _barraVida: {fileID: 2322618517829971223}

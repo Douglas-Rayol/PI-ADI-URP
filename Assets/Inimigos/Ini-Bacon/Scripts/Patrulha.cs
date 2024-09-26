@@ -1,9 +1,9 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEngine.ParticleSystem;
-
+using DG.Tweening;
 public class Patrulha : MonoBehaviour
 {
     public GameManager _pausaJogo;
@@ -24,7 +24,7 @@ public class Patrulha : MonoBehaviour
     [SerializeField] float _distPlayerLimit;
     [SerializeField] float _moveVelocidade;
     [SerializeField] GameObject _paticulaMorte, _paticulaHit;
-    [SerializeField]GameObject _bacon, _porco;
+    [SerializeField]GameObject _bacon, _porco, _javaPorco;
 
     [Header("Sistema de vida Cogula")]
     [SerializeField] public int _vida;
@@ -88,8 +88,6 @@ public class Patrulha : MonoBehaviour
         {
             _alvo = _pos[0];
         }
-
-
     }
 
     void MoverparaAlvo()
@@ -205,7 +203,10 @@ public class Patrulha : MonoBehaviour
         _paticulaMorte.SetActive(true);
         yield return new WaitForSeconds(.2f);
         _bacon.gameObject.SetActive(false);
+        _javaPorco.gameObject.transform.DOLocalMoveY(30.3f, 0);
         _porco.gameObject.SetActive(true);
+        _javaPorco.gameObject.transform.DOScale(2, .25f);
+
     }
     IEnumerator Hit()
     {
