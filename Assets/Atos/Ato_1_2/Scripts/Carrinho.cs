@@ -4,11 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
 
+
 public class Carrinho : MonoBehaviour
 {
 
     [SerializeField] Rigidbody _rbPlayer;
     [SerializeField] Transform _carrinho;
+
+    //[SerializeField] SplineAnimate _spline;
+    
     
 
 
@@ -19,13 +23,13 @@ public class Carrinho : MonoBehaviour
         
             
         if (collision.gameObject.CompareTag("Player")){
-            collision.transform.SetParent(transform);
-            
+            collision.transform.SetParent(transform);         
+
+
             _carrinho.GetComponent<SplineAnimate>().Play();
 
-
         }
-           //_carrinho.GetComponent<SplineAnimate>().Play
+           
     }
 
 
