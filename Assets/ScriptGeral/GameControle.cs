@@ -15,6 +15,7 @@ public class GameControle : MonoBehaviour
     public EventSystem _eventButton;
     public GameObject _painelGameOver;
     public Gerenciadordepartida _gerenciadorDePartida;
+    public Transform _HudPaginaPosition;
 
     public Text _textPagScore;
     public int _salvaScore;
