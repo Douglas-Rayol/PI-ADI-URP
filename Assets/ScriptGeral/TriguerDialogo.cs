@@ -24,6 +24,10 @@ public class TriguerDialogo : MonoBehaviour
             {
                 _painelTutorial.PainelPedra(true, _dialogo);
             }
+            else if(_dialogo._tipo == 2)
+            {
+                _painelTutorial.PainelPagina(true, _dialogo);
+            }
             
         }
     }
@@ -33,6 +37,8 @@ public class TriguerDialogo : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _painelTutorial.PainelOn(false, null);
+            _painelTutorial.PainelPedra(false, null);
+            _painelTutorial.PainelPagina(false, null);
         }
     }
 }

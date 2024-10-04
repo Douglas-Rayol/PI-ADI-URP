@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 509af2f345b93ad4fa8e09fa9950879c, type: 3}
-  m_Name: New Dialogo
+  m_Name: TutoPagina
   m_EditorClassIdentifier: 
   _nome: Tutorial
-  _texto: Movimento
-  _texto2: Pulo
-  _texto3: Ataque
+  _texto: Colete as atividades espalhadas pelo fases
+  _texto2: 
+  _texto3: 
+  _tipo: 2

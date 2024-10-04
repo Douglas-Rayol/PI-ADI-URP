@@ -10,8 +10,9 @@ public class PainelTutorial : MonoBehaviour
     public TextMeshProUGUI _nomeTexto;
     public TextMeshProUGUI _contTexto,_contTexto2,_contTexto3;
     public Transform _painelTutor;
-    public GameObject _painel, _painel2;
+    public GameObject _painel, _painel2, _painel3;
     public TextMeshProUGUI _contPedra, _contPedra2;
+    public TextMeshProUGUI _contPag;
 
     void Start()
     {
@@ -56,4 +57,19 @@ public class PainelTutorial : MonoBehaviour
         }
     }
 
+    public void PainelPagina(bool value, Dialogo dialogo)
+    {
+        if (value)
+        {
+            _painel3.SetActive(true);
+            _nomeTexto.text = dialogo._nome;
+            _contPag.text = dialogo._texto;
+            _painelTutor.DOScale(1, .25f);
+        }
+        else
+        {
+            _painel3.SetActive(false);
+            _painelTutor.DOScale(0, .25f);
+        }
+    }
 }
