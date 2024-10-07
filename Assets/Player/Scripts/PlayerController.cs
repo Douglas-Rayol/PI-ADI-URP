@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _PosPlayer;
     [SerializeField] float _g2;
     [SerializeField] public bool _checkGround;
-    [SerializeField] int _groundCount;
+    [SerializeField] public int _groundCount;
 
     bool checkHitIni;
     public bool _rotacao;
