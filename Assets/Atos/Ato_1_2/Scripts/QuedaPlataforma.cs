@@ -10,7 +10,10 @@ public class QuedaPlataforma : MonoBehaviour
     [SerializeField] Rigidbody rb;
     float _gravidade;
     Vector3 _posicao;
-     [SerializeField] Vector3 _scaleIni;
+    [SerializeField] Vector3 _scaleIni;
+
+    
+
     
 
     void Start(){
@@ -28,9 +31,10 @@ public class QuedaPlataforma : MonoBehaviour
 
     IEnumerator Queda(){
         //derruba plataforma
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.15f);
         rb.isKinematic = false;
         gameObject.GetComponent<MeshCollider>().enabled = false;
+
 
         yield return new WaitForSeconds(2f);
         rb.transform.DOScale(new Vector3(0,0,0), 1f);
@@ -50,9 +54,14 @@ public class QuedaPlataforma : MonoBehaviour
     }
  
      private void OnCollisionEnter(Collision col) {
+        
+        
           if (col.gameObject.CompareTag("Player")){
-            StartCoroutine(Queda());
+           StartCoroutine(Queda());
+           
+           
         }
+        
 
     }
 

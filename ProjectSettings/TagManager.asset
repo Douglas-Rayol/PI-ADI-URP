@@ -19,6 +19,7 @@ TagManager:
   - Pedra
   - trampolin
   - Ladeira
+  - ponte
   layers:
   - Default
   - TransparentFX
