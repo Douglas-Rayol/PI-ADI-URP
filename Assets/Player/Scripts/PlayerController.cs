@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
     bool checkHitIni;
     public bool _rotacao;
 
-    [SerializeField] bool _plataforma;
+    [SerializeField] public bool _plataforma;
 
     //Posicao do Tiro
     public Transform _posTiro;
