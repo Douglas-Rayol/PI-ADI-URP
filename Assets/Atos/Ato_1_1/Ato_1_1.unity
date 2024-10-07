@@ -56558,6 +56558,7 @@ MonoBehaviour:
   _eventButton: {fileID: 1876100295}
   _painelGameOver: {fileID: 1543997481}
   _gerenciadorDePartida: {fileID: 0}
+  _HudPaginaPosition: {fileID: 690196196}
   _textPagScore: {fileID: 2136531}
   _salvaScore: 0
   _tutorialBau:

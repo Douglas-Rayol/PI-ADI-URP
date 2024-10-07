@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class ColetePag : MonoBehaviour
 {
 
     [SerializeField] GameObject _particula;
+    [SerializeField] Animator _anim;
     private BoxCollider _box;
 
 
@@ -18,6 +19,7 @@ public class ColetePag : MonoBehaviour
     void Start()
     {
         _gameControle = Camera.main.GetComponent<GameControle>();
+        _anim = GetComponent<Animator>();
 
         _box = GetComponent<BoxCollider>();
         _particula.gameObject.SetActive(true);
@@ -33,7 +35,8 @@ public class ColetePag : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            
+            _anim.enabled = false;
+            transform.DOMove(_gameControle._HudPaginaPosition.position, 1f, false);
             _box.enabled = false;
             StartCoroutine(Coletar());
             
@@ -47,8 +50,9 @@ public class ColetePag : MonoBehaviour
 
     IEnumerator Coletar()
     {
-        _particula.gameObject.SetActive(true);
-        yield return new WaitForSeconds(.1f);
+        _particula.gameObject.SetActive(false);
+        GetComponent<SpriteRenderer>().DOFade(0f, .65f);
+        yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
     }
 }
