@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+//comment the next line out if you aren't using Rewired
+
 [RequireComponent(typeof(ScrollRect))]
 public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -12,6 +14,8 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
     private ScrollRect m_ScrollRect;
 
     private Vector2 m_NextScrollPosition = Vector2.up;
+    public int RewiredPlayerID = 0;
+
     void OnEnable()
     {
         if (m_ScrollRect)
@@ -22,6 +26,7 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
     void Awake()
     {
         m_ScrollRect = GetComponent<ScrollRect>();
+        //remove this line if not using Rewired
     }
     void Start()
     {
@@ -38,7 +43,7 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
         if (!mouseOver)
         {
             // Lerp scrolling code.
-            m_ScrollRect.normalizedPosition = Vector2.Lerp(m_ScrollRect.normalizedPosition, m_NextScrollPosition, scrollSpeed * Time.deltaTime);
+            m_ScrollRect.normalizedPosition = Vector2.Lerp(m_ScrollRect.normalizedPosition, m_NextScrollPosition, scrollSpeed * Time.unscaledDeltaTime);
         }
         else
         {
@@ -49,7 +54,12 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
     {
         if (m_Selectables.Count > 0)
         {
-            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical") || Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+            //remove the rePlayer getaxis calls is you aren't using Rewired
+            //if it still doesn't work, check your input manager settings's axes and make sure they are defined properly
+            //if you're using the new input system, this is also probably where you should replace the calls to the old one
+            if (Input.GetAxis("Horizontal") != 0.0f || Input.GetAxis("Vertical") != 0f 
+                || Input.GetAxis("Vertical") !=  0.0f || Input.GetAxis("Horizontal") != 0.0f || Input.GetButtonDown("Horizontal") 
+                || Input.GetButtonDown("Vertical") || Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
             {
                 ScrollToSelected(false);
             }
