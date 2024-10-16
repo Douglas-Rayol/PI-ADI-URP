@@ -9,13 +9,20 @@ public class Carrinho : MonoBehaviour
 {
 
     [SerializeField] Rigidbody _rbPlayer;
-    [SerializeField] Transform _carrinho, _barreira2, _barreira1;
-    [SerializeField] float _ejeta = 30f;
+    [SerializeField] Transform _carrinho, _barreira2, _barreira1, _roda1, _roda2;
+    [SerializeField] float _ejeta = 30f, velocidadeRotacao = 0f;
     [SerializeField] MeshCollider cubo;
    
 
     //[SerializeField] SplineAnimate _spline;
- 
+    
+    public void Start() {
+    
+    //starta com as rodas do carro paradas
+    _roda1.GetComponent<Gira_Sem_Parar>().enabled = false;
+    _roda2.GetComponent<Gira_Sem_Parar>().enabled = false;
+    }
+
     private void OnCollisionEnter(Collision collision){
 
         _rbPlayer.isKinematic = true;
@@ -23,6 +30,14 @@ public class Carrinho : MonoBehaviour
             
         if (collision.gameObject.CompareTag("Player")){
             collision.transform.SetParent(transform);   
+
+            //faz as rodas do carro girarem - velocidade alterado em seus scripts
+            _roda1.GetComponent<Gira_Sem_Parar>().enabled = true;
+            _roda2.GetComponent<Gira_Sem_Parar>().enabled = true;
+            //
+
+            
+
             _rbPlayer.GetComponent<PlayerController>().enabled = false;  //desabilita os controles do player pro modelo 3d nao bugar tudo   
             _barreira1.GetComponent<BoxCollider>().enabled = true;
             _barreira2.GetComponent<BoxCollider>().enabled = false;
@@ -43,6 +58,14 @@ public class Carrinho : MonoBehaviour
 
     yield return new WaitForSeconds(18f); // tempo tem que ser igual ou maior que o tempo de viagen do carrinho
         _carrinho.GetComponent<SplineAnimate>().Pause();
+
+
+        //para as rodas do carro quando o player é ejetdo
+         _roda1.GetComponent<Gira_Sem_Parar>().enabled = false;
+         _roda2.GetComponent<Gira_Sem_Parar>().enabled = false;
+        //
+       
+
         _rbPlayer.GetComponent<PlayerController>().enabled = true; //habilita os controles do player
         _rbPlayer.isKinematic = false;
         _rbPlayer.transform.SetParent(null);

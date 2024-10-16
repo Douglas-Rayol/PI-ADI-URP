@@ -46,7 +46,7 @@ public class MorcegoScript : MonoBehaviour
             //se a distancia for maior que 'X' para de seguir o player
             }else{
                 _velociMorcego = 0;
-                Voltar(_direcaoMorcego);
+               // Voltar(_direcaoMorcego);
             }
  
         }
