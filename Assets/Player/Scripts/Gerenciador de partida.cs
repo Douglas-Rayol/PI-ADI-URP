@@ -49,6 +49,7 @@ public class Gerenciadordepartida : MonoBehaviour
         if(PlayerPrefs.GetInt("fase1point") == 1)
         {
             SceneManager.LoadScene("Mapa");
+
         }
         else
         {

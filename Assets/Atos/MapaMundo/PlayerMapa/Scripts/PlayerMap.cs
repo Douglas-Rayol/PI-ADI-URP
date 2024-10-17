@@ -37,6 +37,7 @@ public class PlayerMap : MonoBehaviour
         if (PlayerPrefs.GetInt("fase1point") == 1)
         {
             transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+            _mudaFase = 1;
         }
         
 
