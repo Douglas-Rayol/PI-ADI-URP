@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class CadeadoMT: MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CadeadoMT: MonoBehaviour
 
     [SerializeField] public GameObject _tutorialPuzzle;
     [SerializeField] public GameObject _puzzleHud;
+    [SerializeField] public GameObject _particulaDireita, _particulaEsquerda;
     [SerializeField] public bool _chamaPuzzle;
 
     [Header("Calculo")]
@@ -56,7 +58,6 @@ public class CadeadoMT: MonoBehaviour
     public void Adiciona()
     {
         _resultado += 1;
-        
 
         if (_resultado >= 10)
         {
@@ -161,8 +162,6 @@ public class CadeadoMT: MonoBehaviour
 
     private void AcertouPuzzle()
     {
-
-        
 
         _gameControle._playerController._bauOn = false;
         _bauAberto = false;
