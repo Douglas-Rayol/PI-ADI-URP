@@ -183,7 +183,7 @@ public class CadeadoMT: MonoBehaviour
     private IEnumerator TempoPlayerControle()
     {
         yield return new WaitForSeconds(1);
-        _gameControle._playerController._pausaJogo._pause = false;
+        _gameControle.GetComponent<GameManager>()._pause = false;
     }
 
     void ShuffleString(string[] lists)

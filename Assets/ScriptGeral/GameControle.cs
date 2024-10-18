@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class GameControle : MonoBehaviour
 {
-    //Variaves Globais
+    public DynamicJoystick _dynamicJoystick;
     public PlayerController _playerController;
     public CadeadoMT _cadeadoMT;
     public CheckPoint _checkPoint;
@@ -48,7 +48,7 @@ public class GameControle : MonoBehaviour
         _cadeadoMT._puzzleHud.SetActive(true);
         _cadeadoMT.ChamaQuestao(_cadeadoMT._question);
         _cadeadoMT._question++;
-        _playerController._pausaJogo._pause = true;
+        GetComponent<GameManager>()._pause = true;
 
         _eventButton.firstSelectedGameObject = _btPuzzles[0]; //Faz o botão Cima do Puzzle ser o Primeiro do EventSystem
         _btPuzzles[0].GetComponent<Button>().Select();

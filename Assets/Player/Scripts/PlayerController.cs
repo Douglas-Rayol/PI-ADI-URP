@@ -10,18 +10,14 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] DynamicJoystick _dynamicJoystick;
     [SerializeField] Transform _verificaParede;
 
-    //Variaveis Publicas
-    CameraShake _shakeCam;
     Chicote _chicote;
-    public GameManager _pausaJogo;
+    GameManager _gameManager;
     GameControle _gameControle;
 
     //Variaveis PosInicial
     [SerializeField] public Vector3 _posInicial;
-
 
     [SerializeField] bool ativaJump;
 
@@ -88,16 +84,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float smoothInputX;
     [SerializeField] private float velocityX;
 
+    void Awake()
+    {
+        _gameManager = Camera.main.GetComponent<GameManager>();
+        _gameControle = Camera.main.GetComponent<GameControle>();
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _shakeCam = FindAnyObjectByType<CameraShake>();
         _chicote = FindAnyObjectByType<Chicote>();
-        _pausaJogo = FindAnyObjectByType<GameManager>();
-
-        _gameControle = Camera.main.GetComponent<GameControle>();
 
         _posInicial = transform.position;
 
@@ -115,7 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         AnimacaoPlayer();
 
-        if (_pausaJogo._pause == false)
+        if (_gameManager._pause == false)
         {
             
             _anim.SetLayerWeight(0, 1);
@@ -300,7 +297,7 @@ public class PlayerController : MonoBehaviour
     {
 
         _move = value.ReadValue<Vector3>().normalized;
-        _dynamicJoystick._verificaJoystick = false;
+        _gameControle._dynamicJoystick._verificaJoystick = false;
 
         if (_move.x > 0.1f)
         {
@@ -315,12 +312,12 @@ public class PlayerController : MonoBehaviour
 
     void Movimento() //Jotape
     {
-        if(_dynamicJoystick._verificaJoystick == true) //Usa Joystick Celular
+        if(_gameControle._dynamicJoystick._verificaJoystick == true) //Usa Joystick Celular
         {
-            _move.x = _dynamicJoystick.Horizontal;
+            _move.x = _gameControle._dynamicJoystick.Horizontal;
             _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
         }
-        else if(_dynamicJoystick._verificaJoystick == false)
+        else if(_gameControle._dynamicJoystick._verificaJoystick == false)
         {
             _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
         }
@@ -368,7 +365,7 @@ public class PlayerController : MonoBehaviour
             {
                 _gameControle.GetComponent<GameManager>()._pause = true;
                 _gameControle.AtivaBau();
-                _pausaJogo._pause = true;
+                _gameManager._pause = true;
             }
 
 
@@ -382,7 +379,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetAtaque(InputAction.CallbackContext value) //Jotap�
     {
-        if(_pausaJogo._pause == false)
+        if(_gameManager._pause == false)
         {
             //Se estiver no ch�o, rola a anima��o dele atirando no ch�o
             if (value.performed && _checkGround && _ativadorMovimento && _ativaTiro)
@@ -676,7 +673,7 @@ public class PlayerController : MonoBehaviour
         {
             TransformacaoTransicao();
             other.GetComponent<Item>().DestroyItem();
-            _pausaJogo._pause = true;
+            _gameManager._pause = true;
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(true);
             _PlayerHitInd[1].SetActive(true);
@@ -693,12 +690,12 @@ public class PlayerController : MonoBehaviour
         {
             TransformacaoTransicao();
             other.GetComponent<Item>().DestroyItem();
-            _shakeCam.Shake();
+            _gameControle.GetComponent<CameraShake>().Shake();
             _ativaDefesa = true;
             _hudDefesaUp.SetActive(true);
             _defesaUp = 3;
             _vida = 3;
-            _pausaJogo._pause = true;
+            _gameManager._pause = true;
             _PlayerHitPadrao[0].SetActive(false);
             _PlayerHitInd[0].SetActive(false);
             _PlayerHitInd[1].SetActive(false);
