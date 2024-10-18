@@ -32,10 +32,10 @@ public class MorcegoScript : MonoBehaviour
 
             //checa a distancia minima do player para comecar a perseguir
             //if (dist < distPlayer && !_posplayer || distMin <= 30f){
-            if (distMin <= 30f){ 
+            if (distMin <= 40f){ 
                 
                 //enquanto a distancia for menor que 'X' segue o player
-                while(dist <= 50f) {
+                while(dist <= 70f) {
 
                     Voltar(_alvo);
                     _velociMorcego = 16.5f;
