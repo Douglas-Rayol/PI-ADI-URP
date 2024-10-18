@@ -20,6 +20,7 @@ TagManager:
   - trampolin
   - Ladeira
   - ponte
+  - Bloco
   layers:
   - Default
   - TransparentFX
