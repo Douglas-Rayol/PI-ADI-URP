@@ -654,10 +654,14 @@ public class PlayerController : MonoBehaviour
                 coyote = 0;
                 timeCoyote = 0f;
             }
+
             _groundCount++;
+
             _checkGround = true;
             //Jotap�
             _anim.SetBool("Jump", false);
+
+
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
@@ -666,6 +670,7 @@ public class PlayerController : MonoBehaviour
                 coyote = 0;
                 timeCoyote = 0f;
             }
+
             _groundCount++;
             _plataforma = true;
             transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
@@ -738,13 +743,18 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             coyote = 1;
+
             _groundCount--;
-            if(_groundCount == 0)
+
+            if (_groundCount == 0)
             {
                 _checkGround = false;
                 //Jotap�
                 _anim.SetBool("Jump", true);
             }
+
+            
+
             
         }
         if (other.gameObject.CompareTag("Plataforma"))
@@ -752,6 +762,7 @@ public class PlayerController : MonoBehaviour
             
             coyote = 1;
             _groundCount--;
+
             if (_groundCount == 0)
             {
                 _plataforma = false;
