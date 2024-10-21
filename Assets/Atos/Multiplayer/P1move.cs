@@ -11,6 +11,8 @@ public class P1move : MonoBehaviour
     Rigidbody _rb;
     public TextMeshPro _textPlayer;
     public BlocoNumeros _blocoNumeros;
+    public Conta _conta;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -32,6 +34,18 @@ public class P1move : MonoBehaviour
         {
             _blocoNumeros = other.gameObject.GetComponent<BlocoNumeros>();
             _textPlayer.text = "" + _blocoNumeros._numeroBloco;
+        }
+        if (other.gameObject.CompareTag("Conta"))
+        {
+            _conta = other.gameObject.GetComponent<Conta>();
+            if(_conta._resp == _blocoNumeros._numeroBloco)
+            {
+                _conta.ContaSet("" + _blocoNumeros._numeroBloco);
+            }
+            else
+            {
+                Debug.Log("Errouuu");
+            }
         }
     }
 }
