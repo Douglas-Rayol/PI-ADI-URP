@@ -9,11 +9,12 @@ public class ColetePag : MonoBehaviour
     [SerializeField] GameObject _particula;
     [SerializeField] Animator _anim;
     private BoxCollider _box;
-
+    [SerializeField] int _tipoPag;
 
     [SerializeField] ColetaConf _coletaConf;
 
     [SerializeField] GameControle _gameControle;
+
 
     // Start is called before the first frame update
     void Start()

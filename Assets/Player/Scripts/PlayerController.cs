@@ -96,14 +96,19 @@ public class PlayerController : MonoBehaviour
     {
         _chicote = FindAnyObjectByType<Chicote>();
 
-        _posInicial = transform.position;
-
         _ativaTiro = true;
         _direcaoVerdadeira = true;
         _ativadorMovimento = true;
         _dentroPlataforma = false;
 
-
+        if(PlayerPrefs.HasKey("posX") && PlayerPrefs.HasKey("posY") && PlayerPrefs.HasKey("posZ"))
+        {
+            transform.position = new Vector3(PlayerPrefs.GetFloat("posX"), PlayerPrefs.GetFloat("posY"), PlayerPrefs.GetFloat("posZ"));
+        }
+        else
+        {
+            _posInicial = transform.position;
+        }
 
     }
 

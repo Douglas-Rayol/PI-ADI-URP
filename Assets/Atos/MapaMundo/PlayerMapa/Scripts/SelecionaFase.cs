@@ -24,6 +24,9 @@ public class SelecionaFase : MonoBehaviour
         PlayerPrefs.SetFloat("posXMapa", _playerMap.transform.position.x);
         PlayerPrefs.SetFloat("posYMapa", _playerMap.transform.position.y);
         PlayerPrefs.SetFloat("posZMapa", _playerMap.transform.position.z);
+        PlayerPrefs.DeleteKey("posX");
+        PlayerPrefs.DeleteKey("posY");
+        PlayerPrefs.DeleteKey("posZ");
 
     }
 

@@ -10274,6 +10274,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Local-Pag3
       objectReference: {fileID: 0}
+    - target: {fileID: 5059909687366220365, guid: 7e450a1bd4fa7734cad009c012e81965,
+        type: 3}
+      propertyPath: _tipoPag
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8998554161890844389, guid: 7e450a1bd4fa7734cad009c012e81965,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -43985,6 +43990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Local-Pag6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059909687366220365, guid: 7e450a1bd4fa7734cad009c012e81965,
+        type: 3}
+      propertyPath: _tipoPag
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6582147855239867361, guid: 7e450a1bd4fa7734cad009c012e81965,
         type: 3}

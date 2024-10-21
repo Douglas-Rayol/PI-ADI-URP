@@ -63,7 +63,8 @@ public class Gerenciadordepartida : MonoBehaviour
 
     public void GameMenuReiniciarInicio()
     {
-        _gameControle._checkPoint.ApagaSave();
+        //_gameControle._checkPoint.ApagaSave();
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Ato_1_1");
     }
 
