@@ -673,7 +673,7 @@ public class PlayerController : MonoBehaviour
 
             _groundCount++;
             _plataforma = true;
-            transform.SetParent(other.transform);// traformando o Player em parente da plataforma (Ivo)
+            transform.SetParent(other.transform);
             _checkGround = true;
             //Jotap�
             _anim.SetBool("Jump", false);
@@ -754,8 +754,6 @@ public class PlayerController : MonoBehaviour
             }
 
             
-
-            
         }
         if (other.gameObject.CompareTag("Plataforma"))
         {
@@ -766,7 +764,7 @@ public class PlayerController : MonoBehaviour
             if (_groundCount == 0)
             {
                 _plataforma = false;
-                transform.SetParent(_PosPlayer.transform); //movimento de plataforma (Ivo)
+                transform.SetParent(_PosPlayer.transform);
                 _checkGround = false;
                 //Jotap�
                 _anim.SetBool("Jump", true);

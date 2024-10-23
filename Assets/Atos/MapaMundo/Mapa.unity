@@ -872,7 +872,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -97696,6 +97696,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 17eae4ee-fcfe-4eea-888a-ae30681a54f1
     m_ActionName: Movimento/Movimento-Tras[/Keyboard/s,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7988104282807695540}
+        m_TargetAssemblyTypeName: PlayerMap, Assembly-CSharp
+        m_MethodName: SetSpeedRun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 58e163c1-0e53-4676-8cc5-5c759ba69516
+    m_ActionName: Movimento/SpeedRun[/Keyboard/f12]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7988104282807695540}
+        m_TargetAssemblyTypeName: PlayerMap, Assembly-CSharp
+        m_MethodName: SetDeleteSaves
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1c32ac9b-96bd-4112-ae75-4f8053dba1b5
+    m_ActionName: Movimento/DeletSave[/Keyboard/f11]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movimento

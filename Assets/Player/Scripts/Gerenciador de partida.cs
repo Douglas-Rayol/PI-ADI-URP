@@ -49,24 +49,38 @@ public class Gerenciadordepartida : MonoBehaviour
         if(PlayerPrefs.GetInt("fase1point") == 1)
         {
             SceneManager.LoadScene("Mapa");
-
+            PlayerPrefs.DeleteKey("salvaTime");
         }
         else
         {
+            PlayerPrefs.DeleteKey("salvaTime");
             _gameControle._checkPoint.ApagaSave();
             SceneManager.LoadScene("Mapa");
         }
-
-
 
     }
 
     public void GameMenuReiniciarInicio()
     {
         //_gameControle._checkPoint.ApagaSave();
-        PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene("Ato_1_1");
+
+        if(PlayerPrefs.HasKey("AtivouSpeedRun"))
+        {
+            SceneManager.LoadScene("Ato_1_1");
+
+            PlayerPrefs.DeleteKey("posX");
+            PlayerPrefs.DeleteKey("posY");
+            PlayerPrefs.DeleteKey("posZ");
+            
+        }
+        else
+        {
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene("Ato_1_1");
+        }
+
     }
+
 
 
 

@@ -77,10 +77,19 @@ public class GameControle : MonoBehaviour
 
     private IEnumerator ExibirPainelGameOver()
     {
+        if(GetComponent<SpeedRun>() != null) //Se tiver o componente
+        {
+            if(PlayerPrefs.HasKey("posX"))
+            {
+                PlayerPrefs.SetFloat("salvaTime", GetComponent<SpeedRun>()._tempo);
+                GetComponent<GameManager>()._pause = true;
+                GetComponent<SpeedRun>()._cronometroTxt.gameObject.SetActive(false);
+            }
+        }
         yield return new WaitForSeconds(2f);
         _painelGameOver.SetActive(true);
         _painelGameOver.transform.DOScale(.8f, 1f);
         yield return new WaitForSeconds(1f);
-        //DOTween.KillAll();
+
     }
 }

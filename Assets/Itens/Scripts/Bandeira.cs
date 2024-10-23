@@ -23,7 +23,6 @@ public class Bandeira : MonoBehaviour
             PlayerPrefs.SetFloat("posY", other.gameObject.transform.position.y);
             PlayerPrefs.SetFloat("posZ", other.gameObject.transform.position.z);
 
-
         }
     }
 
