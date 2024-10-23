@@ -12,18 +12,17 @@ public class Bandeira : MonoBehaviour
         _anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             _anim.SetTrigger("Bandeira");
             StartCoroutine(PartBandeira());
+
+            PlayerPrefs.SetFloat("posX", other.gameObject.transform.position.x);
+            PlayerPrefs.SetFloat("posY", other.gameObject.transform.position.y);
+            PlayerPrefs.SetFloat("posZ", other.gameObject.transform.position.z);
+
         }
     }
 

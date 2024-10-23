@@ -7,6 +7,18 @@ public class TriguerDialogo : MonoBehaviour
     public Dialogo _dialogo;
     public PainelTutorial _painelTutorial;
 
+    void Awake()
+    {
+        if(PlayerPrefs.HasKey("AtivouSpeedRun")) //Temporario pra SpeedRun Depois Retiramos
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
     private void Start()
     {
         _painelTutorial = Camera.main.GetComponent<PainelTutorial>();

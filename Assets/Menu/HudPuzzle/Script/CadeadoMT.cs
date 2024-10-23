@@ -166,7 +166,7 @@ public class CadeadoMT: MonoBehaviour
         _gameControle._playerController._bauOn = false;
         _bauAberto = false;
         _bau._anim.SetBool("Aberto", true);
-         PlayerPrefs.SetInt("Bau" + _bau._tipoBau, 1);
+        PlayerPrefs.SetInt("Bau" + _bau._tipoBau, 1);
         _bau._seta.SetActive(false);
         _bau.DropPag();
         _bau._desativa = true;
@@ -183,7 +183,7 @@ public class CadeadoMT: MonoBehaviour
     private IEnumerator TempoPlayerControle()
     {
         yield return new WaitForSeconds(1);
-        _gameControle._playerController._pausaJogo._pause = false;
+        _gameControle.GetComponent<GameManager>()._pause = false;
     }
 
     void ShuffleString(string[] lists)

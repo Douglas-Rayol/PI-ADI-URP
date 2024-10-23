@@ -158,6 +158,18 @@ public class PlayerMap : MonoBehaviour
 
     }
 
+    public void SetSpeedRun(InputAction.CallbackContext value)
+    {
+        if(value.performed)
+        {
+            PlayerPrefs.SetInt("AtivouSpeedRun", 1);
+        }
+    }
+
+    public void SetDeleteSaves(InputAction.CallbackContext value)
+    {
+        PlayerPrefs.DeleteAll();
+    }
 
     private void AnimacaoPlayerMap()
     {

@@ -33,6 +33,7 @@ public class ChamaMap : MonoBehaviour
             {
                 _gamecontrole._playerController._rb.isKinematic = true;
                 _gamecontrole._playerController.transform.DOScale(0f, 1f);
+                _gamecontrole.GetComponent<SpeedRun>()._paraTime = true;
                 Invoke("JumpAr", 1f);
             }
             else
@@ -59,6 +60,16 @@ public class ChamaMap : MonoBehaviour
     }
     public void JumpAr()
     {
+        if(GetComponent<SpeedRun>() != null)
+        {
+            //Salva SpeedRun
+            PlayerPrefs.SetFloat("salvaTime", _gamecontrole.GetComponent<SpeedRun>()._tempo);
+            _gamecontrole.GetComponent<GameManager>()._pause = true;
+            _gamecontrole.GetComponent<SpeedRun>()._cronometroTxt.gameObject.SetActive(false);
+        }
+
+
+        //Chama Placa Final
         _placaLevel.SetActive(true);
         _buttonFim.Select();
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MorcegoScript : MonoBehaviour
 {
-   public GameManager _pausaJogo;
+   [SerializeField] GameManager _gameManager;
 
     [SerializeField] float _velociMorcego;
     [SerializeField] Transform _direcaoMorcego;
@@ -16,13 +16,17 @@ public class MorcegoScript : MonoBehaviour
     Rigidbody _rbMorcego;
 
     void Start(){
-        _pausaJogo = FindAnyObjectByType<GameManager>();
+        
+        _gameManager = Camera.main.GetComponent<GameManager>();
+        _alvo = Camera.main.GetComponent<GameControle>()._playerController.transform;
+
+        
     }
 
     void Update() {
 
 
-        if(_pausaJogo._pause == false)
+        if(_gameManager._pause == false)
         {
             //calcula a distancia do player
             dist = Vector3.Distance(_alvo.position , transform.position);

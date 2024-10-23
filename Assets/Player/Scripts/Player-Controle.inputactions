@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SpeedRun",
+                    "type": "Button",
+                    "id": "f5dd66fa-a7ef-490b-8170-3a655e6955b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -333,6 +342,17 @@
                     "action": "AbreBau",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "0a2b469f-9fc9-45f0-9e98-e213ac76757b",
+                    "path": "<Keyboard>/f12",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedRun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
