@@ -64,14 +64,15 @@ public class Gerenciadordepartida : MonoBehaviour
     {
         //_gameControle._checkPoint.ApagaSave();
 
-        if(PlayerPrefs.HasKey("AtivouSpeedRun"))
+        if(PlayerPrefs.HasKey("AtivouSpeedRun")) //Temporario so para a SpeedRun
         {
             SceneManager.LoadScene("Ato_1_1");
 
             PlayerPrefs.DeleteKey("posX");
             PlayerPrefs.DeleteKey("posY");
             PlayerPrefs.DeleteKey("posZ");
-            
+            PlayerPrefs.DeleteKey("salvaTime");
+
         }
         else
         {
