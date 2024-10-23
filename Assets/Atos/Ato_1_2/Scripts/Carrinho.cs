@@ -10,7 +10,7 @@ public class Carrinho : MonoBehaviour
 
     [SerializeField] Rigidbody _rbPlayer;
     [SerializeField] Transform _carrinho, _barreira2, _barreira1, _roda1, _roda2;
-    [SerializeField] float _ejeta = 30f, velocidadeRotacao = 0f;
+    [SerializeField] float _ejeta = 30f, velocidadeRotacao;
     [SerializeField] MeshCollider cubo;
    
 
