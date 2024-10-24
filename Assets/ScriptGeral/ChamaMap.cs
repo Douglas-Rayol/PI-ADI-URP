@@ -12,11 +12,12 @@ public class ChamaMap : MonoBehaviour
     GameControle _gamecontrole;
 
     [SerializeField] Button _buttonFim;
-
+    public GameObject hand;
     // Start is called before the first frame update
     void Start()
     {
-        _gamecontrole = Camera.main.GetComponent<GameControle>();
+        hand = GameObject.Find("Hand");
+        _gamecontrole = hand.GetComponent<GameControle>();
     }
 
     // Update is called once per frame
