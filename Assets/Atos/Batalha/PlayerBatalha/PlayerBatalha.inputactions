@@ -1,0 +1,161 @@
+{
+    "name": "PlayerBatalha",
+    "maps": [
+        {
+            "name": "Controle",
+            "id": "7e8f9488-8977-474d-a598-9478326768d3",
+            "actions": [
+                {
+                    "name": "Teclado",
+                    "type": "Value",
+                    "id": "71f4237e-0681-4beb-b59a-dfdc23db29cd",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Controle",
+                    "type": "Value",
+                    "id": "2e9ee86d-25cc-4c4d-9375-7afa6f3a8bfa",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Pulo",
+                    "type": "Button",
+                    "id": "a74e91dd-c0a6-463b-89ec-bb1cb1a62236",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Ataque",
+                    "type": "Button",
+                    "id": "eb9166d1-64ad-4e48-a41c-950b7244f0ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "41537db4-77c2-462b-9752-a18e18c4de6c",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teclado",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48f30b95-19b6-4f54-9c9e-d60a4972a10c",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Pulo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87879171-39e7-458e-9c40-74513328cc7c",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Ataque",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Joystick",
+                    "id": "1140b55d-2d94-4510-948b-c15a52de0297",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "a8b1b7c2-ed98-4e62-9288-9141dbb3fc6e",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "34ada7ae-82cd-40da-888a-f1bba6456f58",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "58a336d3-723b-4c33-b500-fbd39a7f912e",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "1933919e-2519-4a03-b48b-0aec5eeaf673",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "GamePad",
+            "bindingGroup": "GamePad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "GamePad2",
+            "bindingGroup": "GamePad2",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
