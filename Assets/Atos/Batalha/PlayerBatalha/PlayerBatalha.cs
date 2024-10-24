@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Cinemachine.Utility;
 using DG.Tweening;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 public class PlayerBatalha : MonoBehaviour
 {
-    
+   
     [Header("Componentes")]
     [SerializeField] Rigidbody _rb;
     [SerializeField] Animator _anim;
@@ -39,6 +40,7 @@ public class PlayerBatalha : MonoBehaviour
 
     void Start()
     {
+
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
         
@@ -187,7 +189,13 @@ public class PlayerBatalha : MonoBehaviour
 
             //Animacao de Dano
             _rb.DOMove(new Vector2(_rb.position.x, 1f), .1f, false);
+
+            //Sistema de Shake da Camera - Tive que usar um componente do Cinemachine que o DOTWeen não funciona com esse Multiplayer
+            Camera.main.GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.right * 20 * Time.deltaTime);
+            
+            
         }
     }
+
 
 }   
