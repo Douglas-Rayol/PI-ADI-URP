@@ -50,7 +50,7 @@ public class Tiro : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other) //Desativa o tiro quando acerta o inimigo.
+    void OnTriggerEnter(Collider other) //Desativa o tiro quando acerta o inimigo.
     {
         if (other.gameObject.CompareTag("AtaqueEnemy"))
         {
