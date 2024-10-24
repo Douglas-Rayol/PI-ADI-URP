@@ -24,6 +24,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Controle-Analog",
+                    "type": "Value",
+                    "id": "ef3fd87d-3ef2-48e8-b42d-c0444b64e62e",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Pulo",
                     "type": "Button",
                     "id": "a74e91dd-c0a6-463b-89ec-bb1cb1a62236",
@@ -77,7 +86,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Joystick",
+                    "name": "Joystick-Pad",
                     "id": "1140b55d-2d94-4510-948b-c15a52de0297",
                     "path": "3DVector",
                     "interactions": "",
@@ -128,6 +137,61 @@
                     "processors": "",
                     "groups": "GamePad;GamePad2",
                     "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Joystick-Analog",
+                    "id": "fe2542a4-81e1-4226-a032-e944f7eb67df",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controle-Analog",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "a708d7a0-180e-4821-9e53-a6f838e7d86f",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle-Analog",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "727a647c-c3f0-4705-9c59-0a8e222b6599",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle-Analog",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "4d5318f9-35ec-4f09-a64b-1590034cf794",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle-Analog",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "3f827695-dfa9-44ad-b307-95b49572853f",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle-Analog",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

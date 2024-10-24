@@ -5,6 +5,6 @@ using UnityEngine;
 public class BatalhaControle : MonoBehaviour
 {
     [Header("Componentes")]
-    public Camera _camera;
+    public PlayerBatalha _playerControle;
 
 }

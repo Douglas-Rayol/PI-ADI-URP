@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using Cinemachine;
 using Cinemachine.Utility;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerBatalha : MonoBehaviour
 {
-   
     [Header("Componentes")]
-    [SerializeField] Rigidbody _rb;
-    [SerializeField] Animator _anim;
+    [SerializeField] public Rigidbody _rb;
+    [SerializeField] public Animator _anim;
     [SerializeField] Vector3 _move;
     [SerializeField] Transform _posTiro;
     [SerializeField] SpriteRenderer _sprite;
     [SerializeField] Image _hpHud;
+    [SerializeField] TextMeshProUGUI _porcentagemTxt;
+
+    [Header("Tipo do Player")]
+    [SerializeField] public int _tipo;
 
     [Header("Variaveis para Movimentações")]
     [SerializeField] float _speed;
@@ -25,6 +29,7 @@ public class PlayerBatalha : MonoBehaviour
 
     [Header("Variaveis para Checar o Chao")]
     [SerializeField] bool _checkGround;
+    [SerializeField] int _groundCount;
 
     [Header("Variaveis para Suavizar a Animacao")]
     [SerializeField] private float smoothInputX;
@@ -34,9 +39,8 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] bool _direcaoVerdadeira;
 
     [Header("Variavel da Vida do Jogador")]
-    [SerializeField] int _vidaMin;
-    [SerializeField] int _vidaMax;
-
+    [SerializeField] public float _vidaMin;
+    [SerializeField] public float _vidaMax;
 
     void Start()
     {
@@ -55,6 +59,12 @@ public class PlayerBatalha : MonoBehaviour
         VerificaDirecaoTiro();
 
         _hpHud.fillAmount = (float) _vidaMin / _vidaMax;
+
+        float porcentagemVida = ((float) _vidaMin / _vidaMax) * 100;
+
+        _porcentagemTxt.text = "" + porcentagemVida + "%";
+        
+
 
         if(_vidaMin <= 0)
         {
@@ -162,7 +172,8 @@ public class PlayerBatalha : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Ground"))
         {
-            
+            _groundCount++;
+
             _checkGround = true;
 
             _anim.SetBool("Jump", false);
@@ -173,29 +184,22 @@ public class PlayerBatalha : MonoBehaviour
     void OnCollisionExit(Collision other)
     {
         if(other.gameObject.CompareTag("Ground"))
-        {
-            _checkGround = false;
+        {            
+            _groundCount--;
 
-            _anim.SetBool("Jump", true);
-        }
-    }
+            if(_groundCount == 0)
+            {
+                _checkGround = false;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("AtaquePlayer"))
-        {
-            _vidaMin--; //Retira a vida do Jogador
-            other.gameObject.SetActive(false); //Destroi o tiro
-
-            //Animacao de Dano
-            _rb.DOMove(new Vector2(_rb.position.x, 1f), .1f, false);
-
-            //Sistema de Shake da Camera - Tive que usar um componente do Cinemachine que o DOTWeen não funciona com esse Multiplayer
-            Camera.main.GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.right * 20 * Time.deltaTime);
-            
+                _anim.SetBool("Jump", true);
+            }
             
         }
     }
+
+    //Treme o Controle
+    //GetComponent<VibrationController>().Vibrar(.5f, 1f);
+
 
 
 }   
