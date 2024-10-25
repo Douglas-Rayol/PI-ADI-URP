@@ -14,7 +14,6 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] public Rigidbody _rb;
     [SerializeField] public Animator _anim;
     [SerializeField] Vector3 _move;
-    [SerializeField] Transform _posTiro;
     [SerializeField] SpriteRenderer _sprite;
     [SerializeField] Image _hpHud;
     [SerializeField] TextMeshProUGUI _porcentagemTxt;
@@ -36,7 +35,7 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] private float velocityX;
 
     [Header("Verifica Direcao do Tiro")]
-    [SerializeField] bool _direcaoVerdadeira;
+    [SerializeField] bool _direcaoSpriteFlip;
 
     [Header("Variavel da Vida do Jogador")]
     [SerializeField] public float _vidaMin;
@@ -118,7 +117,7 @@ public class PlayerBatalha : MonoBehaviour
 
     private void FlipPlayer() //Aqui controla o Flip do Jogador
     {
-        _sprite.flipX = !_direcaoVerdadeira;
+        _sprite.flipX = !_direcaoSpriteFlip;
 
         if(_move.x > 0.1f)
         {
@@ -134,38 +133,12 @@ public class PlayerBatalha : MonoBehaviour
     {
         if(transform.eulerAngles.y == 90)
         {
-            
-           _direcaoVerdadeira = true;
+           _direcaoSpriteFlip = true;
         }
         else if(transform.eulerAngles.y == 270)
         {
-            _direcaoVerdadeira = false;
+            _direcaoSpriteFlip = false;
         }        
-    }
-
-    private void TiroDoPlayer()
-    {
-
-        GameObject Tiro = ObjectPool.SharedInstance.GetPooledObject();
-        if (Tiro != null)
-        {
-            Tiro.transform.position = _posTiro.transform.position;
-            Tiro.SetActive(true);
-
-            //Verifica a Direcao do Tiro
-            if (_direcaoVerdadeira == true)
-            {
-                Tiro.gameObject.GetComponent<TiroPadrao>()._direction = 1;
-
-            }
-
-            else if (_direcaoVerdadeira == false)
-            {
-                Tiro.gameObject.GetComponent<TiroPadrao>()._direction = -1;
-            }
-
-        }
-
     }
 
     void OnCollisionEnter(Collision other)

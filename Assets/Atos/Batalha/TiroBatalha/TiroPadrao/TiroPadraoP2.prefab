@@ -24366,7 +24366,7 @@ GameObject:
   - component: {fileID: 2137362490869224841}
   - component: {fileID: 4510972481081706761}
   m_Layer: 3
-  m_Name: TiroPadrao
+  m_Name: TiroPadraoP2
   m_TagString: AtaquePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

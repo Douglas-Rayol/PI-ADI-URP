@@ -169,9 +169,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1432785445350805729}
+  - component: {fileID: 8325121460254962885}
   - component: {fileID: 8018475563666176202}
   - component: {fileID: 2318457753946749611}
-  - component: {fileID: 887147513381273681}
   - component: {fileID: 7435724170490109828}
   - component: {fileID: 8718915139218180430}
   - component: {fileID: 2083269078255173249}
@@ -213,6 +213,20 @@ Transform:
   - {fileID: 7707062576693133880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &8325121460254962885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369279941822630520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f58432b3b9b5c4eb97f18505fc157e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tiroPlayer: {fileID: 0}
+  _posTiro: {fileID: 0}
 --- !u!114 &8018475563666176202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,30 +266,9 @@ MonoBehaviour:
   _groundCount: 0
   smoothInputX: 0
   velocityX: 0
-  _direcaoVerdadeira: 0
+  _direcaoSpriteFlip: 0
   _vidaMin: 100
   _vidaMax: 100
---- !u!114 &887147513381273681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369279941822630520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d05a4131d6b2cf4b989bdd74f883692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToPool: {fileID: 8858211205280798482, guid: 6f48d073813e9bc41823aa83a9eb14af,
-    type: 3}
-  amountToPool: 5
-  pooledObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7435724170490109828
 MonoBehaviour:
   m_ObjectHideFlags: 0

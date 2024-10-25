@@ -22,7 +22,7 @@ public class TiroPadrao : MonoBehaviour
     IEnumerator TempoDeSpawn(float _tempoSpawn)
     {
         yield return new WaitForSeconds(_tempoSpawn);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
 
         yield return TempoDeSpawn(8);
     }
