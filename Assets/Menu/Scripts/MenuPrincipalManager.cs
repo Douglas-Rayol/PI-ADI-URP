@@ -73,6 +73,11 @@ public class MenuPrincipalManager : MonoBehaviour
         SceneManager.LoadSceneAsync("Mapa");
     }
 
+    public void ChamaArena()
+    {
+        SceneManager.LoadSceneAsync("Batalha");
+    }
+
     IEnumerator TempoScale() //Jotape
     {
         yield return new WaitForSeconds(.25f);
