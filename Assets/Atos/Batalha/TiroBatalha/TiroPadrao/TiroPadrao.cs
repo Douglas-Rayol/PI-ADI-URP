@@ -10,7 +10,6 @@ public class TiroPadrao : MonoBehaviour
     [SerializeField] float _speed;
     public int _dano;
 
-
     void FixedUpdate()
     {
         _rb.velocity = new Vector3(_direction * _speed, _rb.velocity.y, _rb.velocity.z);

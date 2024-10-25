@@ -24402,9 +24402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 1220855467806042974}
-  _direction: -1
+  _direction: 1
   _speed: 55
-  _dano: 1
+  _dano: 2
 --- !u!54 &1220855467806042974
 Rigidbody:
   m_ObjectHideFlags: 0

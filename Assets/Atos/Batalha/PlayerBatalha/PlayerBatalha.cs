@@ -14,7 +14,7 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] public Rigidbody _rb;
     [SerializeField] public Animator _anim;
     [SerializeField] Vector3 _move;
-    [SerializeField] SpriteRenderer _sprite;
+    [SerializeField] public SpriteRenderer _sprite;
     [SerializeField] Image _hpHud;
     [SerializeField] TextMeshProUGUI _porcentagemTxt;
 
@@ -22,9 +22,9 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] public int _tipo;
 
     [Header("Variaveis para Movimentações")]
-    [SerializeField] float _speed;
-    [SerializeField] float _gravidade;
-    [SerializeField] float _pulo;
+    [SerializeField] public float _speed;
+    [SerializeField] public float _gravidade;
+    [SerializeField] public float _pulo;
 
     [Header("Variaveis para Checar o Chao")]
     [SerializeField] bool _checkGround;

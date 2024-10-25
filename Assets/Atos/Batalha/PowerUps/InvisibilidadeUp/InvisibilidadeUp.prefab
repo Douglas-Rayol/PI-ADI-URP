@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5416195927974030983
+--- !u!1 &4685368429818710613
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5211435439874620384}
-  - component: {fileID: 734447420446142255}
-  - component: {fileID: 5271241411217687191}
-  - component: {fileID: 9051610206367594350}
-  - component: {fileID: 266144557209240267}
+  - component: {fileID: 5782279656507589818}
+  - component: {fileID: 6475811672849249067}
+  - component: {fileID: 6799573376098062096}
+  - component: {fileID: 1645689267386124529}
+  - component: {fileID: 6387054680645323695}
   m_Layer: 0
-  m_Name: EspadaUp
+  m_Name: InvisibilidadeUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5211435439874620384
+--- !u!4 &5782279656507589818
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416195927974030983}
+  m_GameObject: {fileID: 4685368429818710613}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.36, y: 20.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 14.71964, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &734447420446142255
+--- !u!114 &6475811672849249067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416195927974030983}
+  m_GameObject: {fileID: 4685368429818710613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd704bc4ddff2b84fb8aac3feb3770ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ca7dafb67961034da0f338a7ff81467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
   _gravidade: 30
---- !u!212 &5271241411217687191
+--- !u!212 &6799573376098062096
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416195927974030983}
+  m_GameObject: {fileID: 4685368429818710613}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -90,24 +90,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d95663a87e69204ba853faa6f1dcbf6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38e0c524df03f984ca7332d9a0983950, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!54 &9051610206367594350
+--- !u!54 &1645689267386124529
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416195927974030983}
+  m_GameObject: {fileID: 4685368429818710613}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -123,18 +123,18 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 104
   m_CollisionDetection: 0
---- !u!136 &266144557209240267
+--- !u!136 &6387054680645323695
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5416195927974030983}
+  m_GameObject: {fileID: 4685368429818710613}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -147,7 +147,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.56
-  m_Height: 5.12
+  m_Radius: 1.01
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
