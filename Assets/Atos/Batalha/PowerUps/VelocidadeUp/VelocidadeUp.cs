@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpDano : MonoBehaviour
+public class VelocidadeUp : UpDano
 {
     [SerializeField] Rigidbody _rb;
     [SerializeField] float _gravidade;
@@ -20,9 +20,12 @@ public class UpDano : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("UpPlayerDano", collision);
+            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("VelocidadePlayerUp", collision);
 
             Destroy(gameObject);
         }
     }
+
+
+
 }

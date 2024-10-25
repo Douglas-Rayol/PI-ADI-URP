@@ -24366,7 +24366,7 @@ GameObject:
   - component: {fileID: 2137362490869224841}
   - component: {fileID: 4510972481081706761}
   m_Layer: 3
-  m_Name: TiroPadrao
+  m_Name: TiroPadraoP2
   m_TagString: AtaquePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24402,9 +24402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 1220855467806042974}
-  _direction: 0
+  _direction: 1
   _speed: 55
-  _dano: 1
+  _dano: 2
 --- !u!54 &1220855467806042974
 Rigidbody:
   m_ObjectHideFlags: 0

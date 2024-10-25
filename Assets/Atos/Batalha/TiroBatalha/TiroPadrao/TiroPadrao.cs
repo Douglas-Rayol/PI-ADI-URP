@@ -10,7 +10,6 @@ public class TiroPadrao : MonoBehaviour
     [SerializeField] float _speed;
     public int _dano;
 
-
     void FixedUpdate()
     {
         _rb.velocity = new Vector3(_direction * _speed, _rb.velocity.y, _rb.velocity.z);
@@ -22,7 +21,7 @@ public class TiroPadrao : MonoBehaviour
     IEnumerator TempoDeSpawn(float _tempoSpawn)
     {
         yield return new WaitForSeconds(_tempoSpawn);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
 
         yield return TempoDeSpawn(8);
     }
