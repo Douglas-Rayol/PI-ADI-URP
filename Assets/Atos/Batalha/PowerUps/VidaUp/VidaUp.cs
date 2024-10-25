@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VelocidadeUp : MonoBehaviour
+public class VidaUp : MonoBehaviour
 {
     [SerializeField] Rigidbody _rb;
-
     [SerializeField] float _gravidade;
 
     private void Start()
@@ -19,14 +18,11 @@ public class VelocidadeUp : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("VelocidadePlayerUp", collision);
+            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("UpPlayerVida", collision);
 
             Destroy(gameObject);
         }
     }
-
-
-
 }
