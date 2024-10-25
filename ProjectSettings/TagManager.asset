@@ -21,6 +21,7 @@ TagManager:
   - Ladeira
   - ponte
   - Bloco
+  - Conta
   layers:
   - Default
   - TransparentFX

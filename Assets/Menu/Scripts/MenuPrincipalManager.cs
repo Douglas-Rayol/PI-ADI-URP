@@ -14,7 +14,7 @@ public class MenuPrincipalManager : MonoBehaviour
 
     [SerializeField] private string nomedoleveldejogo;
     [SerializeField] private GameObject painelMenuInicial;
-    [SerializeField] private GameObject painelOpcoes;
+    //[SerializeField] private GameObject painelOpcoes;
    
 
     //animacao hud
@@ -43,12 +43,12 @@ public class MenuPrincipalManager : MonoBehaviour
     {
         
         painelMenuInicial.SetActive(false);
-        painelOpcoes.SetActive(true);
+        //painelOpcoes.SetActive(true);
     }
 
     public void fecharOpcoes()
     {
-        painelOpcoes.SetActive(false);
+        //painelOpcoes.SetActive(false);
         painelMenuInicial.SetActive(true);
     }
 

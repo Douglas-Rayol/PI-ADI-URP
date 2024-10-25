@@ -2650,7 +2650,6 @@ MonoBehaviour:
   _audioAb: {fileID: 0}
   nomedoleveldejogo: jogo
   painelMenuInicial: {fileID: 0}
-  painelOpcoes: {fileID: 0}
   _butaoMenu:
   - {fileID: 267726111}
   - {fileID: 1768502237}

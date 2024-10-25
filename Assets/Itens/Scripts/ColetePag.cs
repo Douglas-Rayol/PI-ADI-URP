@@ -14,12 +14,12 @@ public class ColetePag : MonoBehaviour
     [SerializeField] ColetaConf _coletaConf;
 
     [SerializeField] GameControle _gameControle;
+    public GameObject hand;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        _gameControle = Camera.main.GetComponent<GameControle>();
+        hand = GameObject.Find("Hand");
+        _gameControle = hand.GetComponent<GameControle>();
         _anim = GetComponent<Animator>();
 
         _box = GetComponent<BoxCollider>();

@@ -14,7 +14,7 @@ public class Bounciness : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Player")){
+        if(other.gameObject.CompareTag("Player")){
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.GetComponent<Rigidbody>().AddForce(Vector3.up * force, ForceMode.Impulse);
 

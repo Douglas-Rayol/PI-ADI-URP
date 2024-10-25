@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class CheckPoint : MonoBehaviour
 {
     [SerializeField] public GameControle _gameControle;
-
+    public GameObject hand;
     private void Start()
     {
-        _gameControle = Camera.main.GetComponent<GameControle>();
+        hand = GameObject.Find("Hand");
+
+        _gameControle = hand.GetComponent<GameControle>();
+       // _gameControle = Camera.main.GetComponent<GameControle>();
         _gameControle._checkPoint = GetComponent<CheckPoint>();
     }
 

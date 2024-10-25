@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Bau : MonoBehaviour
 {
@@ -16,12 +17,16 @@ public class Bau : MonoBehaviour
 
     public  bool  _desativa;
     BoxCollider _box;
+    public GameObject hand;
 
 
     private void Start()
     {
-        _cadeadoMT = Camera.main.GetComponent<CadeadoMT>();
-        _gameControle = Camera.main.GetComponent<GameControle>();
+        hand = GameObject.Find("Hand");
+        _cadeadoMT = hand.GetComponent<CadeadoMT>();
+      
+
+        _gameControle = hand.GetComponent<GameControle>();
         _box = GetComponent<BoxCollider>();
 
         _bauaberto = PlayerPrefs.GetInt("Bau" + _tipoBau);

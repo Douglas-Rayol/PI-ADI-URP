@@ -4,16 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class Gerenciadordepartida : MonoBehaviour
 {
     public bool PartidaIniciada;
     [SerializeField] Button _buttonGameOver;
     [SerializeField] GameControle _gameControle;
+    public GameObject hand;
 
     private void Awake()
     {
-        _gameControle = Camera.main.GetComponent<GameControle>();
+        hand = GameObject.Find("Hand");
+        
+        _gameControle = hand.GetComponent<GameControle>();
+       
         _gameControle._gerenciadorDePartida = GetComponent<Gerenciadordepartida>();
 
         Time.timeScale = 0;

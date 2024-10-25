@@ -31,12 +31,14 @@ public class CadeadoMT: MonoBehaviour
     [SerializeField] public TextMeshProUGUI _textoResultado;
 
     public bool _bauAberto;
-
+    public GameObject hand;
 
     private void Start()
     {
         ShuffleString(_calculo);
-        _gameControle = Camera.main.GetComponent<GameControle>();
+        hand = GameObject.Find("Hand");
+
+        _gameControle = hand.GetComponent<GameControle>();
 
     }
 
