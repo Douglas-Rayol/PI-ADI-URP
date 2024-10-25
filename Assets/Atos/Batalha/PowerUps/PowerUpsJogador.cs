@@ -11,6 +11,13 @@ public class PowerUpsJogador : MonoBehaviour
         other.gameObject.GetComponent<PlayerBatalha>()._speed -= 20f;
     }
 
+    public IEnumerator LentidaoPlayerDown(Collision other)
+    {
+        other.gameObject.GetComponent<PlayerBatalha>()._speed -= 15f;
+        yield return new WaitForSeconds(10);
+        other.gameObject.GetComponent<PlayerBatalha>()._speed += 15f;
+    }
+
     public IEnumerator UpPlayerDano(Collision other)
     {
         other.gameObject.GetComponent<SpawnTiro>()._tiroPlayer.GetComponent<TiroPadrao>()._dano += 3;
@@ -27,6 +34,13 @@ public class PowerUpsJogador : MonoBehaviour
         other.gameObject.GetComponent<SkinPlayer>()._skinIndie.SetActive(true);
         other.gameObject.GetComponent<PlayerBatalha>()._sprite.enabled = true;
     }
+
+    public IEnumerator UpPlayerVida(Collision other)
+    {
+        other.gameObject.GetComponent<PlayerBatalha>()._vidaMin += 7;
+        yield return new WaitForSeconds(10);
+    }
+    
 
 
 }

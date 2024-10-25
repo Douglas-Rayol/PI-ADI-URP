@@ -539,6 +539,8 @@ MonoBehaviour:
   - {fileID: 5416195927974030983, guid: 4c08b1c53e7c89e40a2798002af77518, type: 3}
   - {fileID: 4685368429818710613, guid: 9e73bf55f2f0a774eaa0d1a221a19645, type: 3}
   - {fileID: 139303049115465162, guid: 2fc9ca95faa50bb479aff238d897df18, type: 3}
+  - {fileID: 661830515014427280, guid: 59010216a67b9934ab1d85533f2e4e28, type: 3}
+  - {fileID: 3551043297522509933, guid: 5deedee2e9e76d44bb52ef5d13a01b1e, type: 3}
   _tempoSpawn: 15
 --- !u!1 &125655124
 GameObject:

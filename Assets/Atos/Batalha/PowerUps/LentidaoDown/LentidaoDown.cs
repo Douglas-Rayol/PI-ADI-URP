@@ -2,31 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VelocidadeUp : MonoBehaviour
+public class LentidaoDown : MonoBehaviour
 {
-    [SerializeField] Rigidbody _rb;
 
+    [SerializeField] Rigidbody _rb;
     [SerializeField] float _gravidade;
 
-    private void Start()
+    void Start()
     {
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    void Update()
     {
         _rb.AddForce(Vector3.down * _gravidade);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("VelocidadePlayerUp", collision);
+            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("LentidaoPlayerDown", collision);
 
             Destroy(gameObject);
+
         }
     }
 
 
 
 }
+
