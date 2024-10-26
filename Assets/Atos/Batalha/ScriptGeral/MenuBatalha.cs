@@ -41,7 +41,7 @@ public class MenuBatalha : MonoBehaviour
 
         for (int i = 0; i < _menu.Length; i++)
         {
-            _menu[i].transform.DOScale(.5f, .3f);
+            _menu[i].transform.DOScale(.6f, .3f);
         }
 
         yield return new WaitForSeconds(.3f);

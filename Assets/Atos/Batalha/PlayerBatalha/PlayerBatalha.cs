@@ -13,6 +13,7 @@ public class PlayerBatalha : MonoBehaviour
     [Header("Componente Globais")]
     [SerializeField] BatalhaControle _batalhaControle;
     [SerializeField] MenuBatalha _menuBatalha;
+    [SerializeField] public GameObject _particula, _desativa;
 
     [Header("Componentes")]
     [SerializeField] public Rigidbody _rb;
@@ -82,8 +83,10 @@ public class PlayerBatalha : MonoBehaviour
 
             if(_vidaMin <= 0)
             {
-                transform.root.gameObject.SetActive(false);
+                StartCoroutine(Morte());
                 PlayerPrefs.SetInt("Player", _tipo);
+                _porcentagemTxt.text = "0";
+                //transform.root.gameObject.SetActive(false);
                 _menuBatalha.StartCoroutine("AtivaMenu");
 
             }
@@ -196,6 +199,16 @@ public class PlayerBatalha : MonoBehaviour
             }
             
         }
+    }
+
+    IEnumerator Morte()
+    {
+        _desativa.gameObject.SetActive(false);
+        yield return new WaitForSeconds(.2f);
+        _particula.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        _particula.gameObject.SetActive(false);
+        transform.root.gameObject.SetActive(false);
     }
 
     //Treme o Controle
