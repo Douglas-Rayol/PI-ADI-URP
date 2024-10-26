@@ -5,8 +5,6 @@ using UnityEngine;
 public class PowerUpsJogador : MonoBehaviour
 {
     [SerializeField] public GameObject _escudoPlayer;
-    [SerializeField] public bool _ativaAntEscudo;
-
     public IEnumerator VelocidadePlayerUp(Collision collision)
     {
         collision.gameObject.GetComponent<PlayerBatalha>()._speed += 20f;

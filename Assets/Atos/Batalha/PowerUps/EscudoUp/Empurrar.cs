@@ -13,12 +13,12 @@ public class Empurrar : MonoBehaviour
 
             if(other.gameObject.transform.eulerAngles.y == 90)
             {
-                other.gameObject.GetComponent<PlayerBatalha>()._rb.DOMove(new Vector3(other.gameObject.GetComponent<PlayerBatalha>()._rb.position.x - 30, other.gameObject.GetComponent<PlayerBatalha>()._rb.position.y - 10, other.gameObject.GetComponent<PlayerBatalha>()._rb.position.z), .3f, false);
+                other.gameObject.GetComponent<PlayerBatalha>()._rb.DOMove(new Vector3(other.gameObject.GetComponent<PlayerBatalha>()._rb.position.x - 30, 0, 0), .3f, false);
 
             }
             else
             {
-                other.gameObject.GetComponent<PlayerBatalha>()._rb.DOMove(new Vector3(other.gameObject.GetComponent<PlayerBatalha>()._rb.position.x + 30, other.gameObject.GetComponent<PlayerBatalha>()._rb.position.y + 10, other.gameObject.GetComponent<PlayerBatalha>()._rb.position.z), .3f, false);
+                other.gameObject.GetComponent<PlayerBatalha>()._rb.DOMove(new Vector3(other.gameObject.GetComponent<PlayerBatalha>()._rb.position.x + 30, 0, 0), .3f, false);
             }
         }
     }

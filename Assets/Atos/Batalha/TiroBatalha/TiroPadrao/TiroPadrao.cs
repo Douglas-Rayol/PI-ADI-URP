@@ -37,7 +37,9 @@ public class TiroPadrao : MonoBehaviour
             //Sistema de Shake da Camera - Tive que usar um componente do Cinemachine que o DOTWeen não funciona com esse Multiplayer
             Camera.main.GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.right * 20 * Time.deltaTime);
             
+            gameObject.SetActive(false);
             Destroy(gameObject);
+
         }
 
         if(other.gameObject.CompareTag("Escudo"))
