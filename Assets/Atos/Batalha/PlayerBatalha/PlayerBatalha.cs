@@ -13,7 +13,7 @@ public class PlayerBatalha : MonoBehaviour
     [Header("Componentes")]
     [SerializeField] public Rigidbody _rb;
     [SerializeField] public Animator _anim;
-    [SerializeField] Vector3 _move;
+    [SerializeField] public Vector3 _move;
     [SerializeField] public SpriteRenderer _sprite;
     [SerializeField] Image _hpHud;
     [SerializeField] TextMeshProUGUI _porcentagemTxt;
@@ -35,7 +35,8 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] private float velocityX;
 
     [Header("Verifica Direcao do Tiro")]
-    [SerializeField] bool _direcaoSpriteFlip;
+    [SerializeField] public bool _direcaoSpriteFlip;
+    [SerializeField] public bool _inverterDirecao;
 
     [Header("Variavel da Vida do Jogador")]
     [SerializeField] public float _vidaMin;
@@ -64,7 +65,6 @@ public class PlayerBatalha : MonoBehaviour
         _porcentagemTxt.text = "" + porcentagemVida + "%";
         
 
-
         if(_vidaMin <= 0)
         {
             transform.root.gameObject.SetActive(false);
@@ -75,7 +75,15 @@ public class PlayerBatalha : MonoBehaviour
     
     public void SetMove(InputAction.CallbackContext value) //PlayerInput para o Movimento do Player
     {
-        _move = value.ReadValue<Vector3>().normalized;
+        if(!_inverterDirecao) //Inverte o Controle se tiver com PowerUp de Inverter
+        {
+            _move = value.ReadValue<Vector3>().normalized;
+        }
+        else
+        {
+            _move = -value.ReadValue<Vector3>().normalized;
+        }
+        
     }
 
     
@@ -96,9 +104,9 @@ public class PlayerBatalha : MonoBehaviour
         }
     }
     
-    private void PlayerMovimento() //Aqui faz todo o movimento do Player
-    {
-        _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);
+    public void PlayerMovimento() //Aqui faz todo o movimento do Player
+    {     
+        _rb.velocity = new Vector3(_move.x * _speed, _rb.velocity.y, _rb.velocity.z);        
     }
 
     

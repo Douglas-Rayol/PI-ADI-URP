@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Menu/Logo.unity
     guid: e3a23070220cf54458ea9173625184c0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Menu/menu.unity
     guid: f49b339a4fed5f14288b9e7570d93262
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Atos/Introdu\xE7\xE3o/Introducao.unity"
     guid: 6f20aa4cd266c8e42a115985f382adf4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Atos/MapaMundo/Mapa.unity
     guid: 75dd5c871347cb84a9ea9749f6bc918f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Atos/Ato_1_1/Ato_1_1.unity
     guid: 01e5723cbb8d3654b90ac9201b83a565
-  - enabled: 1
+  - enabled: 0
     path: Assets/Musicas/Musica.unity
     guid: 97885b175960c324aa1dae3300168a52
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Atos/Introdu\xE7\xE3o/Loading.unity"
     guid: 2e540862fe218ba4e9a5db0dff1017b1
   - enabled: 1

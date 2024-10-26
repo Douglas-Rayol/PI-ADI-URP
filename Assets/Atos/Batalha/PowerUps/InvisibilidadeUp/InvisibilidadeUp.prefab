@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
   _gravidade: 30
+  _pulos: 0
 --- !u!212 &6799573376098062096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 104
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!136 &6387054680645323695
 CapsuleCollider:

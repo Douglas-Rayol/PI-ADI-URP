@@ -7,6 +7,7 @@ public class InvisibilidadeUp : MonoBehaviour
 
     [SerializeField] Rigidbody _rb;
     [SerializeField] float _gravidade;
+    [SerializeField] int _pulos;
 
     private void Start()
     {
@@ -20,6 +21,14 @@ public class InvisibilidadeUp : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        _pulos++;
+
+        if(_pulos <= 2)
+        {
+            _rb.velocity = new Vector2(Random.Range(-15, 15), 15f);
+        } 
+
         if(collision.gameObject.CompareTag("Player"))
         {
             Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("UpPlayerInvisivel", collision);
