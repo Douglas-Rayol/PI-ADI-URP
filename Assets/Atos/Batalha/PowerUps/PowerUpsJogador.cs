@@ -14,8 +14,10 @@ public class PowerUpsJogador : MonoBehaviour
 
     public IEnumerator LentidaoPlayerDown(Collision collision)
     {
+        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade += 50;
         collision.gameObject.GetComponent<PlayerBatalha>()._speed -= 15f;
         yield return new WaitForSeconds(10);
+        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade -= 50;
         collision.gameObject.GetComponent<PlayerBatalha>()._speed += 15f;
     }
 
@@ -47,13 +49,6 @@ public class PowerUpsJogador : MonoBehaviour
         collision.gameObject.GetComponent<PowerUpsJogador>()._escudoPlayer.SetActive(true);
         yield return new WaitForSeconds(10);
         collision.gameObject.GetComponent<PowerUpsJogador>()._escudoPlayer.SetActive(false);
-    }
-
-    public IEnumerator DownGravidadePlayer(Collision collision)
-    {
-        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade += 50;
-        yield return new WaitForSeconds(10);
-        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade -= 50;
     }
 
     public IEnumerator DownInverterPlayer(Collision collision)

@@ -10,6 +10,10 @@ using UnityEngine.UI;
 
 public class PlayerBatalha : MonoBehaviour
 {
+    [Header("Componente Globais")]
+    [SerializeField] BatalhaControle _batalhaControle;
+    [SerializeField] MenuBatalha _menuBatalha;
+
     [Header("Componentes")]
     [SerializeField] public Rigidbody _rb;
     [SerializeField] public Animator _anim;
@@ -42,6 +46,14 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] public float _vidaMin;
     [SerializeField] public float _vidaMax;
 
+    void Awake()
+    {
+
+        _batalhaControle = Camera.main.GetComponent<BatalhaControle>();
+        _menuBatalha = Camera.main.GetComponent<MenuBatalha>();
+
+    }
+
     void Start()
     {
 
@@ -52,23 +64,31 @@ public class PlayerBatalha : MonoBehaviour
 
     void FixedUpdate()
     {
-        PlayerMovimento();
-        GravidadePlayer();
-        AnimacaoPlayer();
-        FlipPlayer();
-        VerificaDirecaoTiro();
 
-        _hpHud.fillAmount = (float) _vidaMin / _vidaMax;
-
-        float porcentagemVida = ((float) _vidaMin / _vidaMax) * 100;
-
-        _porcentagemTxt.text = "" + porcentagemVida + "%";
-        
-
-        if(_vidaMin <= 0)
+        if(!_batalhaControle._pausaJogo)
         {
-            transform.root.gameObject.SetActive(false);
+            PlayerMovimento();
+            GravidadePlayer();
+            AnimacaoPlayer();
+            FlipPlayer();
+            VerificaDirecaoTiro();
+
+            _hpHud.fillAmount = (float) _vidaMin / _vidaMax;
+
+            float porcentagemVida = ((float) _vidaMin / _vidaMax) * 100;
+
+            _porcentagemTxt.text = "" + porcentagemVida + "%";
+            
+
+            if(_vidaMin <= 0)
+            {
+                transform.root.gameObject.SetActive(false);
+                PlayerPrefs.SetInt("Player", _tipo);
+                _menuBatalha.StartCoroutine("AtivaMenu");
+
+            }
         }
+
 
     }
 
