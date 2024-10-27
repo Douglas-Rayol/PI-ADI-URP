@@ -7,7 +7,6 @@ public class SpawnDePowerUps : MonoBehaviour
 {
     [SerializeField] Transform[] _transform;
     [SerializeField] GameObject[] _powerUps;
-
     [SerializeField] int _tempoSpawn;
 
 
@@ -18,14 +17,19 @@ public class SpawnDePowerUps : MonoBehaviour
 
     IEnumerator InvocaPowerUp()
     {
-        yield return new WaitForSeconds(_tempoSpawn);
+        if(!GetComponent<BatalhaControle>()._pausaJogo)
+        {
+            yield return new WaitForSeconds(_tempoSpawn);
 
-        Shuffle(_powerUps);
-        Shuffle(_transform);
-        
-        Instantiate(_powerUps[0], _transform[0].position, Quaternion.identity);
+            Shuffle(_powerUps);
+            Shuffle(_transform);
+            
+            Instantiate(_powerUps[0], _transform[0].position, Quaternion.identity);
 
-        yield return InvocaPowerUp();
+            yield return InvocaPowerUp();
+        }
+
+
 
     }
 
