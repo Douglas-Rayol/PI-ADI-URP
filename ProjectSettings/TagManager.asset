@@ -22,6 +22,7 @@ TagManager:
   - ponte
   - Bloco
   - Conta
+  - Escudo
   layers:
   - Default
   - TransparentFX

@@ -4,29 +4,60 @@ using UnityEngine;
 
 public class PowerUpsJogador : MonoBehaviour
 {
-    public IEnumerator VelocidadePlayerUp(Collision other)
+    [SerializeField] public GameObject _escudoPlayer;
+    public IEnumerator VelocidadePlayerUp(Collision collision)
     {
-        other.gameObject.GetComponent<PlayerBatalha>()._speed += 20f;
+        collision.gameObject.GetComponent<PlayerBatalha>()._speed += 20f;
         yield return new WaitForSeconds(10);
-        other.gameObject.GetComponent<PlayerBatalha>()._speed -= 20f;
+        collision.gameObject.GetComponent<PlayerBatalha>()._speed -= 20f;
     }
 
-    public IEnumerator UpPlayerDano(Collision other)
+    public IEnumerator LentidaoPlayerDown(Collision collision)
     {
-        other.gameObject.GetComponent<SpawnTiro>()._tiroPlayer.GetComponent<TiroPadrao>()._dano += 3;
+        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade += 50;
+        collision.gameObject.GetComponent<PlayerBatalha>()._speed -= 15f;
         yield return new WaitForSeconds(10);
-        other.gameObject.GetComponent<SpawnTiro>()._tiroPlayer.GetComponent<TiroPadrao>()._dano -= 3;
+        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade -= 50;
+        collision.gameObject.GetComponent<PlayerBatalha>()._speed += 15f;
+    }
+
+    public IEnumerator UpPlayerDano(Collision collision)
+    {
+        collision.gameObject.GetComponent<SpawnTiro>()._tiroPlayer.GetComponent<TiroPadrao>()._dano += 3;
+        yield return new WaitForSeconds(10);
+        collision.gameObject.GetComponent<SpawnTiro>()._tiroPlayer.GetComponent<TiroPadrao>()._dano -= 3;
 
     }
     
-    public IEnumerator UpPlayerInvisivel(Collision other)
+    public IEnumerator UpPlayerInvisivel(Collision collision)
     {
-        other.gameObject.GetComponent<SkinPlayer>()._skinIndie.SetActive(false);
-        other.gameObject.GetComponent<PlayerBatalha>()._sprite.enabled = false;
+        collision.gameObject.GetComponent<SkinPlayer>()._skinIndie.SetActive(false);
+        collision.gameObject.GetComponent<PlayerBatalha>()._sprite.enabled = false;
         yield return new WaitForSeconds(10);
-        other.gameObject.GetComponent<SkinPlayer>()._skinIndie.SetActive(true);
-        other.gameObject.GetComponent<PlayerBatalha>()._sprite.enabled = true;
+        collision.gameObject.GetComponent<SkinPlayer>()._skinIndie.SetActive(true);
+        collision.gameObject.GetComponent<PlayerBatalha>()._sprite.enabled = true;
     }
 
+    public IEnumerator UpPlayerVida(Collision collision)
+    {
+        collision.gameObject.GetComponent<PlayerBatalha>()._vidaMin += 7;
+        yield return new WaitForSeconds(10);
+    }
 
+    public IEnumerator UpEscudoPlayer(Collision collision)
+    {
+        collision.gameObject.GetComponent<PowerUpsJogador>()._escudoPlayer.SetActive(true);
+        yield return new WaitForSeconds(10);
+        collision.gameObject.GetComponent<PowerUpsJogador>()._escudoPlayer.SetActive(false);
+    }
+
+    public IEnumerator DownInverterPlayer(Collision collision)
+    {
+        collision.gameObject.GetComponent<PlayerBatalha>()._inverterDirecao = true;
+        collision.gameObject.GetComponent<PlayerBatalha>().PlayerMovimento();
+        yield return new WaitForSeconds(20);
+        collision.gameObject.GetComponent<PlayerBatalha>().PlayerMovimento();
+        collision.gameObject.GetComponent<PlayerBatalha>()._inverterDirecao = false;
+    }
+ 
 }

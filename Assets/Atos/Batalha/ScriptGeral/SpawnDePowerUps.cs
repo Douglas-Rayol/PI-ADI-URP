@@ -20,9 +20,9 @@ public class SpawnDePowerUps : MonoBehaviour
     {
         yield return new WaitForSeconds(_tempoSpawn);
 
-        Shuffle(_transform);
         Shuffle(_powerUps);
-
+        Shuffle(_transform);
+        
         Instantiate(_powerUps[0], _transform[0].position, Quaternion.identity);
 
         yield return InvocaPowerUp();

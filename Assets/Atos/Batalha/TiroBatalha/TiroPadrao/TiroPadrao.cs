@@ -38,6 +38,13 @@ public class TiroPadrao : MonoBehaviour
             Camera.main.GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.right * 20 * Time.deltaTime);
             
             gameObject.SetActive(false);
+            Destroy(gameObject);
+
+        }
+
+        if(other.gameObject.CompareTag("Escudo"))
+        {
+            Destroy(gameObject);
         }
     }
 }

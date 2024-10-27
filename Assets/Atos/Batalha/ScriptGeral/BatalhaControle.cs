@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BatalhaControle : MonoBehaviour
 {
-    [Header("Componentes")]
-    public PlayerBatalha _playerControle;
+
+    public PlayerBatalha _playerBatalha;
+    public bool _pausaJogo;
 
 }
