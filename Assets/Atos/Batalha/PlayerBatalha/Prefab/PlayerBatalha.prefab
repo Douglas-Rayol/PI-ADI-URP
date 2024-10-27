@@ -281,7 +281,6 @@ MonoBehaviour:
   _batalhaControle: {fileID: 0}
   _menuBatalha: {fileID: 0}
   _particula: {fileID: 8309960082130624717}
-  _desativa: {fileID: 4684674066033692508}
   _rb: {fileID: 0}
   _anim: {fileID: 0}
   _move: {x: 0, y: 0, z: 0}
@@ -406,8 +405,24 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ef3fd87d-3ef2-48e8-b42d-c0444b64e62e
     m_ActionName: Controle/Controle-Analog[/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/leftStick/left,/DualSenseGamepadHID/leftStick/right]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: GamePad2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2318457753946749611}
+        m_TargetAssemblyTypeName: PlayerBatalha, Assembly-CSharp
+        m_MethodName: SetStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fa20e29d-6698-49bc-9eaf-e90defccd451
+    m_ActionName: Controle/Start[/XInputControllerWindows/start,/XInputControllerWindows1/start]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: GamePad
   m_DefaultActionMap: Controle
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

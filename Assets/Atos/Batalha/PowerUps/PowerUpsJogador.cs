@@ -41,7 +41,7 @@ public class PowerUpsJogador : MonoBehaviour
 
     public IEnumerator UpPlayerVida(Collision collision)
     {
-        collision.gameObject.GetComponent<PlayerBatalha>()._vidaMin += 7;
+        collision.gameObject.GetComponent<PlayerBatalha>()._vidaMin += 15;
         yield return new WaitForSeconds(10);
     }
 

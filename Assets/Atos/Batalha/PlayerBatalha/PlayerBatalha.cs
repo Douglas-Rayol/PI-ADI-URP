@@ -86,7 +86,7 @@ public class PlayerBatalha : MonoBehaviour
                 StartCoroutine(Morte());
                 PlayerPrefs.SetInt("Player", _tipo);
                 _porcentagemTxt.text = "0%";
-                _menuBatalha.StartCoroutine("AtivaMenu");
+                _menuBatalha.StartCoroutine("AtivaMenu", 3f);
 
             }
         }
@@ -111,7 +111,7 @@ public class PlayerBatalha : MonoBehaviour
     
     public void SetPulo(InputAction.CallbackContext value) //PlayerInput para o Pulo do Player
     {
-        if(value.performed && _checkGround)
+        if(value.performed && _checkGround && !_batalhaControle._pausaJogo)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _pulo, _rb.velocity.z);
         }
@@ -119,10 +119,32 @@ public class PlayerBatalha : MonoBehaviour
 
     public void SetAtaque(InputAction.CallbackContext value) //PlayerInput para o Tiro do Jogador
     {
-        if(value.performed)
+        if(value.performed && !_batalhaControle._pausaJogo)
         {
             _anim.SetLayerWeight(2, 1);
             _anim.SetTrigger("Ataque");
+        }
+    }
+
+    public void SetStart(InputAction.CallbackContext value)
+    {
+        if(value.performed)
+        {
+            if(!_menuBatalha._startMenu)
+            {
+                PlayerPrefs.DeleteKey("Player");
+                _menuBatalha.StartCoroutine("AtivaMenu", 0);
+                _menuBatalha._playerVenceu.text = "Pause";
+                _menuBatalha._startMenu = true;
+            }
+            else
+            {
+                _menuBatalha.StartCoroutine("DesativaMenu");
+                _menuBatalha._startMenu = false;
+            }
+
+
+            
         }
     }
     

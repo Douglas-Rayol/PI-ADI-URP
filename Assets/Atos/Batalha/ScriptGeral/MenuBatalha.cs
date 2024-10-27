@@ -10,8 +10,9 @@ public class MenuBatalha : MonoBehaviour
 {
     [SerializeField] GameObject[] _menu;
     [SerializeField] Button _butaoReiniciar;
-    [SerializeField] TextMeshProUGUI _playerVenceu;
+    [SerializeField] public TextMeshProUGUI _playerVenceu;
     [SerializeField] TiroPadrao _tiroPadrao; //Quando reiniciar o jogo, o dano do tiro volta pro dano padrao
+    [SerializeField] public bool _startMenu;
 
     void Update()
     {
@@ -27,11 +28,13 @@ public class MenuBatalha : MonoBehaviour
         
     }
 
-    public IEnumerator AtivaMenu()
+    public IEnumerator AtivaMenu(int _tempo)
     {
         _tiroPadrao._dano = 2; //Quando reiniciar o jogo, o dano do tiro volta pro dano padrao
 
-        yield  return new WaitForSeconds(3f);
+        _butaoReiniciar.enabled = true;
+
+        yield  return new WaitForSeconds(_tempo);
 
         for (int i = 0; i < _menu.Length; i++)
         {
@@ -49,6 +52,25 @@ public class MenuBatalha : MonoBehaviour
         GetComponent<BatalhaControle>()._pausaJogo = true;
 
         _butaoReiniciar.Select();
+
+        
+    }
+
+    public IEnumerator DesativaMenu()
+    {
+        _butaoReiniciar.enabled = false;
+
+        for (int i = 0; i < _menu.Length; i++)
+        {
+            _menu[i].transform.DOScale(0f, .3f);
+        }
+
+        yield  return new WaitForSeconds(.3f);
+
+        GetComponent<BatalhaControle>()._pausaJogo = false;
+
+        
+
     }
 
     public void ChamaMenu()
@@ -59,6 +81,7 @@ public class MenuBatalha : MonoBehaviour
     public void ChamaReiniciar()
     {
         SceneManager.LoadScene("Batalha");
+        //PlayerPrefs.DeleteKey("Player");
     }
 
 }

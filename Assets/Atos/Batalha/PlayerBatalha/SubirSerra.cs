@@ -2,28 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Splines;
 
-public class SubirSerra : MonoBehaviour{
+public class SubirSerra : MonoBehaviour
+{
 
+    public float moveDistance = 5f; // Distância que a plataforma vai se mover
+    public float moveDuration = 2f; // Duração do movimento em segundos
+    public float pauseDuration = 1.5f; // Duração da pausa em segundos
 
-    public Transform _spline; 
-    public float _moveDistance; // A distância que a spline vai se mover
-    public float _duracao; // Duração do movimento
-    public float _espera; // Tempo de espera antes do movimento
+    [SerializeField] BatalhaControle _batalhaControle;
 
-    void Start()
+    void Awake()
     {
-        //  move a spline após um atraso
-        DOVirtual.DelayedCall(_espera, MoveSplineUp);
+        _batalhaControle = Camera.main.GetComponent<BatalhaControle>();
     }
 
-    void MoveSplineUp()
-    {
-        // Calcula a nova posição
-        Vector3 targetPosition = _spline.position + new Vector3(0, _moveDistance, 0);
 
-        // Move a spline usando
-        _spline.DOMove(targetPosition, _duracao).SetEase(Ease.OutQuad);
+    private void Start()
+    {
+        if(!_batalhaControle._pausaJogo)
+        {
+            Invoke("SobeSerra", 40f);
+        }
+        
     }
 
+
+    private void SobeSerra()
+    {
+        if(!_batalhaControle._pausaJogo)
+        {
+            // Guarda a posição inicial da plataforma
+            Vector3 initialPosition = transform.position;
+
+            // Cria uma sequência de animação
+            Sequence moveSequence = DOTween.Sequence();
+
+            // Move a plataforma para cima
+            moveSequence.Append(transform.DOMoveY(initialPosition.y + moveDistance, moveDuration).SetEase(Ease.Linear));
+
+            // Pausa por 1.5 segundos
+            moveSequence.AppendInterval(pauseDuration);
+
+            // Move a plataforma de volta para a posição inicial
+            moveSequence.Append(transform.DOMoveY(initialPosition.y, moveDuration).SetEase(Ease.Linear));
+
+            // Pausa por 1.5 segundos
+            moveSequence.AppendInterval(pauseDuration);
+
+            // Faz o movimento repetir indefinidamente
+            moveSequence.SetLoops(-1, LoopType.Restart);
+        }
+    }
 }

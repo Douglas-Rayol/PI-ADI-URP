@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1129,7 +1129,7 @@ RectTransform:
   m_Father: {fileID: 855898597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1554,8 +1554,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 754144813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 17.5}
   m_SizeDelta: {x: 20, y: -125}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2531,8 +2531,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1971772091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 17.5}
   m_SizeDelta: {x: 20, y: -125}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2895,9 +2895,10 @@ MonoBehaviour:
   painelMenuInicial: {fileID: 0}
   _butaoMenu:
   - {fileID: 267726111}
-  - {fileID: 1768502237}
+  - {fileID: 382203439}
   - {fileID: 45875251}
   - {fileID: 1410257905}
+  - {fileID: 1768502237}
 --- !u!114 &1311927767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3022,7 +3023,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1311927766}
         m_TargetAssemblyTypeName: MenuPrincipalManager, Assembly-CSharp
         m_MethodName: sairjogo
         m_Mode: 1
@@ -3978,7 +3979,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 60.240967, y: 95}
-  m_SizeDelta: {x: 250, y: 107.72}
+  m_SizeDelta: {x: 652, y: 196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911162505
 MonoBehaviour:
@@ -4400,7 +4401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2071983721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4422,7 +4423,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -279, y: -580}
-  m_SizeDelta: {x: 520, y: 1080}
+  m_SizeDelta: {x: 1029, y: 1940}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2071983722
 MonoBehaviour:
@@ -4495,7 +4496,7 @@ RectTransform:
   m_Father: {fileID: 5734879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
