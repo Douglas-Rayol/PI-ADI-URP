@@ -1481,6 +1481,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2318457753946749611, guid: 25ea83f54740ca24e87cc7276a721159,
         type: 3}
+      propertyPath: coyoteTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318457753946749611, guid: 25ea83f54740ca24e87cc7276a721159,
+        type: 3}
+      propertyPath: timeCoyote
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318457753946749611, guid: 25ea83f54740ca24e87cc7276a721159,
+        type: 3}
       propertyPath: _hudVidaMax
       value: 100
       objectReference: {fileID: 0}
@@ -1488,6 +1498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _hudVidaMin
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318457753946749611, guid: 25ea83f54740ca24e87cc7276a721159,
+        type: 3}
+      propertyPath: _timeCoyote
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3887455042439133509, guid: 25ea83f54740ca24e87cc7276a721159,
         type: 3}
@@ -1535,6 +1550,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8858211205280798482, guid: 6f48d073813e9bc41823aa83a9eb14af,
         type: 3}
+    - target: {fileID: 8856520044622427899, guid: 25ea83f54740ca24e87cc7276a721159,
+        type: 3}
+      propertyPath: _escolhaTempo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9099481368923763647, guid: 25ea83f54740ca24e87cc7276a721159,
         type: 3}
       propertyPath: m_IsActive
@@ -3587,7 +3607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 729356638}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_LoopMode: 3
   m_Method: 0
   m_Duration: 5
@@ -4050,6 +4070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1141362245635045964d41f8af831f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _splineAnimate: {fileID: 667100681}
   moveDistance: 10
   moveDuration: 1
   pauseDuration: 20
@@ -7307,6 +7328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97d09a4c706e104e89fe0ce449e9a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _batalhaControle: {fileID: 0}
   velocidadeRotacao: -300
 --- !u!136 &1575493445
 CapsuleCollider:
@@ -7527,8 +7549,7 @@ GameObject:
   - component: {fileID: 1639088481}
   - component: {fileID: 1639088480}
   - component: {fileID: 1639088479}
-  - component: {fileID: 1639088483}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plano
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7622,20 +7643,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1639088483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639088478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be98a212ee81c24e83d60d7e6e6a2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _paraDano: 0
-  _batalhaControle: {fileID: 0}
 --- !u!1001 &1673545088
 PrefabInstance:
   m_ObjectHideFlags: 0

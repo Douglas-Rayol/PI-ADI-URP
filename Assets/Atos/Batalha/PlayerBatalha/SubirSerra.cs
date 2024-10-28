@@ -7,6 +7,7 @@ using UnityEngine.Splines;
 public class SubirSerra : MonoBehaviour
 {
 
+    [SerializeField] SplineAnimate _splineAnimate;
     public float moveDistance = 5f; // Distância que a plataforma vai se mover
     public float moveDuration = 2f; // Duração do movimento em segundos
     public float pauseDuration = 1.5f; // Duração da pausa em segundos
@@ -26,6 +27,18 @@ public class SubirSerra : MonoBehaviour
             Invoke("SobeSerra", 40f);
         }
         
+    }
+
+    void Update()
+    {
+        if(_batalhaControle._pausaJogo) //Se estiver pausado
+        {
+            _splineAnimate.Pause();
+        }
+        else
+        {
+            _splineAnimate.Play();
+        }
     }
 
 
