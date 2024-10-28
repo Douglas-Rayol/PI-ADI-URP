@@ -47,6 +47,13 @@ public class PlayerBatalha : MonoBehaviour
     [SerializeField] public float _vidaMin;
     [SerializeField] public float _vidaMax;
 
+    [Header("Variavel para o Coyote do Player")]
+    [SerializeField] int _coyote;
+    [SerializeField] bool _sinalCoyote;
+    [SerializeField] float _timeCoyote;
+    float _salvaTimeCoyote;
+    
+
     void Awake()
     {
 
@@ -60,6 +67,8 @@ public class PlayerBatalha : MonoBehaviour
 
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+
+        _salvaTimeCoyote = _timeCoyote;
         
     }
 
@@ -73,6 +82,7 @@ public class PlayerBatalha : MonoBehaviour
             AnimacaoPlayer();
             FlipPlayer();
             VerificaDirecaoTiro();
+            CoyoteTime();
 
             _hpHud.fillAmount = (float) _vidaMin / _vidaMax;
 
@@ -114,6 +124,15 @@ public class PlayerBatalha : MonoBehaviour
         if(value.performed && _checkGround && !_batalhaControle._pausaJogo)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _pulo, _rb.velocity.z);
+
+            _sinalCoyote = false;
+        }
+
+        //Pulo com Coyote
+        else if(value.performed && _coyote == 1)
+        {
+            _rb.velocity = new Vector3(_rb.velocity.x, _pulo, _rb.velocity.z);
+            _sinalCoyote = false;
         }
     }
 
@@ -156,7 +175,11 @@ public class PlayerBatalha : MonoBehaviour
     
     private void GravidadePlayer() //Aqui controla a gravidade do Player
     {
-        _rb.AddForce(Vector3.down * _gravidade);
+        if(!_checkGround)
+        {
+            _rb.AddForce(Vector3.down * _gravidade);
+        }
+        
     }
 
     
@@ -197,7 +220,10 @@ public class PlayerBatalha : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Ground"))
         {
+
             _groundCount++;
+
+            _sinalCoyote = true;
 
             _checkGround = true;
 
@@ -209,7 +235,7 @@ public class PlayerBatalha : MonoBehaviour
     void OnCollisionExit(Collision other)
     {
         if(other.gameObject.CompareTag("Ground"))
-        {            
+        {       
             _groundCount--;
 
             if(_groundCount == 0)
@@ -231,6 +257,28 @@ public class PlayerBatalha : MonoBehaviour
         _particula.gameObject.SetActive(false);
         transform.root.gameObject.SetActive(false);
         
+    }
+
+    private void CoyoteTime()
+    {
+        if(_sinalCoyote && !_checkGround)
+        {
+            _timeCoyote -= Time.deltaTime;
+
+            if(_timeCoyote > 0)
+            {
+                _coyote = 1;
+            }
+            else
+            {
+                _sinalCoyote = false;
+            }
+        }
+        else
+        {
+            _timeCoyote = _salvaTimeCoyote;
+            _coyote = 0;
+        }
     }
 
     //Treme o Controle

@@ -4,19 +4,30 @@ using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 
-public class Gira_Sem_Parar : MonoBehaviour{
+public class Gira_Sem_Parar : MonoBehaviour
+{
+    [SerializeField] BatalhaControle _batalhaControle;
 
-       public float velocidadeRotacao = 20f;
+    void Awake()
+    {
+        _batalhaControle = Camera.main.GetComponent<BatalhaControle>();
+    }
+
+    public float velocidadeRotacao = 20f;
+       
 
     void Update()
     {
-        // Rotaciona o objeto no eixo Y continuamente
-        transform.Rotate(0,0, velocidadeRotacao * Time.deltaTime);
+        if(!_batalhaControle._pausaJogo)
+        {
+            // Rotaciona o objeto no eixo Y continuamente
+            transform.Rotate(0,0, velocidadeRotacao * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player")) //Aqui retira a vida do jogador, destroi o escudo
+        if(other.gameObject.CompareTag("Player") && !_batalhaControle._pausaJogo) //Aqui retira a vida do jogador, destroi o escudo
         {
             other.gameObject.GetComponent<PlayerBatalha>()._vidaMin -= 20;
             other.gameObject.GetComponent<PowerUpsJogador>()._escudoPlayer.SetActive(false);

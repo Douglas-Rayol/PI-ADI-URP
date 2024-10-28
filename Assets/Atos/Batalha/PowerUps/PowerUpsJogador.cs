@@ -15,10 +15,10 @@ public class PowerUpsJogador : MonoBehaviour
 
     public IEnumerator LentidaoPlayerDown(Collision collision)
     {
-        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade += 50;
+        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade += 65;
         collision.gameObject.GetComponent<PlayerBatalha>()._speed -= 15f;
-        yield return new WaitForSeconds(10);
-        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade -= 50;
+        yield return new WaitForSeconds(20);
+        collision.gameObject.GetComponent<PlayerBatalha>()._gravidade -= 65;
         collision.gameObject.GetComponent<PlayerBatalha>()._speed += 15f;
     }
 
