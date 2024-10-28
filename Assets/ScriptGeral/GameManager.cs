@@ -7,7 +7,7 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     [Header("Hud Vida do Jogador")]
-    public PlayerController _vidaJogador;
+    [SerializeField] PlayerController _vidaJogador;
     [SerializeField] GameObject[] _hudVida;
     [SerializeField] GameObject[] _hudVidaVazia;
     [SerializeField] GameObject[] _hudDef;
@@ -30,27 +30,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_vidaJogador != null)
+        if (_iniCheck)
         {
+            VidaDoJogadorHud();
+        }
+       
 
 
-            if (_iniCheck)
+        if(_vidaJogador._ativaDefesa == true)
+        {
+            DefesaDoJogadorHud();
+            if (!_CheckStartesc)
             {
-                VidaDoJogadorHud();
+                _CheckStartesc= true;
+                StartCoroutine(StarEscud());
             }
-
-
-
-            if (_vidaJogador._ativaDefesa == true)
-            {
-                DefesaDoJogadorHud();
-                if (!_CheckStartesc)
-                {
-                    _CheckStartesc = true;
-                    StartCoroutine(StarEscud());
-                }
-
-            }
+           
         }
 
 

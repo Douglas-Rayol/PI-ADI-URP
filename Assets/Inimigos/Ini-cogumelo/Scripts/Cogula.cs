@@ -44,14 +44,13 @@ public class Cogula : MonoBehaviour
     bool _stop;
 
     VidaEvent vidaEvent;
-    public GameObject hand;
 
+    // Start is called before the first frame update
     void Start()
     {
-        hand = GameObject.Find("Hand");
         _pausaJogo = FindAnyObjectByType<GameManager>();
 
-        _gameControle = hand.GetComponent<GameControle>();
+        _gameControle = Camera.main.GetComponent<GameControle>();
 
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();

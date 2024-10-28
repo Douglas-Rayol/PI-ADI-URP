@@ -83,17 +83,11 @@ public class PlayerController : MonoBehaviour
     [Header("Variaveis para Suavizar a Animacao")]
     [SerializeField] private float smoothInputX;
     [SerializeField] private float velocityX;
-    public GameObject hand;
 
     void Awake()
     {
-        hand = GameObject.Find("Hand");
-       // _gamecontrole = hand.GetComponent<GameControle>();
-        _gameManager = hand.GetComponent<GameManager>();
-        _gameControle = hand.GetComponent<GameControle>();
-        _gameManager._vidaJogador = gameObject.GetComponent<PlayerController>();
-
-
+        _gameManager = Camera.main.GetComponent<GameManager>();
+        _gameControle = Camera.main.GetComponent<GameControle>();
     }
 
 

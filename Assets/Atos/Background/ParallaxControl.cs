@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class ParallaxControl : MonoBehaviour
 {
@@ -15,14 +14,10 @@ public class ParallaxControl : MonoBehaviour
     [Range(0.01f, 0.8f)]
     public float _parallaxSpeed;
     int _backCount;
-    public GameObject hand;
 
     void Start()
     {
-        hand = GameObject.Find("Hand");
-
-      //  _gameControle = hand.GetComponent<GameControle>();
-        _cam = hand.transform;
+        _cam = Camera.main.transform;
         _camStartPos = _cam.position;
         _backCount = transform.childCount;
         _mat = new Material[_backCount];

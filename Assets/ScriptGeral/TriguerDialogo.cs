@@ -6,7 +6,6 @@ public class TriguerDialogo : MonoBehaviour
 {
     public Dialogo _dialogo;
     public PainelTutorial _painelTutorial;
-    public GameObject hand;
 
     void Awake()
     {
@@ -22,8 +21,7 @@ public class TriguerDialogo : MonoBehaviour
 
     private void Start()
     {
-        hand = GameObject.Find("Hand");
-        _painelTutorial = hand.GetComponent<PainelTutorial>();
+        _painelTutorial = Camera.main.GetComponent<PainelTutorial>();
     }
 
     private void OnTriggerEnter(Collider other)
