@@ -11,14 +11,15 @@ public class MorcegoScript : MonoBehaviour
     [SerializeField] float dist, distMin;
     [SerializeField] float distPlayer;
     [SerializeField] bool _posplayer;
-  
+    
+    
     public Transform _alvo;
     Rigidbody _rbMorcego;
 
     void Start(){
         
         _gameManager = Camera.main.GetComponent<GameManager>();
-        _alvo = Camera.main.GetComponent<GameControle>()._playerController.transform;
+       // _alvo = Camera.main.GetComponent<GameControle>()._playerController.transform;
 
         
     }
