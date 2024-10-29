@@ -7,8 +7,12 @@ public class TriguerDialogo : MonoBehaviour
     public Dialogo _dialogo;
     public PainelTutorial _painelTutorial;
 
+    [SerializeField] GameControle _gameControle;
+
     void Awake()
     {
+        _gameControle = Camera.main.GetComponent<GameControle>();
+
         if(PlayerPrefs.HasKey("AtivouSpeedRun")) //Temporario pra SpeedRun Depois Retiramos
         {
             gameObject.SetActive(false);
@@ -28,6 +32,8 @@ public class TriguerDialogo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _gameControle._desativaStart = true;
+
             if(_dialogo._tipo == 0)
             {
                 _painelTutorial.PainelOn(true, _dialogo);
@@ -48,6 +54,8 @@ public class TriguerDialogo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _gameControle._desativaStart = false;
+            
             _painelTutorial.PainelOn(false, null);
             _painelTutorial.PainelPedra(false, null);
             _painelTutorial.PainelPagina(false, null);

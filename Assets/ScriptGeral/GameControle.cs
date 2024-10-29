@@ -18,9 +18,9 @@ public class GameControle : MonoBehaviour
     public GameObject _painelGameOver;
     public Gerenciadordepartida _gerenciadorDePartida;
     public Transform _HudPaginaPosition;
-
     public Text _textPagScore;
     public int _salvaScore;
+    [SerializeField] public bool _desativaStart;
 
     [SerializeField] public GameObject[] _tutorialBau;
 
@@ -77,6 +77,8 @@ public class GameControle : MonoBehaviour
 
     private IEnumerator ExibirPainelGameOver()
     {
+        _desativaStart = true;
+        
         if(GetComponent<SpeedRun>() != null) //Se tiver o componente
         {
             if(PlayerPrefs.HasKey("posX"))
@@ -86,8 +88,10 @@ public class GameControle : MonoBehaviour
                 GetComponent<SpeedRun>()._cronometroTxt.gameObject.SetActive(false);
             }
         }
+
         yield return new WaitForSeconds(2f);
         _painelGameOver.SetActive(true);
+        _painelGameOver.GetComponentInChildren<Button>().Select();
         _painelGameOver.transform.DOScale(.8f, 1f);
         yield return new WaitForSeconds(1f);
 

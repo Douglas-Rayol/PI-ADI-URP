@@ -9,6 +9,9 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Componentes Globais")]
+    [SerializeField] Gerenciadordepartida _gerenciadorControle;
+
     [SerializeField] Transform _verificaParede;
 
     Chicote _chicote;
@@ -83,10 +86,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float smoothInputX;
     [SerializeField] private float velocityX;
 
+    
+
     void Awake()
     {
         _gameManager = Camera.main.GetComponent<GameManager>();
         _gameControle = Camera.main.GetComponent<GameControle>();
+        _gerenciadorControle = Camera.main.GetComponent<Gerenciadordepartida>();
     }
 
 
@@ -404,6 +410,25 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    
+    public void SetStart(InputAction.CallbackContext value)
+    {
+        if(value.performed && !_gameControle._desativaStart)
+        {
+            if(!_gerenciadorControle._startMenu)
+            {
+                _gerenciadorControle.StartCoroutine("AtivaStartMenu");
+                _gerenciadorControle._startMenu = true;
+            }
+            else
+            {
+                _gerenciadorControle.StartCoroutine("DesativaStartMenu");
+                _gerenciadorControle._startMenu = false;
+            }
+
+            
+        }
+    }
 
     public void AtaqueChicote()
     {
@@ -508,8 +533,8 @@ public class PlayerController : MonoBehaviour
         
 
 
-      if ( _vida <= 0)
-      {
+        if ( _vida <= 0)
+        {
             _gameControle.GameOver();
             
         }

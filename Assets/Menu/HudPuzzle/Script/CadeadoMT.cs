@@ -15,6 +15,7 @@ public class CadeadoMT: MonoBehaviour
     [SerializeField] public GameObject _tutorialPuzzle;
     [SerializeField] public GameObject _puzzleHud;
     [SerializeField] public GameObject _particulaDireita, _particulaEsquerda;
+    [SerializeField] public TextMeshProUGUI _textoError;
     [SerializeField] public bool _chamaPuzzle;
 
     [Header("Calculo")]
@@ -94,10 +95,12 @@ public class CadeadoMT: MonoBehaviour
             if(_resultado == 5)
             {
                 AcertouPuzzle();
+
+                _textoError.enabled = false;
             }
             else
             {
-                Debug.Log("Voce errou!");
+                StartCoroutine(ChamaDesativaErro());
             }
         }
 
@@ -106,10 +109,12 @@ public class CadeadoMT: MonoBehaviour
             if (_resultado == 10)
             {
                 AcertouPuzzle();
+
+                _textoError.enabled = false;
             }
             else
             {
-                Debug.Log("Voce errou!");
+                StartCoroutine(ChamaDesativaErro());
             }
         }
 
@@ -118,10 +123,12 @@ public class CadeadoMT: MonoBehaviour
             if (_resultado == 12)
             {
                 AcertouPuzzle();
+
+                _textoError.enabled = false;
             }
             else
             {
-                Debug.Log("Voce errou!");
+                StartCoroutine(ChamaDesativaErro());
             }
         }
         else if (_calculoTemp == "6-2")
@@ -129,10 +136,12 @@ public class CadeadoMT: MonoBehaviour
             if (_resultado == 4)
             {
                 AcertouPuzzle();
+
+                _textoError.enabled = false;
             }
             else
             {
-                Debug.Log("Voce errou!");
+                StartCoroutine(ChamaDesativaErro());
             }
         }
         else if (_calculoTemp == "4-4")
@@ -140,10 +149,12 @@ public class CadeadoMT: MonoBehaviour
             if (_resultado == 0)
             {
                 AcertouPuzzle();
+
+                _textoError.enabled = false;
             }
             else
             {
-                Debug.Log("Voce errou!");
+                StartCoroutine(ChamaDesativaErro());
             }
         }
         else if (_calculoTemp == "7-2")
@@ -151,12 +162,31 @@ public class CadeadoMT: MonoBehaviour
             if (_resultado == 5)
             {
                 AcertouPuzzle();
+
+                _textoError.enabled = false;
             }
             else
             {
-                Debug.Log("Voce errou!");
+                StartCoroutine(ChamaDesativaErro());
             }
         }
+    }
+
+    IEnumerator ChamaDesativaErro()
+    {
+        _textoError.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        _textoError.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        _textoError.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        _textoError.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        _textoError.enabled = true;
+        yield return new WaitForSeconds(.2f);
+        _textoError.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        _textoError.enabled = true;
     }
 
 

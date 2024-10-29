@@ -6,7 +6,7 @@ using static UnityEngine.ParticleSystem;
 using DG.Tweening;
 public class Patrulha : MonoBehaviour
 {
-    public GameManager _pausaJogo;
+    public GameManager _gameManager;
     [SerializeField] private PlayerController _playerControle;
 
     Rigidbody _rb;
@@ -36,7 +36,7 @@ public class Patrulha : MonoBehaviour
     
     void Start()
     {
-        _pausaJogo = FindAnyObjectByType<GameManager>();
+        _gameManager = Camera.main.GetComponent<GameManager>();
         _playerControle = FindObjectOfType<PlayerController>();
 
         _rb = GetComponent<Rigidbody>();
@@ -56,7 +56,7 @@ public class Patrulha : MonoBehaviour
             _rb.velocity = Vector3.zero;
         }
 
-        if (_pausaJogo._pause == false || _hit == false)
+        if (!_gameManager._pause || _hit == false)
         {
             _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
             _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
@@ -79,7 +79,6 @@ public class Patrulha : MonoBehaviour
 
     void Patrulhamento()
     {
-
         if (_distPos[0] < _distPlayerLimit && _isPlayer == false)
         {
             _alvo = _pos[1];

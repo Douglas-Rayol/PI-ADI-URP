@@ -26,6 +26,7 @@ public class Estrela : MonoBehaviour
 
     public IEnumerator VaziaEstrelas()
     {
+        
        for (int i = 0; i < _estrela.Length; i++)
         {
             _estrelaVazia[i].transform.localScale = Vector3.zero;
@@ -35,9 +36,9 @@ public class Estrela : MonoBehaviour
 
         for (int i = 0; i < _estrela.Length; i++)
         {
-            _estrelaVazia[i].transform.DOScale(4f, .25f);
+            _estrelaVazia[i].transform.DOScale(3f, .25f);
             yield return new WaitForSeconds(0.25f);
-            _estrelaVazia[i].transform.DOScale(2.5f, .25f);
+            _estrelaVazia[i].transform.DOScale(1.5f, .25f);
         }
         yield return new WaitForSeconds(0.25f);
         PagEstrela();
@@ -45,6 +46,8 @@ public class Estrela : MonoBehaviour
 
     public IEnumerator AtivaEstrela(int qtdEstrela)
     {
+        _gameControle._desativaStart = true;
+
         for (int i = 0; i < qtdEstrela; i++)
         {
             _estrela[i].transform.localScale = Vector3.zero;
@@ -54,9 +57,9 @@ public class Estrela : MonoBehaviour
 
         for (int i = 0; i < qtdEstrela; i++)
         {
-            _estrela[i].transform.DOScale(5f, .25f);
+            _estrela[i].transform.DOScale(4f, .25f);
             yield return new WaitForSeconds(0.25f);
-            _estrela[i].transform.DOScale(2.5f, .25f);
+            _estrela[i].transform.DOScale(1.5f, .25f);
         }
     }
     public void PagEstrela()

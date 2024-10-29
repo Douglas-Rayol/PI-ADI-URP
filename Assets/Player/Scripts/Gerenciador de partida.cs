@@ -11,6 +11,11 @@ public class Gerenciadordepartida : MonoBehaviour
     [SerializeField] Button _buttonGameOver;
     [SerializeField] GameControle _gameControle;
 
+    [Header("Variaveis do Menu Start")]
+    [SerializeField] Transform _menuStart;
+    [SerializeField] GameObject[] _ativaButton;
+    [SerializeField] public bool _startMenu;
+
     private void Awake()
     {
         _gameControle = Camera.main.GetComponent<GameControle>();
@@ -32,6 +37,36 @@ public class Gerenciadordepartida : MonoBehaviour
         PartidaIniciada = true;
         Time.timeScale = 1;
     }
+
+    public IEnumerator AtivaStartMenu() //Ativa o Menu Start
+    {
+        GetComponent<GameManager>()._pause = true;
+
+        for (int i = 0; i < _ativaButton.Length; i++)
+        {
+            _ativaButton[i].SetActive(true);
+        }
+
+        _menuStart.DOScale(1.6f, .3f);
+        yield return new WaitForSeconds(.3f);
+        _menuStart.DOScale(1.5f, .3f);
+        
+        _ativaButton[2].GetComponent<Button>().Select();
+    }
+
+    public IEnumerator DesativaStartMenu()
+    {
+        GetComponent<GameManager>()._pause = false;
+        
+        for (int i = 0; i < _ativaButton.Length; i++)
+        {
+            _ativaButton[i].SetActive(false);
+        }
+
+        _menuStart.DOScale(0f, .3f);
+        yield return new WaitForSeconds(.3f);
+    }
+ 
     public void GameMenuReiniar()
     {
         SceneManager.LoadScene("Ato_1_1");

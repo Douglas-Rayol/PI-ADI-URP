@@ -46,6 +46,8 @@ public class Bau : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            _gameControle._desativaStart = true;
+
             _cadeadoMT._bau = GetComponent<Bau>(); //Envia o componente para a variavel publica do Bau no CadeadoMT.
             _gameControle._playerController._bauOn = true;
             _seta.SetActive(true);
@@ -57,6 +59,8 @@ public class Bau : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _gameControle._desativaStart = false;
+            
             _gameControle._playerController._bauOn = false;
             _seta.SetActive(false);
         }
@@ -74,6 +78,8 @@ public class Bau : MonoBehaviour
         _Pag.SetActive(true);
         yield return new WaitForSeconds(.2f);
         _particula.SetActive(true);
+
+        _gameControle._desativaStart = false;
     }
 
 
