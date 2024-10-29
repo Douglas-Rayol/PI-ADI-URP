@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -19,8 +18,8 @@ public class Carrinho : MonoBehaviour
     public void Start() {
     
     //starta com as rodas do carro paradas
-    _roda1.GetComponent<Gira_Sem_Parar>().enabled = false;
-    _roda2.GetComponent<Gira_Sem_Parar>().enabled = false;
+    _roda1.GetComponent<RodaGigante>().enabled = false;
+    _roda2.GetComponent<RodaGigante>().enabled = false;
     }
 
     private void OnCollisionEnter(Collision collision){
@@ -32,8 +31,8 @@ public class Carrinho : MonoBehaviour
             collision.transform.SetParent(transform);   
 
             //faz as rodas do carro girarem - velocidade alterado em seus scripts
-            _roda1.GetComponent<Gira_Sem_Parar>().enabled = true;
-            _roda2.GetComponent<Gira_Sem_Parar>().enabled = true;
+            _roda1.GetComponent<RodaGigante>().enabled = true;
+            _roda2.GetComponent<RodaGigante>().enabled = true;
             //
 
             
@@ -61,8 +60,8 @@ public class Carrinho : MonoBehaviour
 
 
         //para as rodas do carro quando o player é ejetdo
-         _roda1.GetComponent<Gira_Sem_Parar>().enabled = false;
-         _roda2.GetComponent<Gira_Sem_Parar>().enabled = false;
+         _roda1.GetComponent<RodaGigante>().enabled = false;
+         _roda2.GetComponent<RodaGigante>().enabled = false;
         //
        
 
