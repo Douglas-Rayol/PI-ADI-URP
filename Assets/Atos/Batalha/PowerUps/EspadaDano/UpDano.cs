@@ -30,7 +30,21 @@ public class UpDano : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Player"))
         {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("UpPlayerDano", collision);
+
+            collision.gameObject.GetComponent<PowerUpsJogador>().UpDanoPlayer(collision);
+
+            collision.gameObject.GetComponent<HudPowerUp>()._ativaTempoDano = true;
+
+            if(collision.gameObject.GetComponent<HudPowerUp>()._timeDanoMin < collision.gameObject.GetComponent<HudPowerUp>()._timeDanoMax)
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeDanoMin += 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeDanoMax += 10;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeDanoMin = 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeDanoMax = 10;
+            }
 
             Destroy(gameObject);
         }

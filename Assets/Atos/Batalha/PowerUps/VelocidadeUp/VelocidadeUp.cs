@@ -28,7 +28,19 @@ public class VelocidadeUp : MonoBehaviour
         
         if(collision.gameObject.CompareTag("Player"))
         {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("VelocidadePlayerUp", collision);
+            collision.gameObject.GetComponent<HudPowerUp>()._ativaTempoVelocity = true;
+            collision.gameObject.GetComponent<PowerUpsJogador>().VelocidadePlayerUp(collision);
+
+            if(collision.gameObject.GetComponent<HudPowerUp>()._timeVelocityMin < collision.gameObject.GetComponent<HudPowerUp>()._timeVelocityMax)
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeVelocityMin += 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeVelocityMax += 10;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeVelocityMin = 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeVelocityMax = 10;
+            }
 
             Destroy(gameObject);
         }

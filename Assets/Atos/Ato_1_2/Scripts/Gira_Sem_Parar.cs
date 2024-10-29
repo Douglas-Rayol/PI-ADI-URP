@@ -30,7 +30,8 @@ public class Gira_Sem_Parar : MonoBehaviour
         if(other.gameObject.CompareTag("Player") && !_batalhaControle._pausaJogo) //Aqui retira a vida do jogador, destroi o escudo
         {
             other.gameObject.GetComponent<PlayerBatalha>()._vidaMin -= 20;
-            other.gameObject.GetComponent<PowerUpsJogador>()._escudoPlayer.SetActive(false);
+            other.gameObject.GetComponent<HudPowerUp>()._ativaTempoEscudo = false;
+
             GetComponent<CapsuleCollider>().enabled = false;
             Invoke("HabilitaCollider", 1f);
 

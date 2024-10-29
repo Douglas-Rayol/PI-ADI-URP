@@ -30,8 +30,20 @@ public class InvisibilidadeUp : MonoBehaviour
         } 
 
         if(collision.gameObject.CompareTag("Player"))
-        {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("UpPlayerInvisivel", collision);
+        {            
+            collision.gameObject.GetComponent<HudPowerUp>()._ativaTempoInvisible = true;
+
+            if(collision.gameObject.GetComponent<HudPowerUp>()._timeInvisibleMin < collision.gameObject.GetComponent<HudPowerUp>()._timeInvisibleMax)
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInvisibleMin += 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInvisibleMax += 10;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInvisibleMin = 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInvisibleMax = 10;
+            }
+            
             Destroy(gameObject);
         }
     }

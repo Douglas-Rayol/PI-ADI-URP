@@ -28,7 +28,18 @@ public class InverterDown : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Player"))
         {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("DownInverterPlayer", collision);
+            collision.gameObject.GetComponent<HudPowerUp>()._ativaTempoInverter = true;
+
+            if(collision.gameObject.GetComponent<HudPowerUp>()._timeInverterMin < collision.gameObject.GetComponent<HudPowerUp>()._timeInverterMax)
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInverterMin += 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInverterMax += 10;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInverterMin = 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeInverterMax = 10;
+            }
 
             Destroy(gameObject);
         }

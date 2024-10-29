@@ -40,7 +40,9 @@ public class LavaDano : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
             GetComponent<PlayerBatalha>()._vidaMin -= 1;
+            GetComponent<PlayerBatalha>()._anim.SetTrigger("Hit");
         }
+        
         danoCoroutine = null;
     }
 

@@ -28,8 +28,21 @@ public class EscudoUp : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Player"))
         {
-            Coroutine coroutine = collision.gameObject.GetComponent<PowerUpsJogador>().StartCoroutine("UpEscudoPlayer", collision);
+            collision.gameObject.GetComponent<HudPowerUp>()._ativaTempoEscudo = true;
 
+            if(collision.gameObject.GetComponent<HudPowerUp>()._timeEscudoMin < collision.gameObject.GetComponent<HudPowerUp>()._timeEscudoMax)
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeEscudoMin += 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeEscudoMax += 10;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HudPowerUp>()._timeEscudoMin = 10;
+                collision.gameObject.GetComponent<HudPowerUp>()._timeEscudoMax = 10;
+            }
+
+            
+            
             Destroy(gameObject);
         }
     }
