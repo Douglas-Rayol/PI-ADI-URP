@@ -56,7 +56,7 @@ public class Patrulha : MonoBehaviour
             _rb.velocity = Vector3.zero;
         }
 
-        if (!_gameManager._pause || _hit == false)
+        if (_gameManager._pause == false)
         {
             _distPos[0] = Vector3.Distance(transform.position, _pos[0].position);
             _distPos[1] = Vector3.Distance(transform.position, _pos[1].position);
