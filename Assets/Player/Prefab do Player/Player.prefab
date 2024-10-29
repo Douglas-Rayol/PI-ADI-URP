@@ -34799,6 +34799,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 202bc024-f0d0-4fc9-b2e7-8a9b418746ae
     m_ActionName: PlayerMap/Map[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpeedRun, Assembly-CSharp
+        m_MethodName: SetSpeedRun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f5dd66fa-a7ef-490b-8170-3a655e6955b2
+    m_ActionName: Move/SpeedRun[/Keyboard/f12]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39d81688-2c6a-4794-ae83-f49f99de7577
+    m_ActionName: P1/Move
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Move

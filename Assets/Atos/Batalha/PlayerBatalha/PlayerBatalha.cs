@@ -140,7 +140,7 @@ public class PlayerBatalha : MonoBehaviour
     {
         if(value.performed && !_batalhaControle._pausaJogo)
         {
-            _anim.SetLayerWeight(2, 1);
+            _anim.SetLayerWeight(1, 1);
             _anim.SetTrigger("Ataque");
         }
     }

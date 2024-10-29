@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93d35142b62dd34a87a281f97c5bc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _colidindo: 0
   _batalhaControle: {fileID: 0}
-  _desativaDano: 0
 --- !u!114 &1311112822951746124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ Animator:
   m_GameObject: {fileID: 369279941822630520}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8ea1b81b25c36d4fac4526ff6e7d338, type: 2}
+  m_Controller: {fileID: 9100000, guid: 77e4a44f3a6619b45bbd0a49f89a677f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
