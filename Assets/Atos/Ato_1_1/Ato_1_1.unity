@@ -17849,7 +17849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &763562076
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -22585,7 +22585,7 @@ Transform:
   m_GameObject: {fileID: 763562075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92, y: 11, z: -21}
+  m_LocalPosition: {x: 232, y: 0, z: -0}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -46227,6 +46227,7 @@ MonoBehaviour:
   _checkPoint: {fileID: 0}
   _btPuzzles:
   - {fileID: 1693677751}
+  - {fileID: 1752919537}
   - {fileID: 2069465824}
   _eventButton: {fileID: 1876100295}
   _painelGameOver: {fileID: 1543997481}
@@ -78017,7 +78018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &705469063085500913
 Transform:
   m_ObjectHideFlags: 0
@@ -78027,7 +78028,7 @@ Transform:
   m_GameObject: {fileID: 702831921895484515}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -95, y: 11, z: -21}
+  m_LocalPosition: {x: -232, y: 0, z: 0}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 1
   m_Children: []
