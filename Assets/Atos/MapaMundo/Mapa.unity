@@ -692,7 +692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &249868257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -986,7 +986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565251256}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: 0.000000015581923, z: -0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: -0.000000015581909, z: 0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: 50.59, y: 17.326, z: 14.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17236,6 +17236,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 868697530}
         m_TargetAssemblyTypeName: SelecionaFase, Assembly-CSharp
+        m_MethodName: CenaLoad
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: Ato_2_1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 868697530}
+        m_TargetAssemblyTypeName: SelecionaFase, Assembly-CSharp
         m_MethodName: PointFase1
         m_Mode: 3
         m_Arguments:
@@ -17248,14 +17260,14 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 868697530}
         m_TargetAssemblyTypeName: SelecionaFase, Assembly-CSharp
-        m_MethodName: EntrarNaFase
-        m_Mode: 5
+        m_MethodName: EntraNoLoading
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Ato_2_1
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1759394081
@@ -18144,7 +18156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044232100}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: 0.000000015581923, z: -0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: -0.000000015581909, z: 0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: 50.59, y: 17.326, z: 14.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -55,7 +55,7 @@ public class SelecionaFase : MonoBehaviour
 
     public void EntraNoLoading() //Entra sempre no Loading
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(7);
         PlayerPrefs.SetInt("Salvou", 0);
         _coletaPagina._totalPag -= 6;
 
