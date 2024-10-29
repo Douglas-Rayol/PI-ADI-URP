@@ -58,7 +58,6 @@ public class GameControle : MonoBehaviour
                 _cadeadoMT._particulaDireita.SetActive(false);
             }
             
-            
         }
 
 
