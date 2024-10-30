@@ -124,14 +124,14 @@ public class HudPowerUp : MonoBehaviour
 
         if(_timeInvisibleMin >= 0)
         {
-            GetComponent<SkinPlayer>()._skinIndie.SetActive(false);
+            GetComponent<SkinPlayer>()._skinPadrao.SetActive(false);
             GetComponent<PlayerBatalha>()._sprite.enabled = false;
             _itensHud[2].SetActive(true);
             _itensHud[2].GetComponent<Image>().fillAmount = _timeInvisibleMin / _timeInvisibleMax;
         }
         else
         {
-            GetComponent<SkinPlayer>()._skinIndie.SetActive(true);
+            GetComponent<SkinPlayer>()._skinPadrao.SetActive(true);
             GetComponent<PlayerBatalha>()._sprite.enabled = true;
             _timeInvisibleMin = _timeInvisibleMax;
             _itensHud[2].SetActive(false);

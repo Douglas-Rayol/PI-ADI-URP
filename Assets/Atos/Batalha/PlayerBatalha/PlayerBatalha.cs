@@ -250,7 +250,7 @@ public class PlayerBatalha : MonoBehaviour
 
     IEnumerator Morte()
     {
-        GetComponent<SkinPlayer>()._skinIndie.SetActive(false);
+        GetComponent<SkinPlayer>()._skinPadrao.SetActive(false);
         yield return new WaitForSeconds(.2f);
         _particula.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
