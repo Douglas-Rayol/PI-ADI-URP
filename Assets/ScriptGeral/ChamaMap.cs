@@ -33,7 +33,7 @@ public class ChamaMap : MonoBehaviour
             {
                 _gamecontrole._playerController._rb.isKinematic = true;
                 _gamecontrole._playerController.transform.DOScale(0f, 1f);
-                _gamecontrole.GetComponent<SpeedRun>()._paraTime = true;
+                //_gamecontrole.GetComponent<SpeedRun>()._paraTime = true;
                 Invoke("JumpAr", 1f);
             }
             else

@@ -14,7 +14,7 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
     private ScrollRect m_ScrollRect;
 
     private Vector2 m_NextScrollPosition = Vector2.up;
-    public int RewiredPlayerID = 0;
+    //public int RewiredPlayerID = 0;
 
     void OnEnable()
     {
