@@ -1020,6 +1020,7 @@ MonoBehaviour:
   _menu:
   - {fileID: 2039462793}
   _butaoReiniciar: {fileID: 862313743}
+  _butaoMenu: {fileID: 1619978755}
   _playerVenceu: {fileID: 1858505396}
   _tiroPadrao: {fileID: 1861708460810015956, guid: 6f48d073813e9bc41823aa83a9eb14af,
     type: 3}
@@ -4629,8 +4630,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667100679}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.000092218164, y: -0.7061758, z: -0.00009246117, w: -0.70803654}
+  m_LocalPosition: {x: -92.49751, y: 0, z: -0.2834798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8420,7 +8421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _batalhaControle: {fileID: 0}
-  velocidadeRotacao: -300
+  velocidadeRotacao: -800
 --- !u!136 &1575493445
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11008,6 +11009,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c73ecf9c3688bfd44ae1f2a1d295aa16,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb16f5df3744af145b28ae1fc629bf5a, type: 2}
     - target: {fileID: 919132149155446097, guid: c73ecf9c3688bfd44ae1f2a1d295aa16,
         type: 3}
       propertyPath: m_Name

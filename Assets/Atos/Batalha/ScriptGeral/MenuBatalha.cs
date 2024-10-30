@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class MenuBatalha : MonoBehaviour
 {
     [SerializeField] GameObject[] _menu;
-    [SerializeField] Button _butaoReiniciar;
+    [SerializeField] Button _butaoReiniciar, _butaoMenu;
     [SerializeField] public TextMeshProUGUI _playerVenceu;
     [SerializeField] TiroPadrao _tiroPadrao; //Quando reiniciar o jogo, o dano do tiro volta pro dano padrao
     [SerializeField] public bool _startMenu;
@@ -33,6 +33,7 @@ public class MenuBatalha : MonoBehaviour
         _tiroPadrao._dano = 2; //Quando reiniciar o jogo, o dano do tiro volta pro dano padrao
 
         _butaoReiniciar.enabled = true;
+        _butaoMenu.enabled = true;
 
         yield  return new WaitForSeconds(_tempo);
 
@@ -47,11 +48,12 @@ public class MenuBatalha : MonoBehaviour
             _menu[i].transform.DOScale(.6f, .3f);
         }
 
-        yield return new WaitForSeconds(.3f);
+        _butaoReiniciar.Select();
 
         GetComponent<BatalhaControle>()._pausaJogo = true;
 
-        _butaoReiniciar.Select();
+        yield return new WaitForSeconds(.3f);
+
 
         
     }
@@ -59,6 +61,7 @@ public class MenuBatalha : MonoBehaviour
     public IEnumerator DesativaMenu()
     {
         _butaoReiniciar.enabled = false;
+        _butaoMenu.enabled = false;
 
         for (int i = 0; i < _menu.Length; i++)
         {
@@ -66,6 +69,8 @@ public class MenuBatalha : MonoBehaviour
         }
 
         yield  return new WaitForSeconds(.3f);
+
+        _butaoReiniciar.Select();
 
         GetComponent<BatalhaControle>()._pausaJogo = false;
 
