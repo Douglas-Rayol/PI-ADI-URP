@@ -222,7 +222,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 00
 --- !u!222 &2136532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 2184761865488225919, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: _tipoBau
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
@@ -15607,7 +15607,7 @@ PrefabInstance:
     - target: {fileID: 2184761865488225919, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: _tipoBau
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
@@ -29508,7 +29508,37 @@ PrefabInstance:
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 11
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 53f5b3cc-ca22-4650-8cb8-88201f208615
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: e868026b-a1de-4ae5-a8c3-49c60c8578db
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: fe8d77df-70d2-4f97-a45c-3efd865c6e68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: f5dd66fa-a7ef-490b-8170-3a655e6955b2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: e57eee20-09d4-42d0-8dd9-0d7ac714e41c
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: 2ef2ae65-1743-4494-9733-e472e9ab9b78
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
@@ -29517,8 +29547,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Move/Jump[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Move/Ataque[/Keyboard/ctrl,/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: Move/AbreBau[/Keyboard/upArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Move/SpeedRun[/Keyboard/f12]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Move/Start[/XInputControllerWindows/start,/Keyboard/p]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Move/Controle[/DualSenseGamepadHID/dpad/up,/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/dpad/down,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/dpad/left,/DualSenseGamepadHID/leftStick/left,/DualSenseGamepadHID/dpad/right,/DualSenseGamepadHID/leftStick/right]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_ActionName
       value: Move/Start[/XInputControllerWindows/start,/Keyboard/p]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
@@ -29529,6 +29594,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
@@ -29552,8 +29622,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAtaque
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetAbrirBau
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMove
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
@@ -29562,8 +29652,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2413096477215411370, guid: 1a3eedae7d4fc6242933ce749b99108c,
         type: 3}
@@ -30336,7 +30436,7 @@ PrefabInstance:
     - target: {fileID: 2184761865488225919, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: _tipoBau
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2930390124341674494, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
@@ -31453,7 +31553,7 @@ PrefabInstance:
     - target: {fileID: 2184761865488225919, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: _tipoBau
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2930390124341674494, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
@@ -46558,7 +46658,7 @@ PrefabInstance:
     - target: {fileID: 2184761865488225919, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: _tipoBau
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
@@ -50722,7 +50822,7 @@ PrefabInstance:
     - target: {fileID: 2184761865488225919, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}
       propertyPath: _tipoBau
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7653931047508237384, guid: 1e59fb0e83bc3d444ae955fd0f19bf80,
         type: 3}

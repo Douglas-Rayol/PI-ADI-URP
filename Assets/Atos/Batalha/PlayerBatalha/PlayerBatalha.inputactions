@@ -6,33 +6,6 @@
             "id": "7e8f9488-8977-474d-a598-9478326768d3",
             "actions": [
                 {
-                    "name": "Teclado",
-                    "type": "Value",
-                    "id": "71f4237e-0681-4beb-b59a-dfdc23db29cd",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Controle",
-                    "type": "Value",
-                    "id": "2e9ee86d-25cc-4c4d-9375-7afa6f3a8bfa",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Controle-Analog",
-                    "type": "Value",
-                    "id": "ef3fd87d-3ef2-48e8-b42d-c0444b64e62e",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Pulo",
                     "type": "Button",
                     "id": "a74e91dd-c0a6-463b-89ec-bb1cb1a62236",
@@ -58,20 +31,27 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Controle",
+                    "type": "Value",
+                    "id": "ffc620df-3e3b-4516-8600-d6706e601b11",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Teclado",
+                    "type": "Value",
+                    "id": "7b50b0f1-d659-4213-810e-527def4a08f5",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "WASD",
-                    "id": "41537db4-77c2-462b-9752-a18e18c4de6c",
-                    "path": "3DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Teclado",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "48f30b95-19b6-4f54-9c9e-d60a4972a10c",
@@ -79,6 +59,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "GamePad;GamePad2",
+                    "action": "Pulo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f208f05c-84cf-410f-87be-380e3eb68834",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
                     "action": "Pulo",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -95,114 +86,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Joystick-Pad",
-                    "id": "1140b55d-2d94-4510-948b-c15a52de0297",
-                    "path": "3DVector",
+                    "name": "",
+                    "id": "71782b85-c7cf-450a-b7c3-8ae7882595e9",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Controle",
-                    "isComposite": true,
+                    "groups": "Teclado",
+                    "action": "Ataque",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "a8b1b7c2-ed98-4e62-9288-9141dbb3fc6e",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "34ada7ae-82cd-40da-888a-f1bba6456f58",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "58a336d3-723b-4c33-b500-fbd39a7f912e",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "1933919e-2519-4a03-b48b-0aec5eeaf673",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Joystick-Analog",
-                    "id": "fe2542a4-81e1-4226-a032-e944f7eb67df",
-                    "path": "3DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Controle-Analog",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "a708d7a0-180e-4821-9e53-a6f838e7d86f",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle-Analog",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "727a647c-c3f0-4705-9c59-0a8e222b6599",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle-Analog",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "4d5318f9-35ec-4f09-a64b-1590034cf794",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle-Analog",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "3f827695-dfa9-44ad-b307-95b49572853f",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad;GamePad2",
-                    "action": "Controle-Analog",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -214,6 +106,215 @@
                     "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fb94949-44cf-4d81-a912-ee2d37cf7cd9",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Gamepad",
+                    "id": "50a0508c-f1d7-480b-9771-aa4f1d589de4",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "ce62a88d-443d-4c0d-83d4-ee974726227f",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "fe38c8b4-24c9-4ffd-8c90-dffe49f06c2e",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "f6c1f949-2e8b-4fb6-9311-c8fb8640afbe",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "36f75d71-0de5-4c4d-9af8-85a901dbabd5",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "63652d54-4b65-48e6-8ebf-200d1842f6f0",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "caed3fa7-310f-411d-b9bc-f690e776751a",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "00ce0806-9186-44dd-ab2a-b6af7f913842",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c59fcf24-4afb-4e22-98fd-315a1ebd5ca8",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad;GamePad2",
+                    "action": "Controle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "WASD",
+                    "id": "438330c2-d9d1-4d09-a295-3abfdaf5bf2f",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teclado",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "027d4b8c-9fe9-4afd-b967-159c9b790b2d",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "04d60761-eb3d-4e05-96a6-46268e2d2d56",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "9e0886fe-a96c-4dfb-98d8-00eedd799265",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "07eab54b-d0a9-4209-83dd-8b4c3c956ea5",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "63621709-31ea-489c-9c18-60133a91fb8e",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "bbf8302b-81ab-4104-a9a1-07b95933cfa6",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9c425cc8-3fec-483d-a171-bdcf25d651b9",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9d49fc4c-f2b3-4238-be78-ea4c6855013e",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Teclado",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
@@ -236,6 +337,17 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Teclado",
+            "bindingGroup": "Teclado",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }

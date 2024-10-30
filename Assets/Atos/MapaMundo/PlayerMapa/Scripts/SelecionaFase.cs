@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class SelecionaFase : MonoBehaviour
 {
@@ -13,9 +14,7 @@ public class SelecionaFase : MonoBehaviour
     [SerializeField] Button _button0;
     [SerializeField] GameObject _particula;
     [SerializeField] public PlayerMap _playerMap;
-
     [SerializeField] ColetaConf _coletaPagina;
-
 
     public void PointFase1(int index)
     {
@@ -35,7 +34,6 @@ public class SelecionaFase : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-
             _playerMap._agentPlayer.speed = 0;
             _playerMap._podeAvanca = false;
             _button.Select();
@@ -63,6 +61,9 @@ public class SelecionaFase : MonoBehaviour
 
     public void CenaLoad(int load) //Escolhe qual a fase que ele vai entrar
     {
+
         PlayerPrefs.SetInt("loadingCena", load);
+        
+        
     }
 }

@@ -727,6 +727,8 @@ MonoBehaviour:
   - {fileID: 1868899490}
   - {fileID: 2087181579}
   _pagNum: {fileID: 1221755784}
+  _menuStart: {fileID: 0}
+  _ativaStart: 0
 --- !u!114 &565251262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11313,7 +11315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 165.4, y: -47}
+  m_AnchoredPosition: {x: 185, y: -47}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221755784
@@ -11349,7 +11351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 00
 --- !u!222 &1221755785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -67536,6 +67538,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b6b54580-9e94-40f4-8409-3fe05e74a23e
     m_ActionName: Movimento/SetMoveAtras[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7988104282807695540}
+        m_TargetAssemblyTypeName: PlayerMap, Assembly-CSharp
+        m_MethodName: SetStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9f174a37-0680-4759-9d86-2e04fe137f61
+    m_ActionName: Movimento/Start[/DualShock4GamepadHID/start,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movimento

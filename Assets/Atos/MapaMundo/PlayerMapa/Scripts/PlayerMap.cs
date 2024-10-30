@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMap : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PlayerMap : MonoBehaviour
     
     [SerializeField] public int _mudaFase;
     [SerializeField] public bool _podeAvanca;
-    [SerializeField] int _numPag;
+    [SerializeField] public int _numPag;
 
 
 
@@ -47,16 +48,14 @@ public class PlayerMap : MonoBehaviour
         if (_mudaFase >= 0)
         {
             _agentPlayer.SetDestination(_mapControle._posFase[_mudaFase].position);
-            
         }
 
     }
 
-
     public void SetFrente(InputAction.CallbackContext value)
     {
         if (value.performed && _mudaFase != 3 && !_podeAvanca)
-        {
+        {   
             StartCoroutine(TempoMudaFaseFrente());
         }
     }
@@ -77,6 +76,14 @@ public class PlayerMap : MonoBehaviour
         }
     }
 
+    public void SetStart(InputAction.CallbackContext value)
+    {
+        if(value.performed)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
     public void SetDeleteSaves(InputAction.CallbackContext value)
     {
         PlayerPrefs.DeleteAll();
@@ -89,11 +96,28 @@ public class PlayerMap : MonoBehaviour
 
     public IEnumerator TempoMudaFaseFrente()
     {
-        _podeAvanca = true;
-        _mudaFase++;
-        yield return new WaitForSeconds(.3f);
-        _agentPlayer.speed = 10;
-        
+        if(_numPag == 0 && _mudaFase < 1)
+        {
+            _podeAvanca = true;
+            _mudaFase++;
+            yield return new WaitForSeconds(.3f);
+            _agentPlayer.speed = 10;
+        }
+        else if(_numPag == 6 && _mudaFase < 2)
+        {
+            _podeAvanca = true;
+            _mudaFase++;
+            yield return new WaitForSeconds(.3f);
+            _agentPlayer.speed = 10;
+        }
+        else if(_numPag == 12 && _mudaFase < 3)
+        {
+            _podeAvanca = true;
+            _mudaFase++;
+            yield return new WaitForSeconds(.3f);
+            _agentPlayer.speed = 10;
+        }
+
     }
 
     public IEnumerator TempoMudaFaseAtras()

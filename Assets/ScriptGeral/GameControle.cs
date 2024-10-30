@@ -36,7 +36,15 @@ public class GameControle : MonoBehaviour
     private void Update()
     {
 
-        _textPagScore.text = "" + _salvaScore;
+        if(_salvaScore < 10)
+        {
+            _textPagScore.text = "0" + _salvaScore;
+        }
+        else
+        {
+            _textPagScore.text = "" + _salvaScore;
+        }
+        
 
         if(EventSystem.current.currentSelectedGameObject != null)
         {
