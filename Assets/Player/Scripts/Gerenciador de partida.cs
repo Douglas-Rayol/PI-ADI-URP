@@ -67,9 +67,9 @@ public class Gerenciadordepartida : MonoBehaviour
         yield return new WaitForSeconds(.3f);
     }
  
-    public void GameMenuReiniar()
+    public void GameMenuReiniar(string cena)
     {
-        SceneManager.LoadScene("Ato_1_1");
+        SceneManager.LoadScene(cena);
 
     }
     public void GameMenuPrincipal()
@@ -95,13 +95,13 @@ public class Gerenciadordepartida : MonoBehaviour
 
     }
 
-    public void GameMenuReiniciarInicio()
+    public void GameMenuReiniciarInicio(string cena)
     {
         //_gameControle._checkPoint.ApagaSave();
 
         if(PlayerPrefs.HasKey("AtivouSpeedRun")) //Temporario so para a SpeedRun
         {
-            SceneManager.LoadScene("Ato_1_1");
+            SceneManager.LoadScene(cena);
 
             PlayerPrefs.DeleteKey("posX");
             PlayerPrefs.DeleteKey("posY");
@@ -112,7 +112,7 @@ public class Gerenciadordepartida : MonoBehaviour
         else
         {
             PlayerPrefs.DeleteAll();
-            SceneManager.LoadScene("Ato_1_1");
+            SceneManager.LoadScene(cena);
         }
 
     }

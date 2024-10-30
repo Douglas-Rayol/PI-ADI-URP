@@ -1,8 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Xml.Schema;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -18,15 +15,9 @@ public class PlayerMap : MonoBehaviour
     [SerializeField] MapControle _mapControle;
     
     [SerializeField] public int _mudaFase;
-    [SerializeField] bool _checkPos;
     [SerializeField] public bool _podeAvanca;
-
-    [SerializeField] int _checkqtdBonus;
     [SerializeField] int _numPag;
 
-    [SerializeField] int _pagTest;
-
-    [SerializeField] Vector3 _velocidade;
 
 
 
@@ -47,24 +38,11 @@ public class PlayerMap : MonoBehaviour
     void Update()
     {
 
-        UnityEngine.Debug.Log(PlayerPrefs.GetInt("fase1point"));
-
         _numPag = PlayerPrefs.GetInt("SalvaPaginaScore");
+
         AnimacaoPlayerMap();
 
         float _distance = Vector3.Distance(transform.position, _mapControle._posFase[_mudaFase].position);
-
-        _velocidade = _agentPlayer.velocity;
-
-        if(_velocidade.x+ _velocidade.y + _velocidade.z==0)
-        {
-            _podeAvanca = true;
-        }
-        else
-        {
-            _podeAvanca = false;
-        }
-
 
         if (_mudaFase >= 0)
         {
@@ -72,90 +50,23 @@ public class PlayerMap : MonoBehaviour
             
         }
 
-
     }
 
 
     public void SetFrente(InputAction.CallbackContext value)
     {
-
-        
-
-        if (value.performed && !_checkPos && _podeAvanca)
+        if (value.performed && _mudaFase != 3 && !_podeAvanca)
         {
-            
-            _checkPos = true;
-            _agentPlayer.speed = 10;
-
-            if(_pagTest < 6 && _mudaFase == 2) //Não tem pagina
-            {
-                _mudaFase = 4;
-            }
-            else if(_pagTest >= 6 && _mudaFase == 2 && _checkqtdBonus == 0)
-            {
-                _mudaFase = 3;
-                _checkqtdBonus = 1;
-            }
-            else if(_pagTest >= 6 && _mudaFase == 3 && _checkqtdBonus == 1)
-            {
-                _mudaFase = 2;
-                _checkqtdBonus = 2;
-            }
-            else if(_pagTest >= 6 && _mudaFase == 2 && _checkqtdBonus == 2)
-            {
-                _mudaFase = 4;
-                _checkqtdBonus = 0;
-            }
-            else
-            {
-                _mudaFase ++;
-            }
-             
-            
-            
-            
-
-        }
-        else
-        {
-            _checkPos = false;
+            StartCoroutine(TempoMudaFaseFrente());
         }
     }
 
     public void SetTras(InputAction.CallbackContext value)
     {
-        if (value.performed && !_checkPos && _podeAvanca && _mudaFase != 0)
+        if (value.performed && _mudaFase != 0 && !_podeAvanca)
         {
-            _checkPos = true;
-            _agentPlayer.speed = 10;
-
-            if(_pagTest < 6 && _mudaFase == 2)
-            {
-                _mudaFase = 1;
-            }
-            else if(_pagTest >= 6 && _mudaFase == 4 && _checkqtdBonus == 0)
-            {
-                _mudaFase = 2;
-                _checkqtdBonus = 1;
-            }
-            else if(_pagTest >= 6 && _mudaFase == 2 && _checkqtdBonus == 1)
-            {
-                _mudaFase = 1;
-                _checkqtdBonus = 0;
-            }
-            else
-            {
-                if(_mudaFase!=0)
-                _mudaFase --;
-            }
-
+            StartCoroutine(TempoMudaFaseAtras());
         }
-        else
-        {
-            _checkPos = false;
-        }
-
-
     }
 
     public void SetSpeedRun(InputAction.CallbackContext value)
@@ -176,15 +87,21 @@ public class PlayerMap : MonoBehaviour
       _anim.SetFloat("Input", _agentPlayer.speed);
     }
 
-
-    private IEnumerator TempoParaMudarFase()
+    public IEnumerator TempoMudaFaseFrente()
     {
-        _agentPlayer.speed = 0;
-        yield return new WaitForSeconds(.2f);
+        _podeAvanca = true;
         _mudaFase++;
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.3f);
         _agentPlayer.speed = 10;
+        
+    }
 
+    public IEnumerator TempoMudaFaseAtras()
+    {
+        _podeAvanca = true;
+        _mudaFase--;
+        yield return new WaitForSeconds(.3f);
+        _agentPlayer.speed = 10;
     }
 
 }
