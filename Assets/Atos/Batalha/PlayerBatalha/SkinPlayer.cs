@@ -5,4 +5,9 @@ using UnityEngine;
 public class SkinPlayer : MonoBehaviour
 {
     [SerializeField] public GameObject _skinIndie;
+
+    
+
+
+
 }
