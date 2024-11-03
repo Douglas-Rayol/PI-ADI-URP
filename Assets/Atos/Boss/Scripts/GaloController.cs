@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GaloController : MonoBehaviour
@@ -9,23 +10,26 @@ public class GaloController : MonoBehaviour
     public float _moveSpeed = 3.5f; // Velocidade de movimento do boss
     public float _distanciaAtaque = 2f; // Distância para atacar o jogador
     public float _jabCooldown = 1.5f; // Tempo entre ataques de jab
-    public float _diretoCooldown = 2.5f; // Tempo entre ataques diretos
+    public float _PunchCooldown = 2.5f; // Tempo entre ataques Punchs
     public float _superCooldown = 5f; // Tempo entre ataques de super soco
     public bool _vulneravel = false; // Determina se o boss pode ser atacado
-    public float _afastar = 2f; // Força de empurrão ao defender
+    public float _afastar = 2f; // Força de empurrão ao Blocker
 
     private float _proximoJab;
-    private float _proximoDireto;
+    private float _proximoPunch;
     private float _proximoSuper;
     private Animator anim; // Referência ao Animator para as animações
     private Rigidbody _rb; // Referência ao Rigidbody para aplicar o empurrão
+
+    public CapsuleCollider _cc;
+   
 
     void Start()
     {
         anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _proximoJab = Time.time + _jabCooldown;
-        _proximoDireto = Time.time + _diretoCooldown;
+        _proximoPunch = Time.time + _PunchCooldown;
         _proximoSuper = Time.time + _superCooldown;
     }
 
@@ -36,7 +40,7 @@ public class GaloController : MonoBehaviour
         // Movimenta-se em direção ao jogador se estiver fora do alcance de ataque
         if (distanceTo_player > _distanciaAtaque)
         {
-            MoveTowards_player();
+            MoveTowardsPlayer(_cc);
         }
         else
         {
@@ -45,22 +49,39 @@ public class GaloController : MonoBehaviour
         }
     }
 
-    void MoveTowards_player()
+    void MoveTowardsPlayer(CapsuleCollider _cc)
     {
-        // Ação de caminhar em direção ao jogador
-        anim.SetBool("isWalking", true);
-        transform.position = Vector3.MoveTowards(transform.position, _player.position, _moveSpeed * Time.deltaTime);
+        // Ação de caminhar em direção ao jogador apenas no eixo X
+        anim.SetBool("GaloAndar", true);
+
+        // Calcula a nova posição do boss, mantendo o eixo Y e Z
+        Vector3 targetPosition = new Vector3(_player.position.x, transform.position.y, transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _moveSpeed * Time.deltaTime);
+       
+    }
+
+    
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Ao colidir com o jogador, apenas mantenha a posição do boss
+            // Se necessário, você pode aplicar efeitos, mas aqui apenas ignoramos a rotação
+            _rb.velocity = Vector3.zero; // Remove qualquer velocidade do boss
+            _rb.angularVelocity = Vector3.zero; // Remove qualquer rotação do boss
+
+        }
     }
 
     void ChooseAction()
     {
         // Define as animações de movimento como false
-        anim.SetBool("isWalking", false);
+        anim.SetBool("GaloAndar", false);
 
-        // Caso o boss não seja vulnerável, ele se defende de todos os ataques
+        // Caso o boss não seja vulnerável, ele se Blocke de todos os ataques
         if (!_vulneravel)
         {
-            Defend();
+            Block();
             return;
         }
 
@@ -70,10 +91,10 @@ public class GaloController : MonoBehaviour
             Jab();
             _proximoJab = Time.time + _jabCooldown;
         }
-        else if (Time.time >= _proximoDireto)
+        else if (Time.time >= _proximoPunch)
         {
-            Direto();
-            _proximoDireto = Time.time + _diretoCooldown;
+            Punch();
+            _proximoPunch = Time.time + _PunchCooldown;
         }
         else if (Time.time >= _proximoSuper)
         {
@@ -82,11 +103,11 @@ public class GaloController : MonoBehaviour
         }
     }
 
-    void Defend()
+    void Block()
     {
         // Ativa animação de defesa
-        anim.SetTrigger("Defend");
-        Debug.Log("Boss está defendendo.");
+        anim.SetTrigger("Block");
+        Debug.Log("Boss está Blockendo.");
 
         // Aplica um empurrão para trás
         Knockback();
@@ -107,12 +128,12 @@ public class GaloController : MonoBehaviour
         // Coloque aqui a lógica de dano do jab
     }
 
-    void Direto()
+    void Punch()
     {
-        // Executa o ataque direto
-        anim.SetTrigger("Direto");
-        Debug.Log("Boss lançou um direto!");
-        // Coloque aqui a lógica de dano do direto
+        // Executa o ataque Punch
+        anim.SetTrigger("Punch");
+        Debug.Log("Boss lançou um Punch!");
+        // Coloque aqui a lógica de dano do Punch
     }
 
     void SuperSoco()
@@ -128,4 +149,8 @@ public class GaloController : MonoBehaviour
     {
         _vulneravel = vulnerable;
     }
+
+   
+
+
 }
