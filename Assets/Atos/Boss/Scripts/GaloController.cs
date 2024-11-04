@@ -48,17 +48,17 @@ public class GaloController : MonoBehaviour
     void MoveTowards_player()
     {
         // Ação de caminhar em direção ao jogador
-        anim.SetBool("isWalking", true);
+        anim.SetBool("Andar", true);
         transform.position = Vector3.MoveTowards(transform.position, _player.position, _moveSpeed * Time.deltaTime);
     }
 
     void ChooseAction()
     {
         // Define as animações de movimento como false
-        anim.SetBool("isWalking", false);
-
+        anim.SetBool("Andar", false);
+    }
         // Caso o boss não seja vulnerável, ele se defende de todos os ataques
-        if (!_vulneravel)
+        /*if (!_vulneravel)
         {
             Defend();
             return;
@@ -127,5 +127,5 @@ public class GaloController : MonoBehaviour
     public void SetVulnerable(bool vulnerable)
     {
         _vulneravel = vulnerable;
-    }
+    }*/
 }
