@@ -14,7 +14,8 @@ public class Galo : MonoBehaviour
     [SerializeField] float _gravidade;
     [SerializeField] bool _checkGround;
     [SerializeField] float _galoH;
-
+    [SerializeField] bool _paraGiro;
+    [SerializeField] int _index;
 
     void Awake()
     {
@@ -39,7 +40,7 @@ public class Galo : MonoBehaviour
                 _rb.velocity = Vector3.zero;
             }
         }
-        else if(_distance <= 20f) //Se ele tiver a 20 de distancia (Ativa Soco Dash)
+        else if(_distance <= 15f) //Se ele tiver a 15 de distancia (Ativa Soco Dash)
         {
             if(_checkGround)
             {
@@ -61,28 +62,34 @@ public class Galo : MonoBehaviour
         }
 
         FlipDoGalo();
+        GravidaGalo();
         
 
     }
 
-    private void FlipDoGalo() //Nunca mais mexa aqui
+    private void FlipDoGalo()
     {
         if (_galoH >= 5f)
         {
             _direction = 1;
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -3);
         }
-        else if (_galoH <= -5f)
+        
+        if (_galoH <= -5f)
         {
             _direction = -1;
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 3);
         }
     }
 
+    private void GravidaGalo()
+    {
+        _rb.AddForce(Vector3.down * _gravidade);
+    }
+
 
     public void Andando()
     {
-
         if(_checkGround)
         {
             _rb.velocity = new Vector3(_direction * _speed, _rb.velocity.y, _rb.velocity.z);
@@ -94,11 +101,11 @@ public class Galo : MonoBehaviour
     {
         if (_checkGround)
         {
-            _rb.AddForce(new Vector3(_direction * _speed * 10, 0, 0), ForceMode.VelocityChange);
+            _rb.velocity = new Vector3(_direction * _speed * 10, 0, 0);
         }
     }
 
-    public void Paradinha()
+    public void Paradinha() 
     {
         _rb.velocity = Vector3.zero;
     }
@@ -109,6 +116,8 @@ public class Galo : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
             _checkGround = true;
+
+            _index++;
         }
     }
 
@@ -116,7 +125,13 @@ public class Galo : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Ground"))
         {
-            _checkGround = false;
+            _index--;
+
+            if(_index <= 0)
+            {
+                _checkGround = false;
+            }
+            
         }
     }
 
