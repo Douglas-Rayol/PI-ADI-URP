@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class GaloController : MonoBehaviour
-
-{
-    public Transform _player; // Referência ao jogador
+{   
     public float _moveSpeed = 3.5f; // Velocidade de movimento do boss
     public float _distanciaAtaque = 2f; // Distância para atacar o jogador
     public float _jabCooldown = 1.5f; // Tempo entre ataques de jab
@@ -35,30 +32,30 @@ public class GaloController : MonoBehaviour
 
     void Update()
     {
-        float distanceTo_player = Vector3.Distance(transform.position, _player.position);
+        // float distanceTo_player = Vector3.Distance(transform.position, _player.position);
 
-        // Movimenta-se em direção ao jogador se estiver fora do alcance de ataque
-        if (distanceTo_player > _distanciaAtaque)
-        {
-            MoveTowardsPlayer(_cc);
-        }
-        else
-        {
-            // Caso esteja dentro do alcance, escolhe uma ação
-            ChooseAction();
-        }
+        // // Movimenta-se em direção ao jogador se estiver fora do alcance de ataque
+        // if (distanceTo_player > _distanciaAtaque)
+        // {
+        //     MoveTowardsPlayer(_cc);
+        // }
+        // else
+        // {
+        //     // Caso esteja dentro do alcance, escolhe uma ação
+        //     ChooseAction();
+        // }
     }
 
-    void MoveTowardsPlayer(CapsuleCollider _cc)
-    {
-        // Ação de caminhar em direção ao jogador apenas no eixo X
-        anim.SetBool("GaloAndar", true);
+    // void MoveTowardsPlayer(CapsuleCollider _cc)
+    // {
+    //     // Ação de caminhar em direção ao jogador apenas no eixo X
+    //     anim.SetBool("GaloAndar", true);
 
-        // Calcula a nova posição do boss, mantendo o eixo Y e Z
-        Vector3 targetPosition = new Vector3(_player.position.x, transform.position.y, transform.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _moveSpeed * Time.deltaTime);
+    //     // Calcula a nova posição do boss, mantendo o eixo Y e Z
+    //     Vector3 targetPosition = new Vector3(_player.position.x, transform.position.y, transform.position.z);
+    //     transform.position = Vector3.MoveTowards(transform.position, targetPosition, _moveSpeed * Time.deltaTime);
        
-    }
+    // }
 
     
     public void OnCollisionEnter(Collision collision)
@@ -116,8 +113,8 @@ public class GaloController : MonoBehaviour
     void Knockback()
     {
         // Calcula a direção oposta ao jogador e aplica uma força de empurrão
-        Vector3 knockbackDirection = (transform.position - _player.position).normalized;
-        _rb.AddForce(knockbackDirection * _afastar, ForceMode.Impulse);
+        //Vector3 knockbackDirection = (transform.position - _player.position).normalized;
+        //_rb.AddForce(knockbackDirection * _afastar, ForceMode.Impulse);
     }
 
     void Jab()
