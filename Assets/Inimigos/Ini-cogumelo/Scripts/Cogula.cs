@@ -137,7 +137,7 @@ public class Cogula : MonoBehaviour
     {
         _playerH = _player.position.y - transform.position.y;
 
-        if (_distPlayer < _distPlayerLimit && _playerH<18)
+        if (_distPlayer < _distPlayerLimit && _playerH < 18)
         {
             _isPlayer = true;
             _alvo = _player;
@@ -154,8 +154,6 @@ public class Cogula : MonoBehaviour
                 _stopPlayer = true;
             }
         }
-
-
 
     }
 
