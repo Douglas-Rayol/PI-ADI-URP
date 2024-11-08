@@ -72,4 +72,6 @@ public class PainelTutorial : MonoBehaviour
             _painelTutor.DOScale(0, .25f);
         }
     }
+
+    
 }

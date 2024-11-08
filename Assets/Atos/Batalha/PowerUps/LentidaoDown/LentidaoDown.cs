@@ -8,10 +8,12 @@ public class LentidaoDown : MonoBehaviour
     [SerializeField] Rigidbody _rb;
     [SerializeField] float _gravidade;
     [SerializeField] int _pulos;
+    [SerializeField] GameObject _particula;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        StartCoroutine(PartSpawn());
     }
 
     void Update()
@@ -50,8 +52,11 @@ public class LentidaoDown : MonoBehaviour
 
         }
     }
-
-
-
+    IEnumerator PartSpawn()
+    {
+        _particula.SetActive(true);
+        yield return new WaitForSeconds(.3f);
+        _particula.SetActive(false);
+    }
 }
 

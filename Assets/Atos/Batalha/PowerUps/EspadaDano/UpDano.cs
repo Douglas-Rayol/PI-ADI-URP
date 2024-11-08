@@ -9,9 +9,13 @@ public class UpDano : MonoBehaviour
     [SerializeField] float _gravidade;
     [SerializeField] int _pulos;
 
+    [SerializeField] GameObject _particula;
+
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        StartCoroutine(PartSpawn());
     }
 
     private void FixedUpdate()
@@ -50,6 +54,11 @@ public class UpDano : MonoBehaviour
         }
 
     }
-
+    IEnumerator PartSpawn()
+    {
+        _particula.SetActive(true);
+        yield return new WaitForSeconds(.3f);
+        _particula.SetActive(false);
+    }
 
 }

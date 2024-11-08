@@ -37,10 +37,12 @@ public class TriguerDialogo : MonoBehaviour
             if(_dialogo._tipo == 0)
             {
                 _painelTutorial.PainelOn(true, _dialogo);
+                
             }
             else if(_dialogo._tipo == 1)
             {
                 _painelTutorial.PainelPedra(true, _dialogo);
+                
             }
             else if(_dialogo._tipo == 2)
             {
