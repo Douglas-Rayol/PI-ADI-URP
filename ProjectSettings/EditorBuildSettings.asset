@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Atos/Boss/Ato_1_3.unity
     guid: 434937e2b5b336742958accea574dee6
+  - enabled: 1
+    path: Assets/Atos/CenaFim/CenaFim.unity
+    guid: a94252d6fe94e9545a00c1ada5256f1c
   m_configObjects: {}

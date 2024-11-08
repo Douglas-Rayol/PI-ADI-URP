@@ -52,11 +52,13 @@ public class Tiro : MonoBehaviour
 
     void OnTriggerEnter(Collider other) //Desativa o tiro quando acerta o inimigo.
     {
-        if (other.gameObject.CompareTag("AtaqueEnemy"))
+        if (other.gameObject.CompareTag("AtaqueEnemy") || other.gameObject.CompareTag("Untagged"))
         {
             gameObject.SetActive(false);
             _tempoVida = 0;
         }
+
+
     }
 
 }

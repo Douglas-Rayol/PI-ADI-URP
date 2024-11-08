@@ -336,7 +336,7 @@ public class PlayerController : MonoBehaviour
     public void SetJump(InputAction.CallbackContext value)
     {
 
-        if (value.performed && !ativaJump) //Jotap�
+        if (value.performed && !ativaJump && !_gameManager._pause) //Jotap�
         {
             
             if ((_checkGround || _plataforma || coyote == 1) && !_dentroPlataforma && _ativadorMovimento)
