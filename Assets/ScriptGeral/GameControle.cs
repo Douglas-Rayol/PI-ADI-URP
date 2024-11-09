@@ -70,7 +70,7 @@ public class GameControle : MonoBehaviour
 
 
     }
-
+    
     public void AtivaBau()
     {
         _cadeadoMT._bauAberto = true;

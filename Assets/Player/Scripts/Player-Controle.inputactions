@@ -170,6 +170,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "up",
+                    "id": "cc32ce48-4ea9-4869-b0ca-8cc0a15322dc",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controle",
+                    "action": "AbreBau",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "0a2b469f-9fc9-45f0-9e98-e213ac76757b",
                     "path": "<Keyboard>/f12",
