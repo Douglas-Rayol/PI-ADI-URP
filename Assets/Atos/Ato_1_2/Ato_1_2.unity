@@ -1661,7 +1661,6 @@ GameObject:
   - component: {fileID: 201893242}
   - component: {fileID: 201893245}
   - component: {fileID: 201893244}
-  - component: {fileID: 201893243}
   m_Layer: 5
   m_Name: GAMEOVER
   m_TagString: Untagged
@@ -1689,24 +1688,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &201893243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201893241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039a3e5a189f7a940a2e87a3f6890726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PartidaIniciada: 0
-  _buttonGameOver: {fileID: 2069465826}
-  _gameControle: {fileID: 0}
-  _menuStart: {fileID: 0}
-  _ativaButton: []
-  _startMenu: 0
 --- !u!114 &201893244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9232,7 +9213,7 @@ Transform:
   m_GameObject: {fileID: 434685777}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -529.38995, y: 59.803883, z: -44.713352}
+  m_LocalPosition: {x: -525.8533, y: 59.803883, z: -44.713352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19049,11 +19030,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1519864919}
         m_TargetAssemblyTypeName: Gerenciadordepartida, Assembly-CSharp
         m_MethodName: GameMapaPrincipal
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -26484,7 +26465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -330, y: 507.99774}
+  m_AnchoredPosition: {x: -330, y: 507.9978}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985857784
@@ -26501,7 +26482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 1
-    m_WrapAround: 0
+    m_WrapAround: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -26531,7 +26512,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 201893243}
+      - m_Target: {fileID: 1519864919}
         m_TargetAssemblyTypeName: Gerenciadordepartida, Assembly-CSharp
         m_MethodName: GameMenuPrincipal
         m_Mode: 1
@@ -26966,7 +26947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -4, y: 507.99774}
+  m_AnchoredPosition: {x: -4, y: 507.9978}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1048383532
@@ -26983,7 +26964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 1
-    m_WrapAround: 0
+    m_WrapAround: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -27013,14 +26994,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 201893243}
+      - m_Target: {fileID: 1519864919}
         m_TargetAssemblyTypeName: Gerenciadordepartida, Assembly-CSharp
         m_MethodName: GameMapaPrincipal
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -29929,11 +29910,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1519864919}
         m_TargetAssemblyTypeName: Gerenciadordepartida, Assembly-CSharp
         m_MethodName: GameMapaPrincipal
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -39910,7 +39891,7 @@ Transform:
   m_GameObject: {fileID: 1519864908}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -529.38995, y: 59.803883, z: -44.713352}
+  m_LocalPosition: {x: -525.8533, y: 59.803883, z: -44.713352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56942,7 +56923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 1
-    m_WrapAround: 0
+    m_WrapAround: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -56972,7 +56953,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 201893243}
+      - m_Target: {fileID: 1519864919}
         m_TargetAssemblyTypeName: Gerenciadordepartida, Assembly-CSharp
         m_MethodName: GameMenuReiniar
         m_Mode: 5
