@@ -6,6 +6,7 @@
         [SerializeField] Rigidbody _rbPlayer;
 
 
+
      IEnumerator SplitMesh ()
      {
      MeshFilter MF = GetComponent<MeshFilter>();
@@ -71,5 +72,12 @@
     
      }
 
+     void OnTriggerEnter(Collider other)
+     {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            gameObject.SetActive(false);
+        }
+     }
 
      }

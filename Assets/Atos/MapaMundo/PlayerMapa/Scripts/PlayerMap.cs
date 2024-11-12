@@ -20,30 +20,31 @@ public class PlayerMap : MonoBehaviour
     [SerializeField] public int _numPag;
 
 
-
-
     void Start()
     {
         _mapControle = Camera.main.GetComponent<MapControle>();
 
         if (PlayerPrefs.GetInt("fase1point") == 1)
         {
-            transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+            _agentPlayer.enabled = false;
             _mudaFase = 1;
+            transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+            _agentPlayer.enabled = true;
         }
         else if (PlayerPrefs.GetInt("fase1point") == 2)
         {
-            transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+            _agentPlayer.enabled = false;
             _mudaFase = 2;
+            transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+            _agentPlayer.enabled = true;
         }
         else if (PlayerPrefs.GetInt("fase1point") == 3)
         {
-            transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+            _agentPlayer.enabled = false;
             _mudaFase = 3;
-        }
-
-        Debug.Log(PlayerPrefs.GetInt("fase1point"));
-        
+            transform.position = new Vector3(PlayerPrefs.GetFloat("posXMapa"), PlayerPrefs.GetFloat("posYMapa"), PlayerPrefs.GetFloat("posZMapa"));
+            _agentPlayer.enabled = true;
+        }        
 
     }
 

@@ -19,14 +19,16 @@ public class SelecionaFase : MonoBehaviour
     public void PointFase1(int index)
     {
         PlayerPrefs.SetInt("fase1point", index);
-
-        PlayerPrefs.SetFloat("posXMapa", _playerMap.transform.position.x);
-        PlayerPrefs.SetFloat("posYMapa", _playerMap.transform.position.y);
-        PlayerPrefs.SetFloat("posZMapa", _playerMap.transform.position.z);
         
-        PlayerPrefs.DeleteKey("posX");
-        PlayerPrefs.DeleteKey("posY");
-        PlayerPrefs.DeleteKey("posZ");
+         PlayerPrefs.DeleteKey("posX");
+         PlayerPrefs.DeleteKey("posY");
+         PlayerPrefs.DeleteKey("posZ");
+
+         PlayerPrefs.SetFloat("posXMapa", _playerMap.transform.localPosition.x);
+         PlayerPrefs.SetFloat("posYMapa", _playerMap.transform.localPosition.y);
+         PlayerPrefs.SetFloat("posZMapa", _playerMap.transform.localPosition.z);
+        
+
 
     }
 

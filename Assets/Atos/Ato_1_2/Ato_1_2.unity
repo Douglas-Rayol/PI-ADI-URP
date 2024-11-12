@@ -14876,9 +14876,10 @@ GameObject:
   - component: {fileID: 514792227}
   - component: {fileID: 514792226}
   - component: {fileID: 514792225}
+  - component: {fileID: 514792229}
   m_Layer: 0
   m_Name: balao (5)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14981,6 +14982,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514792223}
   m_Mesh: {fileID: -5495902117074765545, guid: 9770cfa6d3536834f99d0c79098be1e7, type: 3}
+--- !u!65 &514792229
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514792223}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: 0, y: 0.28981468, z: 0}
 --- !u!1 &522751366
 GameObject:
   m_ObjectHideFlags: 0
@@ -17827,9 +17849,10 @@ GameObject:
   - component: {fileID: 762771444}
   - component: {fileID: 762771443}
   - component: {fileID: 762771442}
+  - component: {fileID: 762771446}
   m_Layer: 0
   m_Name: balao (6)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17932,6 +17955,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762771440}
   m_Mesh: {fileID: -5495902117074765545, guid: 9770cfa6d3536834f99d0c79098be1e7, type: 3}
+--- !u!65 &762771446
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762771440}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: 0, y: 0.28981468, z: 0}
 --- !u!1 &770309900
 GameObject:
   m_ObjectHideFlags: 0
@@ -19165,9 +19209,10 @@ GameObject:
   - component: {fileID: 828918452}
   - component: {fileID: 828918451}
   - component: {fileID: 828918450}
+  - component: {fileID: 828918454}
   m_Layer: 0
   m_Name: balao (7)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19270,6 +19315,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828918448}
   m_Mesh: {fileID: -5495902117074765545, guid: 9770cfa6d3536834f99d0c79098be1e7, type: 3}
+--- !u!65 &828918454
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828918448}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: 0, y: 0.28981468, z: 0}
 --- !u!1 &829663599
 GameObject:
   m_ObjectHideFlags: 0
@@ -25660,9 +25726,10 @@ GameObject:
   - component: {fileID: 943457023}
   - component: {fileID: 943457022}
   - component: {fileID: 943457021}
+  - component: {fileID: 943457025}
   m_Layer: 0
   m_Name: balao (4)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25765,6 +25832,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943457019}
   m_Mesh: {fileID: -5495902117074765545, guid: 9770cfa6d3536834f99d0c79098be1e7, type: 3}
+--- !u!65 &943457025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943457019}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: 0, y: 0.2898223, z: 0}
 --- !u!1 &944204019
 GameObject:
   m_ObjectHideFlags: 0
@@ -30349,9 +30437,10 @@ GameObject:
   - component: {fileID: 1265820298}
   - component: {fileID: 1265820297}
   - component: {fileID: 1265820296}
+  - component: {fileID: 1265820300}
   m_Layer: 0
   m_Name: balao (3)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30454,6 +30543,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265820294}
   m_Mesh: {fileID: -5495902117074765545, guid: 9770cfa6d3536834f99d0c79098be1e7, type: 3}
+--- !u!65 &1265820300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265820294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: 0, y: 0.28981563, z: 0}
 --- !u!4 &1267425843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8143196002026500928, guid: c7593a2c91ec91e498e64a24663beaef,
@@ -32327,9 +32437,10 @@ GameObject:
   - component: {fileID: 1369523571}
   - component: {fileID: 1369523570}
   - component: {fileID: 1369523569}
+  - component: {fileID: 1369523573}
   m_Layer: 0
   m_Name: balao (2)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32432,6 +32543,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369523567}
   m_Mesh: {fileID: -5495902117074765545, guid: 9770cfa6d3536834f99d0c79098be1e7, type: 3}
+--- !u!65 &1369523573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369523567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: 0, y: 0.28981468, z: 0}
 --- !u!1 &1373935932
 GameObject:
   m_ObjectHideFlags: 0
@@ -46874,9 +47006,10 @@ GameObject:
   - component: {fileID: 1758056338}
   - component: {fileID: 1758056337}
   - component: {fileID: 1758056336}
+  - component: {fileID: 1758056340}
   m_Layer: 0
   m_Name: balao (8)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46979,6 +47112,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758056334}
   m_Mesh: {fileID: -5495902117074765545, guid: 9770cfa6d3536834f99d0c79098be1e7, type: 3}
+--- !u!65 &1758056340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758056334}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: 0, y: 0.28980705, z: 0}
 --- !u!1 &1763163020
 GameObject:
   m_ObjectHideFlags: 0
@@ -49065,7 +49219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1801954123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -84051,9 +84205,10 @@ GameObject:
   - component: {fileID: 9107263392335287397}
   - component: {fileID: 932363757937360045}
   - component: {fileID: 655912645}
+  - component: {fileID: 9107263392335287398}
   m_Layer: 0
   m_Name: balao (1)
-  m_TagString: Inimigo1
+  m_TagString: AtaqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84676,6 +84831,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9107263392335287398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305827871094732208}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7148322, y: 2.4064124, z: 1.7148322}
+  m_Center: {x: -0.000015258789, y: 0.28981468, z: 0}
 --- !u!4 &9138058036361471601
 Transform:
   m_ObjectHideFlags: 0
