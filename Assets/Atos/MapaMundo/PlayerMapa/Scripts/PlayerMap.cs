@@ -109,21 +109,21 @@ public class PlayerMap : MonoBehaviour
 
     public IEnumerator TempoMudaFaseFrente()
     {
-        if(_numPag == 0 && _mudaFase < 1)
+        if(_mudaFase < 1)
         {
             _podeAvanca = true;
             _mudaFase++;
             yield return new WaitForSeconds(.3f);
             _agentPlayer.speed = 10;
         }
-        else if(_numPag == 6 && _mudaFase < 2)
+        else if(_mudaFase < 2)
         {
             _podeAvanca = true;
             _mudaFase++;
             yield return new WaitForSeconds(.3f);
             _agentPlayer.speed = 10;
         }
-        else if(_numPag == 12 && _mudaFase < 3)
+        else if(_mudaFase < 3)
         {
             _podeAvanca = true;
             _mudaFase++;

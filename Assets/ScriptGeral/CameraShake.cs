@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
-using DG.Tweening;
+
 
 public class CameraShake : MonoBehaviour
 {
 
-    [SerializeField] Transform _referencia;
+    [SerializeField] CinemachineImpulseSource impulseSource;
+    [SerializeField] float _forca;
+
+    void Awake()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
 
     public void Shake()
     {
-       _referencia.DOShakePosition(2, new Vector3(20, 10, 0), 50, 0, true);
+       impulseSource.GenerateImpulse(_forca * Vector3.one);
     }
-
 
 
 }

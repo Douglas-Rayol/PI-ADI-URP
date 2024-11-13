@@ -4,14 +4,29 @@ using UnityEngine.InputSystem;
 
 public class VibrationController : MonoBehaviour
 {
-    public void Vibrar(float intensidadeBaixa, float intensidadeAlta)
-    {
+    public void Vibrar(float _intencidadeMin, float _intencidadeMax)
+    {       
+
         if (Gamepad.current != null)
         {
             // Configura a vibração dos motores de baixa e alta frequência
-            Gamepad.current.SetMotorSpeeds(intensidadeBaixa, intensidadeAlta);
+            Gamepad.current.SetMotorSpeeds(_intencidadeMin, _intencidadeMax);
 
-            Invoke("PararVibracao", 1f);
+            Invoke("PararVibracao", 1.5f);
+
+        }
+    }
+
+    public void VibrarAnim()
+    {
+
+        if (Gamepad.current != null)
+        {
+            // Configura a vibração dos motores de baixa e alta frequência
+            Gamepad.current.SetMotorSpeeds(1f, 5f);
+
+            Invoke("PararVibracao", .1f);
+
         }
     }
 

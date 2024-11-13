@@ -97,8 +97,8 @@ public class PlayerBatalha : MonoBehaviour
                 PlayerPrefs.SetInt("Player", _tipo);
                 _porcentagemTxt.text = "0%";
                 _menuBatalha.StartCoroutine("AtivaMenu", 3f);
-
             }
+
         }
 
 
@@ -220,7 +220,6 @@ public class PlayerBatalha : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Ground"))
         {
-
             _groundCount++;
 
             _sinalCoyote = true;
@@ -280,9 +279,7 @@ public class PlayerBatalha : MonoBehaviour
             _coyote = 0;
         }
     }
-
-    //Treme o Controle
-    //GetComponent<VibrationController>().Vibrar(.5f, 1f);
+    
 
 
 

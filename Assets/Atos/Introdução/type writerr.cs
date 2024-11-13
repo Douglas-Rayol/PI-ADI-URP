@@ -7,14 +7,24 @@ using UnityEngine.SceneManagement;
 
 public class TypeWriterr : MonoBehaviour
 {
+    [SerializeField] ColetaConf _coletaConf;
     public Text _textWriter;
     public float _delayWriter = 0.01f;
     public string _escrevaFrase;
+    public string _escrevaFrase2;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("MostrarTexto", _escrevaFrase);
+        if(_coletaConf._totalPag < 12)
+        {
+            StartCoroutine("MostrarTexto", _escrevaFrase2);
+        }
+        else
+        {
+            StartCoroutine("MostrarTexto", _escrevaFrase);
+        }
+        
     }
 
     IEnumerator MostrarTexto(string textType)

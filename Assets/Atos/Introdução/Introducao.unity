@@ -167,9 +167,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4bc5a2fcca6024da8a08cb1ce011d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coletaConf: {fileID: 11400000, guid: 53ad1ee7452eeec42aea8d4215f0bf22, type: 2}
   _textWriter: {fileID: 599203849}
   _delayWriter: 0.03
   _escrevaFrase: "Tito acorda atrasado para escola, ele lembra que hoje \xE9 dia
+    de entregar suas atividades. Se arrumando para a escola, ele esquece a janela
+    aberta, e ao fechar, uma brisa forte de vento leva suas atividades, ajude-o a
+    recuperar seu dever de casa coletando as p\xE1ginas. "
+  _escrevaFrase2: "Tito acorda atrasado para escola, ele lembra que hoje \xE9 dia
     de entregar suas atividades. Se arrumando para a escola, ele esquece a janela
     aberta, e ao fechar, uma brisa forte de vento leva suas atividades, ajude-o a
     recuperar seu dever de casa coletando as p\xE1ginas. "

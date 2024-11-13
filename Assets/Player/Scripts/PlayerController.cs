@@ -234,7 +234,7 @@ public class PlayerController : MonoBehaviour
 
     public void TransformacaoTransicao()
     {
-        
+        GetComponent<VibrationController>().Vibrar(1f, 5f);
         _anim.SetLayerWeight(1, 1);
         _anim.SetBool("Transform", true);
         StartCoroutine(Transforme());
@@ -512,6 +512,8 @@ public class PlayerController : MonoBehaviour
     public void VidaPlayer()
     {
 
+        
+
         if(_ativaDefesa == false)
         {
             _ativadorMovimento = false;
@@ -528,6 +530,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DefesaTime());
             Invoke("TimeHitAnim", .5f);
             Empurrao();
+            
         }
 
         
@@ -566,6 +569,7 @@ public class PlayerController : MonoBehaviour
     {
         _defesaUp -= 1;
 
+        GetComponent<VibrationController>().Vibrar(1f, 5f);
 
         for (int i = 0; i < 30; i++)
         {
@@ -615,6 +619,8 @@ public class PlayerController : MonoBehaviour
     {
         _vida -= 1;
         _anim.SetBool("Hit", true);
+
+        GetComponent<VibrationController>().Vibrar(1f, 5f);
 
         for (int i = 0; i < 30; i++)
         {
@@ -788,7 +794,7 @@ public class PlayerController : MonoBehaviour
             if (_groundCount == 0)
             {
                 _plataforma = false;
-                transform.SetParent(_PosPlayer.transform);
+                transform.SetParent(_PosPlayer);
                 _checkGround = false;
                 //Jotap�
                 _anim.SetBool("Jump", true);

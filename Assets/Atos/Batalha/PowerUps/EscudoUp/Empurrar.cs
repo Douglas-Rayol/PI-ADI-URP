@@ -10,6 +10,7 @@ public class Empurrar : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerBatalha>()._vidaMin -= 10; //Retira a vida
+            other.gameObject.GetComponent<VibrationController>().VibrarAnim();
 
             if(other.gameObject.transform.eulerAngles.y == 90)
             {

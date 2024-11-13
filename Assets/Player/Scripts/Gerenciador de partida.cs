@@ -81,19 +81,16 @@ public class Gerenciadordepartida : MonoBehaviour
 
     public void GameMapaPrincipal(int fasepoint)
     {
-        if(PlayerPrefs.HasKey("fase1point"))
+        if(PlayerPrefs.GetInt("fase1point") == fasepoint)
         {
-            if(PlayerPrefs.GetInt("fase1point") == fasepoint)
-            {
-                SceneManager.LoadScene("Mapa");
-                PlayerPrefs.DeleteKey("salvaTime");
-            }
+            SceneManager.LoadScene("Mapa");
+            PlayerPrefs.DeleteKey("salvaTime");
         }
         else
         {
             PlayerPrefs.DeleteKey("salvaTime");
-            _gameControle._checkPoint.ApagaSave();
             SceneManager.LoadScene("Mapa");
+            _gameControle._checkPoint.ApagaSave();
         }
 
     }

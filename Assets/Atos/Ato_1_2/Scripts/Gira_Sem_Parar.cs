@@ -31,6 +31,7 @@ public class Gira_Sem_Parar : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerBatalha>()._vidaMin -= 20;
             other.gameObject.GetComponent<HudPowerUp>()._ativaTempoEscudo = false;
+            other.gameObject.GetComponent<VibrationController>().VibrarAnim();
 
             GetComponent<CapsuleCollider>().enabled = false;
             Invoke("HabilitaCollider", 1f);
