@@ -12,7 +12,7 @@ public class VibrationController : MonoBehaviour
             // Configura a vibração dos motores de baixa e alta frequência
             Gamepad.current.SetMotorSpeeds(_intencidadeMin, _intencidadeMax);
 
-            Invoke("PararVibracao", 1.5f);
+            Invoke("PararVibracao", .1f);
 
         }
     }

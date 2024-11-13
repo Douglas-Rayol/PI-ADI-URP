@@ -4881,7 +4881,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ab35d5b093c889840a24bfae499dccf0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6a2c76c76471f1e44a06b0598dfe69f8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -13063,6 +13063,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -1048536957931970406, guid: 75112a3e03dca834aa14a797bd7aa289,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10caf66feb408c04aa1768c2dd378f62, type: 2}
+    - target: {fileID: -1048536957931970406, guid: 75112a3e03dca834aa14a797bd7aa289,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c223aab2d7bf4948a13d03180a10dac, type: 2}
     - target: {fileID: -994683581542141715, guid: 75112a3e03dca834aa14a797bd7aa289,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -48907,8 +48917,8 @@ MonoBehaviour:
   _galoH: 0
   _aleatorio: 0
   _index: 0
-  _vidaMin: 200
-  _vidaMax: 200
+  _vidaMin: 155
+  _vidaMax: 155
   _imgHpBoss: {fileID: 2079085522}
 --- !u!95 &5866666021160847515
 Animator:

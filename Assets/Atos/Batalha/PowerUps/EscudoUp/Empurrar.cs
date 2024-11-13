@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class Empurrar : MonoBehaviour
 {
+
+
+
+    void FixedUpdate()
+    {
+        transform.Rotate(Vector3.left * 7);
+        
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))

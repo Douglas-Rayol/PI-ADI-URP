@@ -6,8 +6,9 @@ public class TriguerDialogo : MonoBehaviour
 {
     public Dialogo _dialogo;
     public PainelTutorial _painelTutorial;
-
     [SerializeField] GameControle _gameControle;
+
+    [SerializeField] int index;
 
     void Awake()
     {
@@ -32,7 +33,11 @@ public class TriguerDialogo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+
             _gameControle._desativaStart = true;
+
+            GetComponent<BoxCollider>().enabled = false;
+            
 
             if(_dialogo._tipo == 0)
             {
@@ -48,19 +53,43 @@ public class TriguerDialogo : MonoBehaviour
             {
                 _painelTutorial.PainelPagina(true, _dialogo);
             }
+
+            index++;
+
+            if(index == 1)
+            {
+                Invoke("DesativaTuto", 1.5f);
+            }
+            else
+            {
+                index = 0;
+            }
             
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void DesativaTuto()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _gameControle._desativaStart = false;
-            
-            _painelTutorial.PainelOn(false, null);
-            _painelTutorial.PainelPedra(false, null);
-            _painelTutorial.PainelPagina(false, null);
-        }
+        index = 0;
+
+        GetComponent<BoxCollider>().enabled = true;
+
+        _gameControle._desativaStart = false;
+           
+        _painelTutorial.PainelOn(false, null);
+        _painelTutorial.PainelPedra(false, null);
+        _painelTutorial.PainelPagina(false, null);
     }
+
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.gameObject.CompareTag("Player"))
+    //     {
+    //         _gameControle._desativaStart = false;
+            
+    //         _painelTutorial.PainelOn(false, null);
+    //         _painelTutorial.PainelPedra(false, null);
+    //         _painelTutorial.PainelPagina(false, null);
+    //     }
+    // }
 }
