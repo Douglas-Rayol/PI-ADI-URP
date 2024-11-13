@@ -9795,7 +9795,7 @@ Transform:
   m_GameObject: {fileID: 434685777}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -534.45325, y: 50.042114, z: -44.713352}
+  m_LocalPosition: {x: -531.35864, y: 50.042114, z: -44.713352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41125,7 +41125,7 @@ Transform:
   m_GameObject: {fileID: 1519864908}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -534.45325, y: 50.042114, z: -44.713352}
+  m_LocalPosition: {x: -531.35864, y: 50.042114, z: -44.713352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47281,7 +47281,7 @@ PrefabInstance:
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
@@ -47296,12 +47296,12 @@ PrefabInstance:
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2821
+      value: 2777
       objectReference: {fileID: 0}
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
@@ -48985,7 +48985,7 @@ PrefabInstance:
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
@@ -50949,7 +50949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1801954123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59060,7 +59060,7 @@ PrefabInstance:
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 1495381769564802107, guid: d581878be6be46c4db454de9f53cd4f1,
         type: 3}
