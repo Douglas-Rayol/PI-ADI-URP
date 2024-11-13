@@ -33617,7 +33617,7 @@ MonoBehaviour:
   _nome: Cajado
   _paticula: {fileID: 3710821366026455259}
   _partculaStart: {fileID: 5197547411878546221}
-  _pausaJogo: {fileID: 0}
+  _gameManager: {fileID: 0}
 --- !u!136 &7633012166819304752
 CapsuleCollider:
   m_ObjectHideFlags: 0
