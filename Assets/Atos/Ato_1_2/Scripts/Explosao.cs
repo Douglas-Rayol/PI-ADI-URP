@@ -78,6 +78,12 @@
         {
             gameObject.SetActive(false);
         }
+        if(other.gameObject.CompareTag("AtaquePlayer"))
+        {
+            gameObject.SetActive(false);
+        }
+
+        
      }
 
      }
